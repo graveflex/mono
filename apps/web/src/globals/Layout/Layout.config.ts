@@ -25,6 +25,10 @@ const banner: GroupField = {
   ]
 };
 
+const nestedLinks = NestedLinkArray({
+  dbName: 'navHeaderLinks'
+});
+
 const collapsibleMenu: GroupField = {
   name: 'collapsibleMenu',
   label: 'Collapsible Menu',
@@ -63,7 +67,7 @@ const collapsibleMenu: GroupField = {
           type: 'array',
           fields: [Link()]
         },
-        NestedLinkArray()
+        nestedLinks
       ]
     }
   ]

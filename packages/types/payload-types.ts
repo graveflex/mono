@@ -755,6 +755,10 @@ export interface PayLoadLink {
         value: number | Post;
       } | null);
   newTab?: boolean | null;
+  /**
+   * The rel attribute defines the relationship between a linked resource and the current document.
+   */
+  rel?: ('noopener' | 'noreferrer' | 'nofollow')[] | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1675,6 +1679,7 @@ export interface PayLoadLinkSelect<T extends boolean = true> {
   url?: T;
   doc?: T;
   newTab?: T;
+  rel?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -2079,16 +2084,155 @@ export interface CollapsibleMenu {
               id?: string | null;
             }[]
           | null;
-        nestedLinks?: NestedLinks;
+        nestedLinks?:
+          | {
+              text: string;
+              /**
+               * Choose between entering a custom text URL or linking to another document.
+               */
+              linkType: 'custom' | 'internal';
+              url?: string | null;
+              doc?:
+                | ({
+                    relationTo: 'pages';
+                    value: number | Page;
+                  } | null)
+                | ({
+                    relationTo: 'files';
+                    value: number | File;
+                  } | null)
+                | ({
+                    relationTo: 'posts';
+                    value: number | Post;
+                  } | null);
+              newTab?: boolean | null;
+              /**
+               * The rel attribute defines the relationship between a linked resource and the current document.
+               */
+              rel?: ('noopener' | 'noreferrer' | 'nofollow')[] | null;
+              links0?:
+                | {
+                    text: string;
+                    /**
+                     * Choose between entering a custom text URL or linking to another document.
+                     */
+                    linkType: 'custom' | 'internal';
+                    url?: string | null;
+                    doc?:
+                      | ({
+                          relationTo: 'pages';
+                          value: number | Page;
+                        } | null)
+                      | ({
+                          relationTo: 'files';
+                          value: number | File;
+                        } | null)
+                      | ({
+                          relationTo: 'posts';
+                          value: number | Post;
+                        } | null);
+                    newTab?: boolean | null;
+                    /**
+                     * The rel attribute defines the relationship between a linked resource and the current document.
+                     */
+                    rel?: ('noopener' | 'noreferrer' | 'nofollow')[] | null;
+                    links1?:
+                      | {
+                          text: string;
+                          /**
+                           * Choose between entering a custom text URL or linking to another document.
+                           */
+                          linkType: 'custom' | 'internal';
+                          url?: string | null;
+                          doc?:
+                            | ({
+                                relationTo: 'pages';
+                                value: number | Page;
+                              } | null)
+                            | ({
+                                relationTo: 'files';
+                                value: number | File;
+                              } | null)
+                            | ({
+                                relationTo: 'posts';
+                                value: number | Post;
+                              } | null);
+                          newTab?: boolean | null;
+                          /**
+                           * The rel attribute defines the relationship between a linked resource and the current document.
+                           */
+                          rel?: ('noopener' | 'noreferrer' | 'nofollow')[] | null;
+                          links2?:
+                            | {
+                                text: string;
+                                /**
+                                 * Choose between entering a custom text URL or linking to another document.
+                                 */
+                                linkType: 'custom' | 'internal';
+                                url?: string | null;
+                                doc?:
+                                  | ({
+                                      relationTo: 'pages';
+                                      value: number | Page;
+                                    } | null)
+                                  | ({
+                                      relationTo: 'files';
+                                      value: number | File;
+                                    } | null)
+                                  | ({
+                                      relationTo: 'posts';
+                                      value: number | Post;
+                                    } | null);
+                                newTab?: boolean | null;
+                                /**
+                                 * The rel attribute defines the relationship between a linked resource and the current document.
+                                 */
+                                rel?: ('noopener' | 'noreferrer' | 'nofollow')[] | null;
+                                links3?:
+                                  | {
+                                      text: string;
+                                      /**
+                                       * Choose between entering a custom text URL or linking to another document.
+                                       */
+                                      linkType: 'custom' | 'internal';
+                                      url?: string | null;
+                                      doc?:
+                                        | ({
+                                            relationTo: 'pages';
+                                            value: number | Page;
+                                          } | null)
+                                        | ({
+                                            relationTo: 'files';
+                                            value: number | File;
+                                          } | null)
+                                        | ({
+                                            relationTo: 'posts';
+                                            value: number | Post;
+                                          } | null);
+                                      newTab?: boolean | null;
+                                      /**
+                                       * The rel attribute defines the relationship between a linked resource and the current document.
+                                       */
+                                      rel?: ('noopener' | 'noreferrer' | 'nofollow')[] | null;
+                                      id?: string | null;
+                                    }[]
+                                  | null;
+                                id?: string | null;
+                              }[]
+                            | null;
+                          id?: string | null;
+                        }[]
+                      | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              id?: string | null;
+            }[]
+          | null;
         id?: string | null;
       }[]
     | null;
 }
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "nestedLinks".
- */
-export interface NestedLinks {}
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "IconSelect".
@@ -2288,15 +2432,64 @@ export interface CollapsibleMenuSelect<T extends boolean = true> {
               link?: T | PayLoadLinkSelect<T>;
               id?: T;
             };
-        nestedLinks?: T | NestedLinksSelect<T>;
+        nestedLinks?:
+          | T
+          | {
+              text?: T;
+              linkType?: T;
+              url?: T;
+              doc?: T;
+              newTab?: T;
+              rel?: T;
+              links0?:
+                | T
+                | {
+                    text?: T;
+                    linkType?: T;
+                    url?: T;
+                    doc?: T;
+                    newTab?: T;
+                    rel?: T;
+                    links1?:
+                      | T
+                      | {
+                          text?: T;
+                          linkType?: T;
+                          url?: T;
+                          doc?: T;
+                          newTab?: T;
+                          rel?: T;
+                          links2?:
+                            | T
+                            | {
+                                text?: T;
+                                linkType?: T;
+                                url?: T;
+                                doc?: T;
+                                newTab?: T;
+                                rel?: T;
+                                links3?:
+                                  | T
+                                  | {
+                                      text?: T;
+                                      linkType?: T;
+                                      url?: T;
+                                      doc?: T;
+                                      newTab?: T;
+                                      rel?: T;
+                                      id?: T;
+                                    };
+                                id?: T;
+                              };
+                          id?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+            };
         id?: T;
       };
 }
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "nestedLinks_select".
- */
-export interface NestedLinksSelect<T extends boolean = true> {}
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "FlatMenu_select".
