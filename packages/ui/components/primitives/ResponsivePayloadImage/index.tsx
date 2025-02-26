@@ -69,6 +69,7 @@ export interface ResponsivePayloadWrapperProps extends Partial<ImageProps> {
   mimeType?: string | null | undefined;
   $rounded?: boolean;
   sizes: string;
+  imgClasses?: string;
 }
 
 interface SourceProps {
@@ -96,6 +97,7 @@ function ResponsivePayloadImage({
   className,
   fill,
   image,
+  imgClasses,
   ...props
 }: ResponsivePayloadWrapperProps) {
   if (typeof image === 'number' || !image) {
@@ -146,6 +148,7 @@ function ResponsivePayloadImage({
         {...props}
         src={url}
         alt={props.alt ?? ''}
+        className={imgClasses}
       />
     </picture>
   );

@@ -6,6 +6,7 @@ import { getMessages, unstable_setRequestLocale } from 'next-intl/server';
 import type React from 'react';
 import '../../global.css';
 
+import { Toaster } from '@mono/web/components/ui/Toaster';
 import Providers from './providers';
 
 export const dynamic = 'auto';
@@ -36,6 +37,7 @@ async function RootLayout({ children, params }: RootLayoutProps) {
         <Providers>
           <NextIntlClientProvider messages={messages}>
             <Layout locale={locale}>{children}</Layout>
+            <Toaster />
           </NextIntlClientProvider>
         </Providers>
       </body>

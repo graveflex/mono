@@ -1,13 +1,13 @@
+import type { ButtonProps } from '@mono/web/components/ui/Button';
 import {
   NavigationMenu,
-  NavigationMenuSub,
-  NavigationMenuList,
-  NavigationMenuLink,
+  NavigationMenuContent,
   NavigationMenuItem,
-  NavigationMenuTrigger,
-  NavigationMenuContent
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuSub,
+  NavigationMenuTrigger
 } from '@radix-ui/react-navigation-menu';
-import type { ButtonProps } from '@mono/web/components/ui/Button';
 import styles from './NavigationMenu.module.css';
 
 export type Link = {
@@ -59,13 +59,13 @@ const NestedNavigationMenu = (_props: NavigationMenuProps) => {
                   <NavigationMenuTrigger className={styles.trigger}>
                     Sub item two
                   </NavigationMenuTrigger>
-                    <NavigationMenuList className={styles.menu}>
-                      <NavigationMenuItem className={styles.item}>
-                        <NavigationMenuLink>
-                          Sub item two content
-                        </NavigationMenuLink>
-                      </NavigationMenuItem>
-                    </NavigationMenuList>
+                  <NavigationMenuList className={styles.menu}>
+                    <NavigationMenuItem className={styles.item}>
+                      <NavigationMenuLink>
+                        Sub item two content
+                      </NavigationMenuLink>
+                    </NavigationMenuItem>
+                  </NavigationMenuList>
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenuSub>

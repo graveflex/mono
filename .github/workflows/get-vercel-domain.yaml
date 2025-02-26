@@ -68,7 +68,7 @@ jobs:
           }
 
           # Example usage
-          project_name="${{ vars.VERCEL_ORG }}"
+          project_name="${{ vars.VERCEL_PROJECT_NAME }}"
           app_name="web"
 
           vercel_domain=$(get_vercel_domain "$project_name" "$app_name")

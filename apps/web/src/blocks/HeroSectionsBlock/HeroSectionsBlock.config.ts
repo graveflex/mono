@@ -1,6 +1,9 @@
 import BlockConfig from '@mono/web/payload/fields/BlockConfig';
 import type { Block } from 'payload';
 
+// Block variants w/ left or right positioned media:
+const variantsWithImagePosition = ['1'];
+
 const HeroSectionsBlock = (prefix: string): Block => ({
   slug: 'heroSectionsBlock',
   interfaceName: 'HeroSectionsBlockT',
@@ -27,30 +30,6 @@ const HeroSectionsBlock = (prefix: string): Block => ({
         {
           label: '3',
           value: '3'
-        },
-        {
-          label: '4',
-          value: '4'
-        },
-        {
-          label: '5',
-          value: '5'
-        },
-        {
-          label: '6',
-          value: '6'
-        },
-        {
-          label: '7',
-          value: '7'
-        },
-        {
-          label: '8',
-          value: '8'
-        },
-        {
-          label: '9',
-          value: '9'
         }
       ],
       admin: {
@@ -58,11 +37,49 @@ const HeroSectionsBlock = (prefix: string): Block => ({
       }
     },
     {
-      name: 'title',
-      label: 'title',
-      type: 'text',
+      name: 'content',
+      label: 'content',
+      type: 'richText',
       localized: true,
       required: false
+    },
+    {
+      name: 'media',
+      label: 'Media',
+      type: 'relationship',
+      relationTo: ['images', 'videos'],
+      hasMany: false,
+      required: true,
+      admin: {
+        description:
+          'All variants accept images or video except variant 2. Variant 2 only allows images.'
+      }
+    },
+    {
+      name: 'mediaPosition',
+      label: 'Media Position',
+      type: 'select',
+      options: [
+        {
+          label: 'Left',
+          value: 'left'
+        },
+        {
+          label: 'Right',
+          value: 'right'
+        }
+      ],
+      defaultValue: 'right',
+      admin: {
+        description:
+          'For certain variants, the position of the image on desktop screens.',
+        condition: (_, siblingData) => {
+          if (variantsWithImagePosition.includes(siblingData.variant)) {
+            return true;
+          }
+          return false;
+        }
+      }
     }
   ]
 });

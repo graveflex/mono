@@ -1,5 +1,9 @@
-import { faker } from '@faker-js/faker';
 import type { Meta, StoryObj } from '@storybook/react';
+import heroSectionsMockData, {
+  heroSectionsWithFormMockData,
+  imgMockData,
+  videoMockData
+} from './HeroSectionsMockData';
 
 import type { HeroSectionsBlockType } from '.';
 import HeroSectionsBlock from '.';
@@ -8,8 +12,22 @@ const meta: Meta<HeroSectionsBlockType> = {
   title: 'blocks/HeroSectionsBlock',
   component: HeroSectionsBlock,
   parameters: {
-    layout: 'centered'
+    layout: 'centered',
+    nextjs: {
+      appDirectory: true
+    }
   },
+  argTypes: {
+    mediaPosition: {
+      control: 'select',
+      options: ['right', 'left']
+    },
+    variant: {
+      control: 'select',
+      options: ['1', '2', '3']
+    }
+  },
+  decorators: [(Story) => <div className="bg-background">{Story()}</div>],
   tags: ['autodocs']
 };
 
@@ -18,71 +36,79 @@ type Story = StoryObj<HeroSectionsBlockType>;
 
 export const Defaults: Story = {
   args: {
-    title: faker.lorem.words(5),
-    variant: '1'
+    mediaPosition: 'left',
+    variant: '1',
+    content: heroSectionsMockData.data,
+    media: imgMockData
   }
 };
 
 // Story name corresponds to variant number:
 export const One: Story = {
   args: {
-    title: faker.lorem.words(5),
-    variant: '1'
+    mediaPosition: 'left',
+    variant: '1',
+    content: heroSectionsMockData.data,
+    media: imgMockData
+  }
+};
+
+export const OneWithVideo: Story = {
+  args: {
+    mediaPosition: 'left',
+    variant: '1',
+    content: heroSectionsMockData.data,
+    media: videoMockData
+  }
+};
+
+export const OneWithForm: Story = {
+  args: {
+    mediaPosition: 'right',
+    variant: '1',
+    content: heroSectionsWithFormMockData.data,
+    media: imgMockData
   }
 };
 
 export const Two: Story = {
   args: {
-    title: faker.lorem.words(5),
-    variant: '2'
+    variant: '2',
+    mediaPosition: 'right',
+    content: heroSectionsMockData.data,
+    media: imgMockData
+  }
+};
+
+export const TwoWithForm: Story = {
+  args: {
+    variant: '2',
+    mediaPosition: 'right',
+    content: heroSectionsWithFormMockData.data,
+    media: imgMockData
   }
 };
 
 export const Three: Story = {
   args: {
-    title: faker.lorem.words(5),
-    variant: '3'
+    variant: '3',
+    content: heroSectionsMockData.data,
+    media: videoMockData
   }
 };
 
-export const Four: Story = {
+export const ThreeWithForm: Story = {
   args: {
-    title: faker.lorem.words(5),
-    variant: '4'
+    variant: '3',
+    content: heroSectionsWithFormMockData.data,
+    media: videoMockData
   }
 };
 
-export const Five: Story = {
+export const ThreeWithImage: Story = {
   args: {
-    title: faker.lorem.words(5),
-    variant: '5'
-  }
-};
-
-export const Six: Story = {
-  args: {
-    title: faker.lorem.words(5),
-    variant: '6'
-  }
-};
-
-export const Seven: Story = {
-  args: {
-    title: faker.lorem.words(5),
-    variant: '7'
-  }
-};
-
-export const Eight: Story = {
-  args: {
-    title: faker.lorem.words(5),
-    variant: '8'
-  }
-};
-
-export const Nine: Story = {
-  args: {
-    title: faker.lorem.words(5),
-    variant: '9'
+    variant: '3',
+    content: heroSectionsMockData.data,
+    media: imgMockData
   }
 };

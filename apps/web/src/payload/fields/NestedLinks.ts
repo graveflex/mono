@@ -1,5 +1,5 @@
-import type { ArrayField, Field } from 'payload';
 import { baseFields } from '@mono/web/payload/fields/Link';
+import type { ArrayField, Field } from 'payload';
 
 function linkTree(maxDepth = 4, currentDepth = 0): Field[] {
   const fields = [...baseFields];

@@ -1,0 +1,43 @@
+@reference "../../../../global.css";
+
+.loading {
+  @apply 
+    relative 
+    flex 
+    h-10 
+    w-10 
+    shrink-0 
+    overflow-hidden 
+    items-center
+    place-content-center
+    rounded-full;
+}
+
+.avatar {
+  @apply text-accent uppercase;
+}
+
+.account {
+  @apply w-120;
+}
+
+.h1 {
+  @apply text-2xl md:text-3xl font-bold mb-3;
+}
+
+.account pre {
+  @apply
+    w-full
+    text-sm 
+    sm:text-base 
+    inline-flex 
+    text-left 
+    items-center 
+    space-x-4 
+    bg-accent-foreground 
+    text-white 
+    rounded-lg 
+    p-4 
+    pl-6
+    overflow-auto;
+}

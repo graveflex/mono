@@ -5,12 +5,12 @@ import type {
   IconNavItems,
   Image
 } from '@mono/types/payload-types';
+import { cn } from '@mono/web/lib/utils';
 import type React from 'react';
 import styles from './Header.module.css';
-import { data } from './mockData';
-import MobileMenu from './mobile';
 import DesktopMenu from './desktop';
-import { cn } from '@mono/web/lib/utils';
+import MobileMenu from './mobile';
+import { data } from './mockData';
 
 export type HeaderType = {
   logo?: Image | number | null;

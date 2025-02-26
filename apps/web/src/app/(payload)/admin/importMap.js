@@ -26,6 +26,8 @@ import { MetaImageComponent as MetaImageComponent_a8a977ebc872c5d5ea7ee689724c08
 import { PreviewComponent as PreviewComponent_a8a977ebc872c5d5ea7ee689724c0860 } from '@payloadcms/plugin-seo/client'
 import { CustomButtonWithTranslator as CustomButtonWithTranslator_0754f48e597a64286a6ec55277e0e245 } from '@payload-enchants/translator/client'
 import { default as default_04bc7bf46b9b15fa9c126362df022943 } from '@mono/web/components/AdminRowLabel/index.tsx'
+import { Icon as Icon_8dc9bcd05dac8d1a3f1014014c851457 } from '@mono/web/components/CustomPayload/PayloadLogo/index.tsx'
+import { Logo as Logo_8dc9bcd05dac8d1a3f1014014c851457 } from '@mono/web/components/CustomPayload/PayloadLogo/index.tsx'
 import { AfterNav as AfterNav_5b7d533c4890c176b0a70fdfa56ed65e } from '@mono/web/components/CustomPayload/AfterNav/index.tsx'
 
 export const importMap = {
@@ -57,5 +59,7 @@ export const importMap = {
   "@payloadcms/plugin-seo/client#PreviewComponent": PreviewComponent_a8a977ebc872c5d5ea7ee689724c0860,
   "@payload-enchants/translator/client#CustomButtonWithTranslator": CustomButtonWithTranslator_0754f48e597a64286a6ec55277e0e245,
   "@mono/web/components/AdminRowLabel/index.tsx#default": default_04bc7bf46b9b15fa9c126362df022943,
+  "@mono/web/components/CustomPayload/PayloadLogo/index.tsx#Icon": Icon_8dc9bcd05dac8d1a3f1014014c851457,
+  "@mono/web/components/CustomPayload/PayloadLogo/index.tsx#Logo": Logo_8dc9bcd05dac8d1a3f1014014c851457,
   "@mono/web/components/CustomPayload/AfterNav/index.tsx#AfterNav": AfterNav_5b7d533c4890c176b0a70fdfa56ed65e
 }

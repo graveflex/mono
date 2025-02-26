@@ -5,7 +5,6 @@ export const HeroSectionsBlockSchema = async () => {
   return {
     id: faker.string.uuid(),
     blockName: 'HeroSectionsBlock',
-    blockType: 'heroSectionsBlock',
-    title: faker.lorem.words(5)
+    blockType: 'heroSectionsBlock'
   } as HeroSectionsBlockT;
 };

@@ -1,0 +1,20 @@
+@reference "../../app/global.css";
+
+.loading {
+  @apply 
+    relative 
+    flex 
+    h-10 
+    w-10 
+    shrink-0 
+    overflow-hidden 
+    items-center
+    place-content-center
+    rounded-full;
+}
+
+.avatar {
+  @apply text-accent uppercase;
+}
+
+.signIn {}

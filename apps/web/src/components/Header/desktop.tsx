@@ -1,23 +1,23 @@
-import NextLink from 'next/link';
+import Logo from '@mono/web/components/Logo';
+import { Avatar, AvatarFallback } from '@mono/web/components/ui/Avatar';
 import { buttonVariants } from '@mono/web/components/ui/Button';
 import { DropdownMenuSeparator } from '@mono/web/components/ui/DropdownMenu';
-import {
-  NavigationMenu,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  NavigationMenuContent,
-  NavigationMenuItem
-} from '@mono/web/components/ui/NavigationMenu';
 import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger
 } from '@mono/web/components/ui/HoverCard';
-import Logo from '@mono/web/components/Logo';
-import { Avatar, AvatarFallback } from '@mono/web/components/ui/Avatar';
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuList,
+  NavigationMenuTrigger
+} from '@mono/web/components/ui/NavigationMenu';
 import { ChevronRight } from 'lucide-react';
-import type { Link } from './shared';
+import NextLink from 'next/link';
 import styles from './Header.module.css';
+import type { Link } from './shared';
 
 function DesktopDropdownLink({
   href,
@@ -129,9 +129,7 @@ interface DesktopMenuProps {
   links: Link[];
 }
 
-function DesktopMenu({
-  links = []
-}: DesktopMenuProps) {
+function DesktopMenu({ links = [] }: DesktopMenuProps) {
   return (
     <div className={styles.desktopNavContainer}>
       <Logo />
@@ -140,7 +138,7 @@ function DesktopMenu({
         <AvatarFallback>LH</AvatarFallback>
       </Avatar>
     </div>
-  ) 
+  );
 }
 
 export default DesktopMenu;

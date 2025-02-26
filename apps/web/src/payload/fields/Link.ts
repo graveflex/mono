@@ -1,11 +1,11 @@
+import { type LinkFields, validateUrl } from '@payloadcms/richtext-lexical';
 import type {
+  CollectionSlug,
+  Field,
   GroupField,
   RadioField,
-  TextFieldSingleValidation,
-  Field,
-  CollectionSlug
+  TextFieldSingleValidation
 } from 'payload';
-import { validateUrl, type LinkFields } from '@payloadcms/richtext-lexical';
 
 const enabledCollections = ['pages', 'files', 'posts'];
 

@@ -1,7 +1,7 @@
 'use client';
 
-import { useSearchParams } from 'next/navigation';
 import { cn } from '@mono/web/lib/utils';
+import { useSearchParams } from 'next/navigation';
 
 import nextDynamic from 'next/dynamic';
 import React from 'react';

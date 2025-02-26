@@ -61,6 +61,7 @@ export default defineConfig({
       'sb-original/image-context',
       'next/link',
       'lodash/isNull',
+      'lodash/isNil',
       '@radix-ui/react-toggle',
       'vaul',
       '@radix-ui/react-separator',

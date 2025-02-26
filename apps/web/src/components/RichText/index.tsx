@@ -1,4 +1,5 @@
 import type { CtaSectionsBlockT as PayloadType } from '@mono/types/payload-types';
+import Form from '@mono/web/components/Form';
 import { cn } from '@mono/web/lib/utils';
 import type {
   DefaultNodeTypes,
@@ -50,6 +51,12 @@ const jsxConverters: JSXConvertersFunction<DefaultNodeTypes> = ({
           className="embed embed-block"
         ></iframe>
       );
+    },
+    form: ({ node }: { node: SerializedBlockNode }) => {
+      const payloadForm =
+        typeof node?.fields?.form !== 'number' ? node.fields.form : undefined;
+
+      return <Form form={payloadForm} />;
     }
   }
 });
@@ -60,7 +67,7 @@ function RichText({ className, data }: RichTextType) {
       <LexicalRichText
         data={data}
         className={cn(
-          'lexical rich-text-container',
+          'lexical rich-text-container text-foreground',
           styles.richtext,
           className
         )}

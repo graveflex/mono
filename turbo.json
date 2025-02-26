@@ -33,7 +33,13 @@
     "GITHUB_REPO",
     "GITHUB_TOKEN",
     "NEON_API_KEY",
-    "NEON_PROJECT_ID"
+    "NEON_PROJECT_ID",
+    "AUTH_SECRET",
+    "AUTH_GITHUB_ID",
+    "AUTH_GITHUB_SECRET",
+    "SENDGRID_API_KEY",
+    "SENDGRID_FROM_ADDRESS",
+    "SENDGRID_FROM_NAME"
   ],
   "globalDependencies": ["**/.env.*local"],
   "tasks": {
