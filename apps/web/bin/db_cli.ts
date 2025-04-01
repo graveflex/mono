@@ -45,7 +45,7 @@ async function getCurrentPRId(branchName: string) {
 
   const pulls = await response.json();
   if (pulls.length === 0) {
-    throw new Error(`No PR found for branch ${branchName}`);
+    return 0;
   }
 
   return pulls[0].number; // Assuming the first PR is the current one

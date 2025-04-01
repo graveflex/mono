@@ -54,8 +54,21 @@ jobs:
           cache: 'pnpm'
       - run: pnpm install
 
-      - name: Install Playwright Browsers
-        run: pnpm dlx playwright install --with-deps
+      - name: Extract Playwright version
+        id: playwright-version
+        shell: bash
+        run: echo "PLAYWRIGHT_VERSION=$(jq -r '.devDependencies.playwright' apps/web/package.json)" >> $GITHUB_ENV
+
+      - name: Cache Playwright
+        id: playwright-cache
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ env.PLAYWRIGHT_VERSION }}
+
+      - name: Install Playwright dependencies
+        shell: bash
+        run: pnpm dlx playwright@$PLAYWRIGHT_VERSION install --with-deps --only-shell
 
       - name: ci
         env:

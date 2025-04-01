@@ -18,6 +18,7 @@ import { googleResolver } from '@payload-enchants/translator/resolvers/google';
 import { postgresAdapter } from '@payloadcms/db-postgres';
 import { nodemailerAdapter } from '@payloadcms/email-nodemailer';
 import { formBuilderPlugin } from '@payloadcms/plugin-form-builder';
+import { importExportPlugin } from '@payloadcms/plugin-import-export';
 import { redirectsPlugin } from '@payloadcms/plugin-redirects';
 import { seoPlugin } from '@payloadcms/plugin-seo';
 import type { FeatureProviderServer } from '@payloadcms/richtext-lexical';
@@ -189,6 +190,28 @@ export default buildConfig({
     api: '/api'
   },
   plugins: [
+    importExportPlugin({
+      collections: [
+        'users',
+        'pages',
+        'admins',
+        'authors',
+        'files',
+        'images',
+        'posts',
+        'userEmailProviders',
+        'videos'
+      ],
+      disableJobsQueue: true,
+      overrideExportCollection: (collection) => {
+        // TODO: In looking at the collection.upload types,
+        // looks like we can tweak the export uploads. We should
+        // be able to store those somewhere outside of the local
+        // exports folder.
+        // collection.upload
+        return collection;
+      }
+    }),
     authjsPlugin({
       authjsConfig: authConfig
     }),
@@ -219,7 +242,8 @@ export default buildConfig({
         [Files.slug]: true,
         [Videos.slug]: {
           disablePayloadAccessControl: true
-        }
+        },
+        exports: true
       },
       token: process.env.BLOB_READ_WRITE_TOKEN as string
     }),
