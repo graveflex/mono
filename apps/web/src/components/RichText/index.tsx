@@ -1,5 +1,6 @@
 import type { CtaSectionsBlockT as PayloadType } from '@mono/types/payload-types';
 import Form from '@mono/web/components/Form';
+import type { Themes } from '@mono/web/lib/constants';
 import { cn } from '@mono/web/lib/utils';
 import type {
   DefaultNodeTypes,
@@ -34,6 +35,10 @@ export type RichTextType = {
   className?: string;
 };
 
+export type AugmentedSerializedBlockNode = SerializedBlockNode & {
+  theme?: Themes;
+};
+
 const jsxConverters: JSXConvertersFunction<DefaultNodeTypes> = ({
   defaultConverters
 }) => ({
@@ -59,6 +64,9 @@ const jsxConverters: JSXConvertersFunction<DefaultNodeTypes> = ({
         typeof node?.fields?.form !== 'number' ? node.fields.form : undefined;
 
       return <Form form={payloadForm} />;
+    },
+    link: ({ node }: { node: AugmentedSerializedBlockNode }) => {
+      return <Link node={node} />;
     }
   }
 });
