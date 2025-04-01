@@ -48,6 +48,7 @@
     "@payloadcms/live-preview-react": "latest",
     "@payloadcms/next": "latest",
     "@payloadcms/plugin-cloud-storage": "latest",
+    "@payloadcms/plugin-import-export": "latest",
     "@payloadcms/plugin-form-builder": "latest",
     "@payloadcms/plugin-redirects": "latest",
     "@payloadcms/plugin-seo": "latest",
