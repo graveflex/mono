@@ -44,7 +44,7 @@
     "@payloadcms/db-postgres": "latest",
     "@payloadcms/db-vercel-postgres": "latest",
     "@payloadcms/email-nodemailer": "latest",
-    "@payloadcms/email-resend": "^3.24.0",
+    "@payloadcms/email-resend": "^3.31.0",
     "@payloadcms/live-preview": "latest",
     "@payloadcms/live-preview-react": "latest",
     "@payloadcms/next": "latest",

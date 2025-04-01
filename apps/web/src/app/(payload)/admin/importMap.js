@@ -29,6 +29,7 @@ import { default as default_04bc7bf46b9b15fa9c126362df022943 } from '@mono/web/c
 import { Icon as Icon_8dc9bcd05dac8d1a3f1014014c851457 } from '@mono/web/components/CustomPayload/PayloadLogo/index.tsx'
 import { Logo as Logo_8dc9bcd05dac8d1a3f1014014c851457 } from '@mono/web/components/CustomPayload/PayloadLogo/index.tsx'
 import { AfterNav as AfterNav_5b7d533c4890c176b0a70fdfa56ed65e } from '@mono/web/components/CustomPayload/AfterNav/index.tsx'
+import { VercelBlobClientUploadHandler as VercelBlobClientUploadHandler_16c82c5e25f430251a3e3ba57219ff4e } from '@payloadcms/storage-vercel-blob/client'
 
 export const importMap = {
   "@payloadcms/richtext-lexical/rsc#RscEntryLexicalCell": RscEntryLexicalCell_44fe37237e0ebf4470c9990d8cb7b07e,
@@ -61,5 +62,6 @@ export const importMap = {
   "@mono/web/components/AdminRowLabel/index.tsx#default": default_04bc7bf46b9b15fa9c126362df022943,
   "@mono/web/components/CustomPayload/PayloadLogo/index.tsx#Icon": Icon_8dc9bcd05dac8d1a3f1014014c851457,
   "@mono/web/components/CustomPayload/PayloadLogo/index.tsx#Logo": Logo_8dc9bcd05dac8d1a3f1014014c851457,
-  "@mono/web/components/CustomPayload/AfterNav/index.tsx#AfterNav": AfterNav_5b7d533c4890c176b0a70fdfa56ed65e
+  "@mono/web/components/CustomPayload/AfterNav/index.tsx#AfterNav": AfterNav_5b7d533c4890c176b0a70fdfa56ed65e,
+  "@payloadcms/storage-vercel-blob/client#VercelBlobClientUploadHandler": VercelBlobClientUploadHandler_16c82c5e25f430251a3e3ba57219ff4e
 }
