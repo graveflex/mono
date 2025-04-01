@@ -123,9 +123,6 @@ importers:
       '@inquirer/prompts':
         specifier: ^5.5.0
         version: 5.5.0
-      '@lexical/react':
-        specifier: ^0.23.1
-        version: 0.23.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(yjs@13.6.23)
       '@mono/tsconfig':
         specifier: workspace:*
         version: link:../../packages/tsconfig
@@ -185,7 +182,7 @@ importers:
         version: 3.30.0
       '@payloadcms/ui':
         specifier: 3.30.0
-        version: 3.30.0(@types/react@19.0.0)(monaco-editor@0.52.2)(next@15.1.5(@babel/core@7.26.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.30.0(bufferutil@4.0.9)(graphql@16.10.0)(typescript@5.7.3)(utf-8-validate@6.0.5))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)
+        version: 3.30.0(@types/react@19.0.0)(monaco-editor@0.52.2)(next@15.1.5(@babel/core@7.26.7)(babel-plugin-react-compiler@19.0.0-beta-decd7b8-20250118)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.30.0(bufferutil@4.0.9)(graphql@16.10.0)(typescript@5.7.3)(utf-8-validate@6.0.5))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)
       '@radix-ui/react-accordion':
         specifier: ^1.2.2
         version: 1.2.2(@types/react-dom@19.0.0)(@types/react@19.0.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -519,7 +516,7 @@ importers:
         version: 8.5.3(@vitest/browser@3.0.5(@types/node@22.13.0)(bufferutil@4.0.9)(playwright@1.50.1)(typescript@5.7.3)(utf-8-validate@6.0.5)(vite@6.0.11(@types/node@22.13.0)(jiti@2.4.2)(lightningcss@1.29.1)(sass@1.77.4)(terser@5.38.0)(tsx@4.19.2))(vitest@3.0.5))(@vitest/runner@3.0.5)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(storybook@8.5.1(bufferutil@4.0.9)(prettier@3.4.2)(utf-8-validate@6.0.5))(vitest@3.0.5(@edge-runtime/vm@3.2.0)(@types/debug@4.1.12)(@types/node@22.13.0)(@vitest/browser@3.0.5)(jiti@2.4.2)(jsdom@25.0.1(bufferutil@4.0.9)(utf-8-validate@6.0.5))(lightningcss@1.29.1)(msw@2.7.0(@types/node@22.13.0)(typescript@5.7.3))(sass@1.77.4)(terser@5.38.0)(tsx@4.19.2))
       '@storybook/experimental-nextjs-vite':
         specifier: 8.5.1
-        version: 8.5.1(@babel/core@7.26.7)(@storybook/test@8.5.1(storybook@8.5.1(bufferutil@4.0.9)(prettier@3.4.2)(utf-8-validate@6.0.5)))(next@15.1.5(@babel/core@7.26.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rollup@4.34.1)(storybook@8.5.1(bufferutil@4.0.9)(prettier@3.4.2)(utf-8-validate@6.0.5))(typescript@5.7.3)(vite@6.0.11(@types/node@22.13.0)(jiti@2.4.2)(lightningcss@1.29.1)(sass@1.77.4)(terser@5.38.0)(tsx@4.19.2))
+        version: 8.5.1(@babel/core@7.26.7)(@storybook/test@8.5.1(storybook@8.5.1(bufferutil@4.0.9)(prettier@3.4.2)(utf-8-validate@6.0.5)))(next@15.1.5(@babel/core@7.26.7)(babel-plugin-react-compiler@19.0.0-beta-decd7b8-20250118)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rollup@4.34.1)(storybook@8.5.1(bufferutil@4.0.9)(prettier@3.4.2)(utf-8-validate@6.0.5))(typescript@5.7.3)(vite@6.0.11(@types/node@22.13.0)(jiti@2.4.2)(lightningcss@1.29.1)(sass@1.77.4)(terser@5.38.0)(tsx@4.19.2))
       '@storybook/test':
         specifier: 8.5.1
         version: 8.5.1(storybook@8.5.1(bufferutil@4.0.9)(prettier@3.4.2)(utf-8-validate@6.0.5))
@@ -534,7 +531,7 @@ importers:
         version: 3.0.5(@types/node@22.13.0)(bufferutil@4.0.9)(playwright@1.50.1)(typescript@5.7.3)(utf-8-validate@6.0.5)(vite@6.0.11(@types/node@22.13.0)(jiti@2.4.2)(lightningcss@1.29.1)(sass@1.77.4)(terser@5.38.0)(tsx@4.19.2))(vitest@3.0.5)
       '@vitest/coverage-v8':
         specifier: 3.0.5
-        version: 3.0.5(@vitest/browser@3.0.5(@types/node@22.13.0)(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@6.0.5)(vite@6.0.11(@types/node@22.13.0)(jiti@2.4.2)(lightningcss@1.29.1)(sass@1.77.4)(terser@5.38.0)(tsx@4.19.2))(vitest@3.0.5))(vitest@3.0.5(@edge-runtime/vm@3.2.0)(@types/debug@4.1.12)(@types/node@22.13.0)(@vitest/browser@3.0.5)(jiti@2.4.2)(jsdom@25.0.1(bufferutil@4.0.9)(utf-8-validate@6.0.5))(lightningcss@1.29.1)(msw@2.7.0(@types/node@22.13.0)(typescript@5.7.3))(sass@1.77.4)(terser@5.38.0)(tsx@4.19.2))
+        version: 3.0.5(@vitest/browser@3.0.5(@types/node@22.13.0)(bufferutil@4.0.9)(playwright@1.50.1)(typescript@5.7.3)(utf-8-validate@6.0.5)(vite@6.0.11(@types/node@22.13.0)(jiti@2.4.2)(lightningcss@1.29.1)(sass@1.77.4)(terser@5.38.0)(tsx@4.19.2))(vitest@3.0.5))(vitest@3.0.5(@edge-runtime/vm@3.2.0)(@types/debug@4.1.12)(@types/node@22.13.0)(@vitest/browser@3.0.5)(jiti@2.4.2)(jsdom@25.0.1(bufferutil@4.0.9)(utf-8-validate@6.0.5))(lightningcss@1.29.1)(msw@2.7.0(@types/node@22.13.0)(typescript@5.7.3))(sass@1.77.4)(terser@5.38.0)(tsx@4.19.2))
       playwright:
         specifier: ^1.50.0
         version: 1.50.1
@@ -2262,23 +2259,11 @@ packages:
   '@jsdevtools/ono@7.1.3':
     resolution: {integrity: sha512-4JQNk+3mVzK3xh2rqd6RB4J46qUR19azEHBneZyTZM+c456qOrbbM/5xcR8huNCCcbVt7+UmizG6GuUvPvKUYg==}
 
-  '@lexical/clipboard@0.23.1':
-    resolution: {integrity: sha512-MT8IXl1rhTe8VcwnkhgFtWra6sRYNsl/I7nE9aw6QxwvPReKmRDmyBmEIeXwnKSGHRe19OJhu4/A9ciKPyVdMA==}
-
   '@lexical/clipboard@0.28.0':
     resolution: {integrity: sha512-LYqion+kAwFQJStA37JAEMxTL/m1WlZbotDfM/2WuONmlO0yWxiyRDI18oeCwhBD6LQQd9c3Ccxp9HFwUG1AVw==}
 
-  '@lexical/code@0.23.1':
-    resolution: {integrity: sha512-TOxaFAwoewrX3rHp4Po+u1LJT8oteP/6Kn2z6j9DaynBW62gIqTuSAFcMPysVx/Puq5hhJHPRD/be9RWDteDZw==}
-
   '@lexical/code@0.28.0':
     resolution: {integrity: sha512-9LOKSWdRhxqAKRq5yveNC21XKtW4h2rmFNTucwMWZ9vLu9xteOHEwZdO1Qv82PFUmgCpAhg6EntmnZu9xD3K7Q==}
-
-  '@lexical/devtools-core@0.23.1':
-    resolution: {integrity: sha512-QsgcrECy11ZHhWAfyNW/ougXFF1o0EuQnhFybgTdqQmw0rJ2ZgPLpPjD5lws3CE8mP8g5knBV4/cyxvv42fzzg==}
-    peerDependencies:
-      react: 19.0.0
-      react-dom: 19.0.0
 
   '@lexical/devtools-core@0.28.0':
     resolution: {integrity: sha512-Fk4itAjZ+MqTYXN84aE5RDf+wQX67N5nyo3JVxQTFZGAghx7Ux1xLWHB25zzD0YfjMtJ0NQROAbE3xdecZzxcQ==}
@@ -2286,14 +2271,8 @@ packages:
       react: 19.0.0
       react-dom: 19.0.0
 
-  '@lexical/dragon@0.23.1':
-    resolution: {integrity: sha512-ZoY9VJDrTpO69sinRhIs3RlPAWviy4mwnC7lqtM77/pVK0Kaknv7z2iDqv+414PKQCgUhyoXp7PfYXu/3yb6LQ==}
-
   '@lexical/dragon@0.28.0':
     resolution: {integrity: sha512-T6T8YaHnhU863ruuqmRHTLUYa8sfg/ArYcrnNGZGfpvvFTfFjpWb/ELOvOWo8N6Y/4fnSLjQ20aXexVW1KcTBQ==}
-
-  '@lexical/hashtag@0.23.1':
-    resolution: {integrity: sha512-EkRCHV/IQwKlggy3VQDF9b4Krc9DKNZEjXe84CkEVrRpQSOwXi0qORzuaAipARyN632WKLSXOZJmNzkUNocJ6A==}
 
   '@lexical/hashtag@0.28.0':
     resolution: {integrity: sha512-zcqX9Qna4lj96bAUfwSQSVEhYQ0O5erSjrIhOVqEgeQ5ubz0EvqnnMbbwNHIb2n6jzSwAvpD/3UZJZtolh+zVg==}
@@ -2301,65 +2280,32 @@ packages:
   '@lexical/headless@0.28.0':
     resolution: {integrity: sha512-btcaTfw9I/xQ/XYom6iKWgsPecmRawGd/5jOhP7QDtLUp7gxgM7/kiCZFYa8jDJO6j20rXuWTkc81ynVpKvjow==}
 
-  '@lexical/history@0.23.1':
-    resolution: {integrity: sha512-5Vro4bIePw37MwffpvPm56WlwPdlY/u+fVkvXsxdhK9bqiFesmLZhBirokDPvJEMP35V59kzmN5mmWXSYfuRpg==}
-
   '@lexical/history@0.28.0':
     resolution: {integrity: sha512-CHzDxaGDn6qCFFhU0YKP1B8sgEb++0Ksqsj6BfDL/6TMxoLNQwRQhP3BUNNXl1kvUhxTQZgk3b9MjJZRaFKG9Q==}
-
-  '@lexical/html@0.23.1':
-    resolution: {integrity: sha512-kNkDUaDe/Awypaw8JZn65BzT1gwNj2bNkaGFcmIkXUrTtiqlvgYvKvJeOKLkoAb/i2xq990ZAbHOsJrJm1jMbw==}
 
   '@lexical/html@0.28.0':
     resolution: {integrity: sha512-ayb0FPxr55Ko99/d9ewbfrApul4L0z+KpU2ZG03im7EvUPVLyIGLx4S0QguMDvQh0Vu+eJ7/EESuonDs5BCe3A==}
 
-  '@lexical/link@0.23.1':
-    resolution: {integrity: sha512-HRaOp7prtcbHjbgq8AjJ4O02jYb8pTeS8RrGcgIRhCOq3/EcsSb1dXMwuraqmh9oxbuFyEu/JE31EFksiOW6qA==}
-
   '@lexical/link@0.28.0':
     resolution: {integrity: sha512-T5VKxpOnML5DcXv2lW3Le0vjNlcbdohZjS9f6PAvm6eX8EzBKDpLQCopr1/0KGdlLd1QrzQsykQrdU7ieC4LRg==}
-
-  '@lexical/list@0.23.1':
-    resolution: {integrity: sha512-TI3WyWk3avv9uaJwaq8V+m9zxLRgnzXDYNS0rREafnW09rDpaFkpVmDuX+PZVR3NqPlwVt+slWVSBuyfguAFbA==}
 
   '@lexical/list@0.28.0':
     resolution: {integrity: sha512-3a8QcZ75n2TLxP+xkSPJ2V15jsysMLMe0YoObG+ew/sioVelIU8GciYsWBo5GgQmwSzJNQJeK5cJ9p1b71z2cg==}
 
-  '@lexical/mark@0.23.1':
-    resolution: {integrity: sha512-E7cMOBVMrNGMw0LsyWKNFQZ5Io3bUIHCC3aCUdH24z1XWnuTmDFKMqNrphywPniO7pzSgVyGpkQBZIAIN76+YA==}
-
   '@lexical/mark@0.28.0':
     resolution: {integrity: sha512-v5PzmTACsJrw3GvNZy2rgPxrNn9InLvLFoKqrSlNhhyvYNIAcuC4KVy00LKLja43Gw/fuB3QwKohYfAtM3yR3g==}
-
-  '@lexical/markdown@0.23.1':
-    resolution: {integrity: sha512-TQx8oXenaiVYffBPxD85m4CydbDAuYOonATiABAFG6CHkA6vi898M1TCTgVDS6/iISjtjQpqHo0SW7YjLt14jw==}
 
   '@lexical/markdown@0.28.0':
     resolution: {integrity: sha512-F3JXClqN4cjmXYLDK0IztxkbZuqkqS/AVbxnhGvnDYHQ9Gp8l7BonczhOiPwmJCDubJrAACP0L9LCqyt0jDRFw==}
 
-  '@lexical/offset@0.23.1':
-    resolution: {integrity: sha512-ylw5egME/lldacVXDoRsdGDXPuk9lGmYgcqx/aITGrSymav+RDjQoAapHbz1HQqGmm/m18+VLaWTdjtkbrIN6g==}
-
   '@lexical/offset@0.28.0':
     resolution: {integrity: sha512-/SMDQgBPeWM936t04mtH6UAn3xAjP/meu9q136bcT3S7p7V8ew9JfNp9aznTPTx+2W3brJORAvUow7Xn1fSHmw==}
-
-  '@lexical/overflow@0.23.1':
-    resolution: {integrity: sha512-WubTqozpxOeyTm/tKIHXinsjuRcgPESacOvu93dS+sC7q3n+xeBIu5FL7lM6bbsk3zNtNJQ9sG0svZngmWRjCw==}
 
   '@lexical/overflow@0.28.0':
     resolution: {integrity: sha512-ppmhHXEZVicBm05w9EVflzwFavTVNAe4q0bkabWUeW0IoCT3Vg2A3JT7PC9ypmp+mboUD195foFEr1BBSv1Y8Q==}
 
-  '@lexical/plain-text@0.23.1':
-    resolution: {integrity: sha512-tM4DJw+HyT9XV4BKGVECDnejcC//jsFggjFmJgwIMTCxJPiGXEEZLZTXmGqf8QdFZ6cH1I5bhreZPQUWu6dRvg==}
-
   '@lexical/plain-text@0.28.0':
     resolution: {integrity: sha512-Jj2dCMDEfRuVetfDKcUes8J5jvAfZrLnILFlHxnu7y+lC+7R/NR403DYb3NJ8H7+lNiH1K15+U2K7ewbjxS6KQ==}
-
-  '@lexical/react@0.23.1':
-    resolution: {integrity: sha512-g5CQMOiK+Djqp75UaSFUceHZEUQVIXBzWBuVR69pCiptCgNqN3CNAoIxy0hTTaVrLq6S0SCjUOduBDtioN0bLA==}
-    peerDependencies:
-      react: 19.0.0
-      react-dom: 19.0.0
 
   '@lexical/react@0.28.0':
     resolution: {integrity: sha512-dWPnxrKrbQFjNqExqnaAsV0UEUgw/5M1ZYRWd5FGBGjHqVTCaX2jNHlKLMA68Od0VPIoOX2Zy1TYZ8ZKtsj5Dg==}
@@ -2367,40 +2313,20 @@ packages:
       react: 19.0.0
       react-dom: 19.0.0
 
-  '@lexical/rich-text@0.23.1':
-    resolution: {integrity: sha512-Y77HGxdF5aemjw/H44BXETD5KNeaNdwMRu9P7IrlK7cC1dvvimzL2D6ezbub5i7F1Ef5T0quOXjwK056vrqaKQ==}
-
   '@lexical/rich-text@0.28.0':
     resolution: {integrity: sha512-y+vUWI+9uFupIb9UvssKU/DKcT9dFUZuQBu7utFkLadxCNyXQHeRjxzjzmvFiM3DBV0guPUDGu5VS5TPnIA+OA==}
-
-  '@lexical/selection@0.23.1':
-    resolution: {integrity: sha512-xoehAURMZJZYf046GHUXiv8FSv5zTobhwDD2dML4fmNHPp9NxugkWHlNUinTK/b+jGgjSYVsqpEKPBmue4ZHdQ==}
 
   '@lexical/selection@0.28.0':
     resolution: {integrity: sha512-AJDi67Nsexyejzp4dEQSVoPov4P+FJ0t1v6DxUU+YmcvV56QyJQi6ue0i/xd8unr75ZufzLsAC0cDJJCEI7QDA==}
 
-  '@lexical/table@0.23.1':
-    resolution: {integrity: sha512-Qs+iuwSVkV4OGTt+JdL9hvyl/QO3X9waH70L5Fxu9JmQk/jLl02tIGXbE38ocJkByfpyk4PrphoXt6l7CugJZA==}
-
   '@lexical/table@0.28.0':
     resolution: {integrity: sha512-HMPCwXdj0sRWdlDzsHcNWRgbeKbEhn3L8LPhFnTq7q61gZ4YW2umdmuvQFKnIBcKq49drTH8cUwZoIwI8+AEEw==}
-
-  '@lexical/text@0.23.1':
-    resolution: {integrity: sha512-aOuuAhmc+l2iSK99uP0x/Zg9LSQswQdNG3IxzGa0rTx844mWUHuEbAUaOqqlgDA1/zZ0WjObyhPfZJL775y63g==}
 
   '@lexical/text@0.28.0':
     resolution: {integrity: sha512-PT/A2RZv+ktn7SG/tJkOpGlYE6zjOND59VtRHnV/xciZ+jEJVaqAHtWjhbWibAIZQAkv/O7UouuDqzDaNTSGAA==}
 
-  '@lexical/utils@0.23.1':
-    resolution: {integrity: sha512-yXEkF6fj32+mJblCoP0ZT/vA0S05FA0nRUkVrvGX6sbZ9y+cIzuIbBoHi4z1ytutcWHQrwCK4TsN9hPYBIlb2w==}
-
   '@lexical/utils@0.28.0':
     resolution: {integrity: sha512-Qw00DjkS1nRK7DLSgqJpJ77Ti2AuiOQ6m5eM38YojoWXkVmoxqKAUMaIbVNVKqjFgrQvKFF46sXxIJPbUQkB0w==}
-
-  '@lexical/yjs@0.23.1':
-    resolution: {integrity: sha512-ygodSxmC65srNicMIhqBRIXI2LHhmnHcR1EO9fLO7flZWGCR1HIoeGmwhHo9FLgJoc5LHanV+dE0z1onFo1qqQ==}
-    peerDependencies:
-      yjs: '>=13.5.22'
 
   '@lexical/yjs@0.28.0':
     resolution: {integrity: sha512-rKHpUEd3nrvMY7ghmOC0AeGSYT7YIviba+JViaOzrCX4/Wtv5C/3Sl7Io12Z9k+s1BKmy7C28bOdQHvRWaD7vQ==}
@@ -6806,9 +6732,6 @@ packages:
   kolorist@1.8.0:
     resolution: {integrity: sha512-Y+60/zizpJ3HRH8DCss+q95yr6145JXZo46OTpFvDZWLfRCE4qChOyk1b26nMaNpfHHgxagk9dXT5OP0Tfe+dQ==}
 
-  lexical@0.23.1:
-    resolution: {integrity: sha512-iuS72HcAYUemsCRQCm4XZzkGhZb8a9KagW+ee2TFfkkf9f3ZpUYSrobMpjYVZRkgMOx7Zk5VCPMxm1nouJTfnQ==}
-
   lexical@0.28.0:
     resolution: {integrity: sha512-dLE3O1PZg0TlZxRQo9YDpjCjDUj8zluGyBO9MHdjo21qZmMUNrxQPeCRt8fn2s5l4HKYFQ1YNgl7k1pOJB/vZQ==}
 
@@ -7817,10 +7740,6 @@ packages:
   pretty-ms@7.0.1:
     resolution: {integrity: sha512-973driJZvxiGOQ5ONsFhOF/DtzPMOMtgC11kCpUrPGMTgqp2q/1gwzCquocrN33is0VZ5GFHXZYMM9l6h67v2Q==}
     engines: {node: '>=10'}
-
-  prismjs@1.29.0:
-    resolution: {integrity: sha512-Kx/1w86q/epKcmte75LNrEoT+lX8pBpavuAbvJWRXar7Hz8jrtF+e3vY751p0R8H9HdArwaCTNDDzHg/ScJK1Q==}
-    engines: {node: '>=6'}
 
   prismjs@1.30.0:
     resolution: {integrity: sha512-DEvV2ZF2r2/63V+tK8hQvrR2ZGn10srHbXviTlcv7Kpzw8jWiNTqbVgjO3IY8RxrrOUF8VPMQQFysYYYv0YZxw==}
@@ -11058,14 +10977,6 @@ snapshots:
 
   '@jsdevtools/ono@7.1.3': {}
 
-  '@lexical/clipboard@0.23.1':
-    dependencies:
-      '@lexical/html': 0.23.1
-      '@lexical/list': 0.23.1
-      '@lexical/selection': 0.23.1
-      '@lexical/utils': 0.23.1
-      lexical: 0.23.1
-
   '@lexical/clipboard@0.28.0':
     dependencies:
       '@lexical/html': 0.28.0
@@ -11074,28 +10985,11 @@ snapshots:
       '@lexical/utils': 0.28.0
       lexical: 0.28.0
 
-  '@lexical/code@0.23.1':
-    dependencies:
-      '@lexical/utils': 0.23.1
-      lexical: 0.23.1
-      prismjs: 1.29.0
-
   '@lexical/code@0.28.0':
     dependencies:
       '@lexical/utils': 0.28.0
       lexical: 0.28.0
       prismjs: 1.30.0
-
-  '@lexical/devtools-core@0.23.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
-    dependencies:
-      '@lexical/html': 0.23.1
-      '@lexical/link': 0.23.1
-      '@lexical/mark': 0.23.1
-      '@lexical/table': 0.23.1
-      '@lexical/utils': 0.23.1
-      lexical: 0.23.1
-      react: 19.0.0
-      react-dom: 19.0.0(react@19.0.0)
 
   '@lexical/devtools-core@0.28.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
@@ -11108,18 +11002,9 @@ snapshots:
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
 
-  '@lexical/dragon@0.23.1':
-    dependencies:
-      lexical: 0.23.1
-
   '@lexical/dragon@0.28.0':
     dependencies:
       lexical: 0.28.0
-
-  '@lexical/hashtag@0.23.1':
-    dependencies:
-      '@lexical/utils': 0.23.1
-      lexical: 0.23.1
 
   '@lexical/hashtag@0.28.0':
     dependencies:
@@ -11130,21 +11015,10 @@ snapshots:
     dependencies:
       lexical: 0.28.0
 
-  '@lexical/history@0.23.1':
-    dependencies:
-      '@lexical/utils': 0.23.1
-      lexical: 0.23.1
-
   '@lexical/history@0.28.0':
     dependencies:
       '@lexical/utils': 0.28.0
       lexical: 0.28.0
-
-  '@lexical/html@0.23.1':
-    dependencies:
-      '@lexical/selection': 0.23.1
-      '@lexical/utils': 0.23.1
-      lexical: 0.23.1
 
   '@lexical/html@0.28.0':
     dependencies:
@@ -11152,20 +11026,10 @@ snapshots:
       '@lexical/utils': 0.28.0
       lexical: 0.28.0
 
-  '@lexical/link@0.23.1':
-    dependencies:
-      '@lexical/utils': 0.23.1
-      lexical: 0.23.1
-
   '@lexical/link@0.28.0':
     dependencies:
       '@lexical/utils': 0.28.0
       lexical: 0.28.0
-
-  '@lexical/list@0.23.1':
-    dependencies:
-      '@lexical/utils': 0.23.1
-      lexical: 0.23.1
 
   '@lexical/list@0.28.0':
     dependencies:
@@ -11173,25 +11037,10 @@ snapshots:
       '@lexical/utils': 0.28.0
       lexical: 0.28.0
 
-  '@lexical/mark@0.23.1':
-    dependencies:
-      '@lexical/utils': 0.23.1
-      lexical: 0.23.1
-
   '@lexical/mark@0.28.0':
     dependencies:
       '@lexical/utils': 0.28.0
       lexical: 0.28.0
-
-  '@lexical/markdown@0.23.1':
-    dependencies:
-      '@lexical/code': 0.23.1
-      '@lexical/link': 0.23.1
-      '@lexical/list': 0.23.1
-      '@lexical/rich-text': 0.23.1
-      '@lexical/text': 0.23.1
-      '@lexical/utils': 0.23.1
-      lexical: 0.23.1
 
   '@lexical/markdown@0.28.0':
     dependencies:
@@ -11203,28 +11052,13 @@ snapshots:
       '@lexical/utils': 0.28.0
       lexical: 0.28.0
 
-  '@lexical/offset@0.23.1':
-    dependencies:
-      lexical: 0.23.1
-
   '@lexical/offset@0.28.0':
     dependencies:
       lexical: 0.28.0
 
-  '@lexical/overflow@0.23.1':
-    dependencies:
-      lexical: 0.23.1
-
   '@lexical/overflow@0.28.0':
     dependencies:
       lexical: 0.28.0
-
-  '@lexical/plain-text@0.23.1':
-    dependencies:
-      '@lexical/clipboard': 0.23.1
-      '@lexical/selection': 0.23.1
-      '@lexical/utils': 0.23.1
-      lexical: 0.23.1
 
   '@lexical/plain-text@0.28.0':
     dependencies:
@@ -11232,33 +11066,6 @@ snapshots:
       '@lexical/selection': 0.28.0
       '@lexical/utils': 0.28.0
       lexical: 0.28.0
-
-  '@lexical/react@0.23.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(yjs@13.6.23)':
-    dependencies:
-      '@lexical/clipboard': 0.23.1
-      '@lexical/code': 0.23.1
-      '@lexical/devtools-core': 0.23.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@lexical/dragon': 0.23.1
-      '@lexical/hashtag': 0.23.1
-      '@lexical/history': 0.23.1
-      '@lexical/link': 0.23.1
-      '@lexical/list': 0.23.1
-      '@lexical/mark': 0.23.1
-      '@lexical/markdown': 0.23.1
-      '@lexical/overflow': 0.23.1
-      '@lexical/plain-text': 0.23.1
-      '@lexical/rich-text': 0.23.1
-      '@lexical/selection': 0.23.1
-      '@lexical/table': 0.23.1
-      '@lexical/text': 0.23.1
-      '@lexical/utils': 0.23.1
-      '@lexical/yjs': 0.23.1(yjs@13.6.23)
-      lexical: 0.23.1
-      react: 19.0.0
-      react-dom: 19.0.0(react@19.0.0)
-      react-error-boundary: 3.1.4(react@19.0.0)
-    transitivePeerDependencies:
-      - yjs
 
   '@lexical/react@0.28.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(yjs@13.6.23)':
     dependencies:
@@ -11284,13 +11091,6 @@ snapshots:
     transitivePeerDependencies:
       - yjs
 
-  '@lexical/rich-text@0.23.1':
-    dependencies:
-      '@lexical/clipboard': 0.23.1
-      '@lexical/selection': 0.23.1
-      '@lexical/utils': 0.23.1
-      lexical: 0.23.1
-
   '@lexical/rich-text@0.28.0':
     dependencies:
       '@lexical/clipboard': 0.28.0
@@ -11298,19 +11098,9 @@ snapshots:
       '@lexical/utils': 0.28.0
       lexical: 0.28.0
 
-  '@lexical/selection@0.23.1':
-    dependencies:
-      lexical: 0.23.1
-
   '@lexical/selection@0.28.0':
     dependencies:
       lexical: 0.28.0
-
-  '@lexical/table@0.23.1':
-    dependencies:
-      '@lexical/clipboard': 0.23.1
-      '@lexical/utils': 0.23.1
-      lexical: 0.23.1
 
   '@lexical/table@0.28.0':
     dependencies:
@@ -11318,20 +11108,9 @@ snapshots:
       '@lexical/utils': 0.28.0
       lexical: 0.28.0
 
-  '@lexical/text@0.23.1':
-    dependencies:
-      lexical: 0.23.1
-
   '@lexical/text@0.28.0':
     dependencies:
       lexical: 0.28.0
-
-  '@lexical/utils@0.23.1':
-    dependencies:
-      '@lexical/list': 0.23.1
-      '@lexical/selection': 0.23.1
-      '@lexical/table': 0.23.1
-      lexical: 0.23.1
 
   '@lexical/utils@0.28.0':
     dependencies:
@@ -11339,13 +11118,6 @@ snapshots:
       '@lexical/selection': 0.28.0
       '@lexical/table': 0.28.0
       lexical: 0.28.0
-
-  '@lexical/yjs@0.23.1(yjs@13.6.23)':
-    dependencies:
-      '@lexical/offset': 0.23.1
-      '@lexical/selection': 0.23.1
-      lexical: 0.23.1
-      yjs: 13.6.23
 
   '@lexical/yjs@0.28.0(yjs@13.6.23)':
     dependencies:
@@ -11500,7 +11272,7 @@ snapshots:
   '@payload-enchants/translator@1.3.0(@payloadcms/translations@3.30.0)(@payloadcms/ui@3.30.0(@types/react@19.0.0)(monaco-editor@0.52.2)(next@15.1.5(@babel/core@7.26.7)(babel-plugin-react-compiler@19.0.0-beta-decd7b8-20250118)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.30.0(bufferutil@4.0.9)(graphql@16.10.0)(typescript@5.7.3)(utf-8-validate@6.0.5))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3))(payload@3.30.0(bufferutil@4.0.9)(graphql@16.10.0)(typescript@5.7.3)(utf-8-validate@6.0.5))':
     dependencies:
       '@payloadcms/translations': 3.30.0
-      '@payloadcms/ui': 3.30.0(@types/react@19.0.0)(monaco-editor@0.52.2)(next@15.1.5(@babel/core@7.26.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.30.0(bufferutil@4.0.9)(graphql@16.10.0)(typescript@5.7.3)(utf-8-validate@6.0.5))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)
+      '@payloadcms/ui': 3.30.0(@types/react@19.0.0)(monaco-editor@0.52.2)(next@15.1.5(@babel/core@7.26.7)(babel-plugin-react-compiler@19.0.0-beta-decd7b8-20250118)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.30.0(bufferutil@4.0.9)(graphql@16.10.0)(typescript@5.7.3)(utf-8-validate@6.0.5))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)
       bson-objectid: 2.0.4
       he: 1.2.0
       payload: 3.30.0(bufferutil@4.0.9)(graphql@16.10.0)(typescript@5.7.3)(utf-8-validate@6.0.5)
@@ -11674,7 +11446,7 @@ snapshots:
       '@dnd-kit/core': 6.0.8(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@payloadcms/graphql': 3.30.0(graphql@16.10.0)(payload@3.30.0(bufferutil@4.0.9)(graphql@16.10.0)(typescript@5.7.3)(utf-8-validate@6.0.5))(typescript@5.7.3)
       '@payloadcms/translations': 3.30.0
-      '@payloadcms/ui': 3.30.0(@types/react@19.0.0)(monaco-editor@0.52.2)(next@15.1.5(@babel/core@7.26.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.30.0(bufferutil@4.0.9)(graphql@16.10.0)(typescript@5.7.3)(utf-8-validate@6.0.5))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)
+      '@payloadcms/ui': 3.30.0(@types/react@19.0.0)(monaco-editor@0.52.2)(next@15.1.5(@babel/core@7.26.7)(babel-plugin-react-compiler@19.0.0-beta-decd7b8-20250118)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.30.0(bufferutil@4.0.9)(graphql@16.10.0)(typescript@5.7.3)(utf-8-validate@6.0.5))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)
       busboy: 1.6.0
       dequal: 2.0.3
       file-type: 19.3.0
@@ -11727,7 +11499,7 @@ snapshots:
 
   '@payloadcms/plugin-cloud-storage@3.30.0(@types/react@19.0.0)(monaco-editor@0.52.2)(next@15.1.5(@babel/core@7.26.7)(babel-plugin-react-compiler@19.0.0-beta-decd7b8-20250118)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.30.0(bufferutil@4.0.9)(graphql@16.10.0)(typescript@5.7.3)(utf-8-validate@6.0.5))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)':
     dependencies:
-      '@payloadcms/ui': 3.30.0(@types/react@19.0.0)(monaco-editor@0.52.2)(next@15.1.5(@babel/core@7.26.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.30.0(bufferutil@4.0.9)(graphql@16.10.0)(typescript@5.7.3)(utf-8-validate@6.0.5))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)
+      '@payloadcms/ui': 3.30.0(@types/react@19.0.0)(monaco-editor@0.52.2)(next@15.1.5(@babel/core@7.26.7)(babel-plugin-react-compiler@19.0.0-beta-decd7b8-20250118)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.30.0(bufferutil@4.0.9)(graphql@16.10.0)(typescript@5.7.3)(utf-8-validate@6.0.5))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)
       find-node-modules: 2.1.3
       payload: 3.30.0(bufferutil@4.0.9)(graphql@16.10.0)(typescript@5.7.3)(utf-8-validate@6.0.5)
       range-parser: 1.2.1
@@ -11742,7 +11514,7 @@ snapshots:
 
   '@payloadcms/plugin-form-builder@3.30.0(@types/react@19.0.0)(monaco-editor@0.52.2)(next@15.1.5(@babel/core@7.26.7)(babel-plugin-react-compiler@19.0.0-beta-decd7b8-20250118)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.30.0(bufferutil@4.0.9)(graphql@16.10.0)(typescript@5.7.3)(utf-8-validate@6.0.5))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)':
     dependencies:
-      '@payloadcms/ui': 3.30.0(@types/react@19.0.0)(monaco-editor@0.52.2)(next@15.1.5(@babel/core@7.26.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.30.0(bufferutil@4.0.9)(graphql@16.10.0)(typescript@5.7.3)(utf-8-validate@6.0.5))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)
+      '@payloadcms/ui': 3.30.0(@types/react@19.0.0)(monaco-editor@0.52.2)(next@15.1.5(@babel/core@7.26.7)(babel-plugin-react-compiler@19.0.0-beta-decd7b8-20250118)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.30.0(bufferutil@4.0.9)(graphql@16.10.0)(typescript@5.7.3)(utf-8-validate@6.0.5))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)
       escape-html: 1.0.3
       payload: 3.30.0(bufferutil@4.0.9)(graphql@16.10.0)(typescript@5.7.3)(utf-8-validate@6.0.5)
       react: 19.0.0
@@ -11761,7 +11533,7 @@ snapshots:
   '@payloadcms/plugin-seo@3.30.0(@types/react@19.0.0)(monaco-editor@0.52.2)(next@15.1.5(@babel/core@7.26.7)(babel-plugin-react-compiler@19.0.0-beta-decd7b8-20250118)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.30.0(bufferutil@4.0.9)(graphql@16.10.0)(typescript@5.7.3)(utf-8-validate@6.0.5))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)':
     dependencies:
       '@payloadcms/translations': 3.30.0
-      '@payloadcms/ui': 3.30.0(@types/react@19.0.0)(monaco-editor@0.52.2)(next@15.1.5(@babel/core@7.26.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.30.0(bufferutil@4.0.9)(graphql@16.10.0)(typescript@5.7.3)(utf-8-validate@6.0.5))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)
+      '@payloadcms/ui': 3.30.0(@types/react@19.0.0)(monaco-editor@0.52.2)(next@15.1.5(@babel/core@7.26.7)(babel-plugin-react-compiler@19.0.0-beta-decd7b8-20250118)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.30.0(bufferutil@4.0.9)(graphql@16.10.0)(typescript@5.7.3)(utf-8-validate@6.0.5))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)
       payload: 3.30.0(bufferutil@4.0.9)(graphql@16.10.0)(typescript@5.7.3)(utf-8-validate@6.0.5)
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
@@ -11788,7 +11560,7 @@ snapshots:
       '@lexical/utils': 0.28.0
       '@payloadcms/next': 3.30.0(@types/react@19.0.0)(graphql@16.10.0)(monaco-editor@0.52.2)(next@15.1.5(@babel/core@7.26.7)(babel-plugin-react-compiler@19.0.0-beta-decd7b8-20250118)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.30.0(bufferutil@4.0.9)(graphql@16.10.0)(typescript@5.7.3)(utf-8-validate@6.0.5))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)
       '@payloadcms/translations': 3.30.0
-      '@payloadcms/ui': 3.30.0(@types/react@19.0.0)(monaco-editor@0.52.2)(next@15.1.5(@babel/core@7.26.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.30.0(bufferutil@4.0.9)(graphql@16.10.0)(typescript@5.7.3)(utf-8-validate@6.0.5))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)
+      '@payloadcms/ui': 3.30.0(@types/react@19.0.0)(monaco-editor@0.52.2)(next@15.1.5(@babel/core@7.26.7)(babel-plugin-react-compiler@19.0.0-beta-decd7b8-20250118)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.30.0(bufferutil@4.0.9)(graphql@16.10.0)(typescript@5.7.3)(utf-8-validate@6.0.5))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)
       '@types/uuid': 10.0.0
       acorn: 8.12.1
       bson-objectid: 2.0.4
@@ -11873,6 +11645,40 @@ snapshots:
   '@payloadcms/translations@3.30.0':
     dependencies:
       date-fns: 4.1.0
+
+  '@payloadcms/ui@3.30.0(@types/react@19.0.0)(monaco-editor@0.52.2)(next@15.1.5(@babel/core@7.26.7)(babel-plugin-react-compiler@19.0.0-beta-decd7b8-20250118)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.30.0(bufferutil@4.0.9)(graphql@16.10.0)(typescript@5.7.3)(utf-8-validate@6.0.5))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)':
+    dependencies:
+      '@date-fns/tz': 1.2.0
+      '@dnd-kit/core': 6.0.8(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@dnd-kit/sortable': 7.0.2(@dnd-kit/core@6.0.8(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react@19.0.0)
+      '@faceless-ui/modal': 3.0.0-beta.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@faceless-ui/scroll-info': 2.0.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@faceless-ui/window-info': 3.0.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@monaco-editor/react': 4.7.0(monaco-editor@0.52.2)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@payloadcms/translations': 3.30.0
+      bson-objectid: 2.0.4
+      date-fns: 4.1.0
+      dequal: 2.0.3
+      md5: 2.3.0
+      next: 15.1.5(@babel/core@7.26.7)(babel-plugin-react-compiler@19.0.0-beta-decd7b8-20250118)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4)
+      object-to-formdata: 4.5.1
+      payload: 3.30.0(bufferutil@4.0.9)(graphql@16.10.0)(typescript@5.7.3)(utf-8-validate@6.0.5)
+      qs-esm: 7.0.2
+      react: 19.0.0
+      react-datepicker: 7.6.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      react-dom: 19.0.0(react@19.0.0)
+      react-image-crop: 10.1.8(react@19.0.0)
+      react-select: 5.9.0(@types/react@19.0.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      scheduler: 0.25.0
+      sonner: 1.7.4(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      ts-essentials: 10.0.3(typescript@5.7.3)
+      use-context-selector: 2.0.0(react@19.0.0)(scheduler@0.25.0)
+      uuid: 10.0.0
+    transitivePeerDependencies:
+      - '@types/react'
+      - monaco-editor
+      - supports-color
+      - typescript
 
   '@payloadcms/ui@3.30.0(@types/react@19.0.0)(monaco-editor@0.52.2)(next@15.1.5(@babel/core@7.26.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.30.0(bufferutil@4.0.9)(graphql@16.10.0)(typescript@5.7.3)(utf-8-validate@6.0.5))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)':
     dependencies:
@@ -13042,6 +12848,29 @@ snapshots:
       - react
       - react-dom
 
+  '@storybook/experimental-nextjs-vite@8.5.1(@babel/core@7.26.7)(@storybook/test@8.5.1(storybook@8.5.1(bufferutil@4.0.9)(prettier@3.4.2)(utf-8-validate@6.0.5)))(next@15.1.5(@babel/core@7.26.7)(babel-plugin-react-compiler@19.0.0-beta-decd7b8-20250118)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rollup@4.34.1)(storybook@8.5.1(bufferutil@4.0.9)(prettier@3.4.2)(utf-8-validate@6.0.5))(typescript@5.7.3)(vite@6.0.11(@types/node@22.13.0)(jiti@2.4.2)(lightningcss@1.29.1)(sass@1.77.4)(terser@5.38.0)(tsx@4.19.2))':
+    dependencies:
+      '@storybook/builder-vite': 8.5.1(storybook@8.5.1(bufferutil@4.0.9)(prettier@3.4.2)(utf-8-validate@6.0.5))(vite@6.0.11(@types/node@22.13.0)(jiti@2.4.2)(lightningcss@1.29.1)(sass@1.77.4)(terser@5.38.0)(tsx@4.19.2))
+      '@storybook/react': 8.5.1(@storybook/test@8.5.1(storybook@8.5.1(bufferutil@4.0.9)(prettier@3.4.2)(utf-8-validate@6.0.5)))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(storybook@8.5.1(bufferutil@4.0.9)(prettier@3.4.2)(utf-8-validate@6.0.5))(typescript@5.7.3)
+      '@storybook/react-vite': 8.5.1(@storybook/test@8.5.1(storybook@8.5.1(bufferutil@4.0.9)(prettier@3.4.2)(utf-8-validate@6.0.5)))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rollup@4.34.1)(storybook@8.5.1(bufferutil@4.0.9)(prettier@3.4.2)(utf-8-validate@6.0.5))(typescript@5.7.3)(vite@6.0.11(@types/node@22.13.0)(jiti@2.4.2)(lightningcss@1.29.1)(sass@1.77.4)(terser@5.38.0)(tsx@4.19.2))
+      '@storybook/test': 8.5.1(storybook@8.5.1(bufferutil@4.0.9)(prettier@3.4.2)(utf-8-validate@6.0.5))
+      next: 15.1.5(@babel/core@7.26.7)(babel-plugin-react-compiler@19.0.0-beta-decd7b8-20250118)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4)
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
+      storybook: 8.5.1(bufferutil@4.0.9)(prettier@3.4.2)(utf-8-validate@6.0.5)
+      styled-jsx: 5.1.6(@babel/core@7.26.7)(react@19.0.0)
+      vite: 6.0.11(@types/node@22.13.0)(jiti@2.4.2)(lightningcss@1.29.1)(sass@1.77.4)(terser@5.38.0)(tsx@4.19.2)
+      vite-plugin-storybook-nextjs: 1.1.1(@storybook/test@8.5.1(storybook@8.5.1(bufferutil@4.0.9)(prettier@3.4.2)(utf-8-validate@6.0.5)))(next@15.1.5(@babel/core@7.26.7)(babel-plugin-react-compiler@19.0.0-beta-decd7b8-20250118)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(storybook@8.5.1(bufferutil@4.0.9)(prettier@3.4.2)(utf-8-validate@6.0.5))(vite@6.0.11(@types/node@22.13.0)(jiti@2.4.2)(lightningcss@1.29.1)(sass@1.77.4)(terser@5.38.0)(tsx@4.19.2))
+    optionalDependencies:
+      sharp: 0.32.6
+      typescript: 5.7.3
+    transitivePeerDependencies:
+      - '@babel/core'
+      - babel-plugin-macros
+      - bare-buffer
+      - rollup
+      - supports-color
+
   '@storybook/experimental-nextjs-vite@8.5.1(@babel/core@7.26.7)(@storybook/test@8.5.1(storybook@8.5.1(bufferutil@4.0.9)(prettier@3.4.2)(utf-8-validate@6.0.5)))(next@15.1.5(@babel/core@7.26.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rollup@4.34.1)(storybook@8.5.1(bufferutil@4.0.9)(prettier@3.4.2)(utf-8-validate@6.0.5))(typescript@5.7.3)(vite@6.0.11(@types/node@22.13.0)(jiti@2.4.2)(lightningcss@1.29.1)(sass@1.77.4)(terser@5.38.0)(tsx@4.19.2))':
     dependencies:
       '@storybook/builder-vite': 8.5.1(storybook@8.5.1(bufferutil@4.0.9)(prettier@3.4.2)(utf-8-validate@6.0.5))(vite@6.0.11(@types/node@22.13.0)(jiti@2.4.2)(lightningcss@1.29.1)(sass@1.77.4)(terser@5.38.0)(tsx@4.19.2))
@@ -13887,6 +13716,26 @@ snapshots:
       - utf-8-validate
       - vite
     optional: true
+
+  '@vitest/coverage-v8@3.0.5(@vitest/browser@3.0.5(@types/node@22.13.0)(bufferutil@4.0.9)(playwright@1.50.1)(typescript@5.7.3)(utf-8-validate@6.0.5)(vite@6.0.11(@types/node@22.13.0)(jiti@2.4.2)(lightningcss@1.29.1)(sass@1.77.4)(terser@5.38.0)(tsx@4.19.2))(vitest@3.0.5))(vitest@3.0.5(@edge-runtime/vm@3.2.0)(@types/debug@4.1.12)(@types/node@22.13.0)(@vitest/browser@3.0.5)(jiti@2.4.2)(jsdom@25.0.1(bufferutil@4.0.9)(utf-8-validate@6.0.5))(lightningcss@1.29.1)(msw@2.7.0(@types/node@22.13.0)(typescript@5.7.3))(sass@1.77.4)(terser@5.38.0)(tsx@4.19.2))':
+    dependencies:
+      '@ampproject/remapping': 2.3.0
+      '@bcoe/v8-coverage': 1.0.2
+      debug: 4.4.0
+      istanbul-lib-coverage: 3.2.2
+      istanbul-lib-report: 3.0.1
+      istanbul-lib-source-maps: 5.0.6
+      istanbul-reports: 3.1.7
+      magic-string: 0.30.17
+      magicast: 0.3.5
+      std-env: 3.8.0
+      test-exclude: 7.0.1
+      tinyrainbow: 2.0.0
+      vitest: 3.0.5(@edge-runtime/vm@3.2.0)(@types/debug@4.1.12)(@types/node@22.13.0)(@vitest/browser@3.0.5)(jiti@2.4.2)(jsdom@25.0.1(bufferutil@4.0.9)(utf-8-validate@6.0.5))(lightningcss@1.29.1)(msw@2.7.0(@types/node@22.13.0)(typescript@5.7.3))(sass@1.77.4)(terser@5.38.0)(tsx@4.19.2)
+    optionalDependencies:
+      '@vitest/browser': 3.0.5(@types/node@22.13.0)(bufferutil@4.0.9)(playwright@1.50.1)(typescript@5.7.3)(utf-8-validate@6.0.5)(vite@6.0.11(@types/node@22.13.0)(jiti@2.4.2)(lightningcss@1.29.1)(sass@1.77.4)(terser@5.38.0)(tsx@4.19.2))(vitest@3.0.5)
+    transitivePeerDependencies:
+      - supports-color
 
   '@vitest/coverage-v8@3.0.5(@vitest/browser@3.0.5(@types/node@22.13.0)(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@6.0.5)(vite@6.0.11(@types/node@22.13.0)(jiti@2.4.2)(lightningcss@1.29.1)(sass@1.77.4)(terser@5.38.0)(tsx@4.19.2))(vitest@3.0.5))(vitest@3.0.5(@edge-runtime/vm@3.2.0)(@types/debug@4.1.12)(@types/node@22.13.0)(@vitest/browser@3.0.5)(jiti@2.4.2)(jsdom@25.0.1(bufferutil@4.0.9)(utf-8-validate@6.0.5))(lightningcss@1.29.1)(msw@2.7.0(@types/node@22.13.0)(typescript@5.7.3))(sass@1.77.4)(terser@5.38.0)(tsx@4.19.2))':
     dependencies:
@@ -16445,8 +16294,6 @@ snapshots:
 
   kolorist@1.8.0: {}
 
-  lexical@0.23.1: {}
-
   lexical@0.28.0: {}
 
   lib0@0.2.99:
@@ -17357,7 +17204,7 @@ snapshots:
   ? payload-authjs@0.7.1(@payloadcms/next@3.30.0(@types/react@19.0.0)(graphql@16.10.0)(monaco-editor@0.52.2)(next@15.1.5(@babel/core@7.26.7)(babel-plugin-react-compiler@19.0.0-beta-decd7b8-20250118)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.30.0(bufferutil@4.0.9)(graphql@16.10.0)(typescript@5.7.3)(utf-8-validate@6.0.5))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3))(@payloadcms/ui@3.30.0(@types/react@19.0.0)(monaco-editor@0.52.2)(next@15.1.5(@babel/core@7.26.7)(babel-plugin-react-compiler@19.0.0-beta-decd7b8-20250118)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.30.0(bufferutil@4.0.9)(graphql@16.10.0)(typescript@5.7.3)(utf-8-validate@6.0.5))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3))(next-auth@5.0.0-beta.25(next@15.1.5(@babel/core@7.26.7)(babel-plugin-react-compiler@19.0.0-beta-decd7b8-20250118)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(nodemailer@6.10.0)(react@19.0.0))(next@15.1.5(@babel/core@7.26.7)(babel-plugin-react-compiler@19.0.0-beta-decd7b8-20250118)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.30.0(bufferutil@4.0.9)(graphql@16.10.0)(typescript@5.7.3)(utf-8-validate@6.0.5))
   : dependencies:
       '@payloadcms/next': 3.30.0(@types/react@19.0.0)(graphql@16.10.0)(monaco-editor@0.52.2)(next@15.1.5(@babel/core@7.26.7)(babel-plugin-react-compiler@19.0.0-beta-decd7b8-20250118)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.30.0(bufferutil@4.0.9)(graphql@16.10.0)(typescript@5.7.3)(utf-8-validate@6.0.5))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)
-      '@payloadcms/ui': 3.30.0(@types/react@19.0.0)(monaco-editor@0.52.2)(next@15.1.5(@babel/core@7.26.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.30.0(bufferutil@4.0.9)(graphql@16.10.0)(typescript@5.7.3)(utf-8-validate@6.0.5))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)
+      '@payloadcms/ui': 3.30.0(@types/react@19.0.0)(monaco-editor@0.52.2)(next@15.1.5(@babel/core@7.26.7)(babel-plugin-react-compiler@19.0.0-beta-decd7b8-20250118)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.30.0(bufferutil@4.0.9)(graphql@16.10.0)(typescript@5.7.3)(utf-8-validate@6.0.5))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)
       next: 15.1.5(@babel/core@7.26.7)(babel-plugin-react-compiler@19.0.0-beta-decd7b8-20250118)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4)
       next-auth: 5.0.0-beta.25(next@15.1.5(@babel/core@7.26.7)(babel-plugin-react-compiler@19.0.0-beta-decd7b8-20250118)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(nodemailer@6.10.0)(react@19.0.0)
       payload: 3.30.0(bufferutil@4.0.9)(graphql@16.10.0)(typescript@5.7.3)(utf-8-validate@6.0.5)
@@ -17603,8 +17450,6 @@ snapshots:
   pretty-ms@7.0.1:
     dependencies:
       parse-ms: 2.1.0
-
-  prismjs@1.29.0: {}
 
   prismjs@1.30.0: {}
 
@@ -19102,6 +18947,22 @@ snapshots:
   vite-plugin-environment@1.1.3(vite@6.0.11(@types/node@22.13.0)(jiti@2.4.2)(lightningcss@1.29.1)(sass@1.77.4)(terser@5.38.0)(tsx@4.19.2)):
     dependencies:
       vite: 6.0.11(@types/node@22.13.0)(jiti@2.4.2)(lightningcss@1.29.1)(sass@1.77.4)(terser@5.38.0)(tsx@4.19.2)
+
+  vite-plugin-storybook-nextjs@1.1.1(@storybook/test@8.5.1(storybook@8.5.1(bufferutil@4.0.9)(prettier@3.4.2)(utf-8-validate@6.0.5)))(next@15.1.5(@babel/core@7.26.7)(babel-plugin-react-compiler@19.0.0-beta-decd7b8-20250118)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(storybook@8.5.1(bufferutil@4.0.9)(prettier@3.4.2)(utf-8-validate@6.0.5))(vite@6.0.11(@types/node@22.13.0)(jiti@2.4.2)(lightningcss@1.29.1)(sass@1.77.4)(terser@5.38.0)(tsx@4.19.2)):
+    dependencies:
+      '@next/env': 15.1.6
+      '@storybook/test': 8.5.1(storybook@8.5.1(bufferutil@4.0.9)(prettier@3.4.2)(utf-8-validate@6.0.5))
+      image-size: 1.2.0
+      magic-string: 0.30.17
+      module-alias: 2.2.3
+      next: 15.1.5(@babel/core@7.26.7)(babel-plugin-react-compiler@19.0.0-beta-decd7b8-20250118)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4)
+      storybook: 8.5.1(bufferutil@4.0.9)(prettier@3.4.2)(utf-8-validate@6.0.5)
+      ts-dedent: 2.2.0
+      vite: 6.0.11(@types/node@22.13.0)(jiti@2.4.2)(lightningcss@1.29.1)(sass@1.77.4)(terser@5.38.0)(tsx@4.19.2)
+    optionalDependencies:
+      sharp: 0.32.6
+    transitivePeerDependencies:
+      - bare-buffer
 
   vite-plugin-storybook-nextjs@1.1.1(@storybook/test@8.5.1(storybook@8.5.1(bufferutil@4.0.9)(prettier@3.4.2)(utf-8-validate@6.0.5)))(next@15.1.5(@babel/core@7.26.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(storybook@8.5.1(bufferutil@4.0.9)(prettier@3.4.2)(utf-8-validate@6.0.5))(vite@6.0.11(@types/node@22.13.0)(jiti@2.4.2)(lightningcss@1.29.1)(sass@1.77.4)(terser@5.38.0)(tsx@4.19.2)):
     dependencies:
