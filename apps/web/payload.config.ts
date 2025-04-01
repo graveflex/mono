@@ -242,7 +242,8 @@ export default buildConfig({
         [Files.slug]: true,
         [Videos.slug]: {
           disablePayloadAccessControl: true
-        }
+        },
+        exports: true
       },
       token: process.env.BLOB_READ_WRITE_TOKEN as string
     }),
