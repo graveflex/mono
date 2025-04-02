@@ -19,7 +19,8 @@ import {
   RichText as LexicalRichText
 } from '@payloadcms/richtext-lexical/react';
 import React from 'react';
-import LinkConverter from './Converters/LinkConverter';
+import Link from './Blocks/Link';
+import Video from './Blocks/Video';
 import styles from './RichText.module.css';
 
 export type CtaSectionsBlockType = Omit<PayloadType, 'blockType'>;
@@ -100,6 +101,9 @@ const jsxConverters: JSXConvertersFunction<DefaultNodeTypes> = ({
           </DialogOverlay>
         </Dialog>
       );
+    },
+    video: ({ node }: { node: AugmentedSerializedBlockNode }) => {
+      return <Video node={node} />;
     }
   }
 });
