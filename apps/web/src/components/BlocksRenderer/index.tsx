@@ -50,12 +50,6 @@ const blockList = {
   ctaSectionsBlock: dynamic(() => import('@mono/web/blocks/CtaSectionsBlock'), {
     ...defaultOpts
   }),
-  headerSectionBlock: dynamic(
-    () => import('@mono/web/blocks/HeaderSectionBlock'),
-    {
-      ...defaultOpts
-    }
-  ),
   heroSectionsBlock: dynamic(
     () => import('@mono/web/blocks/HeroSectionsBlock'),
     {
