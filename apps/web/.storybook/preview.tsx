@@ -1,6 +1,7 @@
 import type { Preview } from '@storybook/react';
 import '../../web/src/app/global.css';
 import { withThemeByClassName } from '@storybook/addon-themes';
+import { libreCaslonText, manrope } from './../src/app/fonts';
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -24,11 +25,17 @@ const preview: Preview = {
     withThemeByClassName({
       themes: {
         light: 'light',
-        dark: 'dark'
+        dark: 'dark',
+        wheat: 'wheat'
       },
       defaultTheme: 'light'
     }),
-    (Story, ctx) => {
+    (Story) => {
+      const htmlEl = document.getElementsByTagName('html')?.[0];
+      htmlEl.classList.add(
+        `${libreCaslonText.variable}`,
+        `${manrope.variable}`
+      );
       return <Story />;
     }
   ]

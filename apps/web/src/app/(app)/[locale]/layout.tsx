@@ -1,3 +1,4 @@
+import { libreCaslonText, manrope } from '@mono/web/app/fonts';
 import Layout from '@mono/web/globals/Layout';
 import { routing } from '@mono/web/i18n/routing';
 import type { LanguageLocale } from '@mono/web/lib/constants';
@@ -30,7 +31,10 @@ async function RootLayout({ children, params }: RootLayoutProps) {
   const messages = await getMessages();
 
   return (
-    <html lang={locale}>
+    <html
+      lang={locale}
+      className={`${libreCaslonText.variable} ${manrope.variable}`}
+    >
       <head />
 
       <body>

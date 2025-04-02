@@ -1,9 +1,11 @@
 @import 'tailwindcss';
+@import './../themes/wheat.css';
 
 @plugin 'tailwindcss-animate';
 @source './safelist.css';
 
 @custom-variant dark (&:where(.dark, .dark *));
+@custom-variant wheat (&:where(.wheat, .wheat *));
 
 @theme inline {
   --color-background: hsl(var(--background));
@@ -153,6 +155,7 @@
 
   * {
     @apply border-border;
+    font-family: var(--font-body);
   }
   body {
     @apply bg-background text-foreground;
