@@ -1,5 +1,13 @@
 import type { CtaSectionsBlockT as PayloadType } from '@mono/types/payload-types';
 import Form from '@mono/web/components/Form';
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogOverlay,
+  DialogTitle,
+  DialogTrigger
+} from '@mono/web/components/ui/Dialog';
 import type { Themes } from '@mono/web/lib/constants';
 import { cn } from '@mono/web/lib/utils';
 import type {
@@ -67,6 +75,31 @@ const jsxConverters: JSXConvertersFunction<DefaultNodeTypes> = ({
     },
     link: ({ node }: { node: AugmentedSerializedBlockNode }) => {
       return <Link node={node} />;
+    },
+    modal: ({ node }: { node: AugmentedSerializedBlockNode }) => {
+      return (
+        <Dialog>
+          <DialogTrigger>
+            <strong className="cursor-pointer hover:opacity-80 hover:scale-101 mt-6 inline-block transition-all duration-250 ease-in-out">
+              <u>{node.fields.modal_text}</u>
+            </strong>
+          </DialogTrigger>
+          <DialogOverlay className="opacity-0 pointer-events-none">
+            {/* TODO: Border Radius theme setting? */}
+            <DialogContent className={`${node.theme || ''} border-primary`}>
+              <DialogTitle className="text-foreground">
+                {node.fields.modal_text}
+              </DialogTitle>
+              <DialogClose className="text-muted-foreground" />
+              <RichText data={node.fields.modal_content} />
+
+              <DialogClose className="absolute top-4 right-4 text-primary cursor-pointer hover:scale-110">
+                <span className="sr-only">Close</span>
+              </DialogClose>
+            </DialogContent>
+          </DialogOverlay>
+        </Dialog>
+      );
     }
   }
 });
