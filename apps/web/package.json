@@ -91,6 +91,7 @@
     "@storybook/addon-styling-webpack": "latest",
     "@storybook/addon-themes": "latest",
     "@storybook/blocks": "latest",
+    "@storybook/nextjs": "latest",
     "@storybook/react": "latest",
     "@svgr/webpack": "^8.1.0",
     "@tailwindcss/postcss": "4.0.1",
