@@ -1,3 +1,4 @@
+import RichText from '@mono/web/components/RichText/index';
 import {
   Accordion,
   AccordionContent,
@@ -5,9 +6,9 @@ import {
   AccordionTrigger
 } from '@mono/web/components/ui/Accordion';
 import { Button } from '@mono/web/components/ui/Button';
-import Link from 'next/link';
+import type { FaqSectionsBlockType } from '..';
 
-export default function Variant1() {
+export default function Variant1({ content }: FaqSectionsBlockType) {
   return (
     <section
       className="bg-background py-16 md:py-24"
@@ -15,27 +16,7 @@ export default function Variant1() {
     >
       <div className="max-w-2xl gap-12 mx-auto px-6 flex flex-col">
         {/* Section Header */}
-        <div className="flex flex-col text-center gap-5">
-          {/* Category Tag */}
-          <p className="text-sm md:text-base text-muted-foreground font-semibold">
-            FAQ section
-          </p>
-          {/* Main Title */}
-          <h1
-            id="faq-heading"
-            className="text-3xl md:text-4xl font-bold text-foreground"
-          >
-            Frequently asked questions
-          </h1>
-          {/* Section Description */}
-          <p className="text-muted-foreground">
-            We've compiled the most important information to help you get the
-            most out of your experience. Can't find what you're looking for?{' '}
-            <Link href="#" className="text-primary underline">
-              Contact us.
-            </Link>
-          </p>
-        </div>
+        {content && <RichText data={content} />}
 
         {/* FAQ Accordion */}
         <Accordion type="single" defaultValue="item-1" aria-label="FAQ items">

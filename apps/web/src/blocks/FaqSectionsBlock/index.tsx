@@ -22,12 +22,16 @@ const Variants = {
   '4': dynamic(() => import('./variations/Variant4'), { ...defaultOpts })
 };
 
-function FaqSectionsBlock({ variant, ...props }: FaqSectionsBlockType) {
+function FaqSectionsBlock({
+  content,
+  variant,
+  ...props
+}: FaqSectionsBlockType) {
   const VariantComponent = Variants[variant];
 
   return (
     <Wrapper {...props.wrapper}>
-      <VariantComponent />
+      <VariantComponent content={content} variant={variant} />
     </Wrapper>
   );
 }
