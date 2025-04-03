@@ -99,7 +99,16 @@ function BlockConfig({
             options: contentWidthValues,
             defaultValue: defaultWidth || 'xl'
           },
-
+          {
+            name: 'fullWidthThemeBg',
+            label: 'Use Theme Background for Full Screen Width?',
+            type: 'checkbox',
+            required: false,
+            admin: {
+              description:
+                'Set this to true if you want the block theme background to extend all the way to the edge of the browsers screen.'
+            }
+          },
           {
             name: 'paddingXs',
             label: 'Padding',

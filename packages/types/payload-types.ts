@@ -275,6 +275,10 @@ export interface PricingSectionsBlockT {
   wrapper?: {
     theme?: ('_' | 'light' | 'dark') | null;
     contentWidth?: ('full' | 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs') | null;
+    /**
+     * Set this to true if you want the block theme background to extend all the way to the edge of the browsers screen.
+     */
+    fullWidthThemeBg?: boolean | null;
     paddingXs?: {
       paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
       paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
@@ -308,6 +312,10 @@ export interface TestimonialsSectionsBlockT {
   wrapper?: {
     theme?: ('_' | 'light' | 'dark') | null;
     contentWidth?: ('full' | 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs') | null;
+    /**
+     * Set this to true if you want the block theme background to extend all the way to the edge of the browsers screen.
+     */
+    fullWidthThemeBg?: boolean | null;
     paddingXs?: {
       paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
       paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
@@ -341,6 +349,10 @@ export interface HeaderSectionsBlockT {
   wrapper?: {
     theme?: ('_' | 'light' | 'dark') | null;
     contentWidth?: ('full' | 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs') | null;
+    /**
+     * Set this to true if you want the block theme background to extend all the way to the edge of the browsers screen.
+     */
+    fullWidthThemeBg?: boolean | null;
     paddingXs?: {
       paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
       paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
@@ -361,7 +373,22 @@ export interface HeaderSectionsBlockT {
   /**
    * The layout variant for the block.
    */
-  variant: '1' | '2' | '3' | '4' | '5' | '6';
+  variant: '1' | '2';
+  content?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'headerSectionsBlock';
@@ -374,6 +401,10 @@ export interface ContactSectionsBlockT {
   wrapper?: {
     theme?: ('_' | 'light' | 'dark') | null;
     contentWidth?: ('full' | 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs') | null;
+    /**
+     * Set this to true if you want the block theme background to extend all the way to the edge of the browsers screen.
+     */
+    fullWidthThemeBg?: boolean | null;
     paddingXs?: {
       paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
       paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
@@ -407,6 +438,10 @@ export interface FaqSectionsBlockT {
   wrapper?: {
     theme?: ('_' | 'light' | 'dark') | null;
     contentWidth?: ('full' | 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs') | null;
+    /**
+     * Set this to true if you want the block theme background to extend all the way to the edge of the browsers screen.
+     */
+    fullWidthThemeBg?: boolean | null;
     paddingXs?: {
       paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
       paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
@@ -518,6 +553,10 @@ export interface BannersBlockT {
   wrapper?: {
     theme?: ('_' | 'light' | 'dark') | null;
     contentWidth?: ('full' | 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs') | null;
+    /**
+     * Set this to true if you want the block theme background to extend all the way to the edge of the browsers screen.
+     */
+    fullWidthThemeBg?: boolean | null;
     paddingXs?: {
       paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
       paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
@@ -551,6 +590,10 @@ export interface CtaSectionsBlockT {
   wrapper?: {
     theme?: ('_' | 'light' | 'dark') | null;
     contentWidth?: ('full' | 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs') | null;
+    /**
+     * Set this to true if you want the block theme background to extend all the way to the edge of the browsers screen.
+     */
+    fullWidthThemeBg?: boolean | null;
     paddingXs?: {
       paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
       paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
@@ -600,6 +643,10 @@ export interface FeatureSection {
   wrapper?: {
     theme?: ('_' | 'light' | 'dark') | null;
     contentWidth?: ('full' | 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs') | null;
+    /**
+     * Set this to true if you want the block theme background to extend all the way to the edge of the browsers screen.
+     */
+    fullWidthThemeBg?: boolean | null;
     paddingXs?: {
       paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
       paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
@@ -633,6 +680,10 @@ export interface HeroSectionsBlockT {
   wrapper?: {
     theme?: ('_' | 'light' | 'dark') | null;
     contentWidth?: ('full' | 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs') | null;
+    /**
+     * Set this to true if you want the block theme background to extend all the way to the edge of the browsers screen.
+     */
+    fullWidthThemeBg?: boolean | null;
     paddingXs?: {
       paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
       paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
@@ -791,6 +842,10 @@ export interface BlogSectionT {
   wrapper?: {
     theme?: ('_' | 'light' | 'dark') | null;
     contentWidth?: ('full' | 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs') | null;
+    /**
+     * Set this to true if you want the block theme background to extend all the way to the edge of the browsers screen.
+     */
+    fullWidthThemeBg?: boolean | null;
     paddingXs?: {
       paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
       paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
@@ -1551,6 +1606,7 @@ export interface PricingSectionsBlockTSelect<T extends boolean = true> {
     | {
         theme?: T;
         contentWidth?: T;
+        fullWidthThemeBg?: T;
         paddingXs?:
           | T
           | {
@@ -1590,6 +1646,7 @@ export interface TestimonialsSectionsBlockTSelect<T extends boolean = true> {
     | {
         theme?: T;
         contentWidth?: T;
+        fullWidthThemeBg?: T;
         paddingXs?:
           | T
           | {
@@ -1629,6 +1686,7 @@ export interface HeaderSectionsBlockTSelect<T extends boolean = true> {
     | {
         theme?: T;
         contentWidth?: T;
+        fullWidthThemeBg?: T;
         paddingXs?:
           | T
           | {
@@ -1655,6 +1713,7 @@ export interface HeaderSectionsBlockTSelect<T extends boolean = true> {
             };
       };
   variant?: T;
+  content?: T;
   id?: T;
   blockName?: T;
 }
@@ -1668,6 +1727,7 @@ export interface ContactSectionsBlockTSelect<T extends boolean = true> {
     | {
         theme?: T;
         contentWidth?: T;
+        fullWidthThemeBg?: T;
         paddingXs?:
           | T
           | {
@@ -1707,6 +1767,7 @@ export interface FaqSectionsBlockTSelect<T extends boolean = true> {
     | {
         theme?: T;
         contentWidth?: T;
+        fullWidthThemeBg?: T;
         paddingXs?:
           | T
           | {
@@ -1756,6 +1817,7 @@ export interface BannersBlockTSelect<T extends boolean = true> {
     | {
         theme?: T;
         contentWidth?: T;
+        fullWidthThemeBg?: T;
         paddingXs?:
           | T
           | {
@@ -1795,6 +1857,7 @@ export interface CtaSectionsBlockTSelect<T extends boolean = true> {
     | {
         theme?: T;
         contentWidth?: T;
+        fullWidthThemeBg?: T;
         paddingXs?:
           | T
           | {
@@ -1836,6 +1899,7 @@ export interface FeatureSectionSelect<T extends boolean = true> {
     | {
         theme?: T;
         contentWidth?: T;
+        fullWidthThemeBg?: T;
         paddingXs?:
           | T
           | {
@@ -1875,6 +1939,7 @@ export interface HeroSectionsBlockTSelect<T extends boolean = true> {
     | {
         theme?: T;
         contentWidth?: T;
+        fullWidthThemeBg?: T;
         paddingXs?:
           | T
           | {
@@ -1917,6 +1982,7 @@ export interface BlogSectionTSelect<T extends boolean = true> {
     | {
         theme?: T;
         contentWidth?: T;
+        fullWidthThemeBg?: T;
         paddingXs?:
           | T
           | {

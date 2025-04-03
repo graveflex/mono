@@ -29,23 +29,3 @@ export const Variant2: Story = {
     variant: '2'
   }
 };
-export const Variant3: Story = {
-  args: {
-    variant: '3'
-  }
-};
-export const Variant4: Story = {
-  args: {
-    variant: '4'
-  }
-};
-export const Variant5: Story = {
-  args: {
-    variant: '5'
-  }
-};
-export const Variant6: Story = {
-  args: {
-    variant: '6'
-  }
-};
