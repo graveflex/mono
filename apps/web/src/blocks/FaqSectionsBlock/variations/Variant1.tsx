@@ -9,6 +9,8 @@ import { Button } from '@mono/web/components/ui/Button';
 import type { FaqSectionsBlockType } from '..';
 
 export default function Variant1({ content, items }: FaqSectionsBlockType) {
+  console.log('In Variant1.tsx, this is content: ', content);
+  console.log('In Variant1.tsx, this is items: ', items);
   return (
     <section
       className="bg-background py-16 md:py-24"
