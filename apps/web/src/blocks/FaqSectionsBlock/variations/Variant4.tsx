@@ -1,3 +1,5 @@
+import { FaqSectionsBlockT } from '@mono/types/payload-types';
+import RichText from '@mono/web/components/RichText/index';
 import {
   Accordion,
   AccordionContent,
@@ -6,6 +8,7 @@ import {
 } from '@mono/web/components/ui/Accordion';
 import { Button } from '@mono/web/components/ui/Button';
 import Link from 'next/link';
+import type { FaqSectionsBlockType } from '..';
 
 // FAQ items data
 const faqItems = [
@@ -41,7 +44,7 @@ const faqItems = [
   }
 ];
 
-export default function Variant4() {
+export default function Variant4({ content, items }: FaqSectionsBlockType) {
   return (
     <section
       className="bg-background py-16 md:py-24"

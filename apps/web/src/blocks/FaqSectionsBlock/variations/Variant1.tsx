@@ -8,7 +8,7 @@ import {
 import { Button } from '@mono/web/components/ui/Button';
 import type { FaqSectionsBlockType } from '..';
 
-export default function Variant1({ content }: FaqSectionsBlockType) {
+export default function Variant1({ content, items }: FaqSectionsBlockType) {
   return (
     <section
       className="bg-background py-16 md:py-24"
@@ -21,17 +21,18 @@ export default function Variant1({ content }: FaqSectionsBlockType) {
         {/* FAQ Accordion */}
         <Accordion type="single" defaultValue="item-1" aria-label="FAQ items">
           {/* FAQ Item 1 */}
-          <AccordionItem value="item-1">
-            <AccordionTrigger className="text-foreground text-base font-medium text-left">
-              What is shadcn/ui?
-            </AccordionTrigger>
-            <AccordionContent className="text-sm text-muted-foreground">
-              Shadcn/ui is a popular, open-source UI component library for React
-              that focuses on flexibility and customization. It provides a set
-              of accessible, customizable components that you can use to build
-              modern web applications.
-            </AccordionContent>
-          </AccordionItem>
+          {items?.map((item) => {
+            return (
+              <AccordionItem key={item?.id} value={item?.id as string}>
+                <AccordionTrigger className="text-foreground text-base font-medium text-left">
+                  {item?.title}
+                </AccordionTrigger>
+                <AccordionContent className="text-sm text-muted-foreground">
+                  {item?.description && <RichText data={item?.description} />}
+                </AccordionContent>
+              </AccordionItem>
+            );
+          })}
 
           {/* FAQ Item 2 */}
           <AccordionItem value="item-2">

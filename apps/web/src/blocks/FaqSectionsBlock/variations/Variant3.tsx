@@ -1,6 +1,8 @@
+import RichText from '@mono/web/components/RichText/index';
 import { Button } from '@mono/web/components/ui/Button';
 import { ArrowUpRight } from 'lucide-react';
 import Link from 'next/link';
+import type { FaqSectionsBlockType } from '..';
 
 // FAQ items data
 const faqItems = [
@@ -42,7 +44,7 @@ const faqItems = [
   }
 ];
 
-export default function Variant3() {
+export default function Variant3({ content, items }: FaqSectionsBlockType) {
   return (
     <section
       className="bg-background py-16 md:py-24"
