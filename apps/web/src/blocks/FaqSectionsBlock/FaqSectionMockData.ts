@@ -73,6 +73,78 @@ export const FaqBlockContent: RichTextType = {
     }
   }
 };
+export const FaqBlockContentLeftAligned: RichTextType = {
+  data: {
+    root: {
+      type: 'root',
+      format: '',
+      indent: 0,
+      version: 1,
+      children: [
+        {
+          type: 'paragraph',
+          format: 'left',
+          indent: 0,
+          version: 1,
+          children: [
+            {
+              mode: 'normal',
+              text: 'FAQ Section',
+              type: 'text',
+              style: '',
+              detail: 0,
+              format: 0,
+              version: 1
+            }
+          ],
+          direction: 'ltr',
+          textStyle: '',
+          textFormat: 0
+        },
+        {
+          tag: 'h2',
+          type: 'heading',
+          format: 'left',
+          indent: 0,
+          version: 1,
+          children: [
+            {
+              mode: 'normal',
+              text: 'Frequently asked questions',
+              type: 'text',
+              style: '',
+              detail: 0,
+              format: 0,
+              version: 1
+            }
+          ],
+          direction: 'ltr'
+        },
+        {
+          type: 'paragraph',
+          format: 'left',
+          indent: 0,
+          version: 1,
+          children: [
+            {
+              mode: 'normal',
+              text: "We've compiled the most important information to help you get the most out of your experience. Can't find what you're looking for? Contact us. ",
+              type: 'text',
+              style: '',
+              detail: 0,
+              format: 0,
+              version: 1
+            }
+          ],
+          direction: 'ltr',
+          textStyle: '',
+          textFormat: 0
+        }
+      ],
+      direction: 'ltr'
+    }
+  }
+};
 
 const FaqItems: FaqSectionsBlockType['items'] = [
   {

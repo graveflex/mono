@@ -1,7 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import type { FaqSectionsBlockType } from '.';
 import FaqSectionsBlock from '.';
-import FaqItems, { FaqBlockContent } from './FaqSectionMockData';
+import FaqItems, {
+  FaqBlockContent,
+  FaqBlockContentLeftAligned
+} from './FaqSectionMockData';
 
 import MakeVariations from '@mono/web/payload/utils/makeStoryBookVariations';
 
@@ -30,14 +33,14 @@ export const Variant1: Story = {
 export const Variant2: Story = {
   args: {
     variant: '2',
-    content: FaqBlockContent?.data,
+    content: FaqBlockContentLeftAligned?.data,
     items: FaqItems
   }
 };
 export const Variant3: Story = {
   args: {
     variant: '3',
-    content: FaqBlockContent?.data,
+    content: FaqBlockContentLeftAligned?.data,
     items: FaqItems
   }
 };

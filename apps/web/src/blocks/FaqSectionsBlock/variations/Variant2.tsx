@@ -36,44 +36,20 @@ export default function Variant2({ content, items }: FaqSectionsBlockType) {
                 aria-label="General FAQ items"
               >
                 {/* FAQ Item 1 */}
-                <AccordionItem value="item-1">
-                  <AccordionTrigger className="text-left text-foreground">
-                    What is shadcn/ui?
-                  </AccordionTrigger>
-                  <AccordionContent className="text-left text-foreground">
-                    Content goes here
-                  </AccordionContent>
-                </AccordionItem>
-
-                {/* FAQ Item 2 */}
-                <AccordionItem value="item-2">
-                  <AccordionTrigger className="text-left text-foreground">
-                    What is shadcn/ui kit for Figma?
-                  </AccordionTrigger>
-                  <AccordionContent className="text-left text-foreground">
-                    Content goes here
-                  </AccordionContent>
-                </AccordionItem>
-
-                {/* FAQ Item 3 */}
-                <AccordionItem value="item-3">
-                  <AccordionTrigger className="text-left text-foreground">
-                    I'm not familiar with shadcn/ui. Can I still use this kit?
-                  </AccordionTrigger>
-                  <AccordionContent className="text-left text-foreground">
-                    Content goes here
-                  </AccordionContent>
-                </AccordionItem>
-
-                {/* FAQ Item 4 */}
-                <AccordionItem value="item-4">
-                  <AccordionTrigger className="text-left text-foreground">
-                    Can I create multi-brand design systems with this UI kit?
-                  </AccordionTrigger>
-                  <AccordionContent className="text-left text-foreground">
-                    Content goes here
-                  </AccordionContent>
-                </AccordionItem>
+                {items?.map((item) => {
+                  return (
+                    <AccordionItem key={item?.id} value={item?.id as string}>
+                      <AccordionTrigger className="text-left text-foreground">
+                        {item?.title}
+                      </AccordionTrigger>
+                      <AccordionContent className="text-left text-foreground">
+                        {item?.description && (
+                          <RichText data={item?.description} />
+                        )}
+                      </AccordionContent>
+                    </AccordionItem>
+                  );
+                })}
               </Accordion>
             </div>
 
