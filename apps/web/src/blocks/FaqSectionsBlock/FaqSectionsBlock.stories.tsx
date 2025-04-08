@@ -3,7 +3,8 @@ import type { FaqSectionsBlockType } from '.';
 import FaqSectionsBlock from '.';
 import FaqItems, {
   FaqBlockContent,
-  FaqBlockContentLeftAligned
+  FaqBlockContentLeftAligned,
+  bottomContent
 } from './FaqSectionMockData';
 
 import MakeVariations from '@mono/web/payload/utils/makeStoryBookVariations';
@@ -27,7 +28,8 @@ export const Variant1: Story = {
   args: {
     variant: '1',
     content: FaqBlockContent?.data,
-    items: FaqItems
+    items: FaqItems,
+    bottomContent: bottomContent?.data
   }
 };
 export const Variant2: Story = {

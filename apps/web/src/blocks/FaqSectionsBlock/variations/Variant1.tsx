@@ -5,7 +5,6 @@ import {
   AccordionItem,
   AccordionTrigger
 } from '@mono/web/components/ui/Accordion';
-import { Button } from '@mono/web/components/ui/Button';
 import type { FaqSectionsBlockType } from '..';
 
 export default function Variant1({
@@ -44,7 +43,6 @@ export default function Variant1({
           <div className="flex flex-col text-center gap-2">
             {bottomContent && <RichText data={bottomContent} />}
           </div>
-          {/* <Button aria-label="Contact our support team">Contact us</Button> */}
         </div>
       </div>
     </section>
