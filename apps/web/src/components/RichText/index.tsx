@@ -1,4 +1,9 @@
-import type { CtaSectionsBlockT as PayloadType } from '@mono/types/payload-types';
+import type {
+  File,
+  IconSelect,
+  Page,
+  CtaSectionsBlockT as PayloadType
+} from '@mono/types/payload-types';
 import Form from '@mono/web/components/Form';
 import { Button } from '@mono/web/components/ui/Button';
 import { cn } from '@mono/web/lib/utils';
@@ -11,6 +16,8 @@ import {
   type JSXConvertersFunction,
   RichText as LexicalRichText
 } from '@payloadcms/richtext-lexical/react';
+import isNil from 'lodash/isNil';
+import isNumber from 'lodash/isNumber';
 import Link from 'next/link';
 import React from 'react';
 import styles from './RichText.module.css';
@@ -36,18 +43,41 @@ export type RichTextType = {
   className?: string;
 };
 
-const getLinkByType = ({ node }: { node: SerializedLinkNode }): string => {
-  switch (node?.fields?.type) {
+export interface PayLoadLink {
+  type?: ('internal' | 'external' | 'email' | 'phone' | 'file') | null;
+  label?: string | null;
+  internalUrl?: (number | null) | Page;
+  externalUrl?: string | null;
+  emailUrl?: string | null;
+  phoneUrl?: string | null;
+  fileUrl?: (number | null) | File;
+  newTab?: boolean | null;
+  icon?: IconSelect;
+  file?: File;
+  buttonStyle?: 'default' | 'secondary' | 'outline';
+}
+
+const getLinkByType = ({
+  payloadLink
+}: { payloadLink: PayLoadLink }): string => {
+  switch (payloadLink?.type) {
     case 'external':
-      return node?.fields?.externalUrl;
+      return !isNil(payloadLink?.externalUrl) ? payloadLink?.externalUrl : '#';
     case 'internal':
-      return `/${node?.fields?.internalUrl?.slug}`;
+      return !isNumber(payloadLink?.internalUrl) &&
+        !isNil(payloadLink?.internalUrl?.slug)
+        ? payloadLink?.internalUrl?.slug
+        : '#';
     case 'email':
-      return `mailto:${node?.fields?.emailUrl}`;
+      return !isNil(payloadLink?.emailUrl)
+        ? `mailto:${payloadLink?.emailUrl}`
+        : '#';
     case 'phone':
-      return `tel:+1${node?.fields?.phoneUrl}`;
+      return !isNil(payloadLink?.phoneUrl)
+        ? `tel:+1${payloadLink?.phoneUrl}`
+        : '#';
     case 'file':
-      return `${node?.fields?.file?.url}`;
+      return !isNil(payloadLink?.file?.url) ? payloadLink?.file?.url : '#';
     default:
       return '/';
   }
@@ -61,7 +91,8 @@ const jsxConverters: JSXConvertersFunction<DefaultNodeTypes> = ({
     return <span className={cn(styles.eyebrow, 'eyebrow')}>{node?.text}</span>;
   },
   link: ({ node }: { node: SerializedLinkNode }) => {
-    const linkUrl = getLinkByType({ node });
+    const payloadLink: PayLoadLink = node?.fields;
+    const linkUrl = getLinkByType({ payloadLink });
 
     switch (node?.fields?.appearance) {
       case 'button':
@@ -69,7 +100,7 @@ const jsxConverters: JSXConvertersFunction<DefaultNodeTypes> = ({
           <Button
             asChild={true}
             type="button"
-            variant={node?.fields?.buttonStyle}
+            variant={payloadLink?.buttonStyle}
           >
             <Link href={linkUrl}>{node?.children?.[0]?.text}</Link>
           </Button>
