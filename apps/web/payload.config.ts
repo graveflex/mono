@@ -150,6 +150,46 @@ export default buildConfig({
               admin: {
                 condition: (_, siblingData) => siblingData.type === 'file'
               }
+            },
+            {
+              name: 'appearance',
+              label: 'Appearance',
+              type: 'select',
+              defaultValue: 'default',
+              options: [
+                {
+                  label: 'Default',
+                  value: 'default'
+                },
+                {
+                  label: 'Button',
+                  value: 'button'
+                }
+              ]
+            },
+            {
+              name: 'buttonStyle',
+              label: 'Button Style',
+              type: 'select',
+              defaultValue: 'default',
+              options: [
+                {
+                  label: 'Default',
+                  value: 'default'
+                },
+                {
+                  label: 'Secondary',
+                  value: 'secondary'
+                },
+                {
+                  label: 'Outline',
+                  value: 'outline'
+                }
+              ],
+              admin: {
+                condition: (_, siblingData) =>
+                  siblingData.appearance === 'button'
+              }
             }
           ]
         }),

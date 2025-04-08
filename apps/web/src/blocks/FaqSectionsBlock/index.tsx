@@ -23,6 +23,7 @@ const Variants = {
 };
 
 function FaqSectionsBlock({
+  bottomContent,
   content,
   items,
   variant,
@@ -32,7 +33,12 @@ function FaqSectionsBlock({
 
   return (
     <Wrapper {...props.wrapper}>
-      <VariantComponent content={content} items={items} variant={variant} />
+      <VariantComponent
+        bottomContent={bottomContent}
+        content={content}
+        items={items}
+        variant={variant}
+      />
     </Wrapper>
   );
 }
