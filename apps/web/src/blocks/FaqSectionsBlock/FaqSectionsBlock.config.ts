@@ -23,6 +23,8 @@ import {
 } from '@payloadcms/richtext-lexical';
 import type { Block } from 'payload';
 
+const variantsWithBttmContent = ['1'];
+
 const FaqSectionsBlock = (prefix: string): Block => ({
   slug: 'faqSectionsBlock',
   interfaceName: 'FaqSectionsBlockT',
@@ -167,6 +169,22 @@ const FaqSectionsBlock = (prefix: string): Block => ({
           }
         }
       ]
+    },
+    {
+      name: 'bottomContent',
+      label: 'Bottom Content',
+      type: 'richText',
+      localized: true,
+      required: false,
+      admin: {
+        description: 'Content that appears below the Accordion items.',
+        condition: (_, siblingData) => {
+          if (variantsWithBttmContent.includes(siblingData.variant)) {
+            return true;
+          }
+          return false;
+        }
+      }
     }
   ]
 });

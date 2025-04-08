@@ -471,6 +471,24 @@ export interface FaqSectionsBlockT {
         id?: string | null;
       }[]
     | null;
+  /**
+   * Content that appears below the Accordion items.
+   */
+  bottomContent?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'faqSectionsBlock';
@@ -1741,6 +1759,7 @@ export interface FaqSectionsBlockTSelect<T extends boolean = true> {
         description?: T;
         id?: T;
       };
+  bottomContent?: T;
   id?: T;
   blockName?: T;
 }
