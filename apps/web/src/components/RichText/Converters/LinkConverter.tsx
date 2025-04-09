@@ -54,7 +54,12 @@ const LinkConverter = ({ node }: { node: SerializedLinkNode }) => {
   switch (node?.fields?.appearance) {
     case 'button':
       return (
-        <Button asChild={true} type="button" variant={payloadLink?.buttonStyle}>
+        <Button
+          asChild={true}
+          type="button"
+          variant={payloadLink?.buttonStyle}
+          className="mb-2 last:mb-0 sm:mb-0"
+        >
           <Link href={linkUrl}>{text}</Link>
         </Button>
       );

@@ -1,6 +1,8 @@
 import BlockConfig from '@mono/web/payload/fields/BlockConfig';
 import type { Block } from 'payload';
 
+const variantsWithSplitContent = ['2', '6'];
+
 const CtaSectionsBlock: Block = {
   slug: 'ctaSectionsBlock',
   interfaceName: 'CtaSectionsBlockT',
@@ -59,6 +61,23 @@ const CtaSectionsBlock: Block = {
       type: 'richText',
       localized: true,
       required: false
+    },
+    {
+      name: 'rightContent',
+      label: 'Right Content',
+      type: 'richText',
+      localized: true,
+      required: false,
+      admin: {
+        description:
+          'On desktop, the content section is split in half. This field corresponds to the right side on desktop.',
+        condition: (_, siblingData) => {
+          if (variantsWithSplitContent.includes(siblingData.variant)) {
+            return true;
+          }
+          return false;
+        }
+      }
     }
   ]
 };

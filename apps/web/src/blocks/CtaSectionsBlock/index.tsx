@@ -37,6 +37,7 @@ const layoutList: Record<string, ComponentType<CtaSectionsBlockType>> = {
 };
 
 function CtaSections({
+  rightContent,
   title = 'Action-Driving headline that creates urgency',
   variant = '1',
   content,
@@ -49,6 +50,7 @@ function CtaSections({
         title={'Action-Driving headline that creates urgency'}
         variant={variant}
         content={content}
+        rightContent={rightContent}
       />
     </Wrapper>
   );
