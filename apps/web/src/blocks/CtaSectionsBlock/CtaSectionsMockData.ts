@@ -17,7 +17,7 @@ export const ctaSection1MockData: RichTextType = {
             {
               mode: 'normal',
               text: 'CTA Section',
-              type: 'eyebrow',
+              type: 'text',
               style: '',
               detail: 0,
               format: 0,
@@ -61,6 +61,41 @@ export const ctaSection1MockData: RichTextType = {
               detail: 0,
               format: 0,
               version: 1
+            }
+          ],
+          direction: 'ltr',
+          textStyle: '',
+          textFormat: 0
+        },
+        {
+          type: 'paragraph',
+          format: 'center',
+          indent: 0,
+          version: 1,
+          children: [
+            {
+              id: '67f6c48d50b09360ee77e30c',
+              type: 'link',
+              fields: {
+                type: 'internal',
+                appearance: 'button',
+                buttonStyle: 'default'
+              },
+              format: '',
+              indent: 0,
+              version: 3,
+              children: [
+                {
+                  mode: 'normal',
+                  text: 'Get started',
+                  type: 'text',
+                  style: '',
+                  detail: 0,
+                  format: 0,
+                  version: 1
+                }
+              ],
+              direction: 'ltr'
             }
           ],
           direction: 'ltr',

@@ -1,7 +1,5 @@
 import ResponsivePayloadImage from '@mono/ui/components/primitives/ResponsivePayloadImage';
 import RichText from '@mono/web/components/RichText/index';
-import { Button } from '@mono/web/components/ui/Button';
-import { ArrowRight } from 'lucide-react';
 import React from 'react';
 import type { HeroSectionsBlockType } from '../index';
 
