@@ -10,6 +10,7 @@ import {
   RichText as LexicalRichText
 } from '@payloadcms/richtext-lexical/react';
 import React from 'react';
+import LinkConverter from './Converters/LinkConverter';
 import styles from './RichText.module.css';
 
 export type CtaSectionsBlockType = Omit<PayloadType, 'blockType'>;
@@ -40,6 +41,7 @@ const jsxConverters: JSXConvertersFunction<DefaultNodeTypes> = ({
   eyebrow: ({ node }) => {
     return <span className={cn(styles.eyebrow, 'eyebrow')}>{node?.text}</span>;
   },
+  link: LinkConverter,
   blocks: {
     embed: ({ node }: { node: SerializedBlockNode }) => {
       return (
