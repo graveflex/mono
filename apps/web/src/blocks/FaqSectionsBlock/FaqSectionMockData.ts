@@ -616,4 +616,87 @@ export const bottomContent: RichTextType = {
   }
 };
 
+export const topRightContent: RichTextType = {
+  data: {
+    root: {
+      type: 'root',
+      format: '',
+      indent: 0,
+      version: 1,
+      children: [
+        {
+          type: 'paragraph',
+          format: 'right',
+          indent: 0,
+          version: 1,
+          children: [
+            {
+              id: '67f692386ae9b36164400058',
+              type: 'link',
+              fields: {
+                type: 'internal',
+                appearance: 'button',
+                buttonStyle: 'outline'
+              },
+              format: '',
+              indent: 0,
+              version: 3,
+              children: [
+                {
+                  mode: 'normal',
+                  text: 'Contact us',
+                  type: 'text',
+                  style: '',
+                  detail: 0,
+                  format: 0,
+                  version: 1
+                }
+              ],
+              direction: 'ltr'
+            },
+            {
+              mode: 'normal',
+              text: ' ',
+              type: 'text',
+              style: '',
+              detail: 0,
+              format: 0,
+              version: 1
+            },
+            {
+              id: '67f6924c6ae9b36164400059',
+              type: 'link',
+              fields: {
+                type: 'external',
+                appearance: 'button',
+                buttonStyle: 'outline',
+                externalUrl: 'https://www.google.com'
+              },
+              format: '',
+              indent: 0,
+              version: 3,
+              children: [
+                {
+                  mode: 'normal',
+                  text: 'View documentation',
+                  type: 'text',
+                  style: '',
+                  detail: 0,
+                  format: 0,
+                  version: 1
+                }
+              ],
+              direction: 'ltr'
+            }
+          ],
+          direction: 'ltr',
+          textStyle: '',
+          textFormat: 0
+        }
+      ],
+      direction: 'ltr'
+    }
+  }
+};
+
 export default FaqItems;

@@ -4,7 +4,8 @@ import FaqSectionsBlock from '.';
 import FaqItems, {
   FaqBlockContent,
   FaqBlockContentLeftAligned,
-  bottomContent
+  bottomContent,
+  topRightContent
 } from './FaqSectionMockData';
 
 import MakeVariations from '@mono/web/payload/utils/makeStoryBookVariations';
@@ -43,7 +44,8 @@ export const Variant3: Story = {
   args: {
     variant: '3',
     content: FaqBlockContentLeftAligned?.data,
-    items: FaqItems
+    items: FaqItems,
+    topRightContent: topRightContent?.data
   }
 };
 export const Variant4: Story = {

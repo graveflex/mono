@@ -26,6 +26,7 @@ function FaqSectionsBlock({
   bottomContent,
   content,
   items,
+  topRightContent,
   variant,
   ...props
 }: FaqSectionsBlockType) {
@@ -37,6 +38,7 @@ function FaqSectionsBlock({
         bottomContent={bottomContent}
         content={content}
         items={items}
+        topRightContent={topRightContent}
         variant={variant}
       />
     </Wrapper>

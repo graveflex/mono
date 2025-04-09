@@ -24,6 +24,7 @@ import {
 import type { Block } from 'payload';
 
 const variantsWithBttmContent = ['1'];
+const variantsWithTopSplitContent = ['3'];
 
 const FaqSectionsBlock = (prefix: string): Block => ({
   slug: 'faqSectionsBlock',
@@ -38,6 +39,23 @@ const FaqSectionsBlock = (prefix: string): Block => ({
       type: 'richText',
       localized: true,
       required: false
+    },
+    {
+      name: 'topRightContent',
+      label: 'Top Right Content',
+      type: 'richText',
+      localized: true,
+      required: false,
+      admin: {
+        description:
+          'On desktop, the top content section is split in half. This field corresponds to the right side on desktop.',
+        condition: (_, siblingData) => {
+          if (variantsWithTopSplitContent.includes(siblingData.variant)) {
+            return true;
+          }
+          return false;
+        }
+      }
     },
     {
       name: 'items',

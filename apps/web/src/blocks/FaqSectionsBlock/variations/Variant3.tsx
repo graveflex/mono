@@ -1,9 +1,11 @@
 import RichText from '@mono/web/components/RichText/index';
-import { Button } from '@mono/web/components/ui/Button';
-import { ArrowUpRight } from 'lucide-react';
 import type { FaqSectionsBlockType } from '..';
 
-export default function Variant3({ content, items }: FaqSectionsBlockType) {
+export default function Variant3({
+  content,
+  items,
+  topRightContent
+}: FaqSectionsBlockType) {
   return (
     <section
       className="bg-background py-16 md:py-24"
@@ -14,28 +16,15 @@ export default function Variant3({ content, items }: FaqSectionsBlockType) {
           {/* Section Header */}
           <div className="flex flex-col lg:flex-row justify-between lg:items-end gap-6">
             {/* Header Content */}
-            <div className="flex flex-col gap-4 md:gap-5 max-w-xl text-center md:text-left">
+            <div className="flex flex-col gap-4 md:gap-5 flex-1 text-center md:text-left">
               {content && <RichText data={content} />}
             </div>
 
             {/* Action Buttons */}
-            <div className="flex flex-col md:flex-row gap-3">
-              <Button
-                variant="outline"
-                aria-label="Contact our support team"
-                className="text-foreground"
-              >
-                Contact us
-                <ArrowUpRight />
-              </Button>
-              <Button
-                variant="outline"
-                aria-label="View documentation"
-                className="text-foreground"
-              >
-                View documentation
-                <ArrowUpRight />
-              </Button>
+            <div className="flex flex-col flex-1 md:flex-row gap-3">
+              {topRightContent && (
+                <RichText className="flex-1" data={topRightContent} />
+              )}
             </div>
           </div>
 
@@ -53,9 +42,9 @@ export default function Variant3({ content, items }: FaqSectionsBlockType) {
                 <h3 className="text-base font-semibold text-card-foreground">
                   {item.title}
                 </h3>
-                <p className="text-base text-muted-foreground">
+                <div className="text-base text-muted-foreground">
                   {item?.description && <RichText data={item?.description} />}
-                </p>
+                </div>
               </div>
             ))}
           </div>
