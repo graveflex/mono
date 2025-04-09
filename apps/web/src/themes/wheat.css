@@ -1,0 +1,102 @@
+@import 'tailwindcss';
+
+@plugin 'tailwindcss-animate';
+@source './safelist.css';
+
+.wheat {
+  --background: 34, 100%, 92%;
+  --foreground: 23, 83%, 31%;
+  --card: 32, 98%, 83%;
+  --card-foreground: 23, 83%, 31%;
+  --popover: 34, 100%, 92%;
+  --popover-foreground: 23, 83%, 31%;
+  --primary: 23, 83%, 31%;
+  --primary-foreground: 34, 100%, 92%;
+  --secondary: 23, 83%, 31%;
+  --secondary-foreground: 34, 100%, 92%;
+  --muted: 32, 98%, 83%;
+  --muted-foreground: 26, 90%, 37%;
+  --accent: 23, 83%, 31%;
+  --accent-foreground: 34, 100%, 92%;
+  --destructive: 0 72% 51%;
+  --destructive-foreground: 0 86% 97%;
+  --border: 23, 83%, 31%;
+  --input: 23, 83%, 31%;
+  --ring: 26, 90%, 37%;
+  --radius: 0.5rem; 
+  --chart-1: 173 58% 39%;
+  --chart-2: 12 76% 61%;
+  --chart-3: 197 37% 24%;
+  --chart-4: 43 74% 66%;
+  --chart-5: 27 87% 67%;
+  --sidebar-background: 32, 98%, 83%;
+  --sidebar-foreground: 23, 83%, 31%;
+  --sidebar-primary: 23, 83%, 31%;
+  --sidebar-primary-foreground: 34, 100%, 92%;
+  --sidebar-accent: 23, 83%, 31%;
+  --sidebar-accent-foreground: 34, 100%, 92%;
+  --sidebar-border: 23, 83%, 31%;
+  --sidebar-ring: 23, 83%, 31%;
+
+  --default-font-heading: var(--font-libre-caslon);
+  --default-font-body: var(--font-manrope);
+
+  h1, .h1 {
+    @apply
+      text-5xl
+      md:text-7xl
+      font-normal
+      tracking-tight;
+  }
+
+  h2, .h2 {
+    @apply
+      text-4xl
+      font-semibold
+      tracking-tight;
+  }
+
+  h3, .h3 {
+    @apply
+      text-2xl
+      font-semibold
+      tracking-tight;
+  }
+
+  h4, .h4 {
+    @apply
+      text-xl
+      font-semibold
+      tracking-tight;
+  }
+
+  p {
+    @apply
+      text-base
+      font-normal
+      tracking-normal;
+  }
+
+  blockquote {
+    @apply
+      text-base
+      font-normal
+      tracking-normal
+      italic;
+  }
+
+  ul, ol {
+    @apply
+      text-base
+      font-normal
+      tracking-normal;
+  }
+
+  code {
+    @apply
+      font-mono
+      text-sm
+      font-semibold
+      tracking-normal;
+  }
+}

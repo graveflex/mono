@@ -19,7 +19,8 @@ const config: StorybookConfig = {
         rules: []
       }
     },
-    '@storybook/experimental-addon-test'
+    '@storybook/experimental-addon-test',
+    '@storybook/addon-themes'
   ],
   framework: {
     name: '@storybook/experimental-nextjs-vite',

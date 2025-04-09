@@ -1,124 +1,8 @@
 @reference "./../../app/global.css";
 
 .richtext {
-  @apply grid gap-y-5;
-}
-
-.richtext h1 {
-  @apply
-    mt-5
-    text-3xl
-    md:text-5xl
-    font-bold;
-}
-
-.richtext h2 {
-  @apply
-    mt-5
-    text-3xl
-    font-semibold
-    tracking-tight
-    first:mt-0;
-}
-
-.richtext h3 {
-  @apply
-    mt-3
-    scroll-m-20
-    text-2xl
-    font-semibold
-    tracking-tight
-    first:mt-0;
-}
-
-.richtext h4 {
-  @apply
-    mt-3
-    scroll-m-20
-    text-xl
-    font-semibold
-    tracking-tight
-    first:mt-0;
-}
-
-.richtext h5 {
-  @apply
-    mt-2
-    scroll-m-20
-    text-xl
-    font-semibold
-    tracking-tight;
-}
-
-.richtext h6 {
-  @apply
-    mt-2
-    scroll-m-20
-    text-xl
-    font-semibold
-    tracking-tight;
-}
-
-.richtext p {
-  @apply
-    leading-7
-    [&:not(:first-child)]:mt-6;
-}
-
-.richtext blockquote {
-  @apply
-    border-l-2
-    pl-6
-    italic;
-}
-
-.richtext ul {
-  @apply
-    ml-6
-    list-disc
-    [&>li:not(:first-child)]:mt-2;
-}
-
-.richtext ol {
-  @apply
-    ml-6
-    list-decimal
-    [&>li:not(:first-child)]:mt-2;
-}
-
-.richtext code {
-  @apply
-    relative
-    rounded
-    bg-muted
-    px-[0.3rem]
-    py-[0.2rem]
-    font-mono
-    text-sm
-    font-semibold;
-}
-
-.richtext table {
-  @apply w-full my-0;
-}
-
-.richtext tbody tr {
-  @apply
-    m-0
-    border-t
-    p-0
-    even:bg-muted;
-}
-
-.richtext tbody tr th {
-  @apply
-    border
-    px-4
-    py-2
-    text-left
-    font-bold
-    [&[align=center]]:text-center
-    [&[align=right]]:text-right;
+  @apply grid;
+  /* @apply grid gap-y-5; */
 }
 
 .eyebrow {
@@ -126,4 +10,9 @@
     text-sm
     md:text-base
     opacity-80;
+}
+
+.modal {
+  @apply
+    bg-background
 }

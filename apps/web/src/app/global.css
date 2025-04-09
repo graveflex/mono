@@ -1,9 +1,11 @@
 @import 'tailwindcss';
+@import './../themes/wheat.css';
 
 @plugin 'tailwindcss-animate';
 @source './safelist.css';
 
 @custom-variant dark (&:where(.dark, .dark *));
+@custom-variant wheat (&:where(.wheat, .wheat *));
 
 @theme inline {
   --color-background: hsl(var(--background));
@@ -52,6 +54,9 @@
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
+
+  --font-heading: var(--default-font-heading);
+  --font-body: var(--default-font-body);
 }
 
 /*
@@ -82,8 +87,8 @@
     --primary-foreground: 0 0% 98%;
     --secondary: 240 4.8% 95.9%;
     --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
     --accent: 240 4.8% 95.9%;
     --accent-foreground: 240 5.9% 10%;
     --destructive: 0 84.2% 60.2%;
@@ -105,6 +110,9 @@
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    --default-font-heading: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --default-font-body: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   }
 
   .dark {
@@ -120,7 +128,7 @@
     --secondary-foreground: 0 0% 98%;
     --muted: 240 3.7% 15.9%;
     --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
+    --accent: 0 0% 98%;
     --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
@@ -140,13 +148,127 @@
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
-  }
+
+    --default-font-heading: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --default-font-body: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    }
 
   * {
     @apply border-border;
+    font-family: var(--font-body);
   }
   body {
     @apply bg-background text-foreground;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+  h1, .h1 {
+    @apply
+      mt-5
+      text-3xl
+      md:text-5xl
+      font-bold;
+  }
+  h2, .h2 {
+    @apply
+      mt-5
+      text-3xl
+      font-semibold
+      tracking-tight
+      first:mt-0;
+  }
+  h3, .h3 {
+    @apply
+      mt-3
+      scroll-m-20
+      text-2xl
+      font-semibold
+      tracking-tight
+      first:mt-0;
+  }
+  h4, .h4 {
+    @apply
+      mt-3
+      scroll-m-20
+      text-xl
+      font-semibold
+      tracking-tight
+      first:mt-0;
+  }
+  h5, .h5 {
+    @apply
+      mt-2
+      scroll-m-20
+      text-xl
+      font-semibold
+      tracking-tight;
+  }
+  h6, .h6 {
+    @apply
+      mt-2
+      scroll-m-20
+      text-xl
+      font-semibold
+      tracking-tight;
+  }
+  p {
+    @apply
+      leading-7
+      text-base
+      [&:not(:first-child)]:mt-6;
+  }
+  blockquote {
+    @apply
+      border-l-2
+      pl-6
+      italic;
+  }
+  ul {
+    @apply
+      ml-6
+      list-disc
+      [&>li:not(:first-child)]:mt-2;
+  }
+  ol {
+    @apply
+      ml-6
+      list-decimal
+      [&>li:not(:first-child)]:mt-2;
+  }
+  code {
+    @apply
+      relative
+      rounded
+      bg-muted
+      px-[0.3rem]
+      py-[0.2rem]
+      font-mono
+      text-sm
+      font-semibold;
+  }
+  
+  table {
+    @apply w-full my-0;
+  }
+  
+  tbody tr {
+    @apply
+      m-0
+      border-t
+      p-0
+      even:bg-muted;
+  }
+  
+  tbody tr th {
+    @apply
+      border
+      px-4
+      py-2
+      text-left
+      font-bold
+      [&[align=center]]:text-center
+      [&[align=right]]:text-right;
   }
 }
 
