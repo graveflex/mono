@@ -286,6 +286,8 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   
   CREATE TABLE IF NOT EXISTS "pageFaqSectionsBlock_locales" (
   	"content" jsonb,
+  	"top_right_content" jsonb,
+  	"bottom_content" jsonb,
   	"id" serial PRIMARY KEY NOT NULL,
   	"_locale" "_locales" NOT NULL,
   	"_parent_id" varchar NOT NULL
@@ -566,6 +568,8 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   
   CREATE TABLE IF NOT EXISTS "_pageFaqSectionsBlock_v_locales" (
   	"content" jsonb,
+  	"top_right_content" jsonb,
+  	"bottom_content" jsonb,
   	"id" serial PRIMARY KEY NOT NULL,
   	"_locale" "_locales" NOT NULL,
   	"_parent_id" integer NOT NULL
@@ -1571,6 +1575,8 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   
   CREATE TABLE IF NOT EXISTS "homepageFaqSectionsBlock_locales" (
   	"content" jsonb,
+  	"top_right_content" jsonb,
+  	"bottom_content" jsonb,
   	"id" serial PRIMARY KEY NOT NULL,
   	"_locale" "_locales" NOT NULL,
   	"_parent_id" varchar NOT NULL
@@ -1847,6 +1853,8 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   
   CREATE TABLE IF NOT EXISTS "_homepageFaqSectionsBlock_v_locales" (
   	"content" jsonb,
+  	"top_right_content" jsonb,
+  	"bottom_content" jsonb,
   	"id" serial PRIMARY KEY NOT NULL,
   	"_locale" "_locales" NOT NULL,
   	"_parent_id" integer NOT NULL
@@ -2128,6 +2136,8 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   
   CREATE TABLE IF NOT EXISTS "blogIdxFaqSectionsBlock_locales" (
   	"content" jsonb,
+  	"top_right_content" jsonb,
+  	"bottom_content" jsonb,
   	"id" serial PRIMARY KEY NOT NULL,
   	"_locale" "_locales" NOT NULL,
   	"_parent_id" varchar NOT NULL
@@ -2404,6 +2414,8 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   
   CREATE TABLE IF NOT EXISTS "_blogIdxFaqSectionsBlock_v_locales" (
   	"content" jsonb,
+  	"top_right_content" jsonb,
+  	"bottom_content" jsonb,
   	"id" serial PRIMARY KEY NOT NULL,
   	"_locale" "_locales" NOT NULL,
   	"_parent_id" integer NOT NULL
