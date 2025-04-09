@@ -31,10 +31,6 @@ function HeroSections6({ content, media }: HeroSectionsBlockType) {
           <div className="flex flex-col gap-4 lg:gap-5">
             {content && <RichText data={content} />}
           </div>
-          <Button>
-            Get started
-            <ArrowRight />
-          </Button>
         </div>
       </div>
     </section>

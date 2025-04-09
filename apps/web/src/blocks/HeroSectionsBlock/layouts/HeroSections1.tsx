@@ -28,16 +28,6 @@ function HeroSections1({
           <div className="flex flex-col gap-4 lg:gap-5">
             {content && <RichText data={content} />}
           </div>
-
-          {/* CTA Buttons */}
-          {/* TODO: Add Button Array / Link Fields to wire these up: */}
-          <div className="flex flex-col sm:flex-row gap-3">
-            <Button>Get started</Button>
-            <Button variant="ghost">
-              Explore
-              <ArrowRight />
-            </Button>
-          </div>
         </div>
 
         {/* Right Column */}

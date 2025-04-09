@@ -20,14 +20,6 @@ function HeroSections9({ content, media }: HeroSectionsBlockType) {
           <div className="flex flex-col gap-4 lg:gap-5">
             {content && <RichText data={content} />}
           </div>
-          {/* CTA Button */}
-          <Button
-            className="md:flex-1"
-            aria-label="Get started with our service"
-          >
-            Get started
-            <ArrowRight />
-          </Button>
         </div>
 
         {/* Video Section */}
