@@ -27,12 +27,6 @@ const layoutList: Record<string, ComponentType<CtaSectionsBlockType>> = {
   }),
   '5': dynamic(() => import('./layouts/CtaSections5'), {
     ...defaultOpts
-  }),
-  '6': dynamic(() => import('./layouts/CtaSections6'), {
-    ...defaultOpts
-  }),
-  '7': dynamic(() => import('./layouts/CtaSections7'), {
-    ...defaultOpts
   })
 };
 

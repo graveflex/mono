@@ -614,7 +614,7 @@ export interface CtaSectionsBlockT {
   /**
    * The layout variant for the block.
    */
-  variant: '1' | '2' | '3' | '4' | '5' | '6' | '7';
+  variant: '1' | '2' | '3' | '4' | '5';
   title?: string | null;
   content?: {
     root: {

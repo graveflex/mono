@@ -1,7 +1,7 @@
 import BlockConfig from '@mono/web/payload/fields/BlockConfig';
 import type { Block } from 'payload';
 
-const variantsWithSplitContent = ['2', '6'];
+const variantsWithSplitContent = ['2'];
 
 const CtaSectionsBlock: Block = {
   slug: 'ctaSectionsBlock',
@@ -34,14 +34,6 @@ const CtaSectionsBlock: Block = {
         {
           label: '5',
           value: '5'
-        },
-        {
-          label: '6',
-          value: '6'
-        },
-        {
-          label: '7',
-          value: '7'
         }
       ],
       admin: {

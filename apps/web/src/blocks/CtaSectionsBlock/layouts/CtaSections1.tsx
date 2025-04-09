@@ -8,7 +8,6 @@ export type CtaSectionsBlockType = Omit<PayloadType, 'blockType'>;
 import styles from '../CtaSectionsBlock.module.css';
 
 function CtaSections1({ content }: CtaSectionsBlockType) {
-  console.log('In CtaSections1.tsx, this is content: ', content);
   return (
     <section className={styles.container} aria-labelledby="cta-heading">
       <div className={styles.content}>
