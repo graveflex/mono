@@ -1,9 +1,11 @@
 import { faker } from '@faker-js/faker';
 import type { Meta, StoryObj } from '@storybook/react';
 import {
+  ctaRightContent,
   ctaSection1MockData,
   ctaSection2MockData,
-  ctaSection3_4MockData,
+  ctaSection3MockData,
+  ctaSection4MockData,
   ctaSection5MockData
 } from './CtaSectionsMockData';
 
@@ -46,7 +48,8 @@ export const Two: Story = {
     title: faker.lorem.words(5),
     variant: '2',
     content: ctaSection2MockData.data,
-    wrapper: wrapperMockData
+    wrapper: wrapperMockData,
+    rightContent: ctaRightContent.data
   }
 };
 
@@ -54,7 +57,7 @@ export const Three: Story = {
   args: {
     title: faker.lorem.words(5),
     variant: '3',
-    content: ctaSection3_4MockData.data,
+    content: ctaSection3MockData.data,
     wrapper: wrapperMockData
   }
 };
@@ -63,7 +66,7 @@ export const Four: Story = {
   args: {
     title: faker.lorem.words(5),
     variant: '4',
-    content: ctaSection3_4MockData.data,
+    content: ctaSection4MockData.data,
     wrapper: wrapperMockData
   }
 };
