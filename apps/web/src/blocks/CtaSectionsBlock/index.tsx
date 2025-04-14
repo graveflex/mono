@@ -30,11 +30,16 @@ const layoutList: Record<string, ComponentType<CtaSectionsBlockType>> = {
   })
 };
 
+export const genImgColumnOrder = (
+  imagePosition: CtaSectionsBlockType['mediaPosition']
+) => (imagePosition === 'left' ? 'lg:order-first' : 'lg:order-last');
+
 function CtaSections({
   rightContent,
   variant = '1',
   content,
   media,
+  mediaPosition,
   ...props
 }: CtaSectionsBlockType) {
   const Component: ComponentType<CtaSectionsBlockType> = layoutList[variant];
@@ -45,6 +50,7 @@ function CtaSections({
         content={content}
         rightContent={rightContent}
         media={media}
+        mediaPosition={mediaPosition}
       />
     </Wrapper>
   );

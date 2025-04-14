@@ -1,5 +1,5 @@
 {
-  "id": "73f88475-ccd3-4be1-989e-586a61b6bf6a",
+  "id": "cfef8215-7b02-4b39-a151-52f89a64dae2",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -1445,6 +1445,14 @@
           "notNull": false,
           "default": "'1'"
         },
+        "media_position": {
+          "name": "media_position",
+          "type": "enum_pages_blocks_cta_sections_block_media_position",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "'right'"
+        },
         "block_name": {
           "name": "block_name",
           "type": "varchar",
@@ -1524,12 +1532,6 @@
       "name": "pages_blocks_cta_sections_block_locales",
       "schema": "",
       "columns": {
-        "title": {
-          "name": "title",
-          "type": "varchar",
-          "primaryKey": false,
-          "notNull": false
-        },
         "content": {
           "name": "content",
           "type": "jsonb",
@@ -4391,6 +4393,14 @@
           "notNull": false,
           "default": "'1'"
         },
+        "media_position": {
+          "name": "media_position",
+          "type": "enum__pages_v_blocks_cta_sections_block_media_position",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "'right'"
+        },
         "_uuid": {
           "name": "_uuid",
           "type": "varchar",
@@ -4476,12 +4486,6 @@
       "name": "_pages_v_blocks_cta_sections_block_locales",
       "schema": "",
       "columns": {
-        "title": {
-          "name": "title",
-          "type": "varchar",
-          "primaryKey": false,
-          "notNull": false
-        },
         "content": {
           "name": "content",
           "type": "jsonb",
@@ -15984,6 +15988,14 @@
           "notNull": false,
           "default": "'1'"
         },
+        "media_position": {
+          "name": "media_position",
+          "type": "enum_homepage_blocks_cta_sections_block_media_position",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "'right'"
+        },
         "block_name": {
           "name": "block_name",
           "type": "varchar",
@@ -16063,12 +16075,6 @@
       "name": "homepage_blocks_cta_sections_block_locales",
       "schema": "",
       "columns": {
-        "title": {
-          "name": "title",
-          "type": "varchar",
-          "primaryKey": false,
-          "notNull": false
-        },
         "content": {
           "name": "content",
           "type": "jsonb",
@@ -18842,6 +18848,14 @@
           "notNull": false,
           "default": "'1'"
         },
+        "media_position": {
+          "name": "media_position",
+          "type": "enum__homepage_v_blocks_cta_sections_block_media_position",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "'right'"
+        },
         "_uuid": {
           "name": "_uuid",
           "type": "varchar",
@@ -18927,12 +18941,6 @@
       "name": "_homepage_v_blocks_cta_sections_block_locales",
       "schema": "",
       "columns": {
-        "title": {
-          "name": "title",
-          "type": "varchar",
-          "primaryKey": false,
-          "notNull": false
-        },
         "content": {
           "name": "content",
           "type": "jsonb",
@@ -21817,6 +21825,14 @@
           "notNull": false,
           "default": "'1'"
         },
+        "media_position": {
+          "name": "media_position",
+          "type": "enum_blog_index_blocks_cta_sections_block_media_position",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "'right'"
+        },
         "block_name": {
           "name": "block_name",
           "type": "varchar",
@@ -21896,12 +21912,6 @@
       "name": "blog_index_blocks_cta_sections_block_locales",
       "schema": "",
       "columns": {
-        "title": {
-          "name": "title",
-          "type": "varchar",
-          "primaryKey": false,
-          "notNull": false
-        },
         "content": {
           "name": "content",
           "type": "jsonb",
@@ -24675,6 +24685,14 @@
           "notNull": false,
           "default": "'1'"
         },
+        "media_position": {
+          "name": "media_position",
+          "type": "enum__blog_index_v_blocks_cta_sections_block_media_position",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "'right'"
+        },
         "_uuid": {
           "name": "_uuid",
           "type": "varchar",
@@ -24760,12 +24778,6 @@
       "name": "_blog_index_v_blocks_cta_sections_block_locales",
       "schema": "",
       "columns": {
-        "title": {
-          "name": "title",
-          "type": "varchar",
-          "primaryKey": false,
-          "notNull": false
-        },
         "content": {
           "name": "content",
           "type": "jsonb",
@@ -26399,6 +26411,14 @@
         "5"
       ]
     },
+    "public.enum_pages_blocks_cta_sections_block_media_position": {
+      "name": "enum_pages_blocks_cta_sections_block_media_position",
+      "schema": "public",
+      "values": [
+        "left",
+        "right"
+      ]
+    },
     "public.enum_pages_blocks_feature_section_wrapper_theme": {
       "name": "enum_pages_blocks_feature_section_wrapper_theme",
       "schema": "public",
@@ -26650,6 +26670,14 @@
         "3",
         "4",
         "5"
+      ]
+    },
+    "public.enum__pages_v_blocks_cta_sections_block_media_position": {
+      "name": "enum__pages_v_blocks_cta_sections_block_media_position",
+      "schema": "public",
+      "values": [
+        "left",
+        "right"
       ]
     },
     "public.enum__pages_v_blocks_feature_section_wrapper_theme": {
@@ -27123,6 +27151,14 @@
         "5"
       ]
     },
+    "public.enum_homepage_blocks_cta_sections_block_media_position": {
+      "name": "enum_homepage_blocks_cta_sections_block_media_position",
+      "schema": "public",
+      "values": [
+        "left",
+        "right"
+      ]
+    },
     "public.enum_homepage_blocks_feature_section_wrapper_theme": {
       "name": "enum_homepage_blocks_feature_section_wrapper_theme",
       "schema": "public",
@@ -27367,6 +27403,14 @@
         "5"
       ]
     },
+    "public.enum__homepage_v_blocks_cta_sections_block_media_position": {
+      "name": "enum__homepage_v_blocks_cta_sections_block_media_position",
+      "schema": "public",
+      "values": [
+        "left",
+        "right"
+      ]
+    },
     "public.enum__homepage_v_blocks_feature_section_wrapper_theme": {
       "name": "enum__homepage_v_blocks_feature_section_wrapper_theme",
       "schema": "public",
@@ -27605,6 +27649,14 @@
         "3",
         "4",
         "5"
+      ]
+    },
+    "public.enum_blog_index_blocks_cta_sections_block_media_position": {
+      "name": "enum_blog_index_blocks_cta_sections_block_media_position",
+      "schema": "public",
+      "values": [
+        "left",
+        "right"
       ]
     },
     "public.enum_blog_index_blocks_feature_section_wrapper_theme": {
@@ -27849,6 +27901,14 @@
         "3",
         "4",
         "5"
+      ]
+    },
+    "public.enum__blog_index_v_blocks_cta_sections_block_media_position": {
+      "name": "enum__blog_index_v_blocks_cta_sections_block_media_position",
+      "schema": "public",
+      "values": [
+        "left",
+        "right"
       ]
     },
     "public.enum__blog_index_v_blocks_feature_section_wrapper_theme": {

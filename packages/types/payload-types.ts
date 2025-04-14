@@ -631,7 +631,7 @@ export interface CtaSectionsBlockT {
     [k: string]: unknown;
   } | null;
   /**
-   * All variants accept images or video except variant 2. Variant 2 only allows images.
+   * Image or video.
    */
   media?:
     | ({
@@ -642,6 +642,10 @@ export interface CtaSectionsBlockT {
         relationTo: 'videos';
         value: number | Video;
       } | null);
+  /**
+   * For certain variants, the position of the image on desktop screens.
+   */
+  mediaPosition?: ('left' | 'right') | null;
   /**
    * On desktop, the content section is split in half. This field corresponds to the right side on desktop.
    */
@@ -1915,6 +1919,7 @@ export interface CtaSectionsBlockTSelect<T extends boolean = true> {
   variant?: T;
   content?: T;
   media?: T;
+  mediaPosition?: T;
   rightContent?: T;
   id?: T;
   blockName?: T;

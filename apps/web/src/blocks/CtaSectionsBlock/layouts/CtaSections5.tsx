@@ -3,14 +3,16 @@ import RichText from '@mono/web/components/RichText/index';
 import Video from '@mono/web/components/Video';
 import React from 'react';
 
+import { genImgColumnOrder } from '@mono/web/blocks/CtaSectionsBlock';
 import { AspectRatio } from '@mono/web/components/ui/AspectRatio';
 
 import ResponsivePayloadImage from '@mono/ui/components/primitives/ResponsivePayloadImage';
 
 export type CtaSectionsBlockType = Omit<PayloadType, 'blockType'>;
 
-function CtaSections5({ content, media }: CtaSectionsBlockType) {
+function CtaSections5({ content, media, mediaPosition }: CtaSectionsBlockType) {
   const mediaRelation = media?.relationTo;
+  const imgColumnOrder = genImgColumnOrder(mediaPosition);
 
   return (
     <section
@@ -28,7 +30,9 @@ function CtaSections5({ content, media }: CtaSectionsBlockType) {
               </div>
             </div>
             {/* Right Column - Image */}
-            <div className="flex flex-1 w-full pl-6 lg:pl-0">
+            <div
+              className={`flex flex-1 w-full pl-6 lg:pl-0 ${imgColumnOrder}`}
+            >
               <AspectRatio ratio={4 / 3}>
                 {mediaRelation === 'videos' &&
                 typeof media?.value === 'number' ? (

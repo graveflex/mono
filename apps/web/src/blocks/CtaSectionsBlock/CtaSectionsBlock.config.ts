@@ -56,8 +56,33 @@ const CtaSectionsBlock: Block = {
       hasMany: false,
       required: true,
       admin: {
+        description: 'Image or video.',
+        condition: (_, siblingData) => {
+          if (variantsWithMedia.includes(siblingData.variant)) {
+            return true;
+          }
+          return false;
+        }
+      }
+    },
+    {
+      name: 'mediaPosition',
+      label: 'Media Position',
+      type: 'select',
+      options: [
+        {
+          label: 'Left',
+          value: 'left'
+        },
+        {
+          label: 'Right',
+          value: 'right'
+        }
+      ],
+      defaultValue: 'right',
+      admin: {
         description:
-          'All variants accept images or video except variant 2. Variant 2 only allows images.',
+          'For certain variants, the position of the image on desktop screens.',
         condition: (_, siblingData) => {
           if (variantsWithMedia.includes(siblingData.variant)) {
             return true;
