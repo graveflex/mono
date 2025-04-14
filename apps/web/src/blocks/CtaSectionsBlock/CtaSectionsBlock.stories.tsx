@@ -75,7 +75,7 @@ export const Five: Story = {
   args: {
     title: faker.lorem.words(5),
     variant: '5',
-    content: ctaSection5MockData.data,
+    content: ctaSection3MockData.data,
     wrapper: wrapperMockData
   }
 };
