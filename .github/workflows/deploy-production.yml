@@ -97,7 +97,9 @@ jobs:
           db_url_unpooled="${{ steps.create_branch.outputs.db_url }}?sslmode=require"
           commit_sha="${{ env.COMMIT_SHA }}"
           pr_id="${{ github.event.number }}"
+          payload_secret=${{ secrets.PAYLOAD_SECRET }}
           author_name="${{ env.AUTHOR_NAME }}"
+          pr_domain=${{ needs.build_app.outputs.vercel_domain }}
           commit_message="$(git log -1 --pretty=format:'%s' $commit_sha)"
           gh_username="${{ github.actor }}"
           token="${{ env.VERCEL_TOKEN }}"
@@ -111,6 +113,8 @@ jobs:
             -b DATABASE_URL="$db_url" \
             -e SERVER_URL="$pr_domain" \
             -b SERVER_URL="$pr_domain" \
+            -e PAYLOAD_SECRET="$payload_secret" \
+            -b PAYLOAD_SECRET="$payload_secret" \
             -e VERCEL_GIT_COMMIT_REF="$branch_name" \
             -b VERCEL_GIT_COMMIT_REF="$branch_name" \
             -m githubCommitRef="$branch_name" \
