@@ -1,4 +1,5 @@
 import { Check } from 'lucide-react';
+import type { FeatureSectionType } from '..';
 
 export default function Variant13() {
   return (

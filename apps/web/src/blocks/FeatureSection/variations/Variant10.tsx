@@ -1,5 +1,6 @@
 import { ArrowRight, Rocket } from 'lucide-react';
 import Link from 'next/link';
+import type { FeatureSectionType } from '..';
 
 export default function Variant10() {
   return (

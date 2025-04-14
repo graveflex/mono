@@ -1,5 +1,6 @@
 import { AspectRatio } from '@mono/web/components/ui/AspectRatio';
 import Image from 'next/image';
+import type { FeatureSectionType } from '..';
 
 export default function Variant14() {
   return (

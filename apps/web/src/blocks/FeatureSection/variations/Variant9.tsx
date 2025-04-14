@@ -1,4 +1,5 @@
 import { Rocket } from 'lucide-react';
+import type { FeatureSectionType } from '..';
 
 export default function Variant9() {
   return (

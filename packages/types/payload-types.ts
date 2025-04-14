@@ -668,6 +668,21 @@ export interface FeatureSection {
    * The layout variant for the block.
    */
   variant: '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12' | '13' | '14';
+  content?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'featureSection';
@@ -1926,6 +1941,7 @@ export interface FeatureSectionSelect<T extends boolean = true> {
             };
       };
   variant?: T;
+  content?: T;
   id?: T;
   blockName?: T;
 }

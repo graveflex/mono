@@ -1,6 +1,7 @@
 import { AspectRatio } from '@mono/web/components/ui/AspectRatio';
 import { Rocket } from 'lucide-react';
 import Image from 'next/image';
+import type { FeatureSectionType } from '..';
 
 export default function Variant11() {
   return (

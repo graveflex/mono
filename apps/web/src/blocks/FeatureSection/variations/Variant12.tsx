@@ -3,6 +3,7 @@ import { Avatar, AvatarImage } from '@mono/web/components/ui/Avatar';
 import { Button } from '@mono/web/components/ui/Button';
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
+import type { FeatureSectionType } from '..';
 
 export default function Variant12() {
   return (

@@ -32,12 +32,12 @@ const Variants = {
   '14': dynamic(() => import('./variations/Variant5'), { ...defaultOpts })
 };
 
-function FeatureSection({ variant, ...props }: FeatureSectionType) {
+function FeatureSection({ content, variant, ...props }: FeatureSectionType) {
   const VariantComponent = Variants[variant];
 
   return (
     <Wrapper {...props.wrapper}>
-      <VariantComponent />
+      <VariantComponent content={content} />
     </Wrapper>
   );
 }
