@@ -64,6 +64,7 @@ const getContainerClasses = (props: BlockWrapperProps) => {
   return cva([
     ...getPaddingClasses('pt', 'paddingTop', props),
     ...getPaddingClasses('pb', 'paddingBottom', props),
+    props?.fullWidthThemeBg ? 'bg-background' : '',
     props.className
   ])({});
 };

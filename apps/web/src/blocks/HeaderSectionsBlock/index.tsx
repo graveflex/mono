@@ -17,19 +17,19 @@ const defaultOpts = {
 
 const Variants = {
   '1': dynamic(() => import('./variations/Variant1'), { ...defaultOpts }),
-  '2': dynamic(() => import('./variations/Variant2'), { ...defaultOpts }),
-  '3': dynamic(() => import('./variations/Variant3'), { ...defaultOpts }),
-  '4': dynamic(() => import('./variations/Variant4'), { ...defaultOpts }),
-  '5': dynamic(() => import('./variations/Variant5'), { ...defaultOpts }),
-  '6': dynamic(() => import('./variations/Variant6'), { ...defaultOpts })
+  '2': dynamic(() => import('./variations/Variant2'), { ...defaultOpts })
 };
 
-function HeaderSectionsBlock({ variant, ...props }: HeaderSectionsBlockType) {
+function HeaderSectionsBlock({
+  content,
+  variant,
+  wrapper
+}: HeaderSectionsBlockType) {
   const VariantComponent = Variants[variant];
 
   return (
-    <Wrapper {...props.wrapper}>
-      <VariantComponent />
+    <Wrapper {...wrapper}>
+      <VariantComponent content={content} variant={variant} />
     </Wrapper>
   );
 }

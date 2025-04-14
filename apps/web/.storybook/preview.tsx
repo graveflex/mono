@@ -11,6 +11,9 @@ export const parameters = {
       date: /Date$/
     }
   },
+  nextjs: {
+    appDirectory: true
+  },
 
   // necessary for react 19
   reactOptions: {

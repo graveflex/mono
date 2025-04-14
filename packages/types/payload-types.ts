@@ -240,7 +240,6 @@ export interface Page {
         | BannersBlockT
         | CtaSectionsBlockT
         | FeatureSection
-        | HeaderSectionBlockT
         | HeroSectionsBlockT
         | BlogSectionT
       )[]
@@ -276,6 +275,10 @@ export interface PricingSectionsBlockT {
   wrapper?: {
     theme?: ('_' | 'light' | 'dark') | null;
     contentWidth?: ('full' | 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs') | null;
+    /**
+     * Set this to true if you want the block theme background to extend all the way to the edge of the browsers screen.
+     */
+    fullWidthThemeBg?: boolean | null;
     paddingXs?: {
       paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
       paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
@@ -309,6 +312,10 @@ export interface TestimonialsSectionsBlockT {
   wrapper?: {
     theme?: ('_' | 'light' | 'dark') | null;
     contentWidth?: ('full' | 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs') | null;
+    /**
+     * Set this to true if you want the block theme background to extend all the way to the edge of the browsers screen.
+     */
+    fullWidthThemeBg?: boolean | null;
     paddingXs?: {
       paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
       paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
@@ -342,6 +349,10 @@ export interface HeaderSectionsBlockT {
   wrapper?: {
     theme?: ('_' | 'light' | 'dark') | null;
     contentWidth?: ('full' | 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs') | null;
+    /**
+     * Set this to true if you want the block theme background to extend all the way to the edge of the browsers screen.
+     */
+    fullWidthThemeBg?: boolean | null;
     paddingXs?: {
       paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
       paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
@@ -362,7 +373,22 @@ export interface HeaderSectionsBlockT {
   /**
    * The layout variant for the block.
    */
-  variant: '1' | '2' | '3' | '4' | '5' | '6';
+  variant: '1' | '2';
+  content?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'headerSectionsBlock';
@@ -375,6 +401,10 @@ export interface ContactSectionsBlockT {
   wrapper?: {
     theme?: ('_' | 'light' | 'dark') | null;
     contentWidth?: ('full' | 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs') | null;
+    /**
+     * Set this to true if you want the block theme background to extend all the way to the edge of the browsers screen.
+     */
+    fullWidthThemeBg?: boolean | null;
     paddingXs?: {
       paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
       paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
@@ -408,6 +438,10 @@ export interface FaqSectionsBlockT {
   wrapper?: {
     theme?: ('_' | 'light' | 'dark') | null;
     contentWidth?: ('full' | 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs') | null;
+    /**
+     * Set this to true if you want the block theme background to extend all the way to the edge of the browsers screen.
+     */
+    fullWidthThemeBg?: boolean | null;
     paddingXs?: {
       paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
       paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
@@ -519,6 +553,10 @@ export interface BannersBlockT {
   wrapper?: {
     theme?: ('_' | 'light' | 'dark') | null;
     contentWidth?: ('full' | 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs') | null;
+    /**
+     * Set this to true if you want the block theme background to extend all the way to the edge of the browsers screen.
+     */
+    fullWidthThemeBg?: boolean | null;
     paddingXs?: {
       paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
       paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
@@ -552,6 +590,10 @@ export interface CtaSectionsBlockT {
   wrapper?: {
     theme?: ('_' | 'light' | 'dark') | null;
     contentWidth?: ('full' | 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs') | null;
+    /**
+     * Set this to true if you want the block theme background to extend all the way to the edge of the browsers screen.
+     */
+    fullWidthThemeBg?: boolean | null;
     paddingXs?: {
       paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
       paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
@@ -601,6 +643,10 @@ export interface FeatureSection {
   wrapper?: {
     theme?: ('_' | 'light' | 'dark') | null;
     contentWidth?: ('full' | 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs') | null;
+    /**
+     * Set this to true if you want the block theme background to extend all the way to the edge of the browsers screen.
+     */
+    fullWidthThemeBg?: boolean | null;
     paddingXs?: {
       paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
       paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
@@ -628,46 +674,16 @@ export interface FeatureSection {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "HeaderSectionBlockT".
- */
-export interface HeaderSectionBlockT {
-  wrapper?: {
-    theme?: ('_' | 'light' | 'dark') | null;
-    contentWidth?: ('full' | 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs') | null;
-    paddingXs?: {
-      paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
-      paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
-    };
-    paddingMd?: {
-      paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
-      paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
-    };
-    paddingLg?: {
-      paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
-      paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
-    };
-    paddingXl?: {
-      paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
-      paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
-    };
-  };
-  /**
-   * The layout variant for the block.
-   */
-  variant: '1' | '2' | '3' | '4' | '5' | '6';
-  title?: string | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'headerSectionBlock';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "HeroSectionsBlockT".
  */
 export interface HeroSectionsBlockT {
   wrapper?: {
     theme?: ('_' | 'light' | 'dark') | null;
     contentWidth?: ('full' | 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs') | null;
+    /**
+     * Set this to true if you want the block theme background to extend all the way to the edge of the browsers screen.
+     */
+    fullWidthThemeBg?: boolean | null;
     paddingXs?: {
       paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
       paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
@@ -826,6 +842,10 @@ export interface BlogSectionT {
   wrapper?: {
     theme?: ('_' | 'light' | 'dark') | null;
     contentWidth?: ('full' | 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs') | null;
+    /**
+     * Set this to true if you want the block theme background to extend all the way to the edge of the browsers screen.
+     */
+    fullWidthThemeBg?: boolean | null;
     paddingXs?: {
       paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
       paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
@@ -1557,7 +1577,6 @@ export interface PagesSelect<T extends boolean = true> {
         bannersBlock?: T | BannersBlockTSelect<T>;
         ctaSectionsBlock?: T | CtaSectionsBlockTSelect<T>;
         featureSection?: T | FeatureSectionSelect<T>;
-        headerSectionBlock?: T | HeaderSectionBlockTSelect<T>;
         heroSectionsBlock?: T | HeroSectionsBlockTSelect<T>;
         blogSection?: T | BlogSectionTSelect<T>;
       };
@@ -1587,6 +1606,7 @@ export interface PricingSectionsBlockTSelect<T extends boolean = true> {
     | {
         theme?: T;
         contentWidth?: T;
+        fullWidthThemeBg?: T;
         paddingXs?:
           | T
           | {
@@ -1626,6 +1646,7 @@ export interface TestimonialsSectionsBlockTSelect<T extends boolean = true> {
     | {
         theme?: T;
         contentWidth?: T;
+        fullWidthThemeBg?: T;
         paddingXs?:
           | T
           | {
@@ -1665,6 +1686,7 @@ export interface HeaderSectionsBlockTSelect<T extends boolean = true> {
     | {
         theme?: T;
         contentWidth?: T;
+        fullWidthThemeBg?: T;
         paddingXs?:
           | T
           | {
@@ -1691,6 +1713,7 @@ export interface HeaderSectionsBlockTSelect<T extends boolean = true> {
             };
       };
   variant?: T;
+  content?: T;
   id?: T;
   blockName?: T;
 }
@@ -1704,6 +1727,7 @@ export interface ContactSectionsBlockTSelect<T extends boolean = true> {
     | {
         theme?: T;
         contentWidth?: T;
+        fullWidthThemeBg?: T;
         paddingXs?:
           | T
           | {
@@ -1743,6 +1767,7 @@ export interface FaqSectionsBlockTSelect<T extends boolean = true> {
     | {
         theme?: T;
         contentWidth?: T;
+        fullWidthThemeBg?: T;
         paddingXs?:
           | T
           | {
@@ -1792,6 +1817,7 @@ export interface BannersBlockTSelect<T extends boolean = true> {
     | {
         theme?: T;
         contentWidth?: T;
+        fullWidthThemeBg?: T;
         paddingXs?:
           | T
           | {
@@ -1831,6 +1857,7 @@ export interface CtaSectionsBlockTSelect<T extends boolean = true> {
     | {
         theme?: T;
         contentWidth?: T;
+        fullWidthThemeBg?: T;
         paddingXs?:
           | T
           | {
@@ -1872,6 +1899,7 @@ export interface FeatureSectionSelect<T extends boolean = true> {
     | {
         theme?: T;
         contentWidth?: T;
+        fullWidthThemeBg?: T;
         paddingXs?:
           | T
           | {
@@ -1898,46 +1926,6 @@ export interface FeatureSectionSelect<T extends boolean = true> {
             };
       };
   variant?: T;
-  id?: T;
-  blockName?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "HeaderSectionBlockT_select".
- */
-export interface HeaderSectionBlockTSelect<T extends boolean = true> {
-  wrapper?:
-    | T
-    | {
-        theme?: T;
-        contentWidth?: T;
-        paddingXs?:
-          | T
-          | {
-              paddingTop?: T;
-              paddingBottom?: T;
-            };
-        paddingMd?:
-          | T
-          | {
-              paddingTop?: T;
-              paddingBottom?: T;
-            };
-        paddingLg?:
-          | T
-          | {
-              paddingTop?: T;
-              paddingBottom?: T;
-            };
-        paddingXl?:
-          | T
-          | {
-              paddingTop?: T;
-              paddingBottom?: T;
-            };
-      };
-  variant?: T;
-  title?: T;
   id?: T;
   blockName?: T;
 }
@@ -1951,6 +1939,7 @@ export interface HeroSectionsBlockTSelect<T extends boolean = true> {
     | {
         theme?: T;
         contentWidth?: T;
+        fullWidthThemeBg?: T;
         paddingXs?:
           | T
           | {
@@ -1993,6 +1982,7 @@ export interface BlogSectionTSelect<T extends boolean = true> {
     | {
         theme?: T;
         contentWidth?: T;
+        fullWidthThemeBg?: T;
         paddingXs?:
           | T
           | {
@@ -2654,7 +2644,6 @@ export interface Homepage {
         | BannersBlockT
         | CtaSectionsBlockT
         | FeatureSection
-        | HeaderSectionBlockT
         | HeroSectionsBlockT
         | BlogSectionT
       )[]
@@ -2686,7 +2675,6 @@ export interface BlogIndex {
         | BannersBlockT
         | CtaSectionsBlockT
         | FeatureSection
-        | HeaderSectionBlockT
         | HeroSectionsBlockT
         | BlogSectionT
       )[]
@@ -2801,7 +2789,6 @@ export interface HomepageSelect<T extends boolean = true> {
         bannersBlock?: T | BannersBlockTSelect<T>;
         ctaSectionsBlock?: T | CtaSectionsBlockTSelect<T>;
         featureSection?: T | FeatureSectionSelect<T>;
-        headerSectionBlock?: T | HeaderSectionBlockTSelect<T>;
         heroSectionsBlock?: T | HeroSectionsBlockTSelect<T>;
         blogSection?: T | BlogSectionTSelect<T>;
       };
@@ -2830,7 +2817,6 @@ export interface BlogIndexSelect<T extends boolean = true> {
         bannersBlock?: T | BannersBlockTSelect<T>;
         ctaSectionsBlock?: T | CtaSectionsBlockTSelect<T>;
         featureSection?: T | FeatureSectionSelect<T>;
-        headerSectionBlock?: T | HeaderSectionBlockTSelect<T>;
         heroSectionsBlock?: T | HeroSectionsBlockTSelect<T>;
         blogSection?: T | BlogSectionTSelect<T>;
       };

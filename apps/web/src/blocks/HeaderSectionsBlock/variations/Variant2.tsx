@@ -1,34 +1,48 @@
-export default function Variant2() {
+'use client';
+
+import type { HeaderSectionsBlockType } from '@mono/web/blocks/HeaderSectionsBlock';
+import RichText from '@mono/web/components/RichText/index';
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbSeparator
+} from '@mono/web/components/ui/Breadcrumb';
+import startCase from 'lodash/startCase';
+import { usePathname } from 'next/navigation';
+import React, { useMemo } from 'react';
+
+export default function Variant2({ content }: HeaderSectionsBlockType) {
+  const pathname = usePathname();
+  const parsedPathname = pathname.split('/');
+
+  const Breadcrumbs = useMemo(() => {
+    const pathLength = parsedPathname?.length;
+    return (
+      <Breadcrumb aria-label="Page navigation">
+        <BreadcrumbList>
+          {parsedPathname?.map((path, idx) => {
+            const url = path === '' ? '/' : path;
+            const urlName = path === '' ? 'Home' : startCase(path);
+            return (
+              <React.Fragment key={path}>
+                <BreadcrumbItem>
+                  <BreadcrumbLink href={url}>{urlName}</BreadcrumbLink>
+                </BreadcrumbItem>
+                {idx + 1 !== pathLength && <BreadcrumbSeparator />}
+              </React.Fragment>
+            );
+          })}
+        </BreadcrumbList>
+      </Breadcrumb>
+    );
+  }, [parsedPathname]);
+
   return (
-    <section
-      className="bg-background py-16 lg:py-24"
-      aria-labelledby="page-heading"
-    >
-      <div className="container px-6 mx-auto">
-        <div className="flex flex-col gap-6 lg:gap-8 flex-1 max-w-xl">
-          <div className="flex flex-col gap-4 lg:gap-5">
-            <p
-              className="text-muted-foreground text-sm lg:text-base font-semibold"
-              aria-hidden="true"
-            >
-              Header section
-            </p>
-            <h1
-              id="page-heading"
-              className="text-foreground text-3xl md:text-5xl font-bold"
-            >
-              Short engaging headline
-            </h1>
-            <p
-              className="text-muted-foreground text-base lg:text-lg"
-              aria-label="page description"
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit interdum
-              hendrerit ex vitae sodales.
-            </p>
-          </div>
-        </div>
-      </div>
+    <section className="bg-background" aria-labelledby="page-heading">
+      {Breadcrumbs}
+      {content && <RichText data={content} />}
     </section>
   );
 }
