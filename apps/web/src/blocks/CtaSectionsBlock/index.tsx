@@ -32,19 +32,19 @@ const layoutList: Record<string, ComponentType<CtaSectionsBlockType>> = {
 
 function CtaSections({
   rightContent,
-  title = 'Action-Driving headline that creates urgency',
   variant = '1',
   content,
+  media,
   ...props
 }: CtaSectionsBlockType) {
   const Component: ComponentType<CtaSectionsBlockType> = layoutList[variant];
   return (
     <Wrapper {...props.wrapper}>
       <Component
-        title={'Action-Driving headline that creates urgency'}
         variant={variant}
         content={content}
         rightContent={rightContent}
+        media={media}
       />
     </Wrapper>
   );

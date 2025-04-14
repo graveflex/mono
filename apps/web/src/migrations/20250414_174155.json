@@ -1,5 +1,5 @@
 {
-  "id": "57e76813-8283-4c87-aa5f-b5e0522e4217",
+  "id": "73f88475-ccd3-4be1-989e-586a61b6bf6a",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -26396,9 +26396,7 @@
         "2",
         "3",
         "4",
-        "5",
-        "6",
-        "7"
+        "5"
       ]
     },
     "public.enum_pages_blocks_feature_section_wrapper_theme": {
@@ -26651,9 +26649,7 @@
         "2",
         "3",
         "4",
-        "5",
-        "6",
-        "7"
+        "5"
       ]
     },
     "public.enum__pages_v_blocks_feature_section_wrapper_theme": {
@@ -27124,9 +27120,7 @@
         "2",
         "3",
         "4",
-        "5",
-        "6",
-        "7"
+        "5"
       ]
     },
     "public.enum_homepage_blocks_feature_section_wrapper_theme": {
@@ -27370,9 +27364,7 @@
         "2",
         "3",
         "4",
-        "5",
-        "6",
-        "7"
+        "5"
       ]
     },
     "public.enum__homepage_v_blocks_feature_section_wrapper_theme": {
@@ -27612,9 +27604,7 @@
         "2",
         "3",
         "4",
-        "5",
-        "6",
-        "7"
+        "5"
       ]
     },
     "public.enum_blog_index_blocks_feature_section_wrapper_theme": {
@@ -27858,9 +27848,7 @@
         "2",
         "3",
         "4",
-        "5",
-        "6",
-        "7"
+        "5"
       ]
     },
     "public.enum__blog_index_v_blocks_feature_section_wrapper_theme": {

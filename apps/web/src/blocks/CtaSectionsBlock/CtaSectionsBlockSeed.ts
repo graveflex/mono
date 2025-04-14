@@ -5,7 +5,6 @@ export const CtaSectionsBlockSchema = async () => {
   return {
     id: faker.string.uuid(),
     blockName: 'CtaSectionsBlock',
-    blockType: 'ctaSectionsBlock',
-    title: faker.lorem.words(5)
+    blockType: 'ctaSectionsBlock'
   } as CtaSectionsBlockT;
 };

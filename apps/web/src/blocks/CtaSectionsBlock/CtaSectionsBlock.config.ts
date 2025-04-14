@@ -2,6 +2,7 @@ import BlockConfig from '@mono/web/payload/fields/BlockConfig';
 import type { Block } from 'payload';
 
 const variantsWithSplitContent = ['2'];
+const variantsWithMedia = ['3', '4', '5'];
 
 const CtaSectionsBlock: Block = {
   slug: 'ctaSectionsBlock',
@@ -41,18 +42,29 @@ const CtaSectionsBlock: Block = {
       }
     },
     {
-      name: 'title',
-      label: 'title',
-      type: 'text',
-      localized: true,
-      required: false
-    },
-    {
       name: 'content',
       label: 'content',
       type: 'richText',
       localized: true,
       required: false
+    },
+    {
+      name: 'media',
+      label: 'Media',
+      type: 'relationship',
+      relationTo: ['images', 'videos'],
+      hasMany: false,
+      required: true,
+      admin: {
+        description:
+          'All variants accept images or video except variant 2. Variant 2 only allows images.',
+        condition: (_, siblingData) => {
+          if (variantsWithMedia.includes(siblingData.variant)) {
+            return true;
+          }
+          return false;
+        }
+      }
     },
     {
       name: 'rightContent',

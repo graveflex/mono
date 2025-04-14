@@ -2,8 +2,6 @@ import ResponsivePayloadImage from '@mono/ui/components/primitives/ResponsivePay
 import RichText from '@mono/web/components/RichText/index';
 import Video from '@mono/web/components/Video';
 import { AspectRatio } from '@mono/web/components/ui/AspectRatio';
-import { Button } from '@mono/web/components/ui/Button';
-import { ArrowRight } from 'lucide-react';
 import React from 'react';
 import type { HeroSectionsBlockType } from '../index';
 import { genImgColumnOrder } from '../index';

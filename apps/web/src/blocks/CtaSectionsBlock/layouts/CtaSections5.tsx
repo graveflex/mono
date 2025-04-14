@@ -1,14 +1,17 @@
 import type { CtaSectionsBlockT as PayloadType } from '@mono/types/payload-types';
 import RichText from '@mono/web/components/RichText/index';
+import Video from '@mono/web/components/Video';
 import React from 'react';
 
 import { AspectRatio } from '@mono/web/components/ui/AspectRatio';
 
-import Image from 'next/image';
+import ResponsivePayloadImage from '@mono/ui/components/primitives/ResponsivePayloadImage';
 
 export type CtaSectionsBlockType = Omit<PayloadType, 'blockType'>;
 
-function CtaSections5({ content }: CtaSectionsBlockType) {
+function CtaSections5({ content, media }: CtaSectionsBlockType) {
+  const mediaRelation = media?.relationTo;
+
   return (
     <section
       className="bg-background py-0 lg:py-24"
@@ -27,12 +30,21 @@ function CtaSections5({ content }: CtaSectionsBlockType) {
             {/* Right Column - Image */}
             <div className="flex flex-1 w-full pl-6 lg:pl-0">
               <AspectRatio ratio={4 / 3}>
-                <Image
-                  src="https://ui.shadcn.com/placeholder.svg"
-                  alt="CTA section image"
-                  fill={true}
-                  className="rounded-tl-lg object-cover w-full h-full"
-                />
+                {mediaRelation === 'videos' &&
+                typeof media?.value === 'number' ? (
+                  <Video
+                    className="object-cover w-full h-full rounded-lg"
+                    video={media?.value}
+                  />
+                ) : (
+                  <ResponsivePayloadImage
+                    image={media?.value}
+                    sizes="(max-width: 1023px) 100vw, 50vw"
+                    alt="Hero section visual"
+                    fill={true}
+                    imgClasses="rounded-xl object-cover w-full h-full"
+                  />
+                )}
               </AspectRatio>
             </div>
           </div>
