@@ -7,13 +7,13 @@ export const Modal: Block = {
     {
       type: 'text',
       label: 'Modal Text',
-      name: 'modal_text',
+      name: 'modalText',
       required: true
     },
     {
       type: 'richText',
       label: 'Modal Content',
-      name: 'modal_content',
+      name: 'modalContent',
       required: false,
       editor: lexicalEditor({})
     }

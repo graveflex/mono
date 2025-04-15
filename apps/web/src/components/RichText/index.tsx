@@ -21,6 +21,7 @@ import {
 import React from 'react';
 import Link from './Blocks/Link';
 import Video from './Blocks/Video';
+import LinkConverter from './Converters/LinkConverter';
 import styles from './RichText.module.css';
 
 export type CtaSectionsBlockType = Omit<PayloadType, 'blockType'>;
@@ -82,17 +83,17 @@ const jsxConverters: JSXConvertersFunction<DefaultNodeTypes> = ({
         <Dialog>
           <DialogTrigger>
             <strong className="cursor-pointer hover:opacity-80 hover:scale-101 mt-6 inline-block transition-all duration-250 ease-in-out">
-              <u>{node.fields.modal_text}</u>
+              <u>{node.fields.modalText}</u>
             </strong>
           </DialogTrigger>
           <DialogOverlay className="opacity-0 pointer-events-none">
             {/* TODO: Border Radius theme setting? */}
             <DialogContent className={`${node.theme || ''} border-primary`}>
               <DialogTitle className="text-foreground">
-                {node.fields.modal_text}
+                {node.fields.modalText}
               </DialogTitle>
               <DialogClose className="text-muted-foreground" />
-              <RichText data={node.fields.modal_content} />
+              <RichText data={node.fields.modalContent} />
 
               <DialogClose className="absolute top-4 right-4 text-primary cursor-pointer hover:scale-110">
                 <span className="sr-only">Close</span>
