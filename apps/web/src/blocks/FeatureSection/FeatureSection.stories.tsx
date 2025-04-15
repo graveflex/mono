@@ -2,6 +2,7 @@
 type Story = StoryObj<FeatureSectionType>;
 import type { Meta, StoryObj } from '@storybook/react';
 import type { FeatureSectionType } from '.';
+import featureSectionContentMockData from './FeatureSectionMockData';
 
 // Components
 import FeatureSection from '.';
@@ -28,84 +29,98 @@ export default meta;
 
 export const Variant1: Story = {
   args: {
-    variant: '1'
+    variant: '1',
+    content: featureSectionContentMockData.data
   }
 };
 
 export const Variant2: Story = {
   args: {
-    variant: '2'
+    variant: '2',
+    content: featureSectionContentMockData.data
   }
 };
 
 export const Variant3: Story = {
   args: {
-    variant: '3'
+    variant: '3',
+    content: featureSectionContentMockData.data
   }
 };
 
 export const Variant4: Story = {
   args: {
-    variant: '4'
+    variant: '4',
+    content: featureSectionContentMockData.data
   }
 };
 
 export const Variant5: Story = {
   args: {
-    variant: '5'
+    variant: '5',
+    content: featureSectionContentMockData.data
   }
 };
 
 export const Variant6: Story = {
   args: {
-    variant: '6'
+    variant: '6',
+    content: featureSectionContentMockData.data
   }
 };
 
 export const Variant7: Story = {
   args: {
-    variant: '7'
+    variant: '7',
+    content: featureSectionContentMockData.data
   }
 };
 
 export const Variant8: Story = {
   args: {
-    variant: '8'
+    variant: '8',
+    content: featureSectionContentMockData.data
   }
 };
 
 export const Variant9: Story = {
   args: {
-    variant: '9'
+    variant: '9',
+    content: featureSectionContentMockData.data
   }
 };
 
 export const Variant10: Story = {
   args: {
-    variant: '10'
+    variant: '10',
+    content: featureSectionContentMockData.data
   }
 };
 
 export const Variant11: Story = {
   args: {
-    variant: '11'
+    variant: '11',
+    content: featureSectionContentMockData.data
   }
 };
 
 export const Variant12: Story = {
   args: {
-    variant: '12'
+    variant: '12',
+    content: featureSectionContentMockData.data
   }
 };
 
 export const Variant13: Story = {
   args: {
-    variant: '13'
+    variant: '13',
+    content: featureSectionContentMockData.data
   }
 };
 
 export const Variant14: Story = {
   args: {
-    variant: '14'
+    variant: '14',
+    content: featureSectionContentMockData.data
   }
 };

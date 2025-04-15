@@ -37,7 +37,7 @@ function FeatureSection({ content, variant, ...props }: FeatureSectionType) {
 
   return (
     <Wrapper {...props.wrapper}>
-      <VariantComponent content={content} />
+      <VariantComponent content={content} variant={variant} />
     </Wrapper>
   );
 }
