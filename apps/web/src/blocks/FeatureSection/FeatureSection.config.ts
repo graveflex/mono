@@ -7,6 +7,7 @@ import MakeVariations from '@mono/web/payload/utils/makeVariations';
 
 // Block variants w/ left or right positioned media:
 const variantsWithMedia = ['1', '2', '3', '4', '5', '6', '7', '8', '11', '12'];
+const variantsWithMediaPosition = ['1', '2', '3', '4', '5', '6', '8', '12'];
 
 const FeatureSection: Block = {
   slug: 'featureSection',
@@ -30,7 +31,13 @@ const FeatureSection: Block = {
       required: true,
       admin: {
         description:
-          'All variants accept images or video except variant 2. Variant 2 only allows images.'
+          'All variants accept images or video except variant 2. Variant 2 only allows images.',
+        condition: (_, siblingData) => {
+          if (variantsWithMedia.includes(siblingData.variant)) {
+            return true;
+          }
+          return false;
+        }
       }
     },
     {
@@ -52,7 +59,7 @@ const FeatureSection: Block = {
         description:
           'For certain variants, the position of the image on desktop screens.',
         condition: (_, siblingData) => {
-          if (variantsWithMedia.includes(siblingData.variant)) {
+          if (variantsWithMediaPosition.includes(siblingData.variant)) {
             return true;
           }
           return false;

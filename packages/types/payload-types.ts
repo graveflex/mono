@@ -686,15 +686,15 @@ export interface FeatureSection {
   /**
    * All variants accept images or video except variant 2. Variant 2 only allows images.
    */
-  media:
-    | {
+  media?:
+    | ({
         relationTo: 'images';
         value: number | Image;
-      }
-    | {
+      } | null)
+    | ({
         relationTo: 'videos';
         value: number | Video;
-      };
+      } | null);
   /**
    * For certain variants, the position of the image on desktop screens.
    */

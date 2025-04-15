@@ -32,12 +32,27 @@ const Variants = {
   '14': dynamic(() => import('./variations/Variant5'), { ...defaultOpts })
 };
 
-function FeatureSection({ content, variant, ...props }: FeatureSectionType) {
+export const genImgColumnOrder = (
+  imagePosition: FeatureSectionType['mediaPosition']
+) => (imagePosition === 'left' ? 'lg:order-first' : 'lg:order-last');
+
+function FeatureSection({
+  content,
+  media,
+  mediaPosition,
+  variant,
+  ...props
+}: FeatureSectionType) {
   const VariantComponent = Variants[variant];
 
   return (
     <Wrapper {...props.wrapper}>
-      <VariantComponent content={content} variant={variant} />
+      <VariantComponent
+        content={content}
+        media={media}
+        mediaPosition={mediaPosition}
+        variant={variant}
+      />
     </Wrapper>
   );
 }

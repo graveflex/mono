@@ -1,10 +1,20 @@
+import ResponsivePayloadImage from '@mono/ui/components/primitives/ResponsivePayloadImage';
 import RichText from '@mono/web/components/RichText/index';
+import Video from '@mono/web/components/Video';
 import { AspectRatio } from '@mono/web/components/ui/AspectRatio';
 import { Rocket } from 'lucide-react';
-import Image from 'next/image';
 import type { FeatureSectionType } from '..';
+import { genImgColumnOrder } from '..';
 
-export default function Variant3({ content }: FeatureSectionType) {
+export default function Variant3({
+  content,
+  media,
+  mediaPosition
+}: FeatureSectionType) {
+  const mediaRelation = media?.relationTo;
+
+  const imgColumnOrder = genImgColumnOrder(mediaPosition);
+
   return (
     <section className="bg-background py-16 md:py-24">
       <div className="container mx-auto px-6 flex flex-col lg:flex-row gap-12 md:gap-16 items-center">
@@ -43,14 +53,23 @@ export default function Variant3({ content }: FeatureSectionType) {
             </div>
           </div>
         </div>
-        <div className="flex-1 w-full">
+        <div className={`flex-1 w-full ${imgColumnOrder}`}>
           <AspectRatio ratio={1}>
-            <Image
-              src="https://ui.shadcn.com/placeholder.svg"
-              alt="Hero image"
-              fill={true}
-              className="rounded-xl object-cover w-full h-full"
-            />
+            {mediaRelation === 'videos' &&
+            typeof media?.value !== 'undefined' ? (
+              <Video
+                className="object-cover w-full h-full rounded-lg"
+                video={media?.value}
+              />
+            ) : (
+              <ResponsivePayloadImage
+                image={media?.value}
+                sizes="(max-width: 1023px) 100vw, 50vw"
+                alt="Hero section visual"
+                fill={true}
+                imgClasses="rounded-xl object-cover w-full h-full"
+              />
+            )}
           </AspectRatio>
         </div>
       </div>
