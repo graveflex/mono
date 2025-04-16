@@ -27,7 +27,7 @@ const ContentGridConverter = ({ node }: { node: SerializedBlockNode }) => {
             className={`content-grid-item flex ${isFlexColLayout} gap-5`}
           >
             {contentHeaderType === 'title' ? (
-              <h4>{item?.title}</h4>
+              <h3 className="text-3xl">{item?.title}</h3>
             ) : (
               <div className="flex justify-center items-center w-10 h-10 shrink-0 rounded-md bg-background border shadow-sm">
                 <Diamond className="w-5 h-5 text-primary" />
