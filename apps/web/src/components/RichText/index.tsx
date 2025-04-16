@@ -10,6 +10,7 @@ import {
   RichText as LexicalRichText
 } from '@payloadcms/richtext-lexical/react';
 import React from 'react';
+import ContentGridConverter from './Converters/ContentGridConverter';
 import LinkConverter from './Converters/LinkConverter';
 import styles from './RichText.module.css';
 
@@ -59,7 +60,8 @@ const jsxConverters: JSXConvertersFunction<DefaultNodeTypes> = ({
         typeof node?.fields?.form !== 'number' ? node.fields.form : undefined;
 
       return <Form form={payloadForm} />;
-    }
+    },
+    contentGrid: ContentGridConverter
   }
 });
 
