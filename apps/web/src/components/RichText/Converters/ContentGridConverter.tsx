@@ -1,5 +1,8 @@
-const ContentGridConverter = ({ node }) => {
-  console.log('In ContentGridConverter.tsx, this is node: ', node);
+import type { SerializedBlockNode } from '@payloadcms/richtext-lexical';
+
+const ContentGridConverter = ({ node }: { node: SerializedBlockNode }) => {
+  // TODO: Add converter markup
+  return <div>{node?.fields?.blockName}</div>;
 };
 
 export default ContentGridConverter;
