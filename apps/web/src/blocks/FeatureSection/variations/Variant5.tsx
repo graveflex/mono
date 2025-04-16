@@ -3,6 +3,7 @@ import { AspectRatio } from '@mono/web/components/ui/AspectRatio';
 import Image from 'next/image';
 import type { FeatureSectionType } from '..';
 
+// TODO: Set data to be dynamic/pull in from a Collection.
 export default function Variant5({ content }: FeatureSectionType) {
   return (
     <section className="bg-background py-16 md:py-24">

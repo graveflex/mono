@@ -28,6 +28,7 @@ export const genImgColumnOrder = (
 ) => (imagePosition === 'left' ? 'lg:order-first' : 'lg:order-last');
 
 function FeatureSection({
+  additionalContent,
   content,
   media,
   mediaPosition,
@@ -39,6 +40,7 @@ function FeatureSection({
   return (
     <Wrapper {...props.wrapper}>
       <VariantComponent
+        additionalContent={additionalContent}
         content={content}
         media={media}
         mediaPosition={mediaPosition}

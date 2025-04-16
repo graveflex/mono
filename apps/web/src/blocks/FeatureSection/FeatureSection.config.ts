@@ -8,6 +8,7 @@ import MakeVariations from '@mono/web/payload/utils/makeVariations';
 // Block variants w/ left or right positioned media:
 const variantsWithMedia = ['1', '2'];
 const variantsWithMediaPosition = ['1'];
+const variantsWithTwoRichTextContents = ['2', '3', '4'];
 
 const FeatureSection: Block = {
   slug: 'featureSection',
@@ -21,6 +22,23 @@ const FeatureSection: Block = {
       type: 'richText',
       localized: true,
       required: false
+    },
+    {
+      name: 'additionalContent',
+      label: 'Additional Content',
+      type: 'richText',
+      localized: true,
+      required: false,
+      admin: {
+        description:
+          'On variants 2 & 3, this appears at the bottom. On variant 4, this appears on the right.',
+        condition: (_, siblingData) => {
+          if (variantsWithTwoRichTextContents.includes(siblingData.variant)) {
+            return true;
+          }
+          return false;
+        }
+      }
     },
     {
       name: 'media',

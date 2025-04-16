@@ -684,6 +684,24 @@ export interface FeatureSection {
     [k: string]: unknown;
   } | null;
   /**
+   * On variants 2 & 3, this appears at the bottom. On variant 4, this appears on the right.
+   */
+  additionalContent?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  /**
    * All variants accept images or video except variant 2. Variant 2 only allows images.
    */
   media?:
@@ -1958,6 +1976,7 @@ export interface FeatureSectionSelect<T extends boolean = true> {
       };
   variant?: T;
   content?: T;
+  additionalContent?: T;
   media?: T;
   mediaPosition?: T;
   id?: T;

@@ -2,11 +2,13 @@ import ResponsivePayloadImage from '@mono/ui/components/primitives/ResponsivePay
 import RichText from '@mono/web/components/RichText/index';
 import Video from '@mono/web/components/Video';
 import { AspectRatio } from '@mono/web/components/ui/AspectRatio';
-import { Rocket } from 'lucide-react';
-import Image from 'next/image';
 import type { FeatureSectionType } from '..';
 
-export default function Variant2({ content, media }: FeatureSectionType) {
+export default function Variant2({
+  additionalContent,
+  content,
+  media
+}: FeatureSectionType) {
   const mediaRelation = media?.relationTo;
   return (
     <section className="bg-background py-16 md:py-24">
@@ -33,50 +35,8 @@ export default function Variant2({ content, media }: FeatureSectionType) {
             )}
           </AspectRatio>
         </div>
-        {/* TODO: Turn this into bottom RichText: */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-6">
-          <div className="flex flex-col md:flex-row gap-4 sm:gap-5 items-center md:items-start text-center md:text-left">
-            <div className="flex justify-center items-center w-10 h-10 shrink-0 rounded-md bg-background border shadow-sm">
-              <Rocket className="w-5 h-5 text-primary" />
-            </div>
-            <div className="flex flex-col gap-2">
-              <h3 className="font-semibold text-foreground">
-                Benefit driven feature title
-              </h3>
-              <p className="text-muted-foreground">
-                Shortly describe how this feature solves a specific user
-                problem. Focus on benefits not on technical details.
-              </p>
-            </div>
-          </div>
-          <div className="flex flex-col md:flex-row gap-4 sm:gap-5 items-center md:items-start text-center md:text-left">
-            <div className="flex justify-center items-center w-10 h-10 shrink-0 rounded-md bg-background border shadow-sm">
-              <Rocket className="w-5 h-5 text-primary" />
-            </div>
-            <div className="flex flex-col gap-2">
-              <h3 className="font-semibold text-foreground">
-                Benefit driven feature title
-              </h3>
-              <p className="text-muted-foreground">
-                Shortly describe how this feature solves a specific user
-                problem. Focus on benefits not on technical details.
-              </p>
-            </div>
-          </div>
-          <div className="flex flex-col md:flex-row gap-4 sm:gap-5 items-center md:items-start text-center md:text-left">
-            <div className="flex justify-center items-center w-10 h-10 shrink-0 rounded-md bg-background border shadow-sm">
-              <Rocket className="w-5 h-5 text-primary" />
-            </div>
-            <div className="flex flex-col gap-2">
-              <h3 className="font-semibold text-foreground">
-                Benefit driven feature title
-              </h3>
-              <p className="text-muted-foreground">
-                Shortly describe how this feature solves a specific user
-                problem. Focus on benefits not on technical details.
-              </p>
-            </div>
-          </div>
+        <div className="flex">
+          {additionalContent && <RichText data={additionalContent} />}
         </div>
       </div>
     </section>
