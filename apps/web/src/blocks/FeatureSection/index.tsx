@@ -20,16 +20,7 @@ const Variants = {
   '2': dynamic(() => import('./variations/Variant2'), { ...defaultOpts }),
   '3': dynamic(() => import('./variations/Variant3'), { ...defaultOpts }),
   '4': dynamic(() => import('./variations/Variant4'), { ...defaultOpts }),
-  '5': dynamic(() => import('./variations/Variant5'), { ...defaultOpts }),
-  '6': dynamic(() => import('./variations/Variant5'), { ...defaultOpts }),
-  '7': dynamic(() => import('./variations/Variant5'), { ...defaultOpts }),
-  '8': dynamic(() => import('./variations/Variant5'), { ...defaultOpts }),
-  '9': dynamic(() => import('./variations/Variant5'), { ...defaultOpts }),
-  '10': dynamic(() => import('./variations/Variant5'), { ...defaultOpts }),
-  '11': dynamic(() => import('./variations/Variant5'), { ...defaultOpts }),
-  '12': dynamic(() => import('./variations/Variant5'), { ...defaultOpts }),
-  '13': dynamic(() => import('./variations/Variant5'), { ...defaultOpts }),
-  '14': dynamic(() => import('./variations/Variant5'), { ...defaultOpts })
+  '5': dynamic(() => import('./variations/Variant5'), { ...defaultOpts })
 };
 
 export const genImgColumnOrder = (

@@ -6,15 +6,15 @@ import BlockConfig from '@mono/web/payload/fields/BlockConfig';
 import MakeVariations from '@mono/web/payload/utils/makeVariations';
 
 // Block variants w/ left or right positioned media:
-const variantsWithMedia = ['1', '2', '3', '4', '5', '6', '7', '8', '11', '12'];
-const variantsWithMediaPosition = ['1', '2', '3', '4', '5', '6', '8', '12'];
+const variantsWithMedia = ['1', '2'];
+const variantsWithMediaPosition = ['1'];
 
 const FeatureSection: Block = {
   slug: 'featureSection',
   interfaceName: 'FeatureSection',
   fields: [
     BlockConfig(),
-    MakeVariations(14, 'featureSection'),
+    MakeVariations(5, 'featureSection'),
     {
       name: 'content',
       label: 'content',

@@ -11,7 +11,7 @@ import FeatureSection from '.';
 import MakeVariations from '@mono/web/payload/utils/makeStoryBookVariations';
 
 // Constants
-const VARIATIONS = 14;
+const VARIATIONS = 5;
 
 const meta: Meta<FeatureSectionType> = {
   title: 'blocks/FeatureSection',
@@ -58,69 +58,6 @@ export const Variant4: Story = {
 export const Variant5: Story = {
   args: {
     variant: '5',
-    content: featureSectionContentMockData.data
-  }
-};
-
-export const Variant6: Story = {
-  args: {
-    variant: '6',
-    content: featureSectionContentMockData.data
-  }
-};
-
-export const Variant7: Story = {
-  args: {
-    variant: '7',
-    content: featureSectionContentMockData.data
-  }
-};
-
-export const Variant8: Story = {
-  args: {
-    variant: '8',
-    content: featureSectionContentMockData.data
-  }
-};
-
-export const Variant9: Story = {
-  args: {
-    variant: '9',
-    content: featureSectionContentMockData.data
-  }
-};
-
-export const Variant10: Story = {
-  args: {
-    variant: '10',
-    content: featureSectionContentMockData.data
-  }
-};
-
-export const Variant11: Story = {
-  args: {
-    variant: '11',
-    content: featureSectionContentMockData.data
-  }
-};
-
-export const Variant12: Story = {
-  args: {
-    variant: '12',
-    content: featureSectionContentMockData.data
-  }
-};
-
-export const Variant13: Story = {
-  args: {
-    variant: '13',
-    content: featureSectionContentMockData.data
-  }
-};
-
-export const Variant14: Story = {
-  args: {
-    variant: '14',
     content: featureSectionContentMockData.data
   }
 };

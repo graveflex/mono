@@ -1,5 +1,5 @@
 {
-  "id": "87c483af-c409-4175-ad04-6a6cfc8dc6a2",
+  "id": "3173a114-fd98-4135-a063-daf4c0ae3673",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -26120,16 +26120,7 @@
         "2",
         "3",
         "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11",
-        "12",
-        "13",
-        "14"
+        "5"
       ]
     },
     "public.enum_pages_blocks_feature_section_media_position": {
@@ -26358,16 +26349,7 @@
         "2",
         "3",
         "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11",
-        "12",
-        "13",
-        "14"
+        "5"
       ]
     },
     "public.enum__pages_v_blocks_feature_section_media_position": {
@@ -26826,16 +26808,7 @@
         "2",
         "3",
         "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11",
-        "12",
-        "13",
-        "14"
+        "5"
       ]
     },
     "public.enum_homepage_blocks_feature_section_media_position": {
@@ -27055,16 +27028,7 @@
         "2",
         "3",
         "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11",
-        "12",
-        "13",
-        "14"
+        "5"
       ]
     },
     "public.enum__homepage_v_blocks_feature_section_media_position": {
@@ -27292,16 +27256,7 @@
         "2",
         "3",
         "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11",
-        "12",
-        "13",
-        "14"
+        "5"
       ]
     },
     "public.enum_blog_index_blocks_feature_section_media_position": {
@@ -27521,16 +27476,7 @@
         "2",
         "3",
         "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11",
-        "12",
-        "13",
-        "14"
+        "5"
       ]
     },
     "public.enum__blog_index_v_blocks_feature_section_media_position": {
