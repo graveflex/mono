@@ -89,17 +89,6 @@ export const baseFields: Field[] = [
     name: 'newTab',
     type: 'checkbox',
     label: ({ t }) => t('fields:openInNewTab')
-  },
-  {
-    name: 'rel',
-    label: 'Rel Attribute',
-    type: 'select',
-    hasMany: true,
-    options: ['noopener', 'noreferrer', 'nofollow'],
-    admin: {
-      description:
-        'The rel attribute defines the relationship between a linked resource and the current document.'
-    }
   }
 ];
 

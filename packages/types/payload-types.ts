@@ -7,31 +7,59 @@
  */
 
 /**
- * The pages that will be linked in this section will not have a dropdown
+ * Supported timezones in IANA format.
  *
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "FlatMenu".
+ * via the `definition` "supportedTimezones".
  */
-export type FlatMenu =
-  | {
-      link: PayLoadLink;
-      id?: string | null;
-    }[]
-  | null;
-/**
- * Nav Items that are only displayed with an icon
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "IconNavItems".
- */
-export type IconNavItems =
-  | {
-      href?: string | null;
-      newTab?: boolean | null;
-      icon?: IconSelect;
-      id?: string | null;
-    }[]
-  | null;
+export type SupportedTimezones =
+  | 'Pacific/Midway'
+  | 'Pacific/Niue'
+  | 'Pacific/Honolulu'
+  | 'Pacific/Rarotonga'
+  | 'America/Anchorage'
+  | 'Pacific/Gambier'
+  | 'America/Los_Angeles'
+  | 'America/Tijuana'
+  | 'America/Denver'
+  | 'America/Phoenix'
+  | 'America/Chicago'
+  | 'America/Guatemala'
+  | 'America/New_York'
+  | 'America/Bogota'
+  | 'America/Caracas'
+  | 'America/Santiago'
+  | 'America/Buenos_Aires'
+  | 'America/Sao_Paulo'
+  | 'Atlantic/South_Georgia'
+  | 'Atlantic/Azores'
+  | 'Atlantic/Cape_Verde'
+  | 'Europe/London'
+  | 'Europe/Berlin'
+  | 'Africa/Lagos'
+  | 'Europe/Athens'
+  | 'Africa/Cairo'
+  | 'Europe/Moscow'
+  | 'Asia/Riyadh'
+  | 'Asia/Dubai'
+  | 'Asia/Baku'
+  | 'Asia/Karachi'
+  | 'Asia/Tashkent'
+  | 'Asia/Calcutta'
+  | 'Asia/Dhaka'
+  | 'Asia/Almaty'
+  | 'Asia/Jakarta'
+  | 'Asia/Bangkok'
+  | 'Asia/Shanghai'
+  | 'Asia/Singapore'
+  | 'Asia/Tokyo'
+  | 'Asia/Seoul'
+  | 'Australia/Brisbane'
+  | 'Australia/Sydney'
+  | 'Pacific/Guam'
+  | 'Pacific/Noumea'
+  | 'Pacific/Auckland'
+  | 'Pacific/Fiji';
 
 export interface Config {
   auth: {
@@ -39,6 +67,7 @@ export interface Config {
     userEmailProviders: UserEmailProviderAuthOperations;
     admins: AdminAuthOperations;
   };
+  blocks: {};
   collections: {
     pages: Page;
     posts: Post;
@@ -836,9 +865,6 @@ export interface CTAType {
  */
 export interface PayLoadLink {
   text: string;
-  /**
-   * Choose between entering a custom text URL or linking to another document.
-   */
   linkType: 'custom' | 'internal';
   url?: string | null;
   doc?:
@@ -855,10 +881,6 @@ export interface PayLoadLink {
         value: number | Post;
       } | null);
   newTab?: boolean | null;
-  /**
-   * The rel attribute defines the relationship between a linked resource and the current document.
-   */
-  rel?: ('noopener' | 'noreferrer' | 'nofollow')[] | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1002,6 +1024,7 @@ export interface Form {
             label?: string | null;
             width?: number | null;
             defaultValue?: string | null;
+            placeholder?: string | null;
             options?:
               | {
                   label: string;
@@ -1854,7 +1877,6 @@ export interface PayLoadLinkSelect<T extends boolean = true> {
   url?: T;
   doc?: T;
   newTab?: T;
-  rel?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -2121,6 +2143,7 @@ export interface FormsSelect<T extends boolean = true> {
               label?: T;
               width?: T;
               defaultValue?: T;
+              placeholder?: T;
               options?:
                 | T
                 | {
@@ -2269,20 +2292,118 @@ export interface Nav {
      */
     logo?: (number | null) | Image;
     banner?: BannerContent;
-    collapsibleMenu?: CollapsibleMenu;
-    flatMenu?: FlatMenu;
-    iconItems?: IconNavItems;
-    hasCta?: boolean | null;
-    /**
-     * Call to Action Button
-     */
-    ctaButton?: {
-      cta: CTAType;
-    };
+    links?:
+      | {
+          text: string;
+          linkType: 'custom' | 'internal';
+          url?: string | null;
+          doc?:
+            | ({
+                relationTo: 'pages';
+                value: number | Page;
+              } | null)
+            | ({
+                relationTo: 'files';
+                value: number | File;
+              } | null)
+            | ({
+                relationTo: 'posts';
+                value: number | Post;
+              } | null);
+          newTab?: boolean | null;
+          links0?:
+            | {
+                text: string;
+                linkType: 'custom' | 'internal';
+                url?: string | null;
+                doc?:
+                  | ({
+                      relationTo: 'pages';
+                      value: number | Page;
+                    } | null)
+                  | ({
+                      relationTo: 'files';
+                      value: number | File;
+                    } | null)
+                  | ({
+                      relationTo: 'posts';
+                      value: number | Post;
+                    } | null);
+                newTab?: boolean | null;
+                links1?:
+                  | {
+                      text: string;
+                      linkType: 'custom' | 'internal';
+                      url?: string | null;
+                      doc?:
+                        | ({
+                            relationTo: 'pages';
+                            value: number | Page;
+                          } | null)
+                        | ({
+                            relationTo: 'files';
+                            value: number | File;
+                          } | null)
+                        | ({
+                            relationTo: 'posts';
+                            value: number | Post;
+                          } | null);
+                      newTab?: boolean | null;
+                      links2?:
+                        | {
+                            text: string;
+                            linkType: 'custom' | 'internal';
+                            url?: string | null;
+                            doc?:
+                              | ({
+                                  relationTo: 'pages';
+                                  value: number | Page;
+                                } | null)
+                              | ({
+                                  relationTo: 'files';
+                                  value: number | File;
+                                } | null)
+                              | ({
+                                  relationTo: 'posts';
+                                  value: number | Post;
+                                } | null);
+                            newTab?: boolean | null;
+                            links3?:
+                              | {
+                                  text: string;
+                                  linkType: 'custom' | 'internal';
+                                  url?: string | null;
+                                  doc?:
+                                    | ({
+                                        relationTo: 'pages';
+                                        value: number | Page;
+                                      } | null)
+                                    | ({
+                                        relationTo: 'files';
+                                        value: number | File;
+                                      } | null)
+                                    | ({
+                                        relationTo: 'posts';
+                                        value: number | Post;
+                                      } | null);
+                                  newTab?: boolean | null;
+                                  id?: string | null;
+                                }[]
+                              | null;
+                            id?: string | null;
+                          }[]
+                        | null;
+                      id?: string | null;
+                    }[]
+                  | null;
+                id?: string | null;
+              }[]
+            | null;
+          id?: string | null;
+        }[]
+      | null;
   };
-  footer?: {
-    footerItems?: FooterItems;
-  };
+  footer?: FooterItems;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -2307,217 +2428,6 @@ export interface BannerContent {
     [k: string]: unknown;
   } | null;
   background?: ('white' | 'black' | 'gray') | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "CollapsibleMenu".
- */
-export interface CollapsibleMenu {
-  sections?:
-    | {
-        /**
-         * Label for menu item
-         */
-        label: string;
-        /**
-         * The pages that will be linked in this section
-         */
-        links?:
-          | {
-              link: PayLoadLink;
-              id?: string | null;
-            }[]
-          | null;
-        nestedLinks?:
-          | {
-              text: string;
-              /**
-               * Choose between entering a custom text URL or linking to another document.
-               */
-              linkType: 'custom' | 'internal';
-              url?: string | null;
-              doc?:
-                | ({
-                    relationTo: 'pages';
-                    value: number | Page;
-                  } | null)
-                | ({
-                    relationTo: 'files';
-                    value: number | File;
-                  } | null)
-                | ({
-                    relationTo: 'posts';
-                    value: number | Post;
-                  } | null);
-              newTab?: boolean | null;
-              /**
-               * The rel attribute defines the relationship between a linked resource and the current document.
-               */
-              rel?: ('noopener' | 'noreferrer' | 'nofollow')[] | null;
-              links0?:
-                | {
-                    text: string;
-                    /**
-                     * Choose between entering a custom text URL or linking to another document.
-                     */
-                    linkType: 'custom' | 'internal';
-                    url?: string | null;
-                    doc?:
-                      | ({
-                          relationTo: 'pages';
-                          value: number | Page;
-                        } | null)
-                      | ({
-                          relationTo: 'files';
-                          value: number | File;
-                        } | null)
-                      | ({
-                          relationTo: 'posts';
-                          value: number | Post;
-                        } | null);
-                    newTab?: boolean | null;
-                    /**
-                     * The rel attribute defines the relationship between a linked resource and the current document.
-                     */
-                    rel?: ('noopener' | 'noreferrer' | 'nofollow')[] | null;
-                    links1?:
-                      | {
-                          text: string;
-                          /**
-                           * Choose between entering a custom text URL or linking to another document.
-                           */
-                          linkType: 'custom' | 'internal';
-                          url?: string | null;
-                          doc?:
-                            | ({
-                                relationTo: 'pages';
-                                value: number | Page;
-                              } | null)
-                            | ({
-                                relationTo: 'files';
-                                value: number | File;
-                              } | null)
-                            | ({
-                                relationTo: 'posts';
-                                value: number | Post;
-                              } | null);
-                          newTab?: boolean | null;
-                          /**
-                           * The rel attribute defines the relationship between a linked resource and the current document.
-                           */
-                          rel?: ('noopener' | 'noreferrer' | 'nofollow')[] | null;
-                          links2?:
-                            | {
-                                text: string;
-                                /**
-                                 * Choose between entering a custom text URL or linking to another document.
-                                 */
-                                linkType: 'custom' | 'internal';
-                                url?: string | null;
-                                doc?:
-                                  | ({
-                                      relationTo: 'pages';
-                                      value: number | Page;
-                                    } | null)
-                                  | ({
-                                      relationTo: 'files';
-                                      value: number | File;
-                                    } | null)
-                                  | ({
-                                      relationTo: 'posts';
-                                      value: number | Post;
-                                    } | null);
-                                newTab?: boolean | null;
-                                /**
-                                 * The rel attribute defines the relationship between a linked resource and the current document.
-                                 */
-                                rel?: ('noopener' | 'noreferrer' | 'nofollow')[] | null;
-                                links3?:
-                                  | {
-                                      text: string;
-                                      /**
-                                       * Choose between entering a custom text URL or linking to another document.
-                                       */
-                                      linkType: 'custom' | 'internal';
-                                      url?: string | null;
-                                      doc?:
-                                        | ({
-                                            relationTo: 'pages';
-                                            value: number | Page;
-                                          } | null)
-                                        | ({
-                                            relationTo: 'files';
-                                            value: number | File;
-                                          } | null)
-                                        | ({
-                                            relationTo: 'posts';
-                                            value: number | Post;
-                                          } | null);
-                                      newTab?: boolean | null;
-                                      /**
-                                       * The rel attribute defines the relationship between a linked resource and the current document.
-                                       */
-                                      rel?: ('noopener' | 'noreferrer' | 'nofollow')[] | null;
-                                      id?: string | null;
-                                    }[]
-                                  | null;
-                                id?: string | null;
-                              }[]
-                            | null;
-                          id?: string | null;
-                        }[]
-                      | null;
-                    id?: string | null;
-                  }[]
-                | null;
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-      }[]
-    | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "IconSelect".
- */
-export interface IconSelect {
-  name?:
-    | (
-        | 'Hamburger'
-        | 'Check'
-        | 'ArrowUp'
-        | 'ArrowLeft'
-        | 'ArrowRight'
-        | 'ArrowDown'
-        | 'CaretDown'
-        | 'CaretUp'
-        | 'CaretRight'
-        | 'CaretLeft'
-        | 'Close'
-        | 'DoubleCaretDown'
-        | 'DoubleCaretUp'
-        | 'DoubleCaretRight'
-        | 'DoubleCaretLeft'
-        | 'Error'
-        | 'LinkOut'
-        | 'MinusSign'
-        | 'Person'
-        | 'PlusSign'
-        | 'Quote'
-        | 'Search'
-        | 'SolidArrowDown'
-        | 'SolidArrowUp'
-        | 'SolidArrowRight'
-        | 'SolidArrowLeft'
-        | 'ArrowNesting'
-      )
-    | null;
-  /**
-   * Icon height/width in pixels - x-large is default.
-   */
-  size?: ('35' | '30' | '25' | '20') | null;
-  color?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -2558,7 +2468,6 @@ export interface FooterItems {
     };
     [k: string]: unknown;
   } | null;
-  footerMenu?: FlatMenu;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -2634,21 +2543,58 @@ export interface NavSelect<T extends boolean = true> {
     | {
         logo?: T;
         banner?: T | BannerContentSelect<T>;
-        collapsibleMenu?: T | CollapsibleMenuSelect<T>;
-        flatMenu?: T | FlatMenuSelect<T>;
-        iconItems?: T | IconNavItemsSelect<T>;
-        hasCta?: T;
-        ctaButton?:
+        links?:
           | T
           | {
-              cta?: T | CTATypeSelect<T>;
+              text?: T;
+              linkType?: T;
+              url?: T;
+              doc?: T;
+              newTab?: T;
+              links0?:
+                | T
+                | {
+                    text?: T;
+                    linkType?: T;
+                    url?: T;
+                    doc?: T;
+                    newTab?: T;
+                    links1?:
+                      | T
+                      | {
+                          text?: T;
+                          linkType?: T;
+                          url?: T;
+                          doc?: T;
+                          newTab?: T;
+                          links2?:
+                            | T
+                            | {
+                                text?: T;
+                                linkType?: T;
+                                url?: T;
+                                doc?: T;
+                                newTab?: T;
+                                links3?:
+                                  | T
+                                  | {
+                                      text?: T;
+                                      linkType?: T;
+                                      url?: T;
+                                      doc?: T;
+                                      newTab?: T;
+                                      id?: T;
+                                    };
+                                id?: T;
+                              };
+                          id?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
             };
       };
-  footer?:
-    | T
-    | {
-        footerItems?: T | FooterItemsSelect<T>;
-      };
+  footer?: T | FooterItemsSelect<T>;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
@@ -2663,113 +2609,12 @@ export interface BannerContentSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "CollapsibleMenu_select".
- */
-export interface CollapsibleMenuSelect<T extends boolean = true> {
-  sections?:
-    | T
-    | {
-        label?: T;
-        links?:
-          | T
-          | {
-              link?: T | PayLoadLinkSelect<T>;
-              id?: T;
-            };
-        nestedLinks?:
-          | T
-          | {
-              text?: T;
-              linkType?: T;
-              url?: T;
-              doc?: T;
-              newTab?: T;
-              rel?: T;
-              links0?:
-                | T
-                | {
-                    text?: T;
-                    linkType?: T;
-                    url?: T;
-                    doc?: T;
-                    newTab?: T;
-                    rel?: T;
-                    links1?:
-                      | T
-                      | {
-                          text?: T;
-                          linkType?: T;
-                          url?: T;
-                          doc?: T;
-                          newTab?: T;
-                          rel?: T;
-                          links2?:
-                            | T
-                            | {
-                                text?: T;
-                                linkType?: T;
-                                url?: T;
-                                doc?: T;
-                                newTab?: T;
-                                rel?: T;
-                                links3?:
-                                  | T
-                                  | {
-                                      text?: T;
-                                      linkType?: T;
-                                      url?: T;
-                                      doc?: T;
-                                      newTab?: T;
-                                      rel?: T;
-                                      id?: T;
-                                    };
-                                id?: T;
-                              };
-                          id?: T;
-                        };
-                    id?: T;
-                  };
-              id?: T;
-            };
-        id?: T;
-      };
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "FlatMenu_select".
- */
-export interface FlatMenuSelect<T extends boolean = true> {
-  link?: T | PayLoadLinkSelect<T>;
-  id?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "IconNavItems_select".
- */
-export interface IconNavItemsSelect<T extends boolean = true> {
-  href?: T;
-  newTab?: T;
-  icon?: T | IconSelectSelect<T>;
-  id?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "IconSelect_select".
- */
-export interface IconSelectSelect<T extends boolean = true> {
-  name?: T;
-  size?: T;
-  color?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "FooterItems_select".
  */
 export interface FooterItemsSelect<T extends boolean = true> {
   footerLogo?: T;
   copyright?: T;
   legalDisclaimer?: T;
-  footerMenu?: T | FlatMenuSelect<T>;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

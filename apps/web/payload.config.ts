@@ -61,7 +61,8 @@ export default buildConfig({
     pool: {
       connectionString: DATABASE_URL
     },
-    push: false
+    push: false,
+    logger: true
   }),
   editor: lexicalEditor({
     features: () =>

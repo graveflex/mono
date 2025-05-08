@@ -55,12 +55,10 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   CREATE TYPE "public"."enum__pages_v_version_theme" AS ENUM('light', 'dark');
   CREATE TYPE "public"."enum__pages_v_version_status" AS ENUM('draft', 'published');
   CREATE TYPE "public"."enum__pages_v_published_locale" AS ENUM('en-US', 'es-US');
-  CREATE TYPE "public"."enum_posts_ctas_cta_link_rel" AS ENUM('noopener', 'noreferrer', 'nofollow');
   CREATE TYPE "public"."enum_posts_ctas_cta_link_link_type" AS ENUM('custom', 'internal');
   CREATE TYPE "public"."card_cta_v" AS ENUM('outline', 'solid', 'link');
   CREATE TYPE "public"."card_cta_tv" AS ENUM('lightTheme', 'darkTheme', 'contrast');
   CREATE TYPE "public"."enum_posts_status" AS ENUM('draft', 'published');
-  CREATE TYPE "public"."enum__posts_v_version_ctas_cta_link_rel" AS ENUM('noopener', 'noreferrer', 'nofollow');
   CREATE TYPE "public"."enum__posts_v_version_ctas_cta_link_link_type" AS ENUM('custom', 'internal');
   CREATE TYPE "public"."enum__posts_v_version_status" AS ENUM('draft', 'published');
   CREATE TYPE "public"."enum__posts_v_published_locale" AS ENUM('en-US', 'es-US');
@@ -69,29 +67,12 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   CREATE TYPE "public"."enum_payload_jobs_log_task_slug" AS ENUM('inline', 'NukeCache');
   CREATE TYPE "public"."enum_payload_jobs_log_state" AS ENUM('failed', 'succeeded');
   CREATE TYPE "public"."enum_payload_jobs_task_slug" AS ENUM('inline', 'NukeCache');
-  CREATE TYPE "public"."enum_nav_header_collapsible_menu_sections_links_link_rel" AS ENUM('noopener', 'noreferrer', 'nofollow');
-  CREATE TYPE "public"."enum_nav_header_collapsible_menu_sections_links_link_link_type" AS ENUM('custom', 'internal');
-  CREATE TYPE "public"."enum_navHeaderLinks_rel" AS ENUM('noopener', 'noreferrer', 'nofollow');
-  CREATE TYPE "public"."enum_navHeaderLinks_links0_rel" AS ENUM('noopener', 'noreferrer', 'nofollow');
-  CREATE TYPE "public"."enum_navHeaderLinks_links0_links1_rel" AS ENUM('noopener', 'noreferrer', 'nofollow');
-  CREATE TYPE "public"."enum_navHeaderLinks_links0_links1_links2_rel" AS ENUM('noopener', 'noreferrer', 'nofollow');
-  CREATE TYPE "public"."enum_navHeaderLinks_links0_links1_links2_links3_rel" AS ENUM('noopener', 'noreferrer', 'nofollow');
   CREATE TYPE "public"."enum_navHeaderLinks_links0_links1_links2_links3_link_type" AS ENUM('custom', 'internal');
   CREATE TYPE "public"."enum_navHeaderLinks_links0_links1_links2_link_type" AS ENUM('custom', 'internal');
   CREATE TYPE "public"."enum_navHeaderLinks_links0_links1_link_type" AS ENUM('custom', 'internal');
   CREATE TYPE "public"."enum_navHeaderLinks_links0_link_type" AS ENUM('custom', 'internal');
   CREATE TYPE "public"."enum_navHeaderLinks_link_type" AS ENUM('custom', 'internal');
-  CREATE TYPE "public"."enum_nav_header_flat_menu_link_rel" AS ENUM('noopener', 'noreferrer', 'nofollow');
-  CREATE TYPE "public"."enum_nav_header_flat_menu_link_link_type" AS ENUM('custom', 'internal');
-  CREATE TYPE "public"."iconnavitem_ic" AS ENUM('Hamburger', 'Check', 'ArrowUp', 'ArrowLeft', 'ArrowRight', 'ArrowDown', 'CaretDown', 'CaretUp', 'CaretRight', 'CaretLeft', 'Close', 'DoubleCaretDown', 'DoubleCaretUp', 'DoubleCaretRight', 'DoubleCaretLeft', 'Error', 'LinkOut', 'MinusSign', 'Person', 'PlusSign', 'Quote', 'Search', 'SolidArrowDown', 'SolidArrowUp', 'SolidArrowRight', 'SolidArrowLeft', 'ArrowNesting');
-  CREATE TYPE "public"."iconnavitem_iw" AS ENUM('35', '30', '25', '20');
-  CREATE TYPE "public"."enum_nav_header_cta_button_cta_link_rel" AS ENUM('noopener', 'noreferrer', 'nofollow');
-  CREATE TYPE "public"."enum_nav_footer_footer_items_footer_menu_link_rel" AS ENUM('noopener', 'noreferrer', 'nofollow');
-  CREATE TYPE "public"."enum_nav_footer_footer_items_footer_menu_link_link_type" AS ENUM('custom', 'internal');
   CREATE TYPE "public"."enum_nav_header_banner_background" AS ENUM('white', 'black', 'gray');
-  CREATE TYPE "public"."enum_nav_header_cta_button_cta_link_link_type" AS ENUM('custom', 'internal');
-  CREATE TYPE "public"."undefined_cta_v" AS ENUM('outline', 'solid', 'link');
-  CREATE TYPE "public"."undefined_cta_tv" AS ENUM('lightTheme', 'darkTheme', 'contrast');
   CREATE TYPE "public"."enum_homepagePricingSectionsBlock_wrapper_theme" AS ENUM('_', 'light', 'dark');
   CREATE TYPE "public"."enum_homepagePricingSectionsBlock_variant" AS ENUM('1', '2', '3', '4');
   CREATE TYPE "public"."enum_homepageTestimonialsSectionsBlock_wrapper_theme" AS ENUM('_', 'light', 'dark');
@@ -730,13 +711,6 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   	"videos_id" integer
   );
   
-  CREATE TABLE IF NOT EXISTS "posts_ctas_cta_link_rel" (
-  	"order" integer NOT NULL,
-  	"parent_id" varchar NOT NULL,
-  	"value" "enum_posts_ctas_cta_link_rel",
-  	"id" serial PRIMARY KEY NOT NULL
-  );
-  
   CREATE TABLE IF NOT EXISTS "posts_ctas" (
   	"_order" integer NOT NULL,
   	"_parent_id" integer NOT NULL,
@@ -796,13 +770,6 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   	"pages_id" integer,
   	"files_id" integer,
   	"posts_id" integer
-  );
-  
-  CREATE TABLE IF NOT EXISTS "_posts_v_version_ctas_cta_link_rel" (
-  	"order" integer NOT NULL,
-  	"parent_id" integer NOT NULL,
-  	"value" "enum__posts_v_version_ctas_cta_link_rel",
-  	"id" serial PRIMARY KEY NOT NULL
   );
   
   CREATE TABLE IF NOT EXISTS "_posts_v_version_ctas" (
@@ -1141,6 +1108,7 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   	"id" varchar PRIMARY KEY NOT NULL,
   	"name" varchar NOT NULL,
   	"width" numeric,
+  	"placeholder" varchar,
   	"required" boolean,
   	"block_name" varchar
   );
@@ -1325,69 +1293,9 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   	"created_at" timestamp(3) with time zone DEFAULT now() NOT NULL
   );
   
-  CREATE TABLE IF NOT EXISTS "nav_header_collapsible_menu_sections_links_link_rel" (
-  	"order" integer NOT NULL,
-  	"parent_id" varchar NOT NULL,
-  	"value" "enum_nav_header_collapsible_menu_sections_links_link_rel",
-  	"locale" "_locales" NOT NULL,
-  	"id" serial PRIMARY KEY NOT NULL
-  );
-  
-  CREATE TABLE IF NOT EXISTS "nav_header_collapsible_menu_sections_links" (
-  	"_order" integer NOT NULL,
-  	"_parent_id" varchar NOT NULL,
-  	"_locale" "_locales" NOT NULL,
-  	"id" varchar PRIMARY KEY NOT NULL,
-  	"link_text" varchar NOT NULL,
-  	"link_link_type" "enum_nav_header_collapsible_menu_sections_links_link_link_type" DEFAULT 'custom' NOT NULL,
-  	"link_url" varchar,
-  	"link_new_tab" boolean
-  );
-  
-  CREATE TABLE IF NOT EXISTS "navHeaderLinks_rel" (
-  	"order" integer NOT NULL,
-  	"parent_id" varchar NOT NULL,
-  	"value" "enum_navHeaderLinks_rel",
-  	"locale" "_locales" NOT NULL,
-  	"id" serial PRIMARY KEY NOT NULL
-  );
-  
-  CREATE TABLE IF NOT EXISTS "navHeaderLinks_links0_rel" (
-  	"order" integer NOT NULL,
-  	"parent_id" varchar NOT NULL,
-  	"value" "enum_navHeaderLinks_links0_rel",
-  	"locale" "_locales" NOT NULL,
-  	"id" serial PRIMARY KEY NOT NULL
-  );
-  
-  CREATE TABLE IF NOT EXISTS "navHeaderLinks_links0_links1_rel" (
-  	"order" integer NOT NULL,
-  	"parent_id" varchar NOT NULL,
-  	"value" "enum_navHeaderLinks_links0_links1_rel",
-  	"locale" "_locales" NOT NULL,
-  	"id" serial PRIMARY KEY NOT NULL
-  );
-  
-  CREATE TABLE IF NOT EXISTS "navHeaderLinks_links0_links1_links2_rel" (
-  	"order" integer NOT NULL,
-  	"parent_id" varchar NOT NULL,
-  	"value" "enum_navHeaderLinks_links0_links1_links2_rel",
-  	"locale" "_locales" NOT NULL,
-  	"id" serial PRIMARY KEY NOT NULL
-  );
-  
-  CREATE TABLE IF NOT EXISTS "navHeaderLinks_links0_links1_links2_links3_rel" (
-  	"order" integer NOT NULL,
-  	"parent_id" varchar NOT NULL,
-  	"value" "enum_navHeaderLinks_links0_links1_links2_links3_rel",
-  	"locale" "_locales" NOT NULL,
-  	"id" serial PRIMARY KEY NOT NULL
-  );
-  
   CREATE TABLE IF NOT EXISTS "navHeaderLinks_links0_links1_links2_links3" (
   	"_order" integer NOT NULL,
   	"_parent_id" varchar NOT NULL,
-  	"_locale" "_locales" NOT NULL,
   	"id" varchar PRIMARY KEY NOT NULL,
   	"text" varchar NOT NULL,
   	"link_type" "enum_navHeaderLinks_links0_links1_links2_links3_link_type" DEFAULT 'custom' NOT NULL,
@@ -1398,7 +1306,6 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   CREATE TABLE IF NOT EXISTS "navHeaderLinks_links0_links1_links2" (
   	"_order" integer NOT NULL,
   	"_parent_id" varchar NOT NULL,
-  	"_locale" "_locales" NOT NULL,
   	"id" varchar PRIMARY KEY NOT NULL,
   	"text" varchar NOT NULL,
   	"link_type" "enum_navHeaderLinks_links0_links1_links2_link_type" DEFAULT 'custom' NOT NULL,
@@ -1409,7 +1316,6 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   CREATE TABLE IF NOT EXISTS "navHeaderLinks_links0_links1" (
   	"_order" integer NOT NULL,
   	"_parent_id" varchar NOT NULL,
-  	"_locale" "_locales" NOT NULL,
   	"id" varchar PRIMARY KEY NOT NULL,
   	"text" varchar NOT NULL,
   	"link_type" "enum_navHeaderLinks_links0_links1_link_type" DEFAULT 'custom' NOT NULL,
@@ -1420,7 +1326,6 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   CREATE TABLE IF NOT EXISTS "navHeaderLinks_links0" (
   	"_order" integer NOT NULL,
   	"_parent_id" varchar NOT NULL,
-  	"_locale" "_locales" NOT NULL,
   	"id" varchar PRIMARY KEY NOT NULL,
   	"text" varchar NOT NULL,
   	"link_type" "enum_navHeaderLinks_links0_link_type" DEFAULT 'custom' NOT NULL,
@@ -1430,8 +1335,7 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   
   CREATE TABLE IF NOT EXISTS "navHeaderLinks" (
   	"_order" integer NOT NULL,
-  	"_parent_id" varchar NOT NULL,
-  	"_locale" "_locales" NOT NULL,
+  	"_parent_id" integer NOT NULL,
   	"id" varchar PRIMARY KEY NOT NULL,
   	"text" varchar NOT NULL,
   	"link_type" "enum_navHeaderLinks_link_type" DEFAULT 'custom' NOT NULL,
@@ -1439,81 +1343,14 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   	"new_tab" boolean
   );
   
-  CREATE TABLE IF NOT EXISTS "nav_header_collapsible_menu_sections" (
-  	"_order" integer NOT NULL,
-  	"_parent_id" integer NOT NULL,
-  	"_locale" "_locales" NOT NULL,
-  	"id" varchar PRIMARY KEY NOT NULL,
-  	"label" varchar NOT NULL
-  );
-  
-  CREATE TABLE IF NOT EXISTS "nav_header_flat_menu_link_rel" (
-  	"order" integer NOT NULL,
-  	"parent_id" varchar NOT NULL,
-  	"value" "enum_nav_header_flat_menu_link_rel",
-  	"id" serial PRIMARY KEY NOT NULL
-  );
-  
-  CREATE TABLE IF NOT EXISTS "nav_header_flat_menu" (
-  	"_order" integer NOT NULL,
-  	"_parent_id" integer NOT NULL,
-  	"id" varchar PRIMARY KEY NOT NULL,
-  	"link_text" varchar NOT NULL,
-  	"link_link_type" "enum_nav_header_flat_menu_link_link_type" DEFAULT 'custom' NOT NULL,
-  	"link_url" varchar,
-  	"link_new_tab" boolean
-  );
-  
-  CREATE TABLE IF NOT EXISTS "nav_header_icon_items" (
-  	"_order" integer NOT NULL,
-  	"_parent_id" integer NOT NULL,
-  	"id" varchar PRIMARY KEY NOT NULL,
-  	"href" varchar,
-  	"new_tab" boolean,
-  	"icon_name" "iconnavitem_ic",
-  	"icon_size" "iconnavitem_iw" DEFAULT '35',
-  	"icon_color" varchar
-  );
-  
-  CREATE TABLE IF NOT EXISTS "nav_header_cta_button_cta_link_rel" (
-  	"order" integer NOT NULL,
-  	"parent_id" integer NOT NULL,
-  	"value" "enum_nav_header_cta_button_cta_link_rel",
-  	"id" serial PRIMARY KEY NOT NULL
-  );
-  
-  CREATE TABLE IF NOT EXISTS "nav_footer_footer_items_footer_menu_link_rel" (
-  	"order" integer NOT NULL,
-  	"parent_id" varchar NOT NULL,
-  	"value" "enum_nav_footer_footer_items_footer_menu_link_rel",
-  	"id" serial PRIMARY KEY NOT NULL
-  );
-  
-  CREATE TABLE IF NOT EXISTS "nav_footer_footer_items_footer_menu" (
-  	"_order" integer NOT NULL,
-  	"_parent_id" integer NOT NULL,
-  	"id" varchar PRIMARY KEY NOT NULL,
-  	"link_text" varchar NOT NULL,
-  	"link_link_type" "enum_nav_footer_footer_items_footer_menu_link_link_type" DEFAULT 'custom' NOT NULL,
-  	"link_url" varchar,
-  	"link_new_tab" boolean
-  );
-  
   CREATE TABLE IF NOT EXISTS "nav" (
   	"id" serial PRIMARY KEY NOT NULL,
   	"header_logo_id" integer,
   	"header_banner_content" jsonb,
   	"header_banner_background" "enum_nav_header_banner_background",
-  	"header_has_cta" boolean,
-  	"header_cta_button_cta_link_text" varchar,
-  	"header_cta_button_cta_link_link_type" "enum_nav_header_cta_button_cta_link_link_type" DEFAULT 'custom',
-  	"header_cta_button_cta_link_url" varchar,
-  	"header_cta_button_cta_link_new_tab" boolean,
-  	"header_cta_button_cta_variant" "undefined_cta_v" DEFAULT 'solid',
-  	"header_cta_button_cta_color" "undefined_cta_tv",
-  	"footer_footer_items_footer_logo_id" integer,
-  	"footer_footer_items_copyright" jsonb,
-  	"footer_footer_items_legal_disclaimer" jsonb,
+  	"footer_footer_logo_id" integer,
+  	"footer_copyright" jsonb,
+  	"footer_legal_disclaimer" jsonb,
   	"updated_at" timestamp(3) with time zone,
   	"created_at" timestamp(3) with time zone
   );
@@ -1523,7 +1360,6 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   	"order" integer,
   	"parent_id" integer NOT NULL,
   	"path" varchar NOT NULL,
-  	"locale" "_locales",
   	"pages_id" integer,
   	"files_id" integer,
   	"posts_id" integer
@@ -2830,12 +2666,6 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   END $$;
   
   DO $$ BEGIN
-   ALTER TABLE "posts_ctas_cta_link_rel" ADD CONSTRAINT "posts_ctas_cta_link_rel_parent_fk" FOREIGN KEY ("parent_id") REFERENCES "public"."posts_ctas"("id") ON DELETE cascade ON UPDATE no action;
-  EXCEPTION
-   WHEN duplicate_object THEN null;
-  END $$;
-  
-  DO $$ BEGIN
    ALTER TABLE "posts_ctas" ADD CONSTRAINT "posts_ctas_parent_id_fk" FOREIGN KEY ("_parent_id") REFERENCES "public"."posts"("id") ON DELETE cascade ON UPDATE no action;
   EXCEPTION
    WHEN duplicate_object THEN null;
@@ -2909,12 +2739,6 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   
   DO $$ BEGIN
    ALTER TABLE "posts_rels" ADD CONSTRAINT "posts_rels_posts_fk" FOREIGN KEY ("posts_id") REFERENCES "public"."posts"("id") ON DELETE cascade ON UPDATE no action;
-  EXCEPTION
-   WHEN duplicate_object THEN null;
-  END $$;
-  
-  DO $$ BEGIN
-   ALTER TABLE "_posts_v_version_ctas_cta_link_rel" ADD CONSTRAINT "_posts_v_version_ctas_cta_link_rel_parent_fk" FOREIGN KEY ("parent_id") REFERENCES "public"."_posts_v_version_ctas"("id") ON DELETE cascade ON UPDATE no action;
   EXCEPTION
    WHEN duplicate_object THEN null;
   END $$;
@@ -3292,48 +3116,6 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   END $$;
   
   DO $$ BEGIN
-   ALTER TABLE "nav_header_collapsible_menu_sections_links_link_rel" ADD CONSTRAINT "nav_header_collapsible_menu_sections_links_link_rel_parent_fk" FOREIGN KEY ("parent_id") REFERENCES "public"."nav_header_collapsible_menu_sections_links"("id") ON DELETE cascade ON UPDATE no action;
-  EXCEPTION
-   WHEN duplicate_object THEN null;
-  END $$;
-  
-  DO $$ BEGIN
-   ALTER TABLE "nav_header_collapsible_menu_sections_links" ADD CONSTRAINT "nav_header_collapsible_menu_sections_links_parent_id_fk" FOREIGN KEY ("_parent_id") REFERENCES "public"."nav_header_collapsible_menu_sections"("id") ON DELETE cascade ON UPDATE no action;
-  EXCEPTION
-   WHEN duplicate_object THEN null;
-  END $$;
-  
-  DO $$ BEGIN
-   ALTER TABLE "navHeaderLinks_rel" ADD CONSTRAINT "navHeaderLinks_rel_parent_fk" FOREIGN KEY ("parent_id") REFERENCES "public"."navHeaderLinks"("id") ON DELETE cascade ON UPDATE no action;
-  EXCEPTION
-   WHEN duplicate_object THEN null;
-  END $$;
-  
-  DO $$ BEGIN
-   ALTER TABLE "navHeaderLinks_links0_rel" ADD CONSTRAINT "navHeaderLinks_links0_rel_parent_fk" FOREIGN KEY ("parent_id") REFERENCES "public"."navHeaderLinks_links0"("id") ON DELETE cascade ON UPDATE no action;
-  EXCEPTION
-   WHEN duplicate_object THEN null;
-  END $$;
-  
-  DO $$ BEGIN
-   ALTER TABLE "navHeaderLinks_links0_links1_rel" ADD CONSTRAINT "navHeaderLinks_links0_links1_rel_parent_fk" FOREIGN KEY ("parent_id") REFERENCES "public"."navHeaderLinks_links0_links1"("id") ON DELETE cascade ON UPDATE no action;
-  EXCEPTION
-   WHEN duplicate_object THEN null;
-  END $$;
-  
-  DO $$ BEGIN
-   ALTER TABLE "navHeaderLinks_links0_links1_links2_rel" ADD CONSTRAINT "navHeaderLinks_links0_links1_links2_rel_parent_fk" FOREIGN KEY ("parent_id") REFERENCES "public"."navHeaderLinks_links0_links1_links2"("id") ON DELETE cascade ON UPDATE no action;
-  EXCEPTION
-   WHEN duplicate_object THEN null;
-  END $$;
-  
-  DO $$ BEGIN
-   ALTER TABLE "navHeaderLinks_links0_links1_links2_links3_rel" ADD CONSTRAINT "navHeaderLinks_links0_links1_links2_links3_rel_parent_fk" FOREIGN KEY ("parent_id") REFERENCES "public"."navHeaderLinks_links0_links1_links2_links3"("id") ON DELETE cascade ON UPDATE no action;
-  EXCEPTION
-   WHEN duplicate_object THEN null;
-  END $$;
-  
-  DO $$ BEGIN
    ALTER TABLE "navHeaderLinks_links0_links1_links2_links3" ADD CONSTRAINT "navHeaderLinks_links0_links1_links2_links3_parent_id_fk" FOREIGN KEY ("_parent_id") REFERENCES "public"."navHeaderLinks_links0_links1_links2"("id") ON DELETE cascade ON UPDATE no action;
   EXCEPTION
    WHEN duplicate_object THEN null;
@@ -3358,49 +3140,7 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   END $$;
   
   DO $$ BEGIN
-   ALTER TABLE "navHeaderLinks" ADD CONSTRAINT "navHeaderLinks_parent_id_fk" FOREIGN KEY ("_parent_id") REFERENCES "public"."nav_header_collapsible_menu_sections"("id") ON DELETE cascade ON UPDATE no action;
-  EXCEPTION
-   WHEN duplicate_object THEN null;
-  END $$;
-  
-  DO $$ BEGIN
-   ALTER TABLE "nav_header_collapsible_menu_sections" ADD CONSTRAINT "nav_header_collapsible_menu_sections_parent_id_fk" FOREIGN KEY ("_parent_id") REFERENCES "public"."nav"("id") ON DELETE cascade ON UPDATE no action;
-  EXCEPTION
-   WHEN duplicate_object THEN null;
-  END $$;
-  
-  DO $$ BEGIN
-   ALTER TABLE "nav_header_flat_menu_link_rel" ADD CONSTRAINT "nav_header_flat_menu_link_rel_parent_fk" FOREIGN KEY ("parent_id") REFERENCES "public"."nav_header_flat_menu"("id") ON DELETE cascade ON UPDATE no action;
-  EXCEPTION
-   WHEN duplicate_object THEN null;
-  END $$;
-  
-  DO $$ BEGIN
-   ALTER TABLE "nav_header_flat_menu" ADD CONSTRAINT "nav_header_flat_menu_parent_id_fk" FOREIGN KEY ("_parent_id") REFERENCES "public"."nav"("id") ON DELETE cascade ON UPDATE no action;
-  EXCEPTION
-   WHEN duplicate_object THEN null;
-  END $$;
-  
-  DO $$ BEGIN
-   ALTER TABLE "nav_header_icon_items" ADD CONSTRAINT "nav_header_icon_items_parent_id_fk" FOREIGN KEY ("_parent_id") REFERENCES "public"."nav"("id") ON DELETE cascade ON UPDATE no action;
-  EXCEPTION
-   WHEN duplicate_object THEN null;
-  END $$;
-  
-  DO $$ BEGIN
-   ALTER TABLE "nav_header_cta_button_cta_link_rel" ADD CONSTRAINT "nav_header_cta_button_cta_link_rel_parent_fk" FOREIGN KEY ("parent_id") REFERENCES "public"."nav"("id") ON DELETE cascade ON UPDATE no action;
-  EXCEPTION
-   WHEN duplicate_object THEN null;
-  END $$;
-  
-  DO $$ BEGIN
-   ALTER TABLE "nav_footer_footer_items_footer_menu_link_rel" ADD CONSTRAINT "nav_footer_footer_items_footer_menu_link_rel_parent_fk" FOREIGN KEY ("parent_id") REFERENCES "public"."nav_footer_footer_items_footer_menu"("id") ON DELETE cascade ON UPDATE no action;
-  EXCEPTION
-   WHEN duplicate_object THEN null;
-  END $$;
-  
-  DO $$ BEGIN
-   ALTER TABLE "nav_footer_footer_items_footer_menu" ADD CONSTRAINT "nav_footer_footer_items_footer_menu_parent_id_fk" FOREIGN KEY ("_parent_id") REFERENCES "public"."nav"("id") ON DELETE cascade ON UPDATE no action;
+   ALTER TABLE "navHeaderLinks" ADD CONSTRAINT "navHeaderLinks_parent_id_fk" FOREIGN KEY ("_parent_id") REFERENCES "public"."nav"("id") ON DELETE cascade ON UPDATE no action;
   EXCEPTION
    WHEN duplicate_object THEN null;
   END $$;
@@ -3412,7 +3152,7 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   END $$;
   
   DO $$ BEGIN
-   ALTER TABLE "nav" ADD CONSTRAINT "nav_footer_footer_items_footer_logo_id_images_id_fk" FOREIGN KEY ("footer_footer_items_footer_logo_id") REFERENCES "public"."images"("id") ON DELETE set null ON UPDATE no action;
+   ALTER TABLE "nav" ADD CONSTRAINT "nav_footer_footer_logo_id_images_id_fk" FOREIGN KEY ("footer_footer_logo_id") REFERENCES "public"."images"("id") ON DELETE set null ON UPDATE no action;
   EXCEPTION
    WHEN duplicate_object THEN null;
   END $$;
@@ -3974,8 +3714,6 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   CREATE INDEX IF NOT EXISTS "_pages_v_rels_path_idx" ON "_pages_v_rels" USING btree ("path");
   CREATE INDEX IF NOT EXISTS "_pages_v_rels_images_id_idx" ON "_pages_v_rels" USING btree ("images_id");
   CREATE INDEX IF NOT EXISTS "_pages_v_rels_videos_id_idx" ON "_pages_v_rels" USING btree ("videos_id");
-  CREATE INDEX IF NOT EXISTS "posts_ctas_cta_link_rel_order_idx" ON "posts_ctas_cta_link_rel" USING btree ("order");
-  CREATE INDEX IF NOT EXISTS "posts_ctas_cta_link_rel_parent_idx" ON "posts_ctas_cta_link_rel" USING btree ("parent_id");
   CREATE INDEX IF NOT EXISTS "posts_ctas_order_idx" ON "posts_ctas" USING btree ("_order");
   CREATE INDEX IF NOT EXISTS "posts_ctas_parent_id_idx" ON "posts_ctas" USING btree ("_parent_id");
   CREATE INDEX IF NOT EXISTS "posts_content_order_idx" ON "posts_content" USING btree ("_order");
@@ -3997,8 +3735,6 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   CREATE INDEX IF NOT EXISTS "posts_rels_pages_id_idx" ON "posts_rels" USING btree ("pages_id");
   CREATE INDEX IF NOT EXISTS "posts_rels_files_id_idx" ON "posts_rels" USING btree ("files_id");
   CREATE INDEX IF NOT EXISTS "posts_rels_posts_id_idx" ON "posts_rels" USING btree ("posts_id");
-  CREATE INDEX IF NOT EXISTS "_posts_v_version_ctas_cta_link_rel_order_idx" ON "_posts_v_version_ctas_cta_link_rel" USING btree ("order");
-  CREATE INDEX IF NOT EXISTS "_posts_v_version_ctas_cta_link_rel_parent_idx" ON "_posts_v_version_ctas_cta_link_rel" USING btree ("parent_id");
   CREATE INDEX IF NOT EXISTS "_posts_v_version_ctas_order_idx" ON "_posts_v_version_ctas" USING btree ("_order");
   CREATE INDEX IF NOT EXISTS "_posts_v_version_ctas_parent_id_idx" ON "_posts_v_version_ctas" USING btree ("_parent_id");
   CREATE INDEX IF NOT EXISTS "_posts_v_version_content_order_idx" ON "_posts_v_version_content" USING btree ("_order");
@@ -4151,66 +3887,24 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   CREATE INDEX IF NOT EXISTS "payload_preferences_rels_admins_id_idx" ON "payload_preferences_rels" USING btree ("admins_id");
   CREATE INDEX IF NOT EXISTS "payload_migrations_updated_at_idx" ON "payload_migrations" USING btree ("updated_at");
   CREATE INDEX IF NOT EXISTS "payload_migrations_created_at_idx" ON "payload_migrations" USING btree ("created_at");
-  CREATE INDEX IF NOT EXISTS "nav_header_collapsible_menu_sections_links_link_rel_order_idx" ON "nav_header_collapsible_menu_sections_links_link_rel" USING btree ("order");
-  CREATE INDEX IF NOT EXISTS "nav_header_collapsible_menu_sections_links_link_rel_parent_idx" ON "nav_header_collapsible_menu_sections_links_link_rel" USING btree ("parent_id");
-  CREATE INDEX IF NOT EXISTS "nav_header_collapsible_menu_sections_links_link_rel_locale_idx" ON "nav_header_collapsible_menu_sections_links_link_rel" USING btree ("locale");
-  CREATE INDEX IF NOT EXISTS "nav_header_collapsible_menu_sections_links_order_idx" ON "nav_header_collapsible_menu_sections_links" USING btree ("_order");
-  CREATE INDEX IF NOT EXISTS "nav_header_collapsible_menu_sections_links_parent_id_idx" ON "nav_header_collapsible_menu_sections_links" USING btree ("_parent_id");
-  CREATE INDEX IF NOT EXISTS "nav_header_collapsible_menu_sections_links_locale_idx" ON "nav_header_collapsible_menu_sections_links" USING btree ("_locale");
-  CREATE INDEX IF NOT EXISTS "navHeaderLinks_rel_order_idx" ON "navHeaderLinks_rel" USING btree ("order");
-  CREATE INDEX IF NOT EXISTS "navHeaderLinks_rel_parent_idx" ON "navHeaderLinks_rel" USING btree ("parent_id");
-  CREATE INDEX IF NOT EXISTS "navHeaderLinks_rel_locale_idx" ON "navHeaderLinks_rel" USING btree ("locale");
-  CREATE INDEX IF NOT EXISTS "navHeaderLinks_links0_rel_order_idx" ON "navHeaderLinks_links0_rel" USING btree ("order");
-  CREATE INDEX IF NOT EXISTS "navHeaderLinks_links0_rel_parent_idx" ON "navHeaderLinks_links0_rel" USING btree ("parent_id");
-  CREATE INDEX IF NOT EXISTS "navHeaderLinks_links0_rel_locale_idx" ON "navHeaderLinks_links0_rel" USING btree ("locale");
-  CREATE INDEX IF NOT EXISTS "navHeaderLinks_links0_links1_rel_order_idx" ON "navHeaderLinks_links0_links1_rel" USING btree ("order");
-  CREATE INDEX IF NOT EXISTS "navHeaderLinks_links0_links1_rel_parent_idx" ON "navHeaderLinks_links0_links1_rel" USING btree ("parent_id");
-  CREATE INDEX IF NOT EXISTS "navHeaderLinks_links0_links1_rel_locale_idx" ON "navHeaderLinks_links0_links1_rel" USING btree ("locale");
-  CREATE INDEX IF NOT EXISTS "navHeaderLinks_links0_links1_links2_rel_order_idx" ON "navHeaderLinks_links0_links1_links2_rel" USING btree ("order");
-  CREATE INDEX IF NOT EXISTS "navHeaderLinks_links0_links1_links2_rel_parent_idx" ON "navHeaderLinks_links0_links1_links2_rel" USING btree ("parent_id");
-  CREATE INDEX IF NOT EXISTS "navHeaderLinks_links0_links1_links2_rel_locale_idx" ON "navHeaderLinks_links0_links1_links2_rel" USING btree ("locale");
-  CREATE INDEX IF NOT EXISTS "navHeaderLinks_links0_links1_links2_links3_rel_order_idx" ON "navHeaderLinks_links0_links1_links2_links3_rel" USING btree ("order");
-  CREATE INDEX IF NOT EXISTS "navHeaderLinks_links0_links1_links2_links3_rel_parent_idx" ON "navHeaderLinks_links0_links1_links2_links3_rel" USING btree ("parent_id");
-  CREATE INDEX IF NOT EXISTS "navHeaderLinks_links0_links1_links2_links3_rel_locale_idx" ON "navHeaderLinks_links0_links1_links2_links3_rel" USING btree ("locale");
   CREATE INDEX IF NOT EXISTS "navHeaderLinks_links0_links1_links2_links3_order_idx" ON "navHeaderLinks_links0_links1_links2_links3" USING btree ("_order");
   CREATE INDEX IF NOT EXISTS "navHeaderLinks_links0_links1_links2_links3_parent_id_idx" ON "navHeaderLinks_links0_links1_links2_links3" USING btree ("_parent_id");
-  CREATE INDEX IF NOT EXISTS "navHeaderLinks_links0_links1_links2_links3_locale_idx" ON "navHeaderLinks_links0_links1_links2_links3" USING btree ("_locale");
   CREATE INDEX IF NOT EXISTS "navHeaderLinks_links0_links1_links2_order_idx" ON "navHeaderLinks_links0_links1_links2" USING btree ("_order");
   CREATE INDEX IF NOT EXISTS "navHeaderLinks_links0_links1_links2_parent_id_idx" ON "navHeaderLinks_links0_links1_links2" USING btree ("_parent_id");
-  CREATE INDEX IF NOT EXISTS "navHeaderLinks_links0_links1_links2_locale_idx" ON "navHeaderLinks_links0_links1_links2" USING btree ("_locale");
   CREATE INDEX IF NOT EXISTS "navHeaderLinks_links0_links1_order_idx" ON "navHeaderLinks_links0_links1" USING btree ("_order");
   CREATE INDEX IF NOT EXISTS "navHeaderLinks_links0_links1_parent_id_idx" ON "navHeaderLinks_links0_links1" USING btree ("_parent_id");
-  CREATE INDEX IF NOT EXISTS "navHeaderLinks_links0_links1_locale_idx" ON "navHeaderLinks_links0_links1" USING btree ("_locale");
   CREATE INDEX IF NOT EXISTS "navHeaderLinks_links0_order_idx" ON "navHeaderLinks_links0" USING btree ("_order");
   CREATE INDEX IF NOT EXISTS "navHeaderLinks_links0_parent_id_idx" ON "navHeaderLinks_links0" USING btree ("_parent_id");
-  CREATE INDEX IF NOT EXISTS "navHeaderLinks_links0_locale_idx" ON "navHeaderLinks_links0" USING btree ("_locale");
   CREATE INDEX IF NOT EXISTS "navHeaderLinks_order_idx" ON "navHeaderLinks" USING btree ("_order");
   CREATE INDEX IF NOT EXISTS "navHeaderLinks_parent_id_idx" ON "navHeaderLinks" USING btree ("_parent_id");
-  CREATE INDEX IF NOT EXISTS "navHeaderLinks_locale_idx" ON "navHeaderLinks" USING btree ("_locale");
-  CREATE INDEX IF NOT EXISTS "nav_header_collapsible_menu_sections_order_idx" ON "nav_header_collapsible_menu_sections" USING btree ("_order");
-  CREATE INDEX IF NOT EXISTS "nav_header_collapsible_menu_sections_parent_id_idx" ON "nav_header_collapsible_menu_sections" USING btree ("_parent_id");
-  CREATE INDEX IF NOT EXISTS "nav_header_collapsible_menu_sections_locale_idx" ON "nav_header_collapsible_menu_sections" USING btree ("_locale");
-  CREATE INDEX IF NOT EXISTS "nav_header_flat_menu_link_rel_order_idx" ON "nav_header_flat_menu_link_rel" USING btree ("order");
-  CREATE INDEX IF NOT EXISTS "nav_header_flat_menu_link_rel_parent_idx" ON "nav_header_flat_menu_link_rel" USING btree ("parent_id");
-  CREATE INDEX IF NOT EXISTS "nav_header_flat_menu_order_idx" ON "nav_header_flat_menu" USING btree ("_order");
-  CREATE INDEX IF NOT EXISTS "nav_header_flat_menu_parent_id_idx" ON "nav_header_flat_menu" USING btree ("_parent_id");
-  CREATE INDEX IF NOT EXISTS "nav_header_icon_items_order_idx" ON "nav_header_icon_items" USING btree ("_order");
-  CREATE INDEX IF NOT EXISTS "nav_header_icon_items_parent_id_idx" ON "nav_header_icon_items" USING btree ("_parent_id");
-  CREATE INDEX IF NOT EXISTS "nav_header_cta_button_cta_link_rel_order_idx" ON "nav_header_cta_button_cta_link_rel" USING btree ("order");
-  CREATE INDEX IF NOT EXISTS "nav_header_cta_button_cta_link_rel_parent_idx" ON "nav_header_cta_button_cta_link_rel" USING btree ("parent_id");
-  CREATE INDEX IF NOT EXISTS "nav_footer_footer_items_footer_menu_link_rel_order_idx" ON "nav_footer_footer_items_footer_menu_link_rel" USING btree ("order");
-  CREATE INDEX IF NOT EXISTS "nav_footer_footer_items_footer_menu_link_rel_parent_idx" ON "nav_footer_footer_items_footer_menu_link_rel" USING btree ("parent_id");
-  CREATE INDEX IF NOT EXISTS "nav_footer_footer_items_footer_menu_order_idx" ON "nav_footer_footer_items_footer_menu" USING btree ("_order");
-  CREATE INDEX IF NOT EXISTS "nav_footer_footer_items_footer_menu_parent_id_idx" ON "nav_footer_footer_items_footer_menu" USING btree ("_parent_id");
   CREATE INDEX IF NOT EXISTS "nav_header_header_logo_idx" ON "nav" USING btree ("header_logo_id");
-  CREATE INDEX IF NOT EXISTS "nav_footer_footer_items_footer_footer_items_footer_logo_idx" ON "nav" USING btree ("footer_footer_items_footer_logo_id");
+  CREATE INDEX IF NOT EXISTS "nav_footer_footer_footer_logo_idx" ON "nav" USING btree ("footer_footer_logo_id");
   CREATE INDEX IF NOT EXISTS "nav_rels_order_idx" ON "nav_rels" USING btree ("order");
   CREATE INDEX IF NOT EXISTS "nav_rels_parent_idx" ON "nav_rels" USING btree ("parent_id");
   CREATE INDEX IF NOT EXISTS "nav_rels_path_idx" ON "nav_rels" USING btree ("path");
-  CREATE INDEX IF NOT EXISTS "nav_rels_locale_idx" ON "nav_rels" USING btree ("locale");
-  CREATE INDEX IF NOT EXISTS "nav_rels_pages_id_idx" ON "nav_rels" USING btree ("pages_id","locale");
-  CREATE INDEX IF NOT EXISTS "nav_rels_files_id_idx" ON "nav_rels" USING btree ("files_id","locale");
-  CREATE INDEX IF NOT EXISTS "nav_rels_posts_id_idx" ON "nav_rels" USING btree ("posts_id","locale");
+  CREATE INDEX IF NOT EXISTS "nav_rels_pages_id_idx" ON "nav_rels" USING btree ("pages_id");
+  CREATE INDEX IF NOT EXISTS "nav_rels_files_id_idx" ON "nav_rels" USING btree ("files_id");
+  CREATE INDEX IF NOT EXISTS "nav_rels_posts_id_idx" ON "nav_rels" USING btree ("posts_id");
   CREATE INDEX IF NOT EXISTS "homepagePricingSectionsBlock_order_idx" ON "homepagePricingSectionsBlock" USING btree ("_order");
   CREATE INDEX IF NOT EXISTS "homepagePricingSectionsBlock_parent_id_idx" ON "homepagePricingSectionsBlock" USING btree ("_parent_id");
   CREATE INDEX IF NOT EXISTS "homepagePricingSectionsBlock_path_idx" ON "homepagePricingSectionsBlock" USING btree ("_path");
@@ -4437,14 +4131,12 @@ export async function down({ db, payload, req }: MigrateDownArgs): Promise<void>
   DROP TABLE "_pages_v" CASCADE;
   DROP TABLE "_pages_v_locales" CASCADE;
   DROP TABLE "_pages_v_rels" CASCADE;
-  DROP TABLE "posts_ctas_cta_link_rel" CASCADE;
   DROP TABLE "posts_ctas" CASCADE;
   DROP TABLE "posts_content" CASCADE;
   DROP TABLE "posts_content_locales" CASCADE;
   DROP TABLE "posts" CASCADE;
   DROP TABLE "posts_locales" CASCADE;
   DROP TABLE "posts_rels" CASCADE;
-  DROP TABLE "_posts_v_version_ctas_cta_link_rel" CASCADE;
   DROP TABLE "_posts_v_version_ctas" CASCADE;
   DROP TABLE "_posts_v_version_content" CASCADE;
   DROP TABLE "_posts_v_version_content_locales" CASCADE;
@@ -4492,25 +4184,11 @@ export async function down({ db, payload, req }: MigrateDownArgs): Promise<void>
   DROP TABLE "payload_preferences" CASCADE;
   DROP TABLE "payload_preferences_rels" CASCADE;
   DROP TABLE "payload_migrations" CASCADE;
-  DROP TABLE "nav_header_collapsible_menu_sections_links_link_rel" CASCADE;
-  DROP TABLE "nav_header_collapsible_menu_sections_links" CASCADE;
-  DROP TABLE "navHeaderLinks_rel" CASCADE;
-  DROP TABLE "navHeaderLinks_links0_rel" CASCADE;
-  DROP TABLE "navHeaderLinks_links0_links1_rel" CASCADE;
-  DROP TABLE "navHeaderLinks_links0_links1_links2_rel" CASCADE;
-  DROP TABLE "navHeaderLinks_links0_links1_links2_links3_rel" CASCADE;
   DROP TABLE "navHeaderLinks_links0_links1_links2_links3" CASCADE;
   DROP TABLE "navHeaderLinks_links0_links1_links2" CASCADE;
   DROP TABLE "navHeaderLinks_links0_links1" CASCADE;
   DROP TABLE "navHeaderLinks_links0" CASCADE;
   DROP TABLE "navHeaderLinks" CASCADE;
-  DROP TABLE "nav_header_collapsible_menu_sections" CASCADE;
-  DROP TABLE "nav_header_flat_menu_link_rel" CASCADE;
-  DROP TABLE "nav_header_flat_menu" CASCADE;
-  DROP TABLE "nav_header_icon_items" CASCADE;
-  DROP TABLE "nav_header_cta_button_cta_link_rel" CASCADE;
-  DROP TABLE "nav_footer_footer_items_footer_menu_link_rel" CASCADE;
-  DROP TABLE "nav_footer_footer_items_footer_menu" CASCADE;
   DROP TABLE "nav" CASCADE;
   DROP TABLE "nav_rels" CASCADE;
   DROP TABLE "homepagePricingSectionsBlock" CASCADE;
@@ -4634,12 +4312,10 @@ export async function down({ db, payload, req }: MigrateDownArgs): Promise<void>
   DROP TYPE "public"."enum__pages_v_version_theme";
   DROP TYPE "public"."enum__pages_v_version_status";
   DROP TYPE "public"."enum__pages_v_published_locale";
-  DROP TYPE "public"."enum_posts_ctas_cta_link_rel";
   DROP TYPE "public"."enum_posts_ctas_cta_link_link_type";
   DROP TYPE "public"."card_cta_v";
   DROP TYPE "public"."card_cta_tv";
   DROP TYPE "public"."enum_posts_status";
-  DROP TYPE "public"."enum__posts_v_version_ctas_cta_link_rel";
   DROP TYPE "public"."enum__posts_v_version_ctas_cta_link_link_type";
   DROP TYPE "public"."enum__posts_v_version_status";
   DROP TYPE "public"."enum__posts_v_published_locale";
@@ -4648,29 +4324,12 @@ export async function down({ db, payload, req }: MigrateDownArgs): Promise<void>
   DROP TYPE "public"."enum_payload_jobs_log_task_slug";
   DROP TYPE "public"."enum_payload_jobs_log_state";
   DROP TYPE "public"."enum_payload_jobs_task_slug";
-  DROP TYPE "public"."enum_nav_header_collapsible_menu_sections_links_link_rel";
-  DROP TYPE "public"."enum_nav_header_collapsible_menu_sections_links_link_link_type";
-  DROP TYPE "public"."enum_navHeaderLinks_rel";
-  DROP TYPE "public"."enum_navHeaderLinks_links0_rel";
-  DROP TYPE "public"."enum_navHeaderLinks_links0_links1_rel";
-  DROP TYPE "public"."enum_navHeaderLinks_links0_links1_links2_rel";
-  DROP TYPE "public"."enum_navHeaderLinks_links0_links1_links2_links3_rel";
   DROP TYPE "public"."enum_navHeaderLinks_links0_links1_links2_links3_link_type";
   DROP TYPE "public"."enum_navHeaderLinks_links0_links1_links2_link_type";
   DROP TYPE "public"."enum_navHeaderLinks_links0_links1_link_type";
   DROP TYPE "public"."enum_navHeaderLinks_links0_link_type";
   DROP TYPE "public"."enum_navHeaderLinks_link_type";
-  DROP TYPE "public"."enum_nav_header_flat_menu_link_rel";
-  DROP TYPE "public"."enum_nav_header_flat_menu_link_link_type";
-  DROP TYPE "public"."iconnavitem_ic";
-  DROP TYPE "public"."iconnavitem_iw";
-  DROP TYPE "public"."enum_nav_header_cta_button_cta_link_rel";
-  DROP TYPE "public"."enum_nav_footer_footer_items_footer_menu_link_rel";
-  DROP TYPE "public"."enum_nav_footer_footer_items_footer_menu_link_link_type";
   DROP TYPE "public"."enum_nav_header_banner_background";
-  DROP TYPE "public"."enum_nav_header_cta_button_cta_link_link_type";
-  DROP TYPE "public"."undefined_cta_v";
-  DROP TYPE "public"."undefined_cta_tv";
   DROP TYPE "public"."enum_homepagePricingSectionsBlock_wrapper_theme";
   DROP TYPE "public"."enum_homepagePricingSectionsBlock_variant";
   DROP TYPE "public"."enum_homepageTestimonialsSectionsBlock_wrapper_theme";

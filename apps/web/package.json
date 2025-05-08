@@ -35,7 +35,6 @@
     "@faker-js/faker": "^8.4.0",
     "@hookform/resolvers": "^3.10.0",
     "@inquirer/prompts": "^5.5.0",
-    "@lexical/react": "^0.23.1",
     "@mono/tsconfig": "workspace:*",
     "@mono/types": "workspace:*",
     "@mono/ui": "workspace:*",

@@ -8,6 +8,7 @@ function linkTree(maxDepth = 4, currentDepth = 0): Field[] {
     fields.push({
       type: 'array',
       name: `links${currentDepth}`,
+      label: 'Sub-Links',
       fields: linkTree(maxDepth, currentDepth + 1)
     });
   }
@@ -16,7 +17,8 @@ function linkTree(maxDepth = 4, currentDepth = 0): Field[] {
 }
 
 export default function NestedLinkArray({
-  name = 'nestedLinks',
+  name = 'links',
+  label = 'Links',
   dbName = undefined
 }: Partial<ArrayField> = {}): ArrayField {
   if (!dbName) {
@@ -26,6 +28,7 @@ export default function NestedLinkArray({
   return {
     type: 'array',
     name,
+    label,
     dbName,
     fields: linkTree()
   };
