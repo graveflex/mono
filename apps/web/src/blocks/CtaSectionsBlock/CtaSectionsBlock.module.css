@@ -1,7 +1,7 @@
 @reference "../../app/global.css";
 
 .container {
-  @apply bg-primary py-16;
+  @apply bg-background py-16;
 
   /* md */
   @apply md:py-24;

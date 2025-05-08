@@ -1,5 +1,14 @@
 import type { CtaSectionsBlockT as PayloadType } from '@mono/types/payload-types';
 import Form from '@mono/web/components/Form';
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogOverlay,
+  DialogTitle,
+  DialogTrigger
+} from '@mono/web/components/ui/Dialog';
+import type { Themes } from '@mono/web/lib/constants';
 import { cn } from '@mono/web/lib/utils';
 import type {
   DefaultNodeTypes,
@@ -11,6 +20,8 @@ import {
 } from '@payloadcms/richtext-lexical/react';
 import React from 'react';
 import ContentGridConverter from './Converters/ContentGridConverter';
+import Link from './Blocks/Link';
+import Video from './Blocks/Video';
 import LinkConverter from './Converters/LinkConverter';
 import styles from './RichText.module.css';
 
@@ -33,6 +44,10 @@ export type RichTextType = {
     [k: string]: unknown;
   } | null;
   className?: string;
+};
+
+export type AugmentedSerializedBlockNode = SerializedBlockNode & {
+  theme?: Themes;
 };
 
 const jsxConverters: JSXConvertersFunction<DefaultNodeTypes> = ({
@@ -61,7 +76,38 @@ const jsxConverters: JSXConvertersFunction<DefaultNodeTypes> = ({
 
       return <Form form={payloadForm} />;
     },
-    contentGrid: ContentGridConverter
+    contentGrid: ContentGridConverter,
+    link: ({ node }: { node: AugmentedSerializedBlockNode }) => {
+      return <Link node={node} />;
+    },
+    modal: ({ node }: { node: AugmentedSerializedBlockNode }) => {
+      return (
+        <Dialog>
+          <DialogTrigger>
+            <strong className="cursor-pointer hover:opacity-80 hover:scale-101 mt-6 inline-block transition-all duration-250 ease-in-out">
+              <u>{node.fields.modalText}</u>
+            </strong>
+          </DialogTrigger>
+          <DialogOverlay className="opacity-0 pointer-events-none">
+            {/* TODO: Border Radius theme setting? */}
+            <DialogContent className={`${node.theme || ''} border-primary`}>
+              <DialogTitle className="text-foreground">
+                {node.fields.modalText}
+              </DialogTitle>
+              <DialogClose className="text-muted-foreground" />
+              <RichText data={node.fields.modalContent} />
+
+              <DialogClose className="absolute top-4 right-4 text-primary cursor-pointer hover:scale-110">
+                <span className="sr-only">Close</span>
+              </DialogClose>
+            </DialogContent>
+          </DialogOverlay>
+        </Dialog>
+      );
+    },
+    video: ({ node }: { node: AugmentedSerializedBlockNode }) => {
+      return <Video node={node} />;
+    }
   }
 });
 

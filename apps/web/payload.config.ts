@@ -53,6 +53,9 @@ import { authConfig } from './src/auth.config';
 import { ContentGrid } from './src/components/RichText/Blocks/ContentGrid/config';
 import { Embed } from './src/components/RichText/Blocks/Embed/config';
 import { Form } from './src/components/RichText/Blocks/Form/config';
+import { Link } from './src/components/RichText/Blocks/Link/config';
+import { Modal } from './src/components/RichText/Blocks/Modal/config';
+import { Video } from './src/components/RichText/Blocks/Video/config';
 import { EyebrowFeature } from './src/components/RichText/Features/eyebrow/eyebrow.server';
 
 const DATABASE_URL = process.env.DATABASE_URL as string;
@@ -201,7 +204,7 @@ export default buildConfig({
         FixedToolbarFeature(),
         EyebrowFeature(),
         BlocksFeature({
-          blocks: [Embed, Form, ContentGrid],
+          blocks: [Embed, Form, ContentGrid, Link, Modal, Video],
           inlineBlocks: []
         })
       ] as FeatureProviderServer<unknown, unknown>[]

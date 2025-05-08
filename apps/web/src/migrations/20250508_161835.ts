@@ -19,7 +19,8 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   CREATE TYPE "public"."enum_pageBannersBlock_wrapper_theme" AS ENUM('_', 'light', 'dark');
   CREATE TYPE "public"."enum_pageBannersBlock_variant" AS ENUM('1', '2', '3', '4', '5', '6');
   CREATE TYPE "public"."enum_pages_blocks_cta_sections_block_wrapper_theme" AS ENUM('_', 'light', 'dark');
-  CREATE TYPE "public"."enum_pages_blocks_cta_sections_block_variant" AS ENUM('1', '2', '3', '4', '5', '6', '7');
+  CREATE TYPE "public"."enum_pages_blocks_cta_sections_block_variant" AS ENUM('1', '2', '3', '4', '5');
+  CREATE TYPE "public"."enum_pages_blocks_cta_sections_block_media_position" AS ENUM('left', 'right');
   CREATE TYPE "public"."enum_pages_blocks_feature_section_wrapper_theme" AS ENUM('_', 'light', 'dark');
   CREATE TYPE "public"."enum_pages_blocks_feature_section_variant" AS ENUM('1', '2', '3', '4', '5');
   CREATE TYPE "public"."enum_pages_blocks_feature_section_media_position" AS ENUM('left', 'right');
@@ -43,7 +44,8 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   CREATE TYPE "public"."enum__pageBannersBlock_v_wrapper_theme" AS ENUM('_', 'light', 'dark');
   CREATE TYPE "public"."enum__pageBannersBlock_v_variant" AS ENUM('1', '2', '3', '4', '5', '6');
   CREATE TYPE "public"."enum__pages_v_blocks_cta_sections_block_wrapper_theme" AS ENUM('_', 'light', 'dark');
-  CREATE TYPE "public"."enum__pages_v_blocks_cta_sections_block_variant" AS ENUM('1', '2', '3', '4', '5', '6', '7');
+  CREATE TYPE "public"."enum__pages_v_blocks_cta_sections_block_variant" AS ENUM('1', '2', '3', '4', '5');
+  CREATE TYPE "public"."enum__pages_v_blocks_cta_sections_block_media_position" AS ENUM('left', 'right');
   CREATE TYPE "public"."enum__pages_v_blocks_feature_section_wrapper_theme" AS ENUM('_', 'light', 'dark');
   CREATE TYPE "public"."enum__pages_v_blocks_feature_section_variant" AS ENUM('1', '2', '3', '4', '5');
   CREATE TYPE "public"."enum__pages_v_blocks_feature_section_media_position" AS ENUM('left', 'right');
@@ -88,7 +90,8 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   CREATE TYPE "public"."enum_homepageBannersBlock_wrapper_theme" AS ENUM('_', 'light', 'dark');
   CREATE TYPE "public"."enum_homepageBannersBlock_variant" AS ENUM('1', '2', '3', '4', '5', '6');
   CREATE TYPE "public"."enum_homepage_blocks_cta_sections_block_wrapper_theme" AS ENUM('_', 'light', 'dark');
-  CREATE TYPE "public"."enum_homepage_blocks_cta_sections_block_variant" AS ENUM('1', '2', '3', '4', '5', '6', '7');
+  CREATE TYPE "public"."enum_homepage_blocks_cta_sections_block_variant" AS ENUM('1', '2', '3', '4', '5');
+  CREATE TYPE "public"."enum_homepage_blocks_cta_sections_block_media_position" AS ENUM('left', 'right');
   CREATE TYPE "public"."enum_homepage_blocks_feature_section_wrapper_theme" AS ENUM('_', 'light', 'dark');
   CREATE TYPE "public"."enum_homepage_blocks_feature_section_variant" AS ENUM('1', '2', '3', '4', '5');
   CREATE TYPE "public"."enum_homepage_blocks_feature_section_media_position" AS ENUM('left', 'right');
@@ -111,7 +114,8 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   CREATE TYPE "public"."enum__homepageBannersBlock_v_wrapper_theme" AS ENUM('_', 'light', 'dark');
   CREATE TYPE "public"."enum__homepageBannersBlock_v_variant" AS ENUM('1', '2', '3', '4', '5', '6');
   CREATE TYPE "public"."enum__homepage_v_blocks_cta_sections_block_wrapper_theme" AS ENUM('_', 'light', 'dark');
-  CREATE TYPE "public"."enum__homepage_v_blocks_cta_sections_block_variant" AS ENUM('1', '2', '3', '4', '5', '6', '7');
+  CREATE TYPE "public"."enum__homepage_v_blocks_cta_sections_block_variant" AS ENUM('1', '2', '3', '4', '5');
+  CREATE TYPE "public"."enum__homepage_v_blocks_cta_sections_block_media_position" AS ENUM('left', 'right');
   CREATE TYPE "public"."enum__homepage_v_blocks_feature_section_wrapper_theme" AS ENUM('_', 'light', 'dark');
   CREATE TYPE "public"."enum__homepage_v_blocks_feature_section_variant" AS ENUM('1', '2', '3', '4', '5');
   CREATE TYPE "public"."enum__homepage_v_blocks_feature_section_media_position" AS ENUM('left', 'right');
@@ -135,7 +139,8 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   CREATE TYPE "public"."enum_blogIdxBannersBlock_wrapper_theme" AS ENUM('_', 'light', 'dark');
   CREATE TYPE "public"."enum_blogIdxBannersBlock_variant" AS ENUM('1', '2', '3', '4', '5', '6');
   CREATE TYPE "public"."enum_blog_index_blocks_cta_sections_block_wrapper_theme" AS ENUM('_', 'light', 'dark');
-  CREATE TYPE "public"."enum_blog_index_blocks_cta_sections_block_variant" AS ENUM('1', '2', '3', '4', '5', '6', '7');
+  CREATE TYPE "public"."enum_blog_index_blocks_cta_sections_block_variant" AS ENUM('1', '2', '3', '4', '5');
+  CREATE TYPE "public"."enum_blog_index_blocks_cta_sections_block_media_position" AS ENUM('left', 'right');
   CREATE TYPE "public"."enum_blog_index_blocks_feature_section_wrapper_theme" AS ENUM('_', 'light', 'dark');
   CREATE TYPE "public"."enum_blog_index_blocks_feature_section_variant" AS ENUM('1', '2', '3', '4', '5');
   CREATE TYPE "public"."enum_blog_index_blocks_feature_section_media_position" AS ENUM('left', 'right');
@@ -158,7 +163,8 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   CREATE TYPE "public"."enum__blogIdxBannersBlock_v_wrapper_theme" AS ENUM('_', 'light', 'dark');
   CREATE TYPE "public"."enum__blogIdxBannersBlock_v_variant" AS ENUM('1', '2', '3', '4', '5', '6');
   CREATE TYPE "public"."enum__blog_index_v_blocks_cta_sections_block_wrapper_theme" AS ENUM('_', 'light', 'dark');
-  CREATE TYPE "public"."enum__blog_index_v_blocks_cta_sections_block_variant" AS ENUM('1', '2', '3', '4', '5', '6', '7');
+  CREATE TYPE "public"."enum__blog_index_v_blocks_cta_sections_block_variant" AS ENUM('1', '2', '3', '4', '5');
+  CREATE TYPE "public"."enum__blog_index_v_blocks_cta_sections_block_media_position" AS ENUM('left', 'right');
   CREATE TYPE "public"."enum__blog_index_v_blocks_feature_section_wrapper_theme" AS ENUM('_', 'light', 'dark');
   CREATE TYPE "public"."enum__blog_index_v_blocks_feature_section_variant" AS ENUM('1', '2', '3', '4', '5');
   CREATE TYPE "public"."enum__blog_index_v_blocks_feature_section_media_position" AS ENUM('left', 'right');
@@ -336,12 +342,13 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   	"wrapper_padding_xl_padding_top" "t",
   	"wrapper_padding_xl_padding_bottom" "b",
   	"variant" "enum_pages_blocks_cta_sections_block_variant" DEFAULT '1',
+  	"media_position" "enum_pages_blocks_cta_sections_block_media_position" DEFAULT 'right',
   	"block_name" varchar
   );
   
   CREATE TABLE IF NOT EXISTS "pages_blocks_cta_sections_block_locales" (
-  	"title" varchar,
   	"content" jsonb,
+  	"right_content" jsonb,
   	"id" serial PRIMARY KEY NOT NULL,
   	"_locale" "_locales" NOT NULL,
   	"_parent_id" varchar NOT NULL
@@ -370,6 +377,7 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   
   CREATE TABLE IF NOT EXISTS "pages_blocks_feature_section_locales" (
   	"content" jsonb,
+  	"additional_content" jsonb,
   	"id" serial PRIMARY KEY NOT NULL,
   	"_locale" "_locales" NOT NULL,
   	"_parent_id" varchar NOT NULL
@@ -627,13 +635,14 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   	"wrapper_padding_xl_padding_top" "t",
   	"wrapper_padding_xl_padding_bottom" "b",
   	"variant" "enum__pages_v_blocks_cta_sections_block_variant" DEFAULT '1',
+  	"media_position" "enum__pages_v_blocks_cta_sections_block_media_position" DEFAULT 'right',
   	"_uuid" varchar,
   	"block_name" varchar
   );
   
   CREATE TABLE IF NOT EXISTS "_pages_v_blocks_cta_sections_block_locales" (
-  	"title" varchar,
   	"content" jsonb,
+  	"right_content" jsonb,
   	"id" serial PRIMARY KEY NOT NULL,
   	"_locale" "_locales" NOT NULL,
   	"_parent_id" integer NOT NULL
@@ -663,6 +672,7 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   
   CREATE TABLE IF NOT EXISTS "_pages_v_blocks_feature_section_locales" (
   	"content" jsonb,
+  	"additional_content" jsonb,
   	"id" serial PRIMARY KEY NOT NULL,
   	"_locale" "_locales" NOT NULL,
   	"_parent_id" integer NOT NULL
@@ -1641,12 +1651,13 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   	"wrapper_padding_xl_padding_top" "t",
   	"wrapper_padding_xl_padding_bottom" "b",
   	"variant" "enum_homepage_blocks_cta_sections_block_variant" DEFAULT '1',
+  	"media_position" "enum_homepage_blocks_cta_sections_block_media_position" DEFAULT 'right',
   	"block_name" varchar
   );
   
   CREATE TABLE IF NOT EXISTS "homepage_blocks_cta_sections_block_locales" (
-  	"title" varchar,
   	"content" jsonb,
+  	"right_content" jsonb,
   	"id" serial PRIMARY KEY NOT NULL,
   	"_locale" "_locales" NOT NULL,
   	"_parent_id" varchar NOT NULL
@@ -1675,6 +1686,7 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   
   CREATE TABLE IF NOT EXISTS "homepage_blocks_feature_section_locales" (
   	"content" jsonb,
+  	"additional_content" jsonb,
   	"id" serial PRIMARY KEY NOT NULL,
   	"_locale" "_locales" NOT NULL,
   	"_parent_id" varchar NOT NULL
@@ -1928,13 +1940,14 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   	"wrapper_padding_xl_padding_top" "t",
   	"wrapper_padding_xl_padding_bottom" "b",
   	"variant" "enum__homepage_v_blocks_cta_sections_block_variant" DEFAULT '1',
+  	"media_position" "enum__homepage_v_blocks_cta_sections_block_media_position" DEFAULT 'right',
   	"_uuid" varchar,
   	"block_name" varchar
   );
   
   CREATE TABLE IF NOT EXISTS "_homepage_v_blocks_cta_sections_block_locales" (
-  	"title" varchar,
   	"content" jsonb,
+  	"right_content" jsonb,
   	"id" serial PRIMARY KEY NOT NULL,
   	"_locale" "_locales" NOT NULL,
   	"_parent_id" integer NOT NULL
@@ -1964,6 +1977,7 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   
   CREATE TABLE IF NOT EXISTS "_homepage_v_blocks_feature_section_locales" (
   	"content" jsonb,
+  	"additional_content" jsonb,
   	"id" serial PRIMARY KEY NOT NULL,
   	"_locale" "_locales" NOT NULL,
   	"_parent_id" integer NOT NULL
@@ -2218,12 +2232,13 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   	"wrapper_padding_xl_padding_top" "t",
   	"wrapper_padding_xl_padding_bottom" "b",
   	"variant" "enum_blog_index_blocks_cta_sections_block_variant" DEFAULT '1',
+  	"media_position" "enum_blog_index_blocks_cta_sections_block_media_position" DEFAULT 'right',
   	"block_name" varchar
   );
   
   CREATE TABLE IF NOT EXISTS "blog_index_blocks_cta_sections_block_locales" (
-  	"title" varchar,
   	"content" jsonb,
+  	"right_content" jsonb,
   	"id" serial PRIMARY KEY NOT NULL,
   	"_locale" "_locales" NOT NULL,
   	"_parent_id" varchar NOT NULL
@@ -2252,6 +2267,7 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   
   CREATE TABLE IF NOT EXISTS "blog_index_blocks_feature_section_locales" (
   	"content" jsonb,
+  	"additional_content" jsonb,
   	"id" serial PRIMARY KEY NOT NULL,
   	"_locale" "_locales" NOT NULL,
   	"_parent_id" varchar NOT NULL
@@ -2505,13 +2521,14 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   	"wrapper_padding_xl_padding_top" "t",
   	"wrapper_padding_xl_padding_bottom" "b",
   	"variant" "enum__blog_index_v_blocks_cta_sections_block_variant" DEFAULT '1',
+  	"media_position" "enum__blog_index_v_blocks_cta_sections_block_media_position" DEFAULT 'right',
   	"_uuid" varchar,
   	"block_name" varchar
   );
   
   CREATE TABLE IF NOT EXISTS "_blog_index_v_blocks_cta_sections_block_locales" (
-  	"title" varchar,
   	"content" jsonb,
+  	"right_content" jsonb,
   	"id" serial PRIMARY KEY NOT NULL,
   	"_locale" "_locales" NOT NULL,
   	"_parent_id" integer NOT NULL
@@ -2541,6 +2558,7 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   
   CREATE TABLE IF NOT EXISTS "_blog_index_v_blocks_feature_section_locales" (
   	"content" jsonb,
+  	"additional_content" jsonb,
   	"id" serial PRIMARY KEY NOT NULL,
   	"_locale" "_locales" NOT NULL,
   	"_parent_id" integer NOT NULL
@@ -4644,6 +4662,7 @@ export async function down({ db, payload, req }: MigrateDownArgs): Promise<void>
   DROP TYPE "public"."enum_pageBannersBlock_variant";
   DROP TYPE "public"."enum_pages_blocks_cta_sections_block_wrapper_theme";
   DROP TYPE "public"."enum_pages_blocks_cta_sections_block_variant";
+  DROP TYPE "public"."enum_pages_blocks_cta_sections_block_media_position";
   DROP TYPE "public"."enum_pages_blocks_feature_section_wrapper_theme";
   DROP TYPE "public"."enum_pages_blocks_feature_section_variant";
   DROP TYPE "public"."enum_pages_blocks_feature_section_media_position";
@@ -4668,6 +4687,7 @@ export async function down({ db, payload, req }: MigrateDownArgs): Promise<void>
   DROP TYPE "public"."enum__pageBannersBlock_v_variant";
   DROP TYPE "public"."enum__pages_v_blocks_cta_sections_block_wrapper_theme";
   DROP TYPE "public"."enum__pages_v_blocks_cta_sections_block_variant";
+  DROP TYPE "public"."enum__pages_v_blocks_cta_sections_block_media_position";
   DROP TYPE "public"."enum__pages_v_blocks_feature_section_wrapper_theme";
   DROP TYPE "public"."enum__pages_v_blocks_feature_section_variant";
   DROP TYPE "public"."enum__pages_v_blocks_feature_section_media_position";
@@ -4713,6 +4733,7 @@ export async function down({ db, payload, req }: MigrateDownArgs): Promise<void>
   DROP TYPE "public"."enum_homepageBannersBlock_variant";
   DROP TYPE "public"."enum_homepage_blocks_cta_sections_block_wrapper_theme";
   DROP TYPE "public"."enum_homepage_blocks_cta_sections_block_variant";
+  DROP TYPE "public"."enum_homepage_blocks_cta_sections_block_media_position";
   DROP TYPE "public"."enum_homepage_blocks_feature_section_wrapper_theme";
   DROP TYPE "public"."enum_homepage_blocks_feature_section_variant";
   DROP TYPE "public"."enum_homepage_blocks_feature_section_media_position";
@@ -4736,6 +4757,7 @@ export async function down({ db, payload, req }: MigrateDownArgs): Promise<void>
   DROP TYPE "public"."enum__homepageBannersBlock_v_variant";
   DROP TYPE "public"."enum__homepage_v_blocks_cta_sections_block_wrapper_theme";
   DROP TYPE "public"."enum__homepage_v_blocks_cta_sections_block_variant";
+  DROP TYPE "public"."enum__homepage_v_blocks_cta_sections_block_media_position";
   DROP TYPE "public"."enum__homepage_v_blocks_feature_section_wrapper_theme";
   DROP TYPE "public"."enum__homepage_v_blocks_feature_section_variant";
   DROP TYPE "public"."enum__homepage_v_blocks_feature_section_media_position";
@@ -4760,6 +4782,7 @@ export async function down({ db, payload, req }: MigrateDownArgs): Promise<void>
   DROP TYPE "public"."enum_blogIdxBannersBlock_variant";
   DROP TYPE "public"."enum_blog_index_blocks_cta_sections_block_wrapper_theme";
   DROP TYPE "public"."enum_blog_index_blocks_cta_sections_block_variant";
+  DROP TYPE "public"."enum_blog_index_blocks_cta_sections_block_media_position";
   DROP TYPE "public"."enum_blog_index_blocks_feature_section_wrapper_theme";
   DROP TYPE "public"."enum_blog_index_blocks_feature_section_variant";
   DROP TYPE "public"."enum_blog_index_blocks_feature_section_media_position";
@@ -4783,6 +4806,7 @@ export async function down({ db, payload, req }: MigrateDownArgs): Promise<void>
   DROP TYPE "public"."enum__blogIdxBannersBlock_v_variant";
   DROP TYPE "public"."enum__blog_index_v_blocks_cta_sections_block_wrapper_theme";
   DROP TYPE "public"."enum__blog_index_v_blocks_cta_sections_block_variant";
+  DROP TYPE "public"."enum__blog_index_v_blocks_cta_sections_block_media_position";
   DROP TYPE "public"."enum__blog_index_v_blocks_feature_section_wrapper_theme";
   DROP TYPE "public"."enum__blog_index_v_blocks_feature_section_variant";
   DROP TYPE "public"."enum__blog_index_v_blocks_feature_section_media_position";

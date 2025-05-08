@@ -2,8 +2,6 @@ import ResponsivePayloadImage from '@mono/ui/components/primitives/ResponsivePay
 import RichText from '@mono/web/components/RichText/index';
 import Video from '@mono/web/components/Video';
 import { AspectRatio } from '@mono/web/components/ui/AspectRatio';
-import { Button } from '@mono/web/components/ui/Button';
-import { ArrowRight } from 'lucide-react';
 import React from 'react';
 import type { HeroSectionsBlockType } from '../index';
 
@@ -20,14 +18,6 @@ function HeroSections9({ content, media }: HeroSectionsBlockType) {
           <div className="flex flex-col gap-4 lg:gap-5">
             {content && <RichText data={content} />}
           </div>
-          {/* CTA Button */}
-          <Button
-            className="md:flex-1"
-            aria-label="Get started with our service"
-          >
-            Get started
-            <ArrowRight />
-          </Button>
         </div>
 
         {/* Video Section */}

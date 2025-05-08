@@ -1,5 +1,5 @@
 {
-  "id": "3173a114-fd98-4135-a063-daf4c0ae3673",
+  "id": "f142e672-23fc-408c-a08c-ad08b305e4d0",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -1561,6 +1561,14 @@
           "notNull": false,
           "default": "'1'"
         },
+        "media_position": {
+          "name": "media_position",
+          "type": "enum_pages_blocks_cta_sections_block_media_position",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "'right'"
+        },
         "block_name": {
           "name": "block_name",
           "type": "varchar",
@@ -1640,14 +1648,14 @@
       "name": "pages_blocks_cta_sections_block_locales",
       "schema": "",
       "columns": {
-        "title": {
-          "name": "title",
-          "type": "varchar",
+        "content": {
+          "name": "content",
+          "type": "jsonb",
           "primaryKey": false,
           "notNull": false
         },
-        "content": {
-          "name": "content",
+        "right_content": {
+          "name": "right_content",
           "type": "jsonb",
           "primaryKey": false,
           "notNull": false
@@ -1918,6 +1926,12 @@
       "columns": {
         "content": {
           "name": "content",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "additional_content": {
+          "name": "additional_content",
           "type": "jsonb",
           "primaryKey": false,
           "notNull": false
@@ -4461,6 +4475,14 @@
           "notNull": false,
           "default": "'1'"
         },
+        "media_position": {
+          "name": "media_position",
+          "type": "enum__pages_v_blocks_cta_sections_block_media_position",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "'right'"
+        },
         "_uuid": {
           "name": "_uuid",
           "type": "varchar",
@@ -4546,14 +4568,14 @@
       "name": "_pages_v_blocks_cta_sections_block_locales",
       "schema": "",
       "columns": {
-        "title": {
-          "name": "title",
-          "type": "varchar",
+        "content": {
+          "name": "content",
+          "type": "jsonb",
           "primaryKey": false,
           "notNull": false
         },
-        "content": {
-          "name": "content",
+        "right_content": {
+          "name": "right_content",
           "type": "jsonb",
           "primaryKey": false,
           "notNull": false
@@ -4830,6 +4852,12 @@
       "columns": {
         "content": {
           "name": "content",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "additional_content": {
+          "name": "additional_content",
           "type": "jsonb",
           "primaryKey": false,
           "notNull": false
@@ -16002,6 +16030,14 @@
           "notNull": false,
           "default": "'1'"
         },
+        "media_position": {
+          "name": "media_position",
+          "type": "enum_homepage_blocks_cta_sections_block_media_position",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "'right'"
+        },
         "block_name": {
           "name": "block_name",
           "type": "varchar",
@@ -16081,14 +16117,14 @@
       "name": "homepage_blocks_cta_sections_block_locales",
       "schema": "",
       "columns": {
-        "title": {
-          "name": "title",
-          "type": "varchar",
+        "content": {
+          "name": "content",
+          "type": "jsonb",
           "primaryKey": false,
           "notNull": false
         },
-        "content": {
-          "name": "content",
+        "right_content": {
+          "name": "right_content",
           "type": "jsonb",
           "primaryKey": false,
           "notNull": false
@@ -16359,6 +16395,12 @@
       "columns": {
         "content": {
           "name": "content",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "additional_content": {
+          "name": "additional_content",
           "type": "jsonb",
           "primaryKey": false,
           "notNull": false
@@ -18814,6 +18856,14 @@
           "notNull": false,
           "default": "'1'"
         },
+        "media_position": {
+          "name": "media_position",
+          "type": "enum__homepage_v_blocks_cta_sections_block_media_position",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "'right'"
+        },
         "_uuid": {
           "name": "_uuid",
           "type": "varchar",
@@ -18899,14 +18949,14 @@
       "name": "_homepage_v_blocks_cta_sections_block_locales",
       "schema": "",
       "columns": {
-        "title": {
-          "name": "title",
-          "type": "varchar",
+        "content": {
+          "name": "content",
+          "type": "jsonb",
           "primaryKey": false,
           "notNull": false
         },
-        "content": {
-          "name": "content",
+        "right_content": {
+          "name": "right_content",
           "type": "jsonb",
           "primaryKey": false,
           "notNull": false
@@ -19183,6 +19233,12 @@
       "columns": {
         "content": {
           "name": "content",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "additional_content": {
+          "name": "additional_content",
           "type": "jsonb",
           "primaryKey": false,
           "notNull": false
@@ -21737,6 +21793,14 @@
           "notNull": false,
           "default": "'1'"
         },
+        "media_position": {
+          "name": "media_position",
+          "type": "enum_blog_index_blocks_cta_sections_block_media_position",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "'right'"
+        },
         "block_name": {
           "name": "block_name",
           "type": "varchar",
@@ -21816,14 +21880,14 @@
       "name": "blog_index_blocks_cta_sections_block_locales",
       "schema": "",
       "columns": {
-        "title": {
-          "name": "title",
-          "type": "varchar",
+        "content": {
+          "name": "content",
+          "type": "jsonb",
           "primaryKey": false,
           "notNull": false
         },
-        "content": {
-          "name": "content",
+        "right_content": {
+          "name": "right_content",
           "type": "jsonb",
           "primaryKey": false,
           "notNull": false
@@ -22094,6 +22158,12 @@
       "columns": {
         "content": {
           "name": "content",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "additional_content": {
+          "name": "additional_content",
           "type": "jsonb",
           "primaryKey": false,
           "notNull": false
@@ -24549,6 +24619,14 @@
           "notNull": false,
           "default": "'1'"
         },
+        "media_position": {
+          "name": "media_position",
+          "type": "enum__blog_index_v_blocks_cta_sections_block_media_position",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "'right'"
+        },
         "_uuid": {
           "name": "_uuid",
           "type": "varchar",
@@ -24634,14 +24712,14 @@
       "name": "_blog_index_v_blocks_cta_sections_block_locales",
       "schema": "",
       "columns": {
-        "title": {
-          "name": "title",
-          "type": "varchar",
+        "content": {
+          "name": "content",
+          "type": "jsonb",
           "primaryKey": false,
           "notNull": false
         },
-        "content": {
-          "name": "content",
+        "right_content": {
+          "name": "right_content",
           "type": "jsonb",
           "primaryKey": false,
           "notNull": false
@@ -24918,6 +24996,12 @@
       "columns": {
         "content": {
           "name": "content",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "additional_content": {
+          "name": "additional_content",
           "type": "jsonb",
           "primaryKey": false,
           "notNull": false
@@ -26098,9 +26182,15 @@
         "2",
         "3",
         "4",
-        "5",
-        "6",
-        "7"
+        "5"
+      ]
+    },
+    "public.enum_pages_blocks_cta_sections_block_media_position": {
+      "name": "enum_pages_blocks_cta_sections_block_media_position",
+      "schema": "public",
+      "values": [
+        "left",
+        "right"
       ]
     },
     "public.enum_pages_blocks_feature_section_wrapper_theme": {
@@ -26327,9 +26417,15 @@
         "2",
         "3",
         "4",
-        "5",
-        "6",
-        "7"
+        "5"
+      ]
+    },
+    "public.enum__pages_v_blocks_cta_sections_block_media_position": {
+      "name": "enum__pages_v_blocks_cta_sections_block_media_position",
+      "schema": "public",
+      "values": [
+        "left",
+        "right"
       ]
     },
     "public.enum__pages_v_blocks_feature_section_wrapper_theme": {
@@ -26786,9 +26882,15 @@
         "2",
         "3",
         "4",
-        "5",
-        "6",
-        "7"
+        "5"
+      ]
+    },
+    "public.enum_homepage_blocks_cta_sections_block_media_position": {
+      "name": "enum_homepage_blocks_cta_sections_block_media_position",
+      "schema": "public",
+      "values": [
+        "left",
+        "right"
       ]
     },
     "public.enum_homepage_blocks_feature_section_wrapper_theme": {
@@ -27006,9 +27108,15 @@
         "2",
         "3",
         "4",
-        "5",
-        "6",
-        "7"
+        "5"
+      ]
+    },
+    "public.enum__homepage_v_blocks_cta_sections_block_media_position": {
+      "name": "enum__homepage_v_blocks_cta_sections_block_media_position",
+      "schema": "public",
+      "values": [
+        "left",
+        "right"
       ]
     },
     "public.enum__homepage_v_blocks_feature_section_wrapper_theme": {
@@ -27234,9 +27342,15 @@
         "2",
         "3",
         "4",
-        "5",
-        "6",
-        "7"
+        "5"
+      ]
+    },
+    "public.enum_blog_index_blocks_cta_sections_block_media_position": {
+      "name": "enum_blog_index_blocks_cta_sections_block_media_position",
+      "schema": "public",
+      "values": [
+        "left",
+        "right"
       ]
     },
     "public.enum_blog_index_blocks_feature_section_wrapper_theme": {
@@ -27454,9 +27568,15 @@
         "2",
         "3",
         "4",
-        "5",
-        "6",
-        "7"
+        "5"
+      ]
+    },
+    "public.enum__blog_index_v_blocks_cta_sections_block_media_position": {
+      "name": "enum__blog_index_v_blocks_cta_sections_block_media_position",
+      "schema": "public",
+      "values": [
+        "left",
+        "right"
       ]
     },
     "public.enum__blog_index_v_blocks_feature_section_wrapper_theme": {
