@@ -2,8 +2,6 @@ import ResponsivePayloadImage from '@mono/ui/components/primitives/ResponsivePay
 import RichText from '@mono/web/components/RichText/index';
 import Video from '@mono/web/components/Video';
 import { AspectRatio } from '@mono/web/components/ui/AspectRatio';
-import { Button } from '@mono/web/components/ui/Button';
-import { ArrowRight } from 'lucide-react';
 import React from 'react';
 import type { HeroSectionsBlockType } from '../index';
 import { genImgColumnOrder } from '../index';
@@ -27,16 +25,6 @@ function HeroSections1({
         <div className="flex flex-col gap-6 lg:gap-8 flex-1">
           <div className="flex flex-col gap-4 lg:gap-5">
             {content && <RichText data={content} />}
-          </div>
-
-          {/* CTA Buttons */}
-          {/* TODO: Add Button Array / Link Fields to wire these up: */}
-          <div className="flex flex-col sm:flex-row gap-3">
-            <Button>Get started</Button>
-            <Button variant="ghost">
-              Explore
-              <ArrowRight />
-            </Button>
           </div>
         </div>
 

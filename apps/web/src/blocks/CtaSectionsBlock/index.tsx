@@ -27,28 +27,30 @@ const layoutList: Record<string, ComponentType<CtaSectionsBlockType>> = {
   }),
   '5': dynamic(() => import('./layouts/CtaSections5'), {
     ...defaultOpts
-  }),
-  '6': dynamic(() => import('./layouts/CtaSections6'), {
-    ...defaultOpts
-  }),
-  '7': dynamic(() => import('./layouts/CtaSections7'), {
-    ...defaultOpts
   })
 };
 
+export const genImgColumnOrder = (
+  imagePosition: CtaSectionsBlockType['mediaPosition']
+) => (imagePosition === 'left' ? 'lg:order-first' : 'lg:order-last');
+
 function CtaSections({
-  title = 'Action-Driving headline that creates urgency',
+  rightContent,
   variant = '1',
   content,
+  media,
+  mediaPosition,
   ...props
 }: CtaSectionsBlockType) {
   const Component: ComponentType<CtaSectionsBlockType> = layoutList[variant];
   return (
     <Wrapper {...props.wrapper}>
       <Component
-        title={'Action-Driving headline that creates urgency'}
         variant={variant}
         content={content}
+        rightContent={rightContent}
+        media={media}
+        mediaPosition={mediaPosition}
       />
     </Wrapper>
   );

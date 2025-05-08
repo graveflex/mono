@@ -1,6 +1,9 @@
 import BlockConfig from '@mono/web/payload/fields/BlockConfig';
 import type { Block } from 'payload';
 
+const variantsWithSplitContent = ['2'];
+const variantsWithMedia = ['3', '4', '5'];
+
 const CtaSectionsBlock: Block = {
   slug: 'ctaSectionsBlock',
   interfaceName: 'CtaSectionsBlockT',
@@ -32,14 +35,6 @@ const CtaSectionsBlock: Block = {
         {
           label: '5',
           value: '5'
-        },
-        {
-          label: '6',
-          value: '6'
-        },
-        {
-          label: '7',
-          value: '7'
         }
       ],
       admin: {
@@ -47,18 +42,71 @@ const CtaSectionsBlock: Block = {
       }
     },
     {
-      name: 'title',
-      label: 'title',
-      type: 'text',
-      localized: true,
-      required: false
-    },
-    {
       name: 'content',
       label: 'content',
       type: 'richText',
       localized: true,
       required: false
+    },
+    {
+      name: 'media',
+      label: 'Media',
+      type: 'relationship',
+      relationTo: ['images', 'videos'],
+      hasMany: false,
+      required: true,
+      admin: {
+        description: 'Image or video.',
+        condition: (_, siblingData) => {
+          if (variantsWithMedia.includes(siblingData.variant)) {
+            return true;
+          }
+          return false;
+        }
+      }
+    },
+    {
+      name: 'mediaPosition',
+      label: 'Media Position',
+      type: 'select',
+      options: [
+        {
+          label: 'Left',
+          value: 'left'
+        },
+        {
+          label: 'Right',
+          value: 'right'
+        }
+      ],
+      defaultValue: 'right',
+      admin: {
+        description:
+          'For certain variants, the position of the image on desktop screens.',
+        condition: (_, siblingData) => {
+          if (variantsWithMedia.includes(siblingData.variant)) {
+            return true;
+          }
+          return false;
+        }
+      }
+    },
+    {
+      name: 'rightContent',
+      label: 'Right Content',
+      type: 'richText',
+      localized: true,
+      required: false,
+      admin: {
+        description:
+          'On desktop, the content section is split in half. This field corresponds to the right side on desktop.',
+        condition: (_, siblingData) => {
+          if (variantsWithSplitContent.includes(siblingData.variant)) {
+            return true;
+          }
+          return false;
+        }
+      }
     }
   ]
 };
