@@ -50,6 +50,7 @@ import { buildConfig } from 'payload';
 import { authjsPlugin } from 'payload-authjs';
 import sharp from 'sharp';
 import { authConfig } from './src/auth.config';
+import { ContentGrid } from './src/components/RichText/Blocks/ContentGrid/config';
 import { Embed } from './src/components/RichText/Blocks/Embed/config';
 import { Form } from './src/components/RichText/Blocks/Form/config';
 import { Link } from './src/components/RichText/Blocks/Link/config';
@@ -203,7 +204,7 @@ export default buildConfig({
         FixedToolbarFeature(),
         EyebrowFeature(),
         BlocksFeature({
-          blocks: [Embed, Form, Link, Modal, Video],
+          blocks: [Embed, Form, ContentGrid, Link, Modal, Video],
           inlineBlocks: []
         })
       ] as FeatureProviderServer<unknown, unknown>[]

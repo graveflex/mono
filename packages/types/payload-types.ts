@@ -794,7 +794,56 @@ export interface FeatureSection {
   /**
    * The layout variant for the block.
    */
-  variant: '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12' | '13' | '14';
+  variant: '1' | '2' | '3' | '4' | '5';
+  content?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  /**
+   * On variants 2 & 3, this appears at the bottom. On variant 4, this appears on the right.
+   */
+  additionalContent?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  /**
+   * All variants accept images or video except variant 2. Variant 2 only allows images.
+   */
+  media?:
+    | ({
+        relationTo: 'images';
+        value: number | Image;
+      } | null)
+    | ({
+        relationTo: 'videos';
+        value: number | Video;
+      } | null);
+  /**
+   * For certain variants, the position of the image on desktop screens.
+   */
+  mediaPosition?: ('left' | 'right') | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'featureSection';
@@ -1961,6 +2010,10 @@ export interface FeatureSectionSelect<T extends boolean = true> {
             };
       };
   variant?: T;
+  content?: T;
+  additionalContent?: T;
+  media?: T;
+  mediaPosition?: T;
   id?: T;
   blockName?: T;
 }

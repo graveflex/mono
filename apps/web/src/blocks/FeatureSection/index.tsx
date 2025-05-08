@@ -20,24 +20,32 @@ const Variants = {
   '2': dynamic(() => import('./variations/Variant2'), { ...defaultOpts }),
   '3': dynamic(() => import('./variations/Variant3'), { ...defaultOpts }),
   '4': dynamic(() => import('./variations/Variant4'), { ...defaultOpts }),
-  '5': dynamic(() => import('./variations/Variant5'), { ...defaultOpts }),
-  '6': dynamic(() => import('./variations/Variant5'), { ...defaultOpts }),
-  '7': dynamic(() => import('./variations/Variant5'), { ...defaultOpts }),
-  '8': dynamic(() => import('./variations/Variant5'), { ...defaultOpts }),
-  '9': dynamic(() => import('./variations/Variant5'), { ...defaultOpts }),
-  '10': dynamic(() => import('./variations/Variant5'), { ...defaultOpts }),
-  '11': dynamic(() => import('./variations/Variant5'), { ...defaultOpts }),
-  '12': dynamic(() => import('./variations/Variant5'), { ...defaultOpts }),
-  '13': dynamic(() => import('./variations/Variant5'), { ...defaultOpts }),
-  '14': dynamic(() => import('./variations/Variant5'), { ...defaultOpts })
+  '5': dynamic(() => import('./variations/Variant5'), { ...defaultOpts })
 };
 
-function FeatureSection({ variant, ...props }: FeatureSectionType) {
+export const genImgColumnOrder = (
+  imagePosition: FeatureSectionType['mediaPosition']
+) => (imagePosition === 'left' ? 'lg:order-first' : 'lg:order-last');
+
+function FeatureSection({
+  additionalContent,
+  content,
+  media,
+  mediaPosition,
+  variant,
+  ...props
+}: FeatureSectionType) {
   const VariantComponent = Variants[variant];
 
   return (
     <Wrapper {...props.wrapper}>
-      <VariantComponent />
+      <VariantComponent
+        additionalContent={additionalContent}
+        content={content}
+        media={media}
+        mediaPosition={mediaPosition}
+        variant={variant}
+      />
     </Wrapper>
   );
 }

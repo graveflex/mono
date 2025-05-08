@@ -21,6 +21,7 @@ import {
 import React from 'react';
 import Link from './Blocks/Link';
 import Video from './Blocks/Video';
+import ContentGridConverter from './Converters/ContentGridConverter';
 import LinkConverter from './Converters/LinkConverter';
 import styles from './RichText.module.css';
 
@@ -75,6 +76,7 @@ const jsxConverters: JSXConvertersFunction<DefaultNodeTypes> = ({
 
       return <Form form={payloadForm} />;
     },
+    contentGrid: ContentGridConverter,
     link: ({ node }: { node: AugmentedSerializedBlockNode }) => {
       return <Link node={node} />;
     },
