@@ -19,9 +19,9 @@ import {
   RichText as LexicalRichText
 } from '@payloadcms/richtext-lexical/react';
 import React from 'react';
-import ContentGridConverter from './Converters/ContentGridConverter';
 import Link from './Blocks/Link';
 import Video from './Blocks/Video';
+import ContentGridConverter from './Converters/ContentGridConverter';
 import LinkConverter from './Converters/LinkConverter';
 import styles from './RichText.module.css';
 
