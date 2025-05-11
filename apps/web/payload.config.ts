@@ -278,7 +278,7 @@ export default buildConfig({
       collections: ['pages', 'posts']
     }),
     vercelBlobStorage({
-      enabled: true,
+      enabled: process.env.BLOB_STORAGE_ENABLED === 'true',
       collections: {
         [Images.slug]: {
           disablePayloadAccessControl: true

@@ -1,5 +1,5 @@
 {
-  "id": "f142e672-23fc-408c-a08c-ad08b305e4d0",
+  "id": "0d8da3d2-4d68-4b66-8500-65ef88749339",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -2490,6 +2490,18 @@
         "published_at": {
           "name": "published_at",
           "type": "timestamp(3) with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "url": {
+          "name": "url",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "absolute_url": {
+          "name": "absolute_url",
+          "type": "varchar",
           "primaryKey": false,
           "notNull": false
         },
@@ -5434,6 +5446,18 @@
         "version_published_at": {
           "name": "version_published_at",
           "type": "timestamp(3) with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "version_url": {
+          "name": "version_url",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "version_absolute_url": {
+          "name": "version_absolute_url",
+          "type": "varchar",
           "primaryKey": false,
           "notNull": false
         },

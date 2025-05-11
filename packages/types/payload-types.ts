@@ -230,6 +230,18 @@ export interface AdminAuthOperations {
  */
 export interface Page {
   id: number;
+  pageTitle: string;
+  /**
+   * Will be auto-generated to title if left blank.
+   */
+  slug?: string | null;
+  theme?: ('light' | 'dark') | null;
+  /**
+   * If the current time is before this date, the page will not render
+   */
+  publishedAt?: string | null;
+  url?: string | null;
+  absoluteUrl?: string | null;
   blocks?:
     | (
         | PricingSectionsBlockT
@@ -253,16 +265,6 @@ export interface Page {
     image?: (number | null) | Image;
     keywords?: string | null;
   };
-  pageTitle: string;
-  /**
-   * Will be auto-generated to title if left blank.
-   */
-  slug?: string | null;
-  theme?: ('light' | 'dark') | null;
-  /**
-   * If the current time is before this date, the page will not render
-   */
-  publishedAt?: string | null;
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
@@ -1648,6 +1650,12 @@ export interface PayloadMigration {
  * via the `definition` "pages_select".
  */
 export interface PagesSelect<T extends boolean = true> {
+  pageTitle?: T;
+  slug?: T;
+  theme?: T;
+  publishedAt?: T;
+  url?: T;
+  absoluteUrl?: T;
   blocks?:
     | T
     | {
@@ -1670,10 +1678,6 @@ export interface PagesSelect<T extends boolean = true> {
         image?: T;
         keywords?: T;
       };
-  pageTitle?: T;
-  slug?: T;
-  theme?: T;
-  publishedAt?: T;
   updatedAt?: T;
   createdAt?: T;
   _status?: T;

@@ -437,6 +437,8 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   	"slug" varchar,
   	"theme" "enum_pages_theme",
   	"published_at" timestamp(3) with time zone,
+  	"url" varchar,
+  	"absolute_url" varchar,
   	"updated_at" timestamp(3) with time zone DEFAULT now() NOT NULL,
   	"created_at" timestamp(3) with time zone DEFAULT now() NOT NULL,
   	"_status" "enum_pages_status" DEFAULT 'draft'
@@ -735,6 +737,8 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   	"version_slug" varchar,
   	"version_theme" "enum__pages_v_version_theme",
   	"version_published_at" timestamp(3) with time zone,
+  	"version_url" varchar,
+  	"version_absolute_url" varchar,
   	"version_updated_at" timestamp(3) with time zone,
   	"version_created_at" timestamp(3) with time zone,
   	"version__status" "enum__pages_v_version_status" DEFAULT 'draft',
