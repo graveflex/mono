@@ -95,6 +95,7 @@
       "dependsOn": ["^start"],
       "outputs": []
     },
-    "seed:all": {}
+    "seed": {},
+    "seed:debug": {}
   }
 }

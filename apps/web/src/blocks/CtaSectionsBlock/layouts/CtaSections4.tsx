@@ -1,15 +1,19 @@
 import type { CtaSectionsBlockT as PayloadType } from '@mono/types/payload-types';
+import Video from '@mono/web/components/Video';
 import React from 'react';
 
+import { genImgColumnOrder } from '@mono/web/blocks/CtaSectionsBlock';
 import RichText from '@mono/web/components/RichText/index';
 import { AspectRatio } from '@mono/web/components/ui/AspectRatio';
-import { Button } from '@mono/web/components/ui/Button';
-import { Input } from '@mono/web/components/ui/Input';
-import Image from 'next/image';
+
+import ResponsivePayloadImage from '@mono/ui/components/primitives/ResponsivePayloadImage';
 
 export type CtaSectionsBlockType = Omit<PayloadType, 'blockType'>;
 
-function CtaSections4({ content }: CtaSectionsBlockType) {
+function CtaSections4({ content, media, mediaPosition }: CtaSectionsBlockType) {
+  const mediaRelation = media?.relationTo;
+  const imgColumnOrder = genImgColumnOrder(mediaPosition);
+
   return (
     <section
       className="bg-background py-16 lg:py-24"
@@ -20,52 +24,26 @@ function CtaSections4({ content }: CtaSectionsBlockType) {
         <div className="flex flex-col gap-6 lg:gap-8 flex-1">
           {/* Section Header */}
           <div className="flex flex-col gap-4 lg:gap-5">
-            {/* Category Tag */}
-            {/* <p className="text-muted-foreground text-sm lg:text-base font-semibold">
-              CTA section
-            </p> */}
-            {/* Main Title */}
-            {/* <h2
-              id="cta-heading"
-              className="text-foreground text-3xl md:text-4xl font-bold"
-            >
-              {title}
-            </h2> */}
-            {/* Section Description */}
-            {/* <p className="text-muted-foreground text-base">
-              Add one or two compelling sentences that reinforce your main value
-              proposition and overcome final objections. End with a clear reason
-              to act now. Align this copy with your CTA button text.
-            </p> */}
-
-            {content && <RichText data={content} className="" />}
+            {content && <RichText data={content} />}
           </div>
-          {/* Email Form */}
-          <form
-            className="flex flex-col md:flex-row gap-3 w-full md:max-w-sm"
-            aria-label="Email signup form"
-          >
-            <Input
-              placeholder="Email"
-              type="email"
-              required={true}
-              aria-required="true"
-              aria-label="Enter your email"
-            />
-            <Button type="submit" aria-label="Start using our service for free">
-              Start for free
-            </Button>
-          </form>
         </div>
         {/* Right Column - Image */}
-        <div className="flex-1 w-full">
-          <AspectRatio ratio={4 / 3}>
-            <Image
-              src="https://ui.shadcn.com/placeholder.svg"
-              alt="CTA section image"
-              fill={true}
-              className="rounded-xl object-cover w-full h-full"
-            />
+        <div className={`flex-1 w-full ${imgColumnOrder}`}>
+          <AspectRatio ratio={1 / 1} className="aspect-ratio">
+            {mediaRelation === 'videos' && typeof media?.value === 'number' ? (
+              <Video
+                className="object-cover w-full h-full rounded-lg"
+                video={media?.value}
+              />
+            ) : (
+              <ResponsivePayloadImage
+                image={media?.value}
+                sizes="(max-width: 1023px) 100vw, 50vw"
+                alt="Hero section visual"
+                fill={true}
+                imgClasses="rounded-xl object-cover w-full h-full"
+              />
+            )}
           </AspectRatio>
         </div>
       </div>

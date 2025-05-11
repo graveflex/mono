@@ -1,6 +1,5 @@
 'use client';
-import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext.js';
-import type { PluginComponent } from '@payloadcms/richtext-lexical';
+
 import {
   $createTextNode,
   $getSelection,
@@ -8,8 +7,7 @@ import {
   $isRangeSelection,
   COMMAND_PRIORITY_NORMAL
 } from '@payloadcms/richtext-lexical/lexical';
-import { $setBlocksType } from '@payloadcms/richtext-lexical/lexical/selection';
-import { mergeRegister } from '@payloadcms/richtext-lexical/lexical/utils';
+import { useLexicalComposerContext } from '@payloadcms/richtext-lexical/lexical/react/LexicalComposerContext';
 
 import { useEffect } from 'react';
 

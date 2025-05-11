@@ -12,7 +12,7 @@ const meta: Meta<RichTextType> = {
   component: RichText,
   decorators: [
     (Story) => (
-      <div className="bg-primary text-primary-foreground p-16 w-full">
+      <div className="bg-background p-16 w-full">
         <Story />
       </div>
     )

@@ -1,7 +1,5 @@
 import ResponsivePayloadImage from '@mono/ui/components/primitives/ResponsivePayloadImage';
 import RichText from '@mono/web/components/RichText/index';
-import { Button } from '@mono/web/components/ui/Button';
-import { ArrowRight } from 'lucide-react';
 import React from 'react';
 import type { HeroSectionsBlockType } from '../index';
 
@@ -31,10 +29,6 @@ function HeroSections6({ content, media }: HeroSectionsBlockType) {
           <div className="flex flex-col gap-4 lg:gap-5">
             {content && <RichText data={content} />}
           </div>
-          <Button>
-            Get started
-            <ArrowRight />
-          </Button>
         </div>
       </div>
     </section>

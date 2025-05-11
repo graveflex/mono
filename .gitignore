@@ -41,6 +41,7 @@ apps/web/public/stories/
 
 # db dumps, etc
 tmp/
+apps/web/images/
 
 # ts build artifacts
 *.tsbuildinfo

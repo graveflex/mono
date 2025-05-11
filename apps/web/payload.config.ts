@@ -19,6 +19,7 @@ import { googleResolver } from '@payload-enchants/translator/resolvers/google';
 import { postgresAdapter } from '@payloadcms/db-postgres';
 import { nodemailerAdapter } from '@payloadcms/email-nodemailer';
 import { formBuilderPlugin } from '@payloadcms/plugin-form-builder';
+import { importExportPlugin } from '@payloadcms/plugin-import-export';
 import { redirectsPlugin } from '@payloadcms/plugin-redirects';
 import { seoPlugin } from '@payloadcms/plugin-seo';
 import type { FeatureProviderServer } from '@payloadcms/richtext-lexical';
@@ -50,8 +51,12 @@ import { buildConfig } from 'payload';
 import { authjsPlugin } from 'payload-authjs';
 import sharp from 'sharp';
 import { authConfig } from './src/auth.config';
+import { ContentGrid } from './src/components/RichText/Blocks/ContentGrid/config';
 import { Embed } from './src/components/RichText/Blocks/Embed/config';
 import { Form } from './src/components/RichText/Blocks/Form/config';
+import { Link } from './src/components/RichText/Blocks/Link/config';
+import { Modal } from './src/components/RichText/Blocks/Modal/config';
+import { Video } from './src/components/RichText/Blocks/Video/config';
 import { EyebrowFeature } from './src/components/RichText/Features/eyebrow/eyebrow.server';
 
 const DATABASE_URL = process.env.DATABASE_URL as string;
@@ -62,7 +67,7 @@ export default buildConfig({
       connectionString: DATABASE_URL
     },
     push: false,
-    logger: true
+    logger: false
   }),
   editor: lexicalEditor({
     features: () =>
@@ -90,7 +95,7 @@ export default buildConfig({
         FixedToolbarFeature(),
         EyebrowFeature(),
         BlocksFeature({
-          blocks: [Embed, Form],
+          blocks: [Embed, Form, ContentGrid, Link, Modal, Video],
           inlineBlocks: []
         })
       ] as FeatureProviderServer<unknown, unknown>[]
@@ -120,6 +125,28 @@ export default buildConfig({
     api: '/api'
   },
   plugins: [
+    importExportPlugin({
+      collections: [
+        'users',
+        'pages',
+        'admins',
+        'authors',
+        'files',
+        'images',
+        'posts',
+        'userEmailProviders',
+        'videos'
+      ],
+      disableJobsQueue: true,
+      overrideExportCollection: (collection) => {
+        // TODO: In looking at the collection.upload types,
+        // looks like we can tweak the export uploads. We should
+        // be able to store those somewhere outside of the local
+        // exports folder.
+        // collection.upload
+        return collection;
+      }
+    }),
     authjsPlugin({
       authjsConfig: authConfig
     }),
@@ -142,7 +169,7 @@ export default buildConfig({
       collections: ['pages', 'posts']
     }),
     vercelBlobStorage({
-      enabled: true,
+      enabled: process.env.BLOB_STORAGE_ENABLED === 'true',
       collections: {
         [Images.slug]: {
           disablePayloadAccessControl: true
@@ -150,7 +177,8 @@ export default buildConfig({
         [Files.slug]: true,
         [Videos.slug]: {
           disablePayloadAccessControl: true
-        }
+        },
+        exports: true
       },
       token: process.env.BLOB_READ_WRITE_TOKEN as string
     }),

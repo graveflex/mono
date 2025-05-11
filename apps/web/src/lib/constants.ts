@@ -51,3 +51,5 @@ export const SESSION_COOKIE_NAMES = [
   'authjs.csrf-token',
   'authjs.pkce.code_verifier'
 ];
+
+export type Themes = 'light' | 'dark' | '_' | null | undefined;

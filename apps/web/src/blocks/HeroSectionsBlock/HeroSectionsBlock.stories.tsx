@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import heroSectionsMockData, {
   heroSectionsWithFormMockData,
+  heroSectionsMockDataOneBttn,
   imgMockData,
   videoMockData
 } from './HeroSectionsMockData';
@@ -75,7 +76,7 @@ export const Two: Story = {
   args: {
     variant: '2',
     mediaPosition: 'right',
-    content: heroSectionsMockData.data,
+    content: heroSectionsMockDataOneBttn.data,
     media: imgMockData
   }
 };
@@ -92,7 +93,7 @@ export const TwoWithForm: Story = {
 export const Three: Story = {
   args: {
     variant: '3',
-    content: heroSectionsMockData.data,
+    content: heroSectionsMockDataOneBttn.data,
     media: videoMockData
   }
 };
@@ -108,7 +109,7 @@ export const ThreeWithForm: Story = {
 export const ThreeWithImage: Story = {
   args: {
     variant: '3',
-    content: heroSectionsMockData.data,
+    content: heroSectionsMockDataOneBttn.data,
     media: imgMockData
   }
 };

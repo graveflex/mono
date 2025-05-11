@@ -79,6 +79,7 @@ export interface Config {
     users: User;
     userEmailProviders: UserEmailProvider;
     admins: Admin;
+    exports: Export;
     redirects: Redirect;
     forms: Form;
     'form-submissions': FormSubmission;
@@ -99,6 +100,7 @@ export interface Config {
     users: UsersSelect<false> | UsersSelect<true>;
     userEmailProviders: UserEmailProvidersSelect<false> | UserEmailProvidersSelect<true>;
     admins: AdminsSelect<false> | AdminsSelect<true>;
+    exports: ExportsSelect<false> | ExportsSelect<true>;
     redirects: RedirectsSelect<false> | RedirectsSelect<true>;
     forms: FormsSelect<false> | FormsSelect<true>;
     'form-submissions': FormSubmissionsSelect<false> | FormSubmissionsSelect<true>;
@@ -202,6 +204,18 @@ export interface AdminAuthOperations {
  */
 export interface Page {
   id: number;
+  pageTitle: string;
+  /**
+   * Will be auto-generated to title if left blank.
+   */
+  slug?: string | null;
+  theme?: ('light' | 'dark') | null;
+  /**
+   * If the current time is before this date, the page will not render
+   */
+  publishedAt?: string | null;
+  url?: string | null;
+  absoluteUrl?: string | null;
   blocks?:
     | (
         | PricingSectionsBlockT
@@ -212,7 +226,6 @@ export interface Page {
         | BannersBlockT
         | CtaSectionsBlockT
         | FeatureSection
-        | HeaderSectionBlockT
         | HeroSectionsBlockT
         | BlogSectionT
       )[]
@@ -226,16 +239,6 @@ export interface Page {
     image?: (number | null) | Image;
     keywords?: string | null;
   };
-  pageTitle: string;
-  /**
-   * Will be auto-generated to title if left blank.
-   */
-  slug?: string | null;
-  theme?: ('light' | 'dark') | null;
-  /**
-   * If the current time is before this date, the page will not render
-   */
-  publishedAt?: string | null;
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
@@ -248,6 +251,10 @@ export interface PricingSectionsBlockT {
   wrapper?: {
     theme?: ('_' | 'light' | 'dark') | null;
     contentWidth?: ('full' | 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs') | null;
+    /**
+     * Set this to true if you want the block theme background to extend all the way to the edge of the browsers screen.
+     */
+    fullWidthThemeBg?: boolean | null;
     paddingXs?: {
       paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
       paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
@@ -281,6 +288,10 @@ export interface TestimonialsSectionsBlockT {
   wrapper?: {
     theme?: ('_' | 'light' | 'dark') | null;
     contentWidth?: ('full' | 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs') | null;
+    /**
+     * Set this to true if you want the block theme background to extend all the way to the edge of the browsers screen.
+     */
+    fullWidthThemeBg?: boolean | null;
     paddingXs?: {
       paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
       paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
@@ -314,6 +325,10 @@ export interface HeaderSectionsBlockT {
   wrapper?: {
     theme?: ('_' | 'light' | 'dark') | null;
     contentWidth?: ('full' | 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs') | null;
+    /**
+     * Set this to true if you want the block theme background to extend all the way to the edge of the browsers screen.
+     */
+    fullWidthThemeBg?: boolean | null;
     paddingXs?: {
       paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
       paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
@@ -334,7 +349,22 @@ export interface HeaderSectionsBlockT {
   /**
    * The layout variant for the block.
    */
-  variant: '1' | '2' | '3' | '4' | '5' | '6';
+  variant: '1' | '2';
+  content?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'headerSectionsBlock';
@@ -347,6 +377,10 @@ export interface ContactSectionsBlockT {
   wrapper?: {
     theme?: ('_' | 'light' | 'dark') | null;
     contentWidth?: ('full' | 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs') | null;
+    /**
+     * Set this to true if you want the block theme background to extend all the way to the edge of the browsers screen.
+     */
+    fullWidthThemeBg?: boolean | null;
     paddingXs?: {
       paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
       paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
@@ -380,6 +414,10 @@ export interface FaqSectionsBlockT {
   wrapper?: {
     theme?: ('_' | 'light' | 'dark') | null;
     contentWidth?: ('full' | 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs') | null;
+    /**
+     * Set this to true if you want the block theme background to extend all the way to the edge of the browsers screen.
+     */
+    fullWidthThemeBg?: boolean | null;
     paddingXs?: {
       paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
       paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
@@ -401,6 +439,84 @@ export interface FaqSectionsBlockT {
    * The layout variant for the block.
    */
   variant: '1' | '2' | '3' | '4';
+  content?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  /**
+   * On desktop, the top content section is split in half. This field corresponds to the right side on desktop.
+   */
+  topRightContent?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  items?:
+    | {
+        /**
+         * The text that appears on the clickable (closed or opened) accordion item.
+         */
+        title: string;
+        /**
+         * The content that appears when an accordion item is opened.
+         */
+        description?: {
+          root: {
+            type: string;
+            children: {
+              type: string;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Content that appears below the Accordion items.
+   */
+  bottomContent?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'faqSectionsBlock';
@@ -413,6 +529,10 @@ export interface BannersBlockT {
   wrapper?: {
     theme?: ('_' | 'light' | 'dark') | null;
     contentWidth?: ('full' | 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs') | null;
+    /**
+     * Set this to true if you want the block theme background to extend all the way to the edge of the browsers screen.
+     */
+    fullWidthThemeBg?: boolean | null;
     paddingXs?: {
       paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
       paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
@@ -446,6 +566,10 @@ export interface CtaSectionsBlockT {
   wrapper?: {
     theme?: ('_' | 'light' | 'dark') | null;
     contentWidth?: ('full' | 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs') | null;
+    /**
+     * Set this to true if you want the block theme background to extend all the way to the edge of the browsers screen.
+     */
+    fullWidthThemeBg?: boolean | null;
     paddingXs?: {
       paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
       paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
@@ -466,9 +590,42 @@ export interface CtaSectionsBlockT {
   /**
    * The layout variant for the block.
    */
-  variant: '1' | '2' | '3' | '4' | '5' | '6' | '7';
-  title?: string | null;
+  variant: '1' | '2' | '3' | '4' | '5';
   content?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  /**
+   * Image or video.
+   */
+  media?:
+    | ({
+        relationTo: 'images';
+        value: number | Image;
+      } | null)
+    | ({
+        relationTo: 'videos';
+        value: number | Video;
+      } | null);
+  /**
+   * For certain variants, the position of the image on desktop screens.
+   */
+  mediaPosition?: ('left' | 'right') | null;
+  /**
+   * On desktop, the content section is split in half. This field corresponds to the right side on desktop.
+   */
+  rightContent?: {
     root: {
       type: string;
       children: {
@@ -486,137 +643,6 @@ export interface CtaSectionsBlockT {
   id?: string | null;
   blockName?: string | null;
   blockType: 'ctaSectionsBlock';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "FeatureSection".
- */
-export interface FeatureSection {
-  wrapper?: {
-    theme?: ('_' | 'light' | 'dark') | null;
-    contentWidth?: ('full' | 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs') | null;
-    paddingXs?: {
-      paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
-      paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
-    };
-    paddingMd?: {
-      paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
-      paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
-    };
-    paddingLg?: {
-      paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
-      paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
-    };
-    paddingXl?: {
-      paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
-      paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
-    };
-  };
-  /**
-   * The layout variant for the block.
-   */
-  variant: '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12' | '13' | '14';
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'featureSection';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "HeaderSectionBlockT".
- */
-export interface HeaderSectionBlockT {
-  wrapper?: {
-    theme?: ('_' | 'light' | 'dark') | null;
-    contentWidth?: ('full' | 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs') | null;
-    paddingXs?: {
-      paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
-      paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
-    };
-    paddingMd?: {
-      paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
-      paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
-    };
-    paddingLg?: {
-      paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
-      paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
-    };
-    paddingXl?: {
-      paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
-      paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
-    };
-  };
-  /**
-   * The layout variant for the block.
-   */
-  variant: '1' | '2' | '3' | '4' | '5' | '6';
-  title?: string | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'headerSectionBlock';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "HeroSectionsBlockT".
- */
-export interface HeroSectionsBlockT {
-  wrapper?: {
-    theme?: ('_' | 'light' | 'dark') | null;
-    contentWidth?: ('full' | 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs') | null;
-    paddingXs?: {
-      paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
-      paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
-    };
-    paddingMd?: {
-      paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
-      paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
-    };
-    paddingLg?: {
-      paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
-      paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
-    };
-    paddingXl?: {
-      paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
-      paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
-    };
-  };
-  /**
-   * The layout variant for the block.
-   */
-  variant: '1' | '2' | '3';
-  content?: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
-  /**
-   * All variants accept images or video except variant 2. Variant 2 only allows images.
-   */
-  media:
-    | {
-        relationTo: 'images';
-        value: number | Image;
-      }
-    | {
-        relationTo: 'videos';
-        value: number | Video;
-      };
-  /**
-   * For certain variants, the position of the image on desktop screens.
-   */
-  mediaPosition?: ('left' | 'right') | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'heroSectionsBlock';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -714,12 +740,170 @@ export interface Video {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FeatureSection".
+ */
+export interface FeatureSection {
+  wrapper?: {
+    theme?: ('_' | 'light' | 'dark') | null;
+    contentWidth?: ('full' | 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs') | null;
+    /**
+     * Set this to true if you want the block theme background to extend all the way to the edge of the browsers screen.
+     */
+    fullWidthThemeBg?: boolean | null;
+    paddingXs?: {
+      paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
+      paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
+    };
+    paddingMd?: {
+      paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
+      paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
+    };
+    paddingLg?: {
+      paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
+      paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
+    };
+    paddingXl?: {
+      paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
+      paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
+    };
+  };
+  /**
+   * The layout variant for the block.
+   */
+  variant: '1' | '2' | '3' | '4' | '5';
+  content?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  /**
+   * On variants 2 & 3, this appears at the bottom. On variant 4, this appears on the right.
+   */
+  additionalContent?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  /**
+   * All variants accept images or video except variant 2. Variant 2 only allows images.
+   */
+  media?:
+    | ({
+        relationTo: 'images';
+        value: number | Image;
+      } | null)
+    | ({
+        relationTo: 'videos';
+        value: number | Video;
+      } | null);
+  /**
+   * For certain variants, the position of the image on desktop screens.
+   */
+  mediaPosition?: ('left' | 'right') | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'featureSection';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HeroSectionsBlockT".
+ */
+export interface HeroSectionsBlockT {
+  wrapper?: {
+    theme?: ('_' | 'light' | 'dark') | null;
+    contentWidth?: ('full' | 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs') | null;
+    /**
+     * Set this to true if you want the block theme background to extend all the way to the edge of the browsers screen.
+     */
+    fullWidthThemeBg?: boolean | null;
+    paddingXs?: {
+      paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
+      paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
+    };
+    paddingMd?: {
+      paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
+      paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
+    };
+    paddingLg?: {
+      paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
+      paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
+    };
+    paddingXl?: {
+      paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
+      paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
+    };
+  };
+  /**
+   * The layout variant for the block.
+   */
+  variant: '1' | '2' | '3';
+  content?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  /**
+   * All variants accept images or video except variant 2. Variant 2 only allows images.
+   */
+  media:
+    | {
+        relationTo: 'images';
+        value: number | Image;
+      }
+    | {
+        relationTo: 'videos';
+        value: number | Video;
+      };
+  /**
+   * For certain variants, the position of the image on desktop screens.
+   */
+  mediaPosition?: ('left' | 'right') | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'heroSectionsBlock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "BlogSectionT".
  */
 export interface BlogSectionT {
   wrapper?: {
     theme?: ('_' | 'light' | 'dark') | null;
     contentWidth?: ('full' | 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs') | null;
+    /**
+     * Set this to true if you want the block theme background to extend all the way to the edge of the browsers screen.
+     */
+    fullWidthThemeBg?: boolean | null;
     paddingXs?: {
       paddingTop?: ('pt-0' | 'pt-2' | 'pt-4' | 'pt-6' | 'pt-8' | 'pt-10' | 'pt-16') | null;
       paddingBottom?: ('pb-0' | 'pb-2' | 'pb-4' | 'pb-6' | 'pb-8' | 'pb-10' | 'pb-16') | null;
@@ -957,6 +1141,42 @@ export interface Admin {
   loginAttempts?: number | null;
   lockUntil?: string | null;
   password?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "exports".
+ */
+export interface Export {
+  id: number;
+  name?: string | null;
+  format: 'csv' | 'json';
+  limit?: number | null;
+  sort?: string | null;
+  locale?: ('all' | 'en-US' | 'es-US') | null;
+  drafts?: ('yes' | 'no') | null;
+  selectionToUse?: ('currentSelection' | 'currentFilters' | 'all') | null;
+  fields?: string[] | null;
+  collectionSlug: string;
+  where?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1274,6 +1494,10 @@ export interface PayloadLockedDocument {
         value: number | Admin;
       } | null)
     | ({
+        relationTo: 'exports';
+        value: number | Export;
+      } | null)
+    | ({
         relationTo: 'redirects';
         value: number | Redirect;
       } | null)
@@ -1354,6 +1578,12 @@ export interface PayloadMigration {
  * via the `definition` "pages_select".
  */
 export interface PagesSelect<T extends boolean = true> {
+  pageTitle?: T;
+  slug?: T;
+  theme?: T;
+  publishedAt?: T;
+  url?: T;
+  absoluteUrl?: T;
   blocks?:
     | T
     | {
@@ -1365,7 +1595,6 @@ export interface PagesSelect<T extends boolean = true> {
         bannersBlock?: T | BannersBlockTSelect<T>;
         ctaSectionsBlock?: T | CtaSectionsBlockTSelect<T>;
         featureSection?: T | FeatureSectionSelect<T>;
-        headerSectionBlock?: T | HeaderSectionBlockTSelect<T>;
         heroSectionsBlock?: T | HeroSectionsBlockTSelect<T>;
         blogSection?: T | BlogSectionTSelect<T>;
       };
@@ -1377,10 +1606,6 @@ export interface PagesSelect<T extends boolean = true> {
         image?: T;
         keywords?: T;
       };
-  pageTitle?: T;
-  slug?: T;
-  theme?: T;
-  publishedAt?: T;
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
@@ -1395,6 +1620,7 @@ export interface PricingSectionsBlockTSelect<T extends boolean = true> {
     | {
         theme?: T;
         contentWidth?: T;
+        fullWidthThemeBg?: T;
         paddingXs?:
           | T
           | {
@@ -1434,6 +1660,7 @@ export interface TestimonialsSectionsBlockTSelect<T extends boolean = true> {
     | {
         theme?: T;
         contentWidth?: T;
+        fullWidthThemeBg?: T;
         paddingXs?:
           | T
           | {
@@ -1473,6 +1700,7 @@ export interface HeaderSectionsBlockTSelect<T extends boolean = true> {
     | {
         theme?: T;
         contentWidth?: T;
+        fullWidthThemeBg?: T;
         paddingXs?:
           | T
           | {
@@ -1499,6 +1727,7 @@ export interface HeaderSectionsBlockTSelect<T extends boolean = true> {
             };
       };
   variant?: T;
+  content?: T;
   id?: T;
   blockName?: T;
 }
@@ -1512,6 +1741,7 @@ export interface ContactSectionsBlockTSelect<T extends boolean = true> {
     | {
         theme?: T;
         contentWidth?: T;
+        fullWidthThemeBg?: T;
         paddingXs?:
           | T
           | {
@@ -1551,6 +1781,7 @@ export interface FaqSectionsBlockTSelect<T extends boolean = true> {
     | {
         theme?: T;
         contentWidth?: T;
+        fullWidthThemeBg?: T;
         paddingXs?:
           | T
           | {
@@ -1577,6 +1808,16 @@ export interface FaqSectionsBlockTSelect<T extends boolean = true> {
             };
       };
   variant?: T;
+  content?: T;
+  topRightContent?: T;
+  items?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        id?: T;
+      };
+  bottomContent?: T;
   id?: T;
   blockName?: T;
 }
@@ -1590,6 +1831,7 @@ export interface BannersBlockTSelect<T extends boolean = true> {
     | {
         theme?: T;
         contentWidth?: T;
+        fullWidthThemeBg?: T;
         paddingXs?:
           | T
           | {
@@ -1629,6 +1871,7 @@ export interface CtaSectionsBlockTSelect<T extends boolean = true> {
     | {
         theme?: T;
         contentWidth?: T;
+        fullWidthThemeBg?: T;
         paddingXs?:
           | T
           | {
@@ -1655,8 +1898,10 @@ export interface CtaSectionsBlockTSelect<T extends boolean = true> {
             };
       };
   variant?: T;
-  title?: T;
   content?: T;
+  media?: T;
+  mediaPosition?: T;
+  rightContent?: T;
   id?: T;
   blockName?: T;
 }
@@ -1670,6 +1915,7 @@ export interface FeatureSectionSelect<T extends boolean = true> {
     | {
         theme?: T;
         contentWidth?: T;
+        fullWidthThemeBg?: T;
         paddingXs?:
           | T
           | {
@@ -1696,46 +1942,10 @@ export interface FeatureSectionSelect<T extends boolean = true> {
             };
       };
   variant?: T;
-  id?: T;
-  blockName?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "HeaderSectionBlockT_select".
- */
-export interface HeaderSectionBlockTSelect<T extends boolean = true> {
-  wrapper?:
-    | T
-    | {
-        theme?: T;
-        contentWidth?: T;
-        paddingXs?:
-          | T
-          | {
-              paddingTop?: T;
-              paddingBottom?: T;
-            };
-        paddingMd?:
-          | T
-          | {
-              paddingTop?: T;
-              paddingBottom?: T;
-            };
-        paddingLg?:
-          | T
-          | {
-              paddingTop?: T;
-              paddingBottom?: T;
-            };
-        paddingXl?:
-          | T
-          | {
-              paddingTop?: T;
-              paddingBottom?: T;
-            };
-      };
-  variant?: T;
-  title?: T;
+  content?: T;
+  additionalContent?: T;
+  media?: T;
+  mediaPosition?: T;
   id?: T;
   blockName?: T;
 }
@@ -1749,6 +1959,7 @@ export interface HeroSectionsBlockTSelect<T extends boolean = true> {
     | {
         theme?: T;
         contentWidth?: T;
+        fullWidthThemeBg?: T;
         paddingXs?:
           | T
           | {
@@ -1791,6 +2002,7 @@ export interface BlogSectionTSelect<T extends boolean = true> {
     | {
         theme?: T;
         contentWidth?: T;
+        fullWidthThemeBg?: T;
         paddingXs?:
           | T
           | {
@@ -2078,6 +2290,33 @@ export interface AdminsSelect<T extends boolean = true> {
   hash?: T;
   loginAttempts?: T;
   lockUntil?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "exports_select".
+ */
+export interface ExportsSelect<T extends boolean = true> {
+  name?: T;
+  format?: T;
+  limit?: T;
+  sort?: T;
+  locale?: T;
+  drafts?: T;
+  selectionToUse?: T;
+  fields?: T;
+  collectionSlug?: T;
+  where?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  url?: T;
+  thumbnailURL?: T;
+  filename?: T;
+  mimeType?: T;
+  filesize?: T;
+  width?: T;
+  height?: T;
+  focalX?: T;
+  focalY?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -2485,7 +2724,6 @@ export interface Homepage {
         | BannersBlockT
         | CtaSectionsBlockT
         | FeatureSection
-        | HeaderSectionBlockT
         | HeroSectionsBlockT
         | BlogSectionT
       )[]
@@ -2517,7 +2755,6 @@ export interface BlogIndex {
         | BannersBlockT
         | CtaSectionsBlockT
         | FeatureSection
-        | HeaderSectionBlockT
         | HeroSectionsBlockT
         | BlogSectionT
       )[]
@@ -2632,7 +2869,6 @@ export interface HomepageSelect<T extends boolean = true> {
         bannersBlock?: T | BannersBlockTSelect<T>;
         ctaSectionsBlock?: T | CtaSectionsBlockTSelect<T>;
         featureSection?: T | FeatureSectionSelect<T>;
-        headerSectionBlock?: T | HeaderSectionBlockTSelect<T>;
         heroSectionsBlock?: T | HeroSectionsBlockTSelect<T>;
         blogSection?: T | BlogSectionTSelect<T>;
       };
@@ -2661,7 +2897,6 @@ export interface BlogIndexSelect<T extends boolean = true> {
         bannersBlock?: T | BannersBlockTSelect<T>;
         ctaSectionsBlock?: T | CtaSectionsBlockTSelect<T>;
         featureSection?: T | FeatureSectionSelect<T>;
-        headerSectionBlock?: T | HeaderSectionBlockTSelect<T>;
         heroSectionsBlock?: T | HeroSectionsBlockTSelect<T>;
         blogSection?: T | BlogSectionTSelect<T>;
       };
