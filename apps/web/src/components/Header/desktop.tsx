@@ -47,7 +47,7 @@ function TopLevelDesktopDropdownContainer({
   level
 }: { links: Link[]; level: number }) {
   return (
-    <NavigationMenu>
+    <NavigationMenu viewport={false}>
       <NavigationMenuList>
         {links.map((link) =>
           link.links?.length ? (
