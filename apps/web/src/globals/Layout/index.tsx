@@ -38,9 +38,9 @@ export default async function Layout({ children, locale, draft }: LayoutProps) {
   return (
     <SidebarProvider>
       <div className={styles.container}>
-        <Header className={styles.header} />
+        <Header className={styles.header} {...navData.header}  />
         <main className={styles.body}>{children}</main>
-        <Footer className={styles.footer} {...navData.footer?.footerItems} />
+        <Footer className={styles.footer} {...navData.footer} />
       </div>
     </SidebarProvider>
   );

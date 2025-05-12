@@ -34,6 +34,10 @@ export const baseFields: Field[] = [
       {
         label: ({ t }) => t('fields:internalLink'),
         value: 'internal'
+      },
+      {
+        label: 'Unlinked Text',
+        value: 'dropdownMenu',
       }
     ],
     required: true
@@ -61,11 +65,13 @@ export const baseFields: Field[] = [
       ]
     },
     label: ({ t }) => t('fields:enterURL'),
-    required: true,
+    required: false,
     validate: ((value: string, options) => {
-      if ((options?.siblingData as LinkFields)?.linkType === 'internal') {
-        return; // no validation needed, as no url should exist for internal links
+      const linkType = (options?.siblingData as LinkFields)?.linkType;
+      if (linkType !== 'custom') {
+        return; // no validation needed, as no url should exist for internal links or dropdown menus
       }
+
       if (!validateUrl(value)) {
         return 'Invalid URL';
       }

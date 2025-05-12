@@ -1049,7 +1049,7 @@ export interface CTAType {
  */
 export interface PayLoadLink {
   text: string;
-  linkType: 'custom' | 'internal';
+  linkType: 'custom' | 'internal' | 'dropdownMenu';
   url?: string | null;
   doc?:
     | ({
@@ -2534,7 +2534,7 @@ export interface Nav {
     links?:
       | {
           text: string;
-          linkType: 'custom' | 'internal';
+          linkType: 'custom' | 'internal' | 'dropdownMenu';
           url?: string | null;
           doc?:
             | ({
@@ -2553,7 +2553,7 @@ export interface Nav {
           links0?:
             | {
                 text: string;
-                linkType: 'custom' | 'internal';
+                linkType: 'custom' | 'internal' | 'dropdownMenu';
                 url?: string | null;
                 doc?:
                   | ({
@@ -2572,7 +2572,7 @@ export interface Nav {
                 links1?:
                   | {
                       text: string;
-                      linkType: 'custom' | 'internal';
+                      linkType: 'custom' | 'internal' | 'dropdownMenu';
                       url?: string | null;
                       doc?:
                         | ({
@@ -2591,7 +2591,7 @@ export interface Nav {
                       links2?:
                         | {
                             text: string;
-                            linkType: 'custom' | 'internal';
+                            linkType: 'custom' | 'internal' | 'dropdownMenu';
                             url?: string | null;
                             doc?:
                               | ({
@@ -2610,7 +2610,7 @@ export interface Nav {
                             links3?:
                               | {
                                   text: string;
-                                  linkType: 'custom' | 'internal';
+                                  linkType: 'custom' | 'internal' | 'dropdownMenu';
                                   url?: string | null;
                                   doc?:
                                     | ({

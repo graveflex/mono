@@ -1,15 +1,10 @@
 'use client';
 
 import { cn } from '@mono/web/lib/utils';
-import { useSearchParams } from 'next/navigation';
-
 import nextDynamic from 'next/dynamic';
 
-// TODO: After footer is implemented, uncomment the following line
-// import Footer from '@mono/web/components/Footer';
-
-const Variant = '1';
-const Theme = 'light';
+const defaultVariant = '1';
+const defaultTheme = 'light';
 
 const defaultOpts = {
   suspense: true,
@@ -32,13 +27,11 @@ const Variants = {
 };
 
 async function NotFound() {
-  const VariantComponent = Variants[Variant];
+  const VariantComponent = Variants[defaultVariant];
 
   return (
-    <div className={cn(searchTheme || Theme, 'min-h-full grid items-center')}>
+    <div className={cn(defaultTheme, 'min-h-full grid items-center')}>
       <VariantComponent />
-      {/* TODO: After footer is implemented, uncomment the following line */}
-      {/* <Footer /> */}
     </div>
   );
 }

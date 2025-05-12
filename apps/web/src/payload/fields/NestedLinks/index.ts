@@ -1,5 +1,6 @@
 import { baseFields } from '@mono/web/payload/fields/Link';
 import type { ArrayField, Field } from 'payload';
+import { ArrayRowLabel } from './RowLabel';
 
 function linkTree(maxDepth = 4, currentDepth = 0): Field[] {
   const fields = [...baseFields];
@@ -8,9 +9,14 @@ function linkTree(maxDepth = 4, currentDepth = 0): Field[] {
     fields.push({
       type: 'array',
       name: `links${currentDepth}`,
-      label: 'Sub-Links',
+      label: 'Nested Links',
+      admin: {
+        components: {
+          RowLabel: ArrayRowLabel
+        }
+      },
       fields: linkTree(maxDepth, currentDepth + 1)
-    });
+    } as ArrayField);
   }
 
   return fields;
@@ -30,6 +36,11 @@ export default function NestedLinkArray({
     name,
     label,
     dbName,
+    admin: {
+      components: {
+        RowLabel: ArrayRowLabel
+      }
+    },
     fields: linkTree()
   };
 }
