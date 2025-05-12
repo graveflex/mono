@@ -10,7 +10,7 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle
-} from '@mono/web/components/ui/dialog';
+} from '@mono/web/components/ui/Dialog';
 import { cn } from '@mono/web/lib/utils';
 
 function Command({

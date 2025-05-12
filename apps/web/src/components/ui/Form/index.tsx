@@ -13,7 +13,7 @@ import {
   useFormState
 } from 'react-hook-form';
 
-import { Label } from '@mono/web/components/ui/label';
+import { Label } from '@mono/web/components/ui/Label';
 import { cn } from '@mono/web/lib/utils';
 
 const Form = FormProvider;

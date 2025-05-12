@@ -5,23 +5,23 @@ import { type VariantProps, cva } from 'class-variance-authority';
 import { PanelLeftIcon } from 'lucide-react';
 import * as React from 'react';
 
-import { Button } from '@mono/web/components/ui/button';
-import { Input } from '@mono/web/components/ui/input';
-import { Separator } from '@mono/web/components/ui/separator';
+import { Button } from '@mono/web/components/ui/Button';
+import { Input } from '@mono/web/components/ui/Input';
+import { Separator } from '@mono/web/components/ui/Separator';
 import {
   Sheet,
   SheetContent,
   SheetDescription,
   SheetHeader,
   SheetTitle
-} from '@mono/web/components/ui/sheet';
-import { Skeleton } from '@mono/web/components/ui/skeleton';
+} from '@mono/web/components/ui/Sheet';
+import { Skeleton } from '@mono/web/components/ui/Skeleton';
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger
-} from '@mono/web/components/ui/tooltip';
+} from '@mono/web/components/ui/Tooltip';
 import { useIsMobile } from '@mono/web/hooks/use-mobile';
 import { cn } from '@mono/web/lib/utils';
 
@@ -91,7 +91,7 @@ function SidebarProvider({
   // Helper to toggle the sidebar.
   const toggleSidebar = React.useCallback(() => {
     return isMobile ? setOpenMobile((open) => !open) : setOpen((open) => !open);
-  }, [isMobile, setOpen, setOpenMobile]);
+  }, [isMobile, setOpen]);
 
   // Adds a keyboard shortcut to toggle the sidebar.
   React.useEffect(() => {
@@ -123,7 +123,7 @@ function SidebarProvider({
       setOpenMobile,
       toggleSidebar
     }),
-    [state, open, setOpen, isMobile, openMobile, setOpenMobile, toggleSidebar]
+    [state, open, setOpen, isMobile, openMobile, toggleSidebar]
   );
 
   return (

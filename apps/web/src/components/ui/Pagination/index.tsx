@@ -5,13 +5,12 @@ import {
 } from 'lucide-react';
 import type * as React from 'react';
 
-import { type Button, buttonVariants } from '@mono/web/components/ui/button';
+import { type Button, buttonVariants } from '@mono/web/components/ui/Button';
 import { cn } from '@mono/web/lib/utils';
 
 function Pagination({ className, ...props }: React.ComponentProps<'nav'>) {
   return (
     <nav
-      role="navigation"
       aria-label="pagination"
       data-slot="pagination"
       className={cn('mx-auto flex w-full justify-center', className)}
