@@ -51,7 +51,10 @@ function TopLevelDesktopDropdownContainer({
       <NavigationMenuList>
         {links.map((link) =>
           link.links?.length ? (
-            <NavigationMenuItem key={`menu-${level}-${link.id}`} className="relative">
+            <NavigationMenuItem
+              key={`menu-${level}-${link.id}`}
+              className="relative"
+            >
               <NavigationMenuTrigger>
                 <DesktopDropdownLink
                   variant="link"

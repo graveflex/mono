@@ -1,8 +1,8 @@
-import cliProgress from 'cli-progress';
 import { readdirSync } from 'fs';
 import { join } from 'path';
 import { AssetSeed } from '@mono/web/lib/seed/asset';
 import { BlockSeed, type Dependency } from '@mono/web/lib/seed/block';
+import cliProgress from 'cli-progress';
 
 const baseDir = join(__dirname, '..');
 
@@ -63,10 +63,13 @@ function sortByDependencies(seeds: Seed[]) {
 }
 
 async function seed() {
-  const multiBar = new cliProgress.MultiBar({
-    clearOnComplete: false,
-    format: ' {bar} | {seedName} | {value}/{total}'
-  }, cliProgress.Presets.shades_classic);
+  const multiBar = new cliProgress.MultiBar(
+    {
+      clearOnComplete: false,
+      format: ' {bar} | {seedName} | {value}/{total}'
+    },
+    cliProgress.Presets.shades_classic
+  );
   const seeds = await importSeedFiles();
   const sortedSeeds = sortByDependencies(seeds);
 

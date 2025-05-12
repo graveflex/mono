@@ -1,7 +1,7 @@
 @import 'tailwindcss';
+@import 'tw-animate-css';
 @import './../themes/wheat.css';
 
-@plugin 'tailwindcss-animate';
 @source './safelist.css';
 
 @custom-variant dark (&:where(.dark, .dark *));

@@ -37,7 +37,7 @@ export const baseFields: Field[] = [
       },
       {
         label: 'Unlinked Text',
-        value: 'dropdownMenu',
+        value: 'dropdownMenu'
       }
     ],
     required: true

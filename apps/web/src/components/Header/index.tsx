@@ -1,8 +1,4 @@
-import type {
-  CTAType,
-  Image,
-  Nav
-} from '@mono/types/payload-types';
+import type { CTAType, Image, Nav } from '@mono/types/payload-types';
 import { cn } from '@mono/web/lib/utils';
 import type React from 'react';
 import styles from './Header.module.css';
@@ -17,7 +13,6 @@ export type HeaderProps = Nav['header'] & {
     cta?: CTAType;
   };
 };
-
 
 function Header({ className, links }: HeaderProps) {
   const formattedLinks = normalizeNavLinks(links);

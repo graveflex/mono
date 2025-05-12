@@ -1,8 +1,8 @@
-import { getPayload } from 'payload'
-import config from '@payload-config'
-import { sql } from '@payloadcms/db-postgres/drizzle';
-import type { Payload, CollectionSlug } from 'payload';
 import type { Dependency } from '@mono/web/lib/seed/block';
+import config from '@payload-config';
+import { sql } from '@payloadcms/db-postgres/drizzle';
+import { getPayload } from 'payload';
+import type { CollectionSlug, Payload } from 'payload';
 
 type CollectionCreateOpts = Parameters<Payload['create']>[0];
 
@@ -41,10 +41,12 @@ export class AssetSeed {
 
   // NOTE: this assumes that the table name is the same as the collection name (i.e. images).
   // if the dbName differs from the collection slug, logic will need to be added to resolve
-  public static async getRandomEntry<T extends CollectionSlug,>(collection: T) {
+  public static async getRandomEntry<T extends CollectionSlug>(collection: T) {
     const payload = await getPayload({ config });
 
-    const resp = await payload.db.drizzle.execute(sql`SELECT id FROM ${sql.raw(collection)} ORDER BY random() LIMIT 1`);
+    const resp = await payload.db.drizzle.execute(
+      sql`SELECT id FROM ${sql.raw(collection)} ORDER BY random() LIMIT 1`
+    );
     const randomRow = resp.rows[0];
 
     return payload.findByID({

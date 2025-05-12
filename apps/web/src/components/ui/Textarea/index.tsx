@@ -1,11 +1,14 @@
-import * as React from 'react';
+import type * as React from 'react';
 
 import { cn } from '@mono/web/lib/utils';
 
-const Textarea = React.forwardRef<
-  HTMLTextAreaElement,
-  React.ComponentProps<'textarea'>
->(({ className, ...props }, ref) => {
+const Textarea = ({
+  ref,
+  className,
+  ...props
+}: React.ComponentProps<'textarea'> & {
+  ref: React.RefObject<HTMLTextAreaElement>;
+}) => {
   return (
     <textarea
       className={cn(
@@ -16,7 +19,7 @@ const Textarea = React.forwardRef<
       {...props}
     />
   );
-});
+};
 Textarea.displayName = 'Textarea';
 
 export { Textarea };
