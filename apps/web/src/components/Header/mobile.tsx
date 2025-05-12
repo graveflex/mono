@@ -43,11 +43,11 @@ function TopLevelMobileDropdownContainer({
 }: { links: Link[]; level?: number }) {
   return (
     <SidebarMenu>
-      {links.map((link, i) =>
+      {links.map((link) =>
         link.separator ? (
-          <SidebarSeparator key={`sidebar-separator-${level}-${i}`} />
+          <SidebarSeparator key={`sidebar-separator-${level}-${link.id}`} />
         ) : (
-          <SidebarMenuItem key={`sidebar-item-${level}-${i}`}>
+          <SidebarMenuItem key={`sidebar-item-${level}-${link.id}`}>
             <SidebarMenuButton asChild={true}>
               <SidebarLink {...link} />
             </SidebarMenuButton>
@@ -67,9 +67,9 @@ function NestedMobileDropdownContainer({
 }: { links: Link[]; level: number }) {
   return (
     <SidebarMenuSub>
-      {links.map((link, i) =>
+      {links.map((link) =>
         link.separator ? null : (
-          <SidebarMenuSubItem key={`sidebar-subitem-${level}-${i}`}>
+          <SidebarMenuSubItem key={`sidebar-subitem-${level}-${link.id}`}>
             <SidebarMenuSubButton asChild={true}>
               <SidebarLink {...link} />
             </SidebarMenuSubButton>

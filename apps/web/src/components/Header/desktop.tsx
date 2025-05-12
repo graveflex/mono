@@ -49,9 +49,9 @@ function TopLevelDesktopDropdownContainer({
   return (
     <NavigationMenu>
       <NavigationMenuList>
-        {links.map((link, i) =>
+        {links.map((link) =>
           link.links?.length ? (
-            <NavigationMenuItem key={`menu-${level}-${i}`} className="relative">
+            <NavigationMenuItem key={`menu-${level}-${link.id}`} className="relative">
               <NavigationMenuTrigger>
                 <DesktopDropdownLink
                   variant="link"
@@ -63,9 +63,9 @@ function TopLevelDesktopDropdownContainer({
               </NavigationMenuContent>
             </NavigationMenuItem>
           ) : (
-            <NavigationMenuItem key={`menu-${level}-${i}`}>
+            <NavigationMenuItem key={`menu-${level}-${link.id}`}>
               <DesktopDropdownLink
-                key={`menu-link-${level}-${i}`}
+                key={`menu-link-${level}-${link.id}`}
                 variant="link"
                 {...link}
               />
@@ -83,9 +83,9 @@ function NestedDesktopDropdownContainer({
 }: { links: Link[]; level: number }) {
   return (
     <ul className={styles.list}>
-      {links.map((link, i) => (
+      {links.map((link) => (
         <li
-          key={`submenu-${level}-${i}`}
+          key={`submenu-${level}-${link.id}`}
           className={link.separator ? '' : styles.item}
         >
           {link.links?.length ? (
