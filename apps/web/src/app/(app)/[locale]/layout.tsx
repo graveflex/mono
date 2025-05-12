@@ -7,7 +7,7 @@ import { getMessages, unstable_setRequestLocale } from 'next-intl/server';
 import type React from 'react';
 import '../../global.css';
 
-import { Toaster } from '@mono/web/components/ui/Toaster';
+import { Toaster } from '@mono/web/components/ui/Sonner';
 import Providers from './providers';
 
 export const dynamic = 'auto';

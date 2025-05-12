@@ -10,7 +10,7 @@ const AdminRowLabel = function ArrayRowLabel() {
     title: string;
     label: string;
   }>();
-  const linkLabel = data?.link?.label;
+  const linkLabel = data?.link?.text;
   if (data?.name) {
     return (
       <div>
