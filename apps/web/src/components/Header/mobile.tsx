@@ -42,12 +42,12 @@ function TopLevelMobileDropdownContainer({
   level = 0
 }: { links: Link[]; level?: number }) {
   return (
-    <SidebarMenu>
+    <SidebarMenu className="list-none ml-0">
       {links.map((link) =>
         link.separator ? (
           <SidebarSeparator key={`sidebar-separator-${level}-${link.id}`} />
         ) : (
-          <SidebarMenuItem key={`sidebar-item-${level}-${link.id}`}>
+          <SidebarMenuItem key={`sidebar-item-${level}-${link.id}`} className="my-0">
             <SidebarMenuButton asChild={true}>
               <SidebarLink {...link} />
             </SidebarMenuButton>
@@ -66,10 +66,10 @@ function NestedMobileDropdownContainer({
   level
 }: { links: Link[]; level: number }) {
   return (
-    <SidebarMenuSub>
+    <SidebarMenuSub className="list-none">
       {links.map((link) =>
         link.separator ? null : (
-          <SidebarMenuSubItem key={`sidebar-subitem-${level}-${link.id}`}>
+          <SidebarMenuSubItem key={`sidebar-subitem-${level}-${link.id}`} className="my-0">
             <SidebarMenuSubButton asChild={true}>
               <SidebarLink {...link} />
             </SidebarMenuSubButton>
@@ -110,14 +110,6 @@ function MobileMenu({ links = [] }: MobileMenuProps) {
         </SheetTrigger>
         <SheetContent side="left" className={styles.sheetContent}>
           <SheetHeader className={styles.sheetHeader}>
-            <SheetClose asChild={true}>
-              <Button variant="ghost" className="mb-0">
-                <MenuIcon />
-              </Button>
-            </SheetClose>
-            <SheetTitle className="mb-0">
-              <Logo />
-            </SheetTitle>
             <Avatar>
               <AvatarFallback>LH</AvatarFallback>
             </Avatar>

@@ -49,6 +49,8 @@
     justify-between
     justify-items-center
     items-center
+    mx-0
+    px-0
     gap-4;
 
     grid-template-columns: min-content 1fr min-content;
@@ -104,7 +106,7 @@
 }
 
 .hoverCard {
-  @apply w-max mx-auto py-1.5 my-0;
+  @apply w-max mx-auto py-1.5 my-0 px-1.5;
 }
 
 .list {
