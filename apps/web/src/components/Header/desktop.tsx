@@ -12,12 +12,14 @@ import {
   NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuList,
-  NavigationMenuTrigger
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle
 } from '@mono/web/components/ui/NavigationMenu';
 import { ChevronRight } from 'lucide-react';
 import NextLink from 'next/link';
 import styles from './Header.module.css';
 import type { Link } from './shared';
+import { cn } from '@mono/web/lib/utils';
 
 function DesktopDropdownLink({
   href,
@@ -30,16 +32,17 @@ function DesktopDropdownLink({
   }
 
   const displayLabel = label || 'Untitled Link';
+  const className = cn(buttonVariants({ variant }), 'px-0');
 
   if (href) {
     return (
-      <NextLink href={href} className={`${buttonVariants({ variant })} px-0`}>
+      <NextLink href={href} className={className}>
         {displayLabel}
       </NextLink>
     );
   }
 
-  return displayLabel;
+  return <span className={className}>{displayLabel}</span>;
 }
 
 function TopLevelDesktopDropdownContainer({
@@ -53,7 +56,7 @@ function TopLevelDesktopDropdownContainer({
           link.links?.length ? (
             <NavigationMenuItem
               key={`menu-${level}-${link.id}`}
-              className="relative"
+              className="relative mt-0"
             >
               <NavigationMenuTrigger>
                 <DesktopDropdownLink
@@ -66,12 +69,14 @@ function TopLevelDesktopDropdownContainer({
               </NavigationMenuContent>
             </NavigationMenuItem>
           ) : (
-            <NavigationMenuItem key={`menu-${level}-${link.id}`}>
-              <DesktopDropdownLink
-                key={`menu-link-${level}-${link.id}`}
-                variant="link"
-                {...link}
-              />
+            <NavigationMenuItem key={`menu-${level}-${link.id}`} className="mt-0">
+              <div className={navigationMenuTriggerStyle()}>
+                <DesktopDropdownLink
+                  key={`menu-link-${level}-${link.id}`}
+                  variant="link"
+                  {...link}
+                />
+              </div>
             </NavigationMenuItem>
           )
         )}

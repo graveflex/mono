@@ -76,6 +76,7 @@
     rounded-sm 
     px-2 
     py-1.5 
+    my-0
     text-sm 
     outline-none 
     transition-colors 
@@ -103,10 +104,10 @@
 }
 
 .hoverCard {
-  @apply w-max mx-auto;
+  @apply w-max mx-auto py-1.5 my-0;
 }
 
 .list {
-  @apply inline-grid gap-1 p-0 w-full;
+  @apply inline-grid gap-1 p-0 w-full list-none ml-0;
   left: 181px !important;
 }
