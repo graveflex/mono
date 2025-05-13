@@ -47,7 +47,10 @@ function TopLevelMobileDropdownContainer({
         link.separator ? (
           <SidebarSeparator key={`sidebar-separator-${level}-${link.id}`} />
         ) : (
-          <SidebarMenuItem key={`sidebar-item-${level}-${link.id}`} className="my-0">
+          <SidebarMenuItem
+            key={`sidebar-item-${level}-${link.id}`}
+            className="my-0"
+          >
             <SidebarMenuButton asChild={true}>
               <SidebarLink {...link} />
             </SidebarMenuButton>
@@ -69,7 +72,10 @@ function NestedMobileDropdownContainer({
     <SidebarMenuSub className="list-none">
       {links.map((link) =>
         link.separator ? null : (
-          <SidebarMenuSubItem key={`sidebar-subitem-${level}-${link.id}`} className="my-0">
+          <SidebarMenuSubItem
+            key={`sidebar-subitem-${level}-${link.id}`}
+            className="my-0"
+          >
             <SidebarMenuSubButton asChild={true}>
               <SidebarLink {...link} />
             </SidebarMenuSubButton>

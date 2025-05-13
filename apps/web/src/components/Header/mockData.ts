@@ -1,3 +1,4 @@
+import type { Nav } from '@mono/types/payload-types';
 import type { Link } from './shared';
 
 export const data: Link[] = [
@@ -108,14 +109,13 @@ export const data: Link[] = [
 ];
 
 export const apiResponse = {
+  id: 12345,
   header: {
-    /*
     logo: null,
     banner: {
       content: null,
       background: null
     },
-    */
     links: [
       {
         id: '682224d321084bcd67b9a155',
@@ -253,4 +253,4 @@ export const apiResponse = {
       }
     ]
   }
-};
+} as Nav;

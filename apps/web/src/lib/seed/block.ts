@@ -4,13 +4,13 @@ import slugify from '@sindresorhus/slugify';
 import camelize from 'lodash/camelCase';
 import upperFirst from 'lodash/upperFirst';
 import { getPayload } from 'payload';
-import type { CollectionSlug, Payload } from 'payload';
+import type { CollectionSlug, GlobalSlug, Payload } from 'payload';
 
 type NonNullableBlocks = NonNullable<NonNullable<Page['blocks']>>;
 type BlockSlug = NonNullableBlocks[number]['blockType'];
 type CollectionCreateOpts = Parameters<Payload['create']>[0];
 
-export type Dependency = CollectionSlug | BlockSlug;
+export type Dependency = CollectionSlug | BlockSlug | GlobalSlug;
 
 export interface BlockSeedOptions<T extends { blockType: BlockSlug }> {
   blockType: T['blockType'];

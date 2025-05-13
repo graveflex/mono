@@ -15,11 +15,11 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle
 } from '@mono/web/components/ui/NavigationMenu';
+import { cn } from '@mono/web/lib/utils';
 import { ChevronRight } from 'lucide-react';
 import NextLink from 'next/link';
 import styles from './Header.module.css';
 import type { Link } from './shared';
-import { cn } from '@mono/web/lib/utils';
 
 function DesktopDropdownLink({
   href,
@@ -69,7 +69,10 @@ function TopLevelDesktopDropdownContainer({
               </NavigationMenuContent>
             </NavigationMenuItem>
           ) : (
-            <NavigationMenuItem key={`menu-${level}-${link.id}`} className="mt-0">
+            <NavigationMenuItem
+              key={`menu-${level}-${link.id}`}
+              className="mt-0"
+            >
               <div className={navigationMenuTriggerStyle()}>
                 <DesktopDropdownLink
                   key={`menu-link-${level}-${link.id}`}
