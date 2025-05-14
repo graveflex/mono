@@ -1,4 +1,4 @@
-import type { Dependency } from '@mono/web/lib/seed/block';
+import type { Dependency } from './shared';
 import config from '@payload-config';
 import { sql } from '@payloadcms/db-postgres/drizzle';
 import { getPayload } from 'payload';

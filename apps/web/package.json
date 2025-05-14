@@ -24,7 +24,7 @@
     "env:ci": "dotenvx run -f ../../.env.local -f ../../.env.ci -f ../../.env.test -f ../../.env",
     "db:cli": "tsx ./bin/db_cli.ts",
     "db:migrate": "payload migrate",
-    "seed": "tsx ./bin/seed.ts",
+    "seed": "bunx --bun payload run ./bin/seed.ts --disable-transpile",
     "seed:debug": "tsx --inspect-brk ./bin/seed.ts",
     "test:browser": "vitest --workspace=../../vitest.workspace.ts"
   },

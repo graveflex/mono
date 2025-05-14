@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import type { HeaderProps } from '.';
 import Header from '.';
-import { apiResponse } from './mockData';
+import { apiResponse } from '@mono/web/globals/Layout/Layout.mock';
 
 const meta: Meta<HeaderProps> = {
   title: 'ui/Header',

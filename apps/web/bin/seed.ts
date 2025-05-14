@@ -1,7 +1,8 @@
 import { readdirSync } from 'fs';
 import { join } from 'path';
 import { AssetSeed } from '@mono/web/lib/seed/asset';
-import { BlockSeed, type Dependency } from '@mono/web/lib/seed/block';
+import { BlockSeed } from '@mono/web/lib/seed/block';
+import type { Dependency } from '@mono/web/lib/seed/shared';
 import { GlobalSeed } from '@mono/web/lib/seed/global';
 import cliProgress from 'cli-progress';
 
