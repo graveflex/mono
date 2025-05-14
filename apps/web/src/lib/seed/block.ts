@@ -5,7 +5,7 @@ import upperFirst from 'lodash/upperFirst';
 import { getPayload } from 'payload';
 import type { Payload } from 'payload';
 
-import type { Dependency, CollectionCreateOpts, BlockSlug } from './shared';
+import type { BlockSlug, CollectionCreateOpts, Dependency } from './shared';
 
 export interface BlockSeedOptions<T extends { blockType: BlockSlug }> {
   blockType: T['blockType'];

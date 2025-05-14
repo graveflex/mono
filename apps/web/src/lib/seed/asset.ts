@@ -1,8 +1,8 @@
-import type { Dependency } from './shared';
 import config from '@payload-config';
 import { sql } from '@payloadcms/db-postgres/drizzle';
 import { getPayload } from 'payload';
 import type { CollectionSlug, Payload } from 'payload';
+import type { Dependency } from './shared';
 
 type CollectionCreateOpts = Parameters<Payload['create']>[0];
 

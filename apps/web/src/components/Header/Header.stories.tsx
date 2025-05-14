@@ -1,9 +1,9 @@
 import type { Nav } from '@mono/types/payload-types';
 import type { Meta, StoryObj } from '@storybook/react';
 
+import { apiResponse } from '@mono/web/globals/Layout/Layout.mock';
 import type { HeaderProps } from '.';
 import Header from '.';
-import { apiResponse } from '@mono/web/globals/Layout/Layout.mock';
 
 const meta: Meta<HeaderProps> = {
   title: 'ui/Header',

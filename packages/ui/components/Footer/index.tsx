@@ -13,7 +13,9 @@ function Footer({
 }: FooterType) {
   return (
     <div className={className}>
-      <div className="flex items-centent justify-center py-2">This is the footer</div>
+      <div className="flex items-centent justify-center py-2">
+        This is the footer
+      </div>
       <div>
         {footerLogo && (
           <ResponsivePayloadImage image={footerLogo} sizes="200px" />

@@ -2,8 +2,8 @@ import { readdirSync } from 'fs';
 import { join } from 'path';
 import { AssetSeed } from '@mono/web/lib/seed/asset';
 import { BlockSeed } from '@mono/web/lib/seed/block';
-import type { Dependency } from '@mono/web/lib/seed/shared';
 import { GlobalSeed } from '@mono/web/lib/seed/global';
+import type { Dependency } from '@mono/web/lib/seed/shared';
 import cliProgress from 'cli-progress';
 
 const baseDir = join(__dirname, '../src');

@@ -60,7 +60,11 @@ const blockList = {
 
 function BlocksRenderer({ blocks }: { blocks: NonNullable<Page['blocks']> }) {
   if (!blocks?.length) {
-    return <div className="flex items-center justify-center h-full"><h2>This page is empty</h2></div>;
+    return (
+      <div className="flex items-center justify-center h-full">
+        <h2>This page is empty</h2>
+      </div>
+    );
   }
 
   return blocks?.map(({ blockType, ...blockProps }) => {

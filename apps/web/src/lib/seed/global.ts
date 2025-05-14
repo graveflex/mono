@@ -1,7 +1,7 @@
 import config from '@payload-config';
 import { getPayload } from 'payload';
 import type { GlobalSlug, Payload } from 'payload';
-import type { Dependency } from './block';
+import type { Dependency } from './shared';
 
 type GlobalUpdateOpts = Parameters<Payload['update']>[0];
 

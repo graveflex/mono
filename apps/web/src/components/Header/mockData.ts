@@ -106,4 +106,3 @@ export const data: Link[] = [
     href: '/flat'
   }
 ];
-
