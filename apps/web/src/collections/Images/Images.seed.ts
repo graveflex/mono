@@ -1,6 +1,6 @@
-import { AssetSeed } from '@mono/web/lib/seed/asset';
 import fs from 'fs';
 import path from 'path';
+import { AssetSeed } from '@mono/web/lib/seed/asset';
 
 // pull all image pathnames from the adjacent /img directory
 const imgDir = path.join(__dirname, 'seeds');

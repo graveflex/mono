@@ -73,7 +73,7 @@ function AccountDropdown() {
       <NavigationMenu>
         <NavigationMenuList>
           <NavigationMenuItem>
-            <NavigationMenuTrigger disableHoverStyles={true}>
+            <NavigationMenuTrigger>
               <Avatar className={styles.avatar}>
                 <AvatarFallback>{user.email.substring(0, 2)}</AvatarFallback>
               </Avatar>

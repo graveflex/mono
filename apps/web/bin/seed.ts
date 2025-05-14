@@ -1,16 +1,18 @@
-import cliProgress from 'cli-progress';
 import { readdirSync } from 'fs';
 import { join } from 'path';
 import { AssetSeed } from '@mono/web/lib/seed/asset';
-import { BlockSeed, type Dependency } from '@mono/web/lib/seed/block';
+import { BlockSeed } from '@mono/web/lib/seed/block';
+import { GlobalSeed } from '@mono/web/lib/seed/global';
+import type { Dependency } from '@mono/web/lib/seed/shared';
+import cliProgress from 'cli-progress';
 
-const baseDir = join(__dirname, '..');
+const baseDir = join(__dirname, '../src');
 
-type Seed = AssetSeed | BlockSeed;
+type Seed = AssetSeed | BlockSeed | GlobalSeed;
 
 async function importSeedFiles() {
   const files = readdirSync(baseDir, { recursive: true });
-  const seedClasses: (AssetSeed | BlockSeed)[] = [];
+  const seedClasses: Seed[] = [];
 
   for (const file of files) {
     if (typeof file === 'string') {
@@ -19,7 +21,8 @@ async function importSeedFiles() {
         const seedImport = await import(filePath);
         if (
           seedImport.Seed instanceof AssetSeed ||
-          seedImport.Seed instanceof BlockSeed
+          seedImport.Seed instanceof BlockSeed ||
+          seedImport.Seed instanceof GlobalSeed
         ) {
           seedClasses.push(seedImport.Seed);
         }
@@ -30,6 +33,8 @@ async function importSeedFiles() {
   return seedClasses;
 }
 
+// sort seeds topologically by their dependencies
+// https://dev.to/leopfeiffer/topological-sort-with-kahns-algorithm-3dl1
 function sortByDependencies(seeds: Seed[]) {
   const sorted: Seed[] = [];
   const visited = new Set<Dependency>();
@@ -63,10 +68,13 @@ function sortByDependencies(seeds: Seed[]) {
 }
 
 async function seed() {
-  const multiBar = new cliProgress.MultiBar({
-    clearOnComplete: false,
-    format: ' {bar} | {seedName} | {value}/{total}'
-  }, cliProgress.Presets.shades_classic);
+  const multiBar = new cliProgress.MultiBar(
+    {
+      clearOnComplete: false,
+      format: ' {bar} | {seedName} | {value}/{total}'
+    },
+    cliProgress.Presets.shades_classic
+  );
   const seeds = await importSeedFiles();
   const sortedSeeds = sortByDependencies(seeds);
 

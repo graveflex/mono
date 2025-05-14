@@ -4,7 +4,7 @@ import Link from 'next/link';
 export default function Variant1() {
   return (
     <section
-      className="bg-background py-16 lg:py-24 min-h-screen flex items-center justify-center"
+      className="bg-background py-16 lg:py-24 min-h-fit flex items-center justify-center"
       aria-labelledby="error-title"
     >
       <div className="container px-6 flex flex-col lg:flex-row items-center gap-12 lg:gap-16 relative z-10 mx-auto">

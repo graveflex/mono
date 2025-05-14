@@ -1,6 +1,6 @@
+import type { FeatureSection } from '@mono/types/payload-types';
 import { AssetSeed } from '@mono/web/lib/seed/asset';
 import { BlockSeed } from '@mono/web/lib/seed/block';
-import type { FeatureSection } from '@mono/types/payload-types';
 import mockRichTextContent from './FeatureSectionMockData';
 
 const mediaPositions = ['left', 'right'] as const;

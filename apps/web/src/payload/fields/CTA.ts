@@ -18,14 +18,14 @@ function CTA({
     type: 'group',
     interfaceName: interfaceName || 'CTAType',
     fields: [
+      Link({ localized }),
       {
         label: 'CTA Settings',
         type: 'collapsible',
         admin: {
-          initCollapsed: true
+          initCollapsed: false
         },
         fields: [
-          Link({ localized }),
           {
             name: 'variant',
             label: 'Variant',

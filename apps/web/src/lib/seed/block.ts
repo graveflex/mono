@@ -1,16 +1,11 @@
-import { getPayload } from 'payload';
 import config from '@payload-config';
-import type { Page } from '@mono/types/payload-types';
-import type { Payload, CollectionSlug } from 'payload';
+import slugify from '@sindresorhus/slugify';
 import camelize from 'lodash/camelCase';
 import upperFirst from 'lodash/upperFirst';
-import slugify from '@sindresorhus/slugify';
+import { getPayload } from 'payload';
+import type { Payload } from 'payload';
 
-type NonNullableBlocks = NonNullable<NonNullable<Page['blocks']>>;
-type BlockSlug = NonNullableBlocks[number]['blockType'];
-type CollectionCreateOpts = Parameters<Payload['create']>[0];
-
-export type Dependency = CollectionSlug | BlockSlug;
+import type { BlockSlug, CollectionCreateOpts, Dependency } from './shared';
 
 export interface BlockSeedOptions<T extends { blockType: BlockSlug }> {
   blockType: T['blockType'];
@@ -65,7 +60,7 @@ export class BlockSeed<
           .map(async (_, i) => {
             const variantVariations = await this.generateContent(
               payload,
-              `${i+1}`
+              `${i + 1}`
             );
             return variantVariations.map((data) => {
               const pageTitle = this.generatePageName(data);

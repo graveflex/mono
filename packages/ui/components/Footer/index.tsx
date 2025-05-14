@@ -1,23 +1,26 @@
 import type { FooterItems } from '@mono/types/payload-types';
-import CtaLink from '@mono/ui/components/CtaLink';
 import ResponsivePayloadImage from '@mono/ui/components/primitives/ResponsivePayloadImage';
 import RichText from '@mono/ui/components/primitives/RichText';
 import React from 'react';
 
-export type FooterType = FooterItems;
+export type FooterType = FooterItems & { className?: string };
 
 function Footer({
   footerLogo,
   copyright,
   legalDisclaimer,
-  footerMenu
-}: FooterItems) {
+  className
+}: FooterType) {
   return (
-    <div>
+    <div className={className}>
+      <div className="flex items-centent justify-center py-2">
+        This is the footer
+      </div>
       <div>
         {footerLogo && (
           <ResponsivePayloadImage image={footerLogo} sizes="200px" />
         )}
+        {/*
         {footerMenu && (
           <div>
             {footerMenu?.map((item) => {
@@ -25,6 +28,7 @@ function Footer({
             })}
           </div>
         )}
+        */}
         {copyright && (
           <div>
             <RichText {...copyright} />

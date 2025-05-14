@@ -1,11 +1,10 @@
-import type { IconSelect } from '@mono/types/payload-types';
 import { isNull } from 'lodash';
 import React from 'react';
 
 import coreIcons from '../../icons/core';
 
 export type IconProps = {
-  name?: IconSelect['name'] | null;
+  name?: keyof typeof coreIcons;
   color?: string | null;
   size?: string | null;
 };

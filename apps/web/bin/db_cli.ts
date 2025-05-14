@@ -1,4 +1,4 @@
-import { execSync, spawn } from 'child_process';
+import { spawn } from 'child_process';
 import os from 'os';
 import path from 'path';
 import util from 'util';
@@ -96,7 +96,8 @@ async function createMigration() {
 async function reset() {
   await cleanMigrationDir();
   await createMigration();
-  return runFreshMigration({ uri: process.env.DATABASE_URL as string });
+  await runFreshMigration({ uri: process.env.DATABASE_URL as string });
+  return seedAll({ uri: process.env.DATABASE_URL as string });
 }
 
 async function createNeonBranch(projectId: string, neonBranch: string) {
@@ -276,9 +277,8 @@ async function runFreshMigration(db: { uri: string }) {
   });
 }
 
-/*
 async function seedAll(db: { uri: string }) {
-  const seedProcess = spawn('pnpm', ['seed:all'], {
+  const seedProcess = spawn('pnpm', ['seed'], {
     stdio: 'inherit',
     env: {
       ...process.env,
@@ -296,7 +296,6 @@ async function seedAll(db: { uri: string }) {
     });
   });
 }
-*/
 
 async function issueDireWarning() {
   const username = os.userInfo().username;
@@ -336,9 +335,7 @@ async function reseed(props: Step2Props) {
 
   if (proceed) {
     await runFreshMigration(db);
-    return;
-    // TODO: re-implement seeds
-    // return seedAll(db);
+    return seedAll(db);
   }
 
   console.info('Re-seed cancelled.');

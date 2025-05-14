@@ -7,32 +7,6 @@
  */
 
 /**
- * The pages that will be linked in this section will not have a dropdown
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "FlatMenu".
- */
-export type FlatMenu =
-  | {
-      link?: PayLoadLink;
-      id?: string | null;
-    }[]
-  | null;
-/**
- * Nav Items that are only displayed with an icon
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "IconNavItems".
- */
-export type IconNavItems =
-  | {
-      href?: string | null;
-      newTab?: boolean | null;
-      icon?: IconSelect;
-      id?: string | null;
-    }[]
-  | null;
-/**
  * Supported timezones in IANA format.
  *
  * This interface was referenced by `Config`'s JSON-Schema
@@ -968,7 +942,7 @@ export interface Post {
   tags?: (number | Tag)[] | null;
   ctas?:
     | {
-        cta?: CTAType;
+        cta: CTAType;
         id?: string | null;
       }[]
     | null;
@@ -1059,7 +1033,7 @@ export interface Tag {
  * via the `definition` "CTAType".
  */
 export interface CTAType {
-  link?: PayLoadLink;
+  link: PayLoadLink;
   /**
    * Variant Style of button - reference Button component in storybook
    */
@@ -1074,27 +1048,23 @@ export interface CTAType {
  * via the `definition` "payLoadLink".
  */
 export interface PayLoadLink {
-  type?: ('internal' | 'external' | 'email' | 'phone' | 'file') | null;
-  label?: string | null;
-  /**
-   * Route for link
-   */
-  internalHref?: (number | null) | Page;
-  /**
-   * Route for link
-   */
-  externalHref?: string | null;
-  /**
-   * will open the default email client with this email address as the recipient
-   */
-  emailHref?: string | null;
-  /**
-   * Do no include spaces or special characters
-   */
-  phoneHref?: string | null;
-  fileHref?: (number | null) | File;
+  text: string;
+  linkType: 'custom' | 'internal' | 'dropdownMenu';
+  url?: string | null;
+  doc?:
+    | ({
+        relationTo: 'pages';
+        value: number | Page;
+      } | null)
+    | ({
+        relationTo: 'files';
+        value: number | File;
+      } | null)
+    | ({
+        relationTo: 'posts';
+        value: number | Post;
+      } | null);
   newTab?: boolean | null;
-  icon?: IconSelect;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1115,48 +1085,6 @@ export interface File {
   height?: number | null;
   focalX?: number | null;
   focalY?: number | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "IconSelect".
- */
-export interface IconSelect {
-  name?:
-    | (
-        | 'Hamburger'
-        | 'Check'
-        | 'ArrowUp'
-        | 'ArrowLeft'
-        | 'ArrowRight'
-        | 'ArrowDown'
-        | 'CaretDown'
-        | 'CaretUp'
-        | 'CaretRight'
-        | 'CaretLeft'
-        | 'Close'
-        | 'DoubleCaretDown'
-        | 'DoubleCaretUp'
-        | 'DoubleCaretRight'
-        | 'DoubleCaretLeft'
-        | 'Error'
-        | 'LinkOut'
-        | 'MinusSign'
-        | 'Person'
-        | 'PlusSign'
-        | 'Quote'
-        | 'Search'
-        | 'SolidArrowDown'
-        | 'SolidArrowUp'
-        | 'SolidArrowRight'
-        | 'SolidArrowLeft'
-        | 'ArrowNesting'
-      )
-    | null;
-  /**
-   * Icon height/width in pixels - x-large is default.
-   */
-  size?: ('35' | '30' | '25' | '20') | null;
-  color?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -2156,24 +2084,11 @@ export interface CTATypeSelect<T extends boolean = true> {
  * via the `definition` "payLoadLink_select".
  */
 export interface PayLoadLinkSelect<T extends boolean = true> {
-  type?: T;
-  label?: T;
-  internalHref?: T;
-  externalHref?: T;
-  emailHref?: T;
-  phoneHref?: T;
-  fileHref?: T;
+  text?: T;
+  linkType?: T;
+  url?: T;
+  doc?: T;
   newTab?: T;
-  icon?: T | IconSelectSelect<T>;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "IconSelect_select".
- */
-export interface IconSelectSelect<T extends boolean = true> {
-  name?: T;
-  size?: T;
-  color?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -2616,20 +2531,118 @@ export interface Nav {
      */
     logo?: (number | null) | Image;
     banner?: BannerContent;
-    collapsibleMenu?: CollapsibleMenu;
-    flatMenu?: FlatMenu;
-    iconItems?: IconNavItems;
-    hasCta?: boolean | null;
-    /**
-     * Call to Action Button
-     */
-    ctaButton?: {
-      cta?: CTAType;
-    };
+    links?:
+      | {
+          text: string;
+          linkType: 'custom' | 'internal' | 'dropdownMenu';
+          url?: string | null;
+          doc?:
+            | ({
+                relationTo: 'pages';
+                value: number | Page;
+              } | null)
+            | ({
+                relationTo: 'files';
+                value: number | File;
+              } | null)
+            | ({
+                relationTo: 'posts';
+                value: number | Post;
+              } | null);
+          newTab?: boolean | null;
+          links0?:
+            | {
+                text: string;
+                linkType: 'custom' | 'internal' | 'dropdownMenu';
+                url?: string | null;
+                doc?:
+                  | ({
+                      relationTo: 'pages';
+                      value: number | Page;
+                    } | null)
+                  | ({
+                      relationTo: 'files';
+                      value: number | File;
+                    } | null)
+                  | ({
+                      relationTo: 'posts';
+                      value: number | Post;
+                    } | null);
+                newTab?: boolean | null;
+                links1?:
+                  | {
+                      text: string;
+                      linkType: 'custom' | 'internal' | 'dropdownMenu';
+                      url?: string | null;
+                      doc?:
+                        | ({
+                            relationTo: 'pages';
+                            value: number | Page;
+                          } | null)
+                        | ({
+                            relationTo: 'files';
+                            value: number | File;
+                          } | null)
+                        | ({
+                            relationTo: 'posts';
+                            value: number | Post;
+                          } | null);
+                      newTab?: boolean | null;
+                      links2?:
+                        | {
+                            text: string;
+                            linkType: 'custom' | 'internal' | 'dropdownMenu';
+                            url?: string | null;
+                            doc?:
+                              | ({
+                                  relationTo: 'pages';
+                                  value: number | Page;
+                                } | null)
+                              | ({
+                                  relationTo: 'files';
+                                  value: number | File;
+                                } | null)
+                              | ({
+                                  relationTo: 'posts';
+                                  value: number | Post;
+                                } | null);
+                            newTab?: boolean | null;
+                            links3?:
+                              | {
+                                  text: string;
+                                  linkType: 'custom' | 'internal' | 'dropdownMenu';
+                                  url?: string | null;
+                                  doc?:
+                                    | ({
+                                        relationTo: 'pages';
+                                        value: number | Page;
+                                      } | null)
+                                    | ({
+                                        relationTo: 'files';
+                                        value: number | File;
+                                      } | null)
+                                    | ({
+                                        relationTo: 'posts';
+                                        value: number | Post;
+                                      } | null);
+                                  newTab?: boolean | null;
+                                  id?: string | null;
+                                }[]
+                              | null;
+                            id?: string | null;
+                          }[]
+                        | null;
+                      id?: string | null;
+                    }[]
+                  | null;
+                id?: string | null;
+              }[]
+            | null;
+          id?: string | null;
+        }[]
+      | null;
   };
-  footer?: {
-    footerItems?: FooterItems;
-  };
+  footer?: FooterItems;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -2654,30 +2667,6 @@ export interface BannerContent {
     [k: string]: unknown;
   } | null;
   background?: ('white' | 'black' | 'gray') | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "CollapsibleMenu".
- */
-export interface CollapsibleMenu {
-  sections?:
-    | {
-        /**
-         * Label for menu item
-         */
-        label: string;
-        /**
-         * The pages that will be linked in this section
-         */
-        links?:
-          | {
-              link?: PayLoadLink;
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-      }[]
-    | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -2718,7 +2707,6 @@ export interface FooterItems {
     };
     [k: string]: unknown;
   } | null;
-  footerMenu?: FlatMenu;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -2792,21 +2780,58 @@ export interface NavSelect<T extends boolean = true> {
     | {
         logo?: T;
         banner?: T | BannerContentSelect<T>;
-        collapsibleMenu?: T | CollapsibleMenuSelect<T>;
-        flatMenu?: T | FlatMenuSelect<T>;
-        iconItems?: T | IconNavItemsSelect<T>;
-        hasCta?: T;
-        ctaButton?:
+        links?:
           | T
           | {
-              cta?: T | CTATypeSelect<T>;
+              text?: T;
+              linkType?: T;
+              url?: T;
+              doc?: T;
+              newTab?: T;
+              links0?:
+                | T
+                | {
+                    text?: T;
+                    linkType?: T;
+                    url?: T;
+                    doc?: T;
+                    newTab?: T;
+                    links1?:
+                      | T
+                      | {
+                          text?: T;
+                          linkType?: T;
+                          url?: T;
+                          doc?: T;
+                          newTab?: T;
+                          links2?:
+                            | T
+                            | {
+                                text?: T;
+                                linkType?: T;
+                                url?: T;
+                                doc?: T;
+                                newTab?: T;
+                                links3?:
+                                  | T
+                                  | {
+                                      text?: T;
+                                      linkType?: T;
+                                      url?: T;
+                                      doc?: T;
+                                      newTab?: T;
+                                      id?: T;
+                                    };
+                                id?: T;
+                              };
+                          id?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
             };
       };
-  footer?:
-    | T
-    | {
-        footerItems?: T | FooterItemsSelect<T>;
-      };
+  footer?: T | FooterItemsSelect<T>;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
@@ -2821,49 +2846,12 @@ export interface BannerContentSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "CollapsibleMenu_select".
- */
-export interface CollapsibleMenuSelect<T extends boolean = true> {
-  sections?:
-    | T
-    | {
-        label?: T;
-        links?:
-          | T
-          | {
-              link?: T | PayLoadLinkSelect<T>;
-              id?: T;
-            };
-        id?: T;
-      };
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "FlatMenu_select".
- */
-export interface FlatMenuSelect<T extends boolean = true> {
-  link?: T | PayLoadLinkSelect<T>;
-  id?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "IconNavItems_select".
- */
-export interface IconNavItemsSelect<T extends boolean = true> {
-  href?: T;
-  newTab?: T;
-  icon?: T | IconSelectSelect<T>;
-  id?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "FooterItems_select".
  */
 export interface FooterItemsSelect<T extends boolean = true> {
   footerLogo?: T;
   copyright?: T;
   legalDisclaimer?: T;
-  footerMenu?: T | FlatMenuSelect<T>;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
