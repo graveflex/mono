@@ -3,7 +3,7 @@ import { getPayload } from 'payload';
 import type { GlobalSlug, Payload } from 'payload';
 import type { Dependency } from './shared';
 
-type GlobalUpdateOpts = Parameters<Payload['update']>[0];
+type GlobalUpdateOpts = Parameters<Payload['updateGlobal']>[0];
 
 export interface GlobalSeedOptions<T = unknown> {
   slug: GlobalSlug;
@@ -37,18 +37,18 @@ export class GlobalSeed<T = unknown> {
     const data = await this.generateContent(payload);
 
     // keep as array to maintain the same structure as BlockSeed and AssetSeed
-    return [
-      {
-        slug: this.slug,
-        data
-      }
-    ];
+    this.data = data.map((d) => ({
+      slug: this.slug,
+      data: d
+    })) as GlobalUpdateOpts[];
+
+    return this.data;
   }
 
   public async saveSeeds(inc: () => void) {
     const payload = await this.payload;
     for (const s of this.data) {
-      await payload.update(s);
+      await payload.updateGlobal(s);
       inc();
     }
   }

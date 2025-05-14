@@ -39,6 +39,7 @@ import { FieldsToExport as FieldsToExport_cdf7e044479f899a31f804427d568b36 } fro
 import { CollectionField as CollectionField_cdf7e044479f899a31f804427d568b36 } from '@payloadcms/plugin-import-export/rsc'
 import { WhereField as WhereField_cdf7e044479f899a31f804427d568b36 } from '@payloadcms/plugin-import-export/rsc'
 import { Preview as Preview_cdf7e044479f899a31f804427d568b36 } from '@payloadcms/plugin-import-export/rsc'
+import { ArrayRowLabel as ArrayRowLabel_ffb56e8e520797d175cf693b152ca503 } from '@mono/web/payload/fields/NestedLinks/RowLabel'
 import { Icon as Icon_8dc9bcd05dac8d1a3f1014014c851457 } from '@mono/web/components/CustomPayload/PayloadLogo/index.tsx'
 import { Logo as Logo_8dc9bcd05dac8d1a3f1014014c851457 } from '@mono/web/components/CustomPayload/PayloadLogo/index.tsx'
 import { AfterNav as AfterNav_5b7d533c4890c176b0a70fdfa56ed65e } from '@mono/web/components/CustomPayload/AfterNav/index.tsx'
@@ -87,6 +88,7 @@ export const importMap = {
   "@payloadcms/plugin-import-export/rsc#CollectionField": CollectionField_cdf7e044479f899a31f804427d568b36,
   "@payloadcms/plugin-import-export/rsc#WhereField": WhereField_cdf7e044479f899a31f804427d568b36,
   "@payloadcms/plugin-import-export/rsc#Preview": Preview_cdf7e044479f899a31f804427d568b36,
+  "@mono/web/payload/fields/NestedLinks/RowLabel#ArrayRowLabel": ArrayRowLabel_ffb56e8e520797d175cf693b152ca503,
   "@mono/web/components/CustomPayload/PayloadLogo/index.tsx#Icon": Icon_8dc9bcd05dac8d1a3f1014014c851457,
   "@mono/web/components/CustomPayload/PayloadLogo/index.tsx#Logo": Logo_8dc9bcd05dac8d1a3f1014014c851457,
   "@mono/web/components/CustomPayload/AfterNav/index.tsx#AfterNav": AfterNav_5b7d533c4890c176b0a70fdfa56ed65e,
