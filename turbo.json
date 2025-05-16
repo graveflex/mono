@@ -80,6 +80,12 @@
       "persistent": true,
       "interactive": false
     },
+    "dev:debug": {
+      "cache": false,
+      "dependsOn": ["^generate:types"],
+      "persistent": true,
+      "interactive": false
+    },
     "dev:docker": {
       "cache": false,
       "dependsOn": ["^generate:types"],

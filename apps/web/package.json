@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "rm -rf -- ./.turbo ./dist ./coverage ./node_modules ./.next",
     "dev": "pnpm exec next dev",
-    "dev:debug": "pnpm env:debug -- pnpm exec next dev",
+    "dev:debug": "NODE_OPTIONS='--inspect=0.0.0.0:9229' pnpm exec next dev",
     "dev:stories": "export $(grep -e '^DOCS_PORT' -- ../../.env) && storybook dev -p ${DOCS_PORT} --no-open",
     "build": "next build",
     "build:stories": "storybook build -o ../../.vercel/output/static/stories",
@@ -19,7 +19,6 @@
     "migrations:create": "payload migrate:create",
     "migrations:run": "if [ \"$CI\" != \"true\" ]; then payload migrate; fi",
     "env:dev": "dotenvx run -f ../../.env.local -f ../../.env",
-    "env:debug": "dotenvx run -f ../../.env.debug -f ../../.env.local -f ../../.env",
     "env:ci": "dotenvx run -f ../../.env.local -f ../../.env.ci -f ../../.env.test -f ../../.env",
     "db:cli": "tsx ./bin/db_cli.ts",
     "db:migrate": "payload migrate",
