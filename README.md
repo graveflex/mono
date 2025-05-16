@@ -17,9 +17,9 @@ Make sure to install the latest versions of Node and PostgreSQL:
 
 1. Install dependencies: `pnpm install`
 2. Create the PostgreSQL database:
-  - The default database name is `monorepo`. This can be changed by updating `DATABASE_URL` in the `.env` file.
-  - Run `createdb monorepo` (or whatever the database name is).
-  - Run `pnpm db`, select `Re-seed a database`, then `My local database`
+    - The default database name is `monorepo`. This can be changed by updating `DATABASE_URL` in the `.env` file.
+    - Run `createdb monorepo` (or whatever the database name is).
+    - Run `pnpm db`, select `Re-seed a database`, then `My local database`
 3. Start the dev server: `pnpm dev`
 
 ### OR use Docker
@@ -85,20 +85,20 @@ For branches with open PRs, the following additional actions are taken:
 2. Create a `Neon API Key` for the project and **SAVE IT**. You cannot view again after it's been created.
 3. Find the Neon project ID and **WRITE IT DOWN**.
 3. From the Neon project dashboard, Add Compute
-  * Set Compute Type to `primary`
-  * Set Compute Size to `Efficient`
+    * Set Compute Type to `primary`
+    * Set Compute Size to `Efficient`
 
 #### Vercel
 1. Create a new project in [Vercel](https://vercel.com).
-  * Find the org name and **WRITE IT DOWN**.
-  * Find the org ID and **WRITE IT DOWN**.
-  * Find the project ID and **WRITE IT DOWN**.
-  * Find the project name and **WRITE IT DOWN**.
-  * Do **NOT** connect via github
+    * Find the org name and **WRITE IT DOWN**.
+    * Find the org ID and **WRITE IT DOWN**.
+    * Find the project ID and **WRITE IT DOWN**.
+    * Find the project name and **WRITE IT DOWN**.
+    * Do **NOT** connect via github
 2. Add the `DOTENV_PRIVATE_KEY` as an ENV var
 3. Create a new org-level project token from `Account Settings` > `Tokens` and **SAVE IT**.
 4. Create a new `Blob Storage` instance
-  * The keys will be added automatically to the `Vercel` project. Navigate to the env vars tab and **WRITE THEM DOWN**.
+    * The keys will be added automatically to the `Vercel` project. Navigate to the env vars tab and **WRITE THEM DOWN**.
 
 #### Github
 
