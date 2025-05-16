@@ -1,9 +1,11 @@
+import type { Nav } from '@mono/types/payload-types';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import type { HeaderType } from '.';
+import { apiResponse } from '@mono/web/globals/Layout/Layout.mock';
+import type { HeaderProps } from '.';
 import Header from '.';
 
-const meta: Meta<HeaderType> = {
+const meta: Meta<HeaderProps> = {
   title: 'ui/Header',
   component: Header,
   parameters: {
@@ -13,35 +15,8 @@ const meta: Meta<HeaderType> = {
 };
 
 export default meta;
-type Story = StoryObj<HeaderType>;
+type Story = StoryObj<HeaderProps>;
 
 export const Defaults: Story = {
-  args: {
-    flatMenu: [
-      {
-        id: '1',
-        link: {
-          type: 'external',
-          label: 'Home',
-          externalHref: '/'
-        }
-      },
-      {
-        id: '1',
-        link: {
-          type: 'external',
-          label: 'About',
-          externalHref: '/'
-        }
-      },
-      {
-        id: '1',
-        link: {
-          type: 'external',
-          label: 'Learn More',
-          externalHref: '/'
-        }
-      }
-    ]
-  }
+  args: apiResponse.header as Nav['header']
 };

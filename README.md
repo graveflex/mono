@@ -1,143 +1,140 @@
-# NextJS and Payload Monorepo
-
-monorepo for gfx projects that includes nextjs, payload cms, storybook, and refract. built to deploy directly to Vercel. 
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fgraveflex%2Fnextjs-vercel&stores=%5B%7B%22type%22%3A%20%22postgres%22%7D%5D&env=PAYLOAD_SECRET)
-
-The repo is divided into two apps
-Using Next.js 14, [routing fundamentals](https://nextjs.org/docs/app/building-your-application/routing_):
-
-- `docs`: 📖 [Storybook](https://storybook.js.org/docs) — UI component environment powered by Vite
-- `web`: 🏎 The [NextJS](https://nextjs.org/docs) project + the [Payload CMS](https://payloadcms.com/docs/getting-started/what-is-payload) 
-
-The repo also includes a few packages:
-
-- `selint-config-custom`: A shared `eslint` config
-- `settings`: A package that controls both the testing via vitest as well as exports a `settings` package that's used to keep environmental variables in sync across apps
-- `theme`: Theme value declarations using [Refract-Ui](https://github.com/graveflex/refract) - consumed by `web`, `docs` and `packages/ui`
-- `tsconfig`: A set of `tsconfig` bases for various packages
-- `types`: Houses the `payload-types.ts` to be shared cross app/package
-- `ui`: The ui/component library that is consumed by `web`
+# NextJS + PayloadCMS Monorepo
 
 ## Getting Started
 
-- clone the repo by clicking the 'one-click' deploy button above.
-- copy `.env.example` into `.env` and get copy of development environmental variables
-- `pnpm i` to install dependencies
-- `pnpm dev` to run all apps in dev mode
-- `pnpm test` to run test
-- `pnpm test:coverage` to generate a new coverage report
+### MacOS
 
-### First Time Setup
+Make sure to install the latest versions of Node and PostgreSQL:
 
-Go to `http://localhost:3000`. By default, this page should return a 404. This is because we're trying to fetch data from the CMS when the CMS has not been initialized
+* [node](https://nodejs.org/) - use a node version manager like [mise](https://mise.jdx.dev/)
+  * `curl https://mise.run | sh`
+  * `mise use -g node@20`
+  * `corepack enable pnpm`
+* [PostgreSQL](https://www.postgresql.org/download/macosx/) - use [homebrew](https://brew.sh/) to install
+  * `brew install postgresql`
 
-Two paths to initialization: 
-1. Go to `http://localhost:3000/admin` and login with the local test user defined in `apps/web/payload.config.ts`
-```
-  email: 'dev@payloadcms.com',
-  password: 'test'
-```
-4. You will be routed to the Payload CMS dashboard. Create a `test` page with a test block.
-5. Return to the index page. You'll see some data about the page you've created, signalling that `web` can request data from `cms`
+---
 
---or-- 
+1. Install dependencies: `pnpm install`
+2. Create the PostgreSQL database:
+    - The default database name is `monorepo`. This can be changed by updating `DATABASE_URL` in the `.env` file.
+    - Run `createdb monorepo` (or whatever the database name is).
+    - Run `pnpm db`, select `Re-seed a database`, then `My local database`
+3. Start the dev server: `pnpm dev`
 
-1. in your terminal 
-```
-cd apps/web
-```
+### OR use Docker
 
-2. run one or all the seeds to populate test data 
-```
-pnpm seed:all
-```
-3. Return to the index page. You'll see a template nav and homepage, signalling that `web` can request data from `cms`
+Make sure to install [Docker desktop](https://www.docker.com/products/docker-desktop/).
+
+1. Run `docker-compose up web` to build and start the dev server.
+2. Run `docker-compose run --rm web pnpm db`, select `Re-seed a database`, then `My local database`.
+
+---
+
+The Next.js app should now be running on [http://localhost:3000](http://localhost:3000), and storybook on [http://localhost:3001](http://localhost:3001).
+
+You can start editing the page by modifying `apps/web/src/app/(app)/[locale]/page.tsx`. The page auto-updates as you edit the file.
 
 ## Helpful Scripts
 
-- `pnpm reinstall` cleans out all `node_modules` and reinstalls all packages
-- `pnpm clean` cleans out all build/dist directories
-- `pnpm cicd` to run all CI checks (lint, types, coverage, build)
+* `pnpm cicd`: runs the following scripts in parallel:
+  * `pnpm lint`: checks all apps and packages for linting errors
+  * `pnpm types`: checks all apps and packages for type errors
+  * `pnpm test`: runs the test suite for each app and package using [vitest](https://vitest.dev/)
+* `pnpm db`: opens an interactive CLI for managing the database. You can use this to create, drop, and seed the database, and to sync the database with remote environments (i.e. prod, staging, PR deploys).
+* `pnpm create:block`: scaffolds a new block template (schema, component, seeds, and storybook entry)
+* `pnpm create:component`: scaffolds a new component for the UI library with a storybook entry
+- `pnpm clean` cleans out all build/dist directories and node_modules
+- `pnpm generate:types` regenerates the PayloadCMS types from the schema if they somehow get out of sync
 
-### Payload Scripts 
-- `pnpm generate:types` uses the config files of payload components/blocks/globals to generate types in 
-`packages/types/payload-types.ts` which can not be modified by hand. 
+## Learn More
 
-## Hygen Generators 
-We use [Hygen](https://www.hygen.io/) to scaffold the following areas of the codebase:
+To learn more about this stack, take a look at the following resources:
 
-- `pnpm create:component` creates new component boilerplate 
-- `pnpm create:block` created new block in `apps/web` boilerplate, and the required imports 
-- `pnpm create:package` creates a new package in `packages/ui`
-- `pnpm create:icon` adds an Icon file to `packages/ui/icons` 
+* [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+* [Learn Next.js](https://nextjs.org/learn/foundations/about-nextjs) - an interactive Next.js tutorial.
+* [Turborepo](https://turborepo.com/) - a monorepo build system. It allows you to develop and build your apps and packages in parallel, and share code between them.
+* [Payload](https://payloadcms.com/) - a headless CMS. It allows you to manage your content and data in a flexible and powerful way.
+* [TailwindCSS](https://tailwindcss.com/) - a utility-first CSS framework. It allows you to style your components and pages in a fast and efficient way.
+* [Shadcn/ui](https://ui.shadcn.com/) - a component library. It allows you to use pre-built components and styles in your app.
+* [Neon](https://neon.tech/) - a serverless Postgres database. It allows you to use a fully managed and scalable database in your app.
+* [biome.js](https://biomejs.dev/) - a code formatter and linter. It allows you to format and lint your code in a consistent and efficient way.
+* [Storybook](https://storybook.js.org/) - a UI component explorer. It allows you to develop and test your components in isolation.
 
+## Deployment
 
-## Payload
+Deployments are managed via Github actions.
 
-### Payload Migrations
-Each time a change is made to a payload schema a corresponding migration must also be created to track the data mutations. 
-Payload stores all created migrations in a folder that you can specify. By default, migrations are stored in `apps/web/src/migrations`.
+The `main`, `staging` and `development` branches are used for mainline deployments. When pushing to these branches, the following actions are taken by the github CI:
 
-[Migtation Commands](https://payloadcms.com/docs/database/migrations#commands)
+1. Code is checked for linting / formatting errors with [biome.js](https://biomejs.dev/).
+2. The test suite is run using [storybook](https://storybook.js.org/) and [vitest](https://vitest.dev/).
+3. Migrations are run on the corresponding [neon](https://neon.tech) database branch.
+4. The next.js app is compiled and deployed to [vercel](https://vercel.com).
 
-run all exisiting migrations
-```
-pnpm payload migrate
-``` 
-creates a new migration
-```
-pnpm payload migrate:create
-``` 
+For branches with open PRs, the following additional actions are taken:
 
-### Pulling down CMS data
+1. A [storybook](https://storybook.js.org/) deployment is created for the PR, allowing you to view and test the components in isolation.
+2. The PR deploy is checked with [lighthouse](https://developers.google.com/web/tools/lighthouse) for performance, accessibility, SEO, etc.
+3. The results and links to the relevant apps (storybook, PR deploy, neon DB branch) are posted to the PR as a comment.
 
-Rather than recreating the CMS data from scratch, it's much better to sync your local database with either the staging or production database.
+## CI Setup
 
-To sync your local dev environment with the staging CMS database, run the following command from `apps/web` 
+#### Neon
+1. Create a new project in [Neon](https://neon.tech).
+2. Create a `Neon API Key` for the project and **SAVE IT**. You cannot view again after it's been created.
+3. Find the Neon project ID and **WRITE IT DOWN**.
+3. From the Neon project dashboard, Add Compute
+    * Set Compute Type to `primary`
+    * Set Compute Size to `Efficient`
 
-```sh
-./bin/sync_db.sh 
-```
+#### Vercel
+1. Create a new project in [Vercel](https://vercel.com).
+    * Find the org name and **WRITE IT DOWN**.
+    * Find the org ID and **WRITE IT DOWN**.
+    * Find the project ID and **WRITE IT DOWN**.
+    * Find the project name and **WRITE IT DOWN**.
+    * Do **NOT** connect via github
+2. Add the `DOTENV_PRIVATE_KEY` as an ENV var
+3. Create a new org-level project token from `Account Settings` > `Tokens` and **SAVE IT**.
+4. Create a new `Blob Storage` instance
+    * The keys will be added automatically to the `Vercel` project. Navigate to the env vars tab and **WRITE THEM DOWN**.
 
-**Note**: make sure the `REMOTE_DATABASE_URL` ENV var has been set in your `.env.local` file to point the neon database URL for prod. 
+#### Github
 
-### CMS Seeds 
+Add the following Github Secrets to the repo:
 
-There are several seed scripts used to populate the CMS data:
-- Nav: seeds the basic nav / footer / and hompage data 
-  ```
-  pnpm seed:nav
-  ``` 
-- Blog: seeds images / authors / tags / and posts as well as the `/blog` page in the CMS for top level blocks 
-  ```
-  pnpm seed:blog 
-  ```
-- Kitchen Sink: seeds blocks and creates a new page `/kitchen-sink`
-  ```
-  pnpm seed:kitchenSink
-  ``` 
+* `NEON_DATABASE_USERNAME` - set to `neondb_owner`
+* `NEON_API_KEY` - set to the value from Neon step 2
+* `VERCEL_ORG_ID` - set to the value from Vercel step 1
+* `VERCEL_PROJECT_ID` - set to the value from Vercel step 1
+* `VERCEL_ORG_ID` - set to the value from Vercel step 1
+* `VERCEL_TOKEN` - set to the value from Vercel step 3
+* `TURBO_TOKEN` - (optional) should be the same as the `VERCEL_TOKEN`
 
-To run all three seeds:
-  ```
-  pnpm seed:all
-  ```
+Add the following Variables to the repo:
 
-  ### Form Builder
+* `NEON_PROJECT_ID` - set to the value from Neon step 3
+* `VERCEL_ORG` - set to the value from Vercel step 1
+* `TURBO_TEAM` - usually the same as `VERCEL_ORG` (or whatever the team name is)
+* `VERCEL_PROJECT_NAME` - set to the value from Vercel step 1
 
-  A form can be created in the `forms` collection within the Payload CMS:
-  - Define the inputs to be used on the form (TextInput, Checkbox, Select, etc.)
-  - Optionally define an email to be sent when the form is submitted, using data from the form.
-    - Email credentials are defined in `payload.config.ts` under the `nodemailerAdapter` with the `SMTP_HOST`, `SMTP_USER`, and `SMTP_PASS` environment variables.
-    - SMTP is a universal protocol for email transfers. It can be integrated with many commonly used mailing services, such as SendGrid, GMail, and MailChimp.
+#### Codebase
 
-  After a form is created, it can be displayed on the front end with the `FormBlock`
-  - Create a page and place a `FormBlock`
-  - In the fields for the `FormBlock` one of the previously created forms can be selected.
+Add the following secrets to the `Github` repo using [dotenvx](https://dotenvx.com/):
 
-  When a form is submitted it will be sent to the `formSubmissions` collection
-  - Data from form submissions can be viewed & stored in the CMS
-  - Payload collection hooks can be injected in `formSubmissionOverrides` in the email adapter. This would allow the use of a `beforeChange` hook to further process the data/send to another endpoint after being submitted.
+* `dotenvx set BLOB_READ_WRITE_TOKEN [vercel blob storage key]`
+* `dotenvx set NEON_PROJECT_ID [neon project id]`
+* `dotenvx set GITHUB TOKEN [github token]`
 
+Update the following values in the `.env` file:
 
+* `PROJECT_NAME` - choose a unique name suitable for the project
+* `DATABASE_URL` - choose a database name that makes sense for the project
+* `GITHUB_REPO` - the path to the project as it exists in github
 
+### Testing CI setup
+
+Create branches for `main`, `staging`, and `development`. These should all result in new builds in Vercel.
+
+Open a PR against `development` and make a minor change. This should result in a new Vercel instance for the PR.

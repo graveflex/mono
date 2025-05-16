@@ -13,6 +13,7 @@ import Homepage from '@mono/web/globals/Home/Homepage.config';
 import Nav from '@mono/web/globals/Layout/Layout.config';
 // import nodeMailer from 'nodemailer';
 import { CACHE_TAGS, DEFAULT_LOCALE, LOCALES } from '@mono/web/lib/constants';
+import { baseFields as linkFields } from '@mono/web/payload/fields/Link';
 import { translator } from '@payload-enchants/translator';
 import { googleResolver } from '@payload-enchants/translator/resolvers/google';
 import { postgresAdapter } from '@payloadcms/db-postgres';
@@ -65,7 +66,8 @@ export default buildConfig({
     pool: {
       connectionString: DATABASE_URL
     },
-    push: false
+    push: false,
+    logger: false
   }),
   editor: lexicalEditor({
     features: () =>
@@ -84,118 +86,7 @@ export default buildConfig({
         UnorderedListFeature(),
         OrderedListFeature(),
         LinkFeature({
-          fields: [
-            {
-              name: 'type',
-              label: 'Type of Link',
-              type: 'select',
-              defaultValue: 'internal',
-              options: [
-                {
-                  label: 'Internal',
-                  value: 'internal'
-                },
-                {
-                  label: 'External',
-                  value: 'external'
-                },
-                {
-                  label: 'Email',
-                  value: 'email'
-                },
-                {
-                  label: 'Phone',
-                  value: 'phone'
-                },
-                {
-                  label: 'File',
-                  value: 'file'
-                }
-              ]
-            },
-            {
-              name: 'internalUrl',
-              label: 'Internal URL',
-              type: 'relationship',
-              relationTo: 'pages',
-              admin: {
-                condition: (_, siblingData) => siblingData.type === 'internal'
-              }
-            },
-            {
-              name: 'externalUrl',
-              label: 'External URL',
-              type: 'text',
-              admin: {
-                condition: (_, siblingData) => siblingData.type === 'external'
-              }
-            },
-            {
-              name: 'emailUrl',
-              label: 'Email Address',
-              type: 'text',
-              admin: {
-                condition: (_, siblingData) => siblingData.type === 'email'
-              }
-            },
-            {
-              name: 'phoneUrl',
-              label: 'Phone Number',
-              type: 'text',
-              admin: {
-                condition: (_, siblingData) => siblingData.type === 'phone'
-              }
-            },
-            {
-              name: 'file',
-              label: 'File',
-              type: 'upload',
-              relationTo: 'files',
-              admin: {
-                condition: (_, siblingData) => siblingData.type === 'file'
-              }
-            },
-            {
-              name: 'appearance',
-              label: 'Appearance',
-              type: 'select',
-              defaultValue: 'default',
-              options: [
-                {
-                  label: 'Default',
-                  value: 'default'
-                },
-                {
-                  label: 'Button',
-                  value: 'button'
-                }
-              ]
-            },
-            {
-              name: 'buttonStyle',
-              label: 'Button Style',
-              type: 'select',
-              defaultValue: 'default',
-              options: [
-                {
-                  label: 'Default',
-                  value: 'default'
-                },
-                {
-                  label: 'Secondary',
-                  value: 'secondary'
-                },
-                {
-                  label: 'Outline',
-                  value: 'outline'
-                }
-              ],
-              admin: {
-                condition: (_, siblingData) =>
-                  siblingData.appearance === 'button'
-              }
-            }
-          ]
+          fields: linkFields
         }),
         UploadFeature(),
         InlineToolbarFeature(),
@@ -278,7 +169,7 @@ export default buildConfig({
       collections: ['pages', 'posts']
     }),
     vercelBlobStorage({
-      enabled: true,
+      enabled: process.env.BLOB_STORAGE_ENABLED === 'true',
       collections: {
         [Images.slug]: {
           disablePayloadAccessControl: true

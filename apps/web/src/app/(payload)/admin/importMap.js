@@ -1,5 +1,7 @@
+import { AdminCellLink as AdminCellLink_e23539b3926f8d6c7afd9b2ec9d35c81 } from '@mono/web/components/AdminCellLink'
 import { RscEntryLexicalCell as RscEntryLexicalCell_44fe37237e0ebf4470c9990d8cb7b07e } from '@payloadcms/richtext-lexical/rsc'
 import { RscEntryLexicalField as RscEntryLexicalField_44fe37237e0ebf4470c9990d8cb7b07e } from '@payloadcms/richtext-lexical/rsc'
+import { LexicalDiffComponent as LexicalDiffComponent_44fe37237e0ebf4470c9990d8cb7b07e } from '@payloadcms/richtext-lexical/rsc'
 import { BlocksFeatureClient as BlocksFeatureClient_e70f5e05f09f93e00b997edb1ef0c864 } from '@payloadcms/richtext-lexical/client'
 import { FixedToolbarFeatureClient as FixedToolbarFeatureClient_e70f5e05f09f93e00b997edb1ef0c864 } from '@payloadcms/richtext-lexical/client'
 import { InlineToolbarFeatureClient as InlineToolbarFeatureClient_e70f5e05f09f93e00b997edb1ef0c864 } from '@payloadcms/richtext-lexical/client'
@@ -37,7 +39,7 @@ import { FieldsToExport as FieldsToExport_cdf7e044479f899a31f804427d568b36 } fro
 import { CollectionField as CollectionField_cdf7e044479f899a31f804427d568b36 } from '@payloadcms/plugin-import-export/rsc'
 import { WhereField as WhereField_cdf7e044479f899a31f804427d568b36 } from '@payloadcms/plugin-import-export/rsc'
 import { Preview as Preview_cdf7e044479f899a31f804427d568b36 } from '@payloadcms/plugin-import-export/rsc'
-import { default as default_04bc7bf46b9b15fa9c126362df022943 } from '@mono/web/components/AdminRowLabel/index.tsx'
+import { ArrayRowLabel as ArrayRowLabel_ffb56e8e520797d175cf693b152ca503 } from '@mono/web/payload/fields/NestedLinks/RowLabel'
 import { Icon as Icon_8dc9bcd05dac8d1a3f1014014c851457 } from '@mono/web/components/CustomPayload/PayloadLogo/index.tsx'
 import { Logo as Logo_8dc9bcd05dac8d1a3f1014014c851457 } from '@mono/web/components/CustomPayload/PayloadLogo/index.tsx'
 import { AfterNav as AfterNav_5b7d533c4890c176b0a70fdfa56ed65e } from '@mono/web/components/CustomPayload/AfterNav/index.tsx'
@@ -45,8 +47,10 @@ import { ImportExportProvider as ImportExportProvider_cdf7e044479f899a31f804427d
 import { VercelBlobClientUploadHandler as VercelBlobClientUploadHandler_16c82c5e25f430251a3e3ba57219ff4e } from '@payloadcms/storage-vercel-blob/client'
 
 export const importMap = {
+  "@mono/web/components/AdminCellLink#AdminCellLink": AdminCellLink_e23539b3926f8d6c7afd9b2ec9d35c81,
   "@payloadcms/richtext-lexical/rsc#RscEntryLexicalCell": RscEntryLexicalCell_44fe37237e0ebf4470c9990d8cb7b07e,
   "@payloadcms/richtext-lexical/rsc#RscEntryLexicalField": RscEntryLexicalField_44fe37237e0ebf4470c9990d8cb7b07e,
+  "@payloadcms/richtext-lexical/rsc#LexicalDiffComponent": LexicalDiffComponent_44fe37237e0ebf4470c9990d8cb7b07e,
   "@payloadcms/richtext-lexical/client#BlocksFeatureClient": BlocksFeatureClient_e70f5e05f09f93e00b997edb1ef0c864,
   "@payloadcms/richtext-lexical/client#FixedToolbarFeatureClient": FixedToolbarFeatureClient_e70f5e05f09f93e00b997edb1ef0c864,
   "@payloadcms/richtext-lexical/client#InlineToolbarFeatureClient": InlineToolbarFeatureClient_e70f5e05f09f93e00b997edb1ef0c864,
@@ -84,7 +88,7 @@ export const importMap = {
   "@payloadcms/plugin-import-export/rsc#CollectionField": CollectionField_cdf7e044479f899a31f804427d568b36,
   "@payloadcms/plugin-import-export/rsc#WhereField": WhereField_cdf7e044479f899a31f804427d568b36,
   "@payloadcms/plugin-import-export/rsc#Preview": Preview_cdf7e044479f899a31f804427d568b36,
-  "@mono/web/components/AdminRowLabel/index.tsx#default": default_04bc7bf46b9b15fa9c126362df022943,
+  "@mono/web/payload/fields/NestedLinks/RowLabel#ArrayRowLabel": ArrayRowLabel_ffb56e8e520797d175cf693b152ca503,
   "@mono/web/components/CustomPayload/PayloadLogo/index.tsx#Icon": Icon_8dc9bcd05dac8d1a3f1014014c851457,
   "@mono/web/components/CustomPayload/PayloadLogo/index.tsx#Logo": Logo_8dc9bcd05dac8d1a3f1014014c851457,
   "@mono/web/components/CustomPayload/AfterNav/index.tsx#AfterNav": AfterNav_5b7d533c4890c176b0a70fdfa56ed65e,

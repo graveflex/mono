@@ -18,7 +18,7 @@ function CtaButton({ cta, submit, linkType = 'button' }: CtaButtonType) {
         href={link ? (ctaEvalHref(link) as string) : ''}
         newTab={cta?.link?.newTab as boolean}
       >
-        <button type="button">{cta?.link?.label ?? cta?.link?.label}</button>
+        <button type="button">{cta?.link?.text ?? cta?.link?.text}</button>
       </PayloadLink>
     );
   }
@@ -29,7 +29,7 @@ function CtaButton({ cta, submit, linkType = 'button' }: CtaButtonType) {
         href={link ? (ctaEvalHref(link) as string) : ''}
         newTab={cta?.link?.newTab as boolean}
       >
-        {cta?.link?.label ?? cta?.link?.label}
+        {cta?.link?.text ?? cta?.link?.text}
       </PayloadLink>
     );
   }
@@ -41,7 +41,7 @@ function CtaButton({ cta, submit, linkType = 'button' }: CtaButtonType) {
       rel="noreferrer"
     >
       <button type={submit ? 'submit' : undefined}>
-        {cta?.link?.label ? cta?.link?.label : undefined}
+        {cta?.link?.text ? cta?.link?.text : undefined}
       </button>
     </a>
   );

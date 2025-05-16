@@ -1,4 +1,4 @@
-import type { File, IconSelect, Page } from '@mono/types/payload-types';
+import type { File, Page } from '@mono/types/payload-types';
 import { Button } from '@mono/web/components/ui/Button';
 import type { SerializedLinkNode } from '@payloadcms/richtext-lexical';
 import isNil from 'lodash/isNil';
@@ -14,7 +14,6 @@ export interface PayLoadLink {
   phoneUrl?: string | null;
   fileUrl?: (number | null) | File;
   newTab?: boolean | null;
-  icon?: IconSelect;
   file?: File;
   buttonStyle?: 'default' | 'secondary' | 'outline';
 }

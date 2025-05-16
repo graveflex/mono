@@ -80,6 +80,18 @@
       "persistent": true,
       "interactive": false
     },
+    "dev:debug": {
+      "cache": false,
+      "dependsOn": ["^generate:types"],
+      "persistent": true,
+      "interactive": false
+    },
+    "dev:docker": {
+      "cache": false,
+      "dependsOn": ["^generate:types"],
+      "persistent": true,
+      "interactive": false
+    },
     "dev:stories": {
       "cache": false,
       "persistent": true,
@@ -95,6 +107,7 @@
       "dependsOn": ["^start"],
       "outputs": []
     },
-    "seed:all": {}
+    "seed": {},
+    "seed:debug": {}
   }
 }

@@ -1,11 +1,115 @@
 @reference "../../app/global.css";
 
+.desktopNavContainer {
+  @apply
+    w-full
+    row-auto
+    justify-between
+    hidden
+    gap-4;
+
+  /* md */
+  @apply md:grid;
+
+  /* custom */
+  grid-template-columns: min-content 1fr min-content;
+}
+
+.mobileNavContainer {
+  @apply
+    grid
+    w-full
+    row-auto
+    justify-between
+    justify-items-center
+    items-center
+    gap-4;
+
+  /* md */
+  @apply md:hidden;
+
+  /* custom */
+  grid-template-columns: min-content 1fr min-content;
+}
+
+.sheetContent {
+  /* hide default close button */
+  @apply [&>button:first-child]:hidden ;
+
+  @apply 
+    py-2 
+    px-4
+    w-max;
+}
+
+.sheetHeader {
+  @apply 
+    grid 
+    w-full
+    justify-between
+    justify-items-center
+    items-center
+    mx-0
+    px-0
+    gap-4;
+
+    grid-template-columns: min-content 1fr min-content;
+}
+
+
+.mobileNavTree {
+}
+
 .container {
   @apply 
     px-4 
     py-2 
-    font-extrabold
     text-slate-500;
+}
 
-  @apply md:text-pink-500;
+.item {
+  @apply 
+    relative 
+    flex 
+    cursor-default 
+    select-none 
+    items-center 
+    gap-2 
+    rounded-sm 
+    px-2 
+    py-1.5 
+    my-0
+    text-sm 
+    outline-none 
+    transition-colors 
+    hover:bg-accent 
+    hover:text-accent-foreground 
+    focus:bg-accent 
+    focus:text-accent-foreground 
+    data-[disabled]:pointer-events-none 
+    data-[disabled]:opacity-50 
+    [&>svg]:size-4 
+    [&>svg]:shrink-0;
+}
+
+.item a {
+  @apply w-full;
+}
+
+.separator {
+  @apply 
+    w-full
+    bg-muted
+    -mx-0
+    hover:bg-none 
+    focus:bg-none;
+}
+
+.hoverCard {
+  @apply w-max mx-auto py-1.5 my-0 px-1.5;
+}
+
+.list {
+  @apply inline-grid gap-1 p-0 w-full list-none ml-0;
+  left: 181px !important;
 }

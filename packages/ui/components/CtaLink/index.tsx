@@ -16,7 +16,7 @@ function CtaLink({ link, ariaLabel }: CtaLinkType) {
       target={link?.newTab ? '_blank' : undefined}
       rel="preconnect"
     >
-      {link?.label}
+      {link?.text}
     </Link>
   );
 }
