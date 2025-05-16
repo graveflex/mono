@@ -33,10 +33,13 @@ export class AssetSeed {
 
   public async saveSeeds(inc: () => void) {
     const payload = await getPayload({ config });
-    for (const s of this.data) {
-      await payload.create(s);
-      inc();
-    }
+
+    return Promise.all(
+      this.data.map(async (s) => {
+        await payload.create(s);
+        inc();
+      })
+    );
   }
 
   // NOTE: this assumes that the table name is the same as the collection name (i.e. images).

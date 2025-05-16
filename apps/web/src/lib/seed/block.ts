@@ -84,18 +84,16 @@ export class BlockSeed<
 
   public async saveSeeds(inc: () => void) {
     const payload = await this.payload;
-    for (const s of this.data) {
-      // clear any existing entries with the target slug
-      if ('slug' in s.data) {
-        await payload.delete({
-          collection: s.collection,
-          where: { slug: { equals: s.data.slug } }
-        });
-      }
-
-      await payload.create(s);
-
-      inc();
-    }
+    return Promise.all(
+      this.data.map(async (s) => {
+        if ('slug' in s.data) {
+          await payload.delete({
+            collection: s.collection,
+            where: { slug: { equals: s.data.slug } }
+          });
+          inc();
+        }
+      })
+    );
   }
 }

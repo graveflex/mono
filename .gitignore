@@ -46,3 +46,5 @@ apps/web/images/
 # ts build artifacts
 *.tsbuildinfo
 *.ts.timestamp-*
+
+.pnpm-store/

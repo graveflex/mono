@@ -281,6 +281,7 @@
       "**/dist/**",
       "**/storybook-static/**",
       "**/.next/**",
+      "**/.pnpm-store/**",
       "apps/web/src/migrations/**",
       "**/importMap.js",
       "**/payload-types.ts"

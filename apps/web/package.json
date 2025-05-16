@@ -5,8 +5,8 @@
   "private": true,
   "scripts": {
     "clean": "rm -rf -- ./.turbo ./dist ./coverage ./node_modules ./.next",
-    "dev": "export $(grep -e '^NEXT_PORT' -- ../../.env) && next dev -p ${NEXT_PORT}",
-    "dev:debug": "pnpm env:debug -- next dev",
+    "dev": "pnpm exec next dev",
+    "dev:debug": "pnpm env:debug -- pnpm exec next dev",
     "dev:stories": "export $(grep -e '^DOCS_PORT' -- ../../.env) && storybook dev -p ${DOCS_PORT} --no-open",
     "build": "next build",
     "build:stories": "storybook build -o ../../.vercel/output/static/stories",

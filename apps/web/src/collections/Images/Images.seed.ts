@@ -18,7 +18,7 @@ export const Seed = new AssetSeed({
         alt: `Test image ${idx}`
       },
       filePath,
-      overwriteExistingFiles: false
+      overwriteExistingFiles: true
     }));
   }
 });
