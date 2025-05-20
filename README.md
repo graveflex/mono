@@ -106,7 +106,7 @@ Add the following Github Secrets to the repo:
 
 * `NEON_DATABASE_USERNAME` - set to `neondb_owner`
 * `NEON_API_KEY` - set to the value from Neon step 2
-* `VERCEL_ORG_ID` - set to the value from Vercel step 1
+* `VERCEL_ORG_NAME` - set to the value from Vercel step 1
 * `VERCEL_PROJECT_ID` - set to the value from Vercel step 1
 * `VERCEL_ORG_ID` - set to the value from Vercel step 1
 * `VERCEL_TOKEN` - set to the value from Vercel step 3
