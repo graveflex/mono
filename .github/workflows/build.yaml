@@ -67,7 +67,7 @@ jobs:
       - run: pnpm install
 
       - name: Link Vercel App
-        run: ./node_modules/.bin/vercel link --yes --project ${{ vars.VERCEL_PROJECT_NAME }} --token=${{ env.VERCEL_TOKEN }} --scope=${{ vars.VERCEL_ORG }}
+        run: ./node_modules/.bin/vercel link --yes --project ${{ vars.VERCEL_PROJECT_NAME }}-web --token=${{ env.VERCEL_TOKEN }} --scope=${{ vars.VERCEL_ORG }}
 
       - name: Get branch name
         id: branch-name
