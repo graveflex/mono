@@ -2,7 +2,7 @@ import BlocksRenderer from '@mono/web/components/BlocksRenderer';
 import PageThemeObserver from '@mono/web/components/PageThemeObserver';
 import { DEFAULT_LOCALE, type LanguageLocale } from '@mono/web/lib/constants';
 import config from '@payload-config';
-import { unstable_setRequestLocale } from 'next-intl/server';
+import { setRequestLocale } from 'next-intl/server';
 import { getPayload } from 'payload';
 import React from 'react';
 
@@ -46,7 +46,7 @@ export default async function HomePage(props: RootLayoutProps) {
 export async function generateMetadata(props: RootLayoutProps) {
   const { draft, locale } = await props.params;
 
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
   const data = await fetchPageData(draft, locale);
 
   if ((data && 'error' in data) || !data) {

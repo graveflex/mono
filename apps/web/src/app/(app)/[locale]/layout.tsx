@@ -3,7 +3,7 @@ import Layout from '@mono/web/globals/Layout';
 import { routing } from '@mono/web/i18n/routing';
 import type { LanguageLocale } from '@mono/web/lib/constants';
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages, unstable_setRequestLocale } from 'next-intl/server';
+import { getMessages, setRequestLocale } from 'next-intl/server';
 import type React from 'react';
 import '../../global.css';
 
@@ -27,7 +27,7 @@ export function generateStaticParams() {
 
 async function RootLayout({ children, params }: RootLayoutProps) {
   const { locale } = await params;
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
   const messages = await getMessages();
 
   return (

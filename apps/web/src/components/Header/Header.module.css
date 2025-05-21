@@ -113,3 +113,7 @@
   @apply inline-grid gap-1 p-0 w-full list-none ml-0;
   left: 181px !important;
 }
+
+.avatarFallback {
+  @apply text-foreground;
+}

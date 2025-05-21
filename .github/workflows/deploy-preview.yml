@@ -134,15 +134,13 @@ jobs:
       - name: Audit URLs using Lighthouse
         id: lighthouse_audit
         uses: treosh/lighthouse-ci-action@v12
+        env:
+          VERCEL_DOMAIN: ${{ needs.build_app.outputs.vercel_domain }}
+          VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
         with:
-          urls: |
-            https://${{ needs.build_app.outputs.vercel_domain }}/
-            https://${{ needs.build_app.outputs.vercel_domain }}/kitchen-sink
-            https://${{ needs.build_app.outputs.vercel_domain }}/blog
-          budgetPath: ./budget.json # test performance budgets
-          uploadArtifacts: true # save results as an action artifacts
+          uploadArtifacts: true
           temporaryPublicStorage: true
-          runs: 1
+          configPath: .lighthouserc.js
 
       - name: Format lighthouse score
         id: format_lighthouse_score

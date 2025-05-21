@@ -3,9 +3,7 @@ import { Avatar, AvatarFallback } from '@mono/web/components/ui/Avatar';
 import { Button } from '@mono/web/components/ui/Button';
 import {
   Sheet,
-  SheetClose,
   SheetContent,
-  SheetTitle,
   SheetTrigger
 } from '@mono/web/components/ui/Sheet';
 import {
@@ -110,14 +108,16 @@ function MobileMenu({ links = [] }: MobileMenuProps) {
     <div className={styles.mobileNavContainer}>
       <Sheet>
         <SheetTrigger asChild={true}>
-          <Button variant="ghost">
+          <Button variant="ghost" title="Menu">
             <MenuIcon />
           </Button>
         </SheetTrigger>
         <SheetContent side="left" className={styles.sheetContent}>
           <SheetHeader className={styles.sheetHeader}>
             <Avatar>
-              <AvatarFallback>LH</AvatarFallback>
+              <AvatarFallback className={styles.avatarFallback}>
+                LH
+              </AvatarFallback>
             </Avatar>
           </SheetHeader>
 
@@ -128,7 +128,7 @@ function MobileMenu({ links = [] }: MobileMenuProps) {
       </Sheet>
       <Logo />
       <Avatar>
-        <AvatarFallback>LH</AvatarFallback>
+        <AvatarFallback className={styles.avatarFallback}>LH</AvatarFallback>
       </Avatar>
     </div>
   );

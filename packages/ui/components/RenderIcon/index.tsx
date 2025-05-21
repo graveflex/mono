@@ -1,4 +1,4 @@
-import { isNull } from 'lodash';
+import isNull from 'lodash/isNull';
 import React from 'react';
 
 import coreIcons from '../../icons/core';

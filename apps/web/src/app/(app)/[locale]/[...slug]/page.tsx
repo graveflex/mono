@@ -8,7 +8,7 @@ import {
 } from '@mono/web/lib/constants';
 import { redirectApi } from '@mono/web/lib/redirectApi';
 import config from '@payload-config';
-import { unstable_setRequestLocale } from 'next-intl/server';
+import { setRequestLocale } from 'next-intl/server';
 import { headers } from 'next/headers';
 import { notFound, redirect } from 'next/navigation';
 import { type PayloadRequest, getPayload } from 'payload';
@@ -76,7 +76,7 @@ export default async function CatchallPage({ params }: RootLayoutProps) {
     pageSlug = locale;
     locale = DEFAULT_LOCALE;
   }
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
   const page = await fetchPageData(draft, locale, pageSlug);
 
   // if not page data and not the index check for redirects

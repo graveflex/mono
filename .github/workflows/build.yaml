@@ -133,6 +133,8 @@ jobs:
           pnpm db:migrate
 
       - name: Build Project Artifacts
+        env:
+          NODE_ENV: production
         run: |
           branch_name=${{ steps.branch-name.outputs.current_branch }}
           if [ "$branch_name" = "main" ]; then
