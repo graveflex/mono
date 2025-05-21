@@ -13,6 +13,11 @@ COPY packages/types/package.json packages/types/package.json
 
 RUN pnpm install && pnpm rebuild esbuild
 
+WORKDIR /app/apps/web
+
+RUN pnpm exec playwright install
+RUN pnpm exec playwright install-deps
+
 WORKDIR /app
 
 COPY . .
