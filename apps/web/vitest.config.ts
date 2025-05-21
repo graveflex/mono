@@ -27,6 +27,7 @@ export default defineConfig({
   test: {
     browser: {
       enabled: true,
+      headless: process.env.PLAYWRIGHT_USE_HEADLESS !== 'false',
       provider: 'playwright',
       name: 'chromium'
     },
