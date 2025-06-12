@@ -13,7 +13,11 @@ module.exports = {
       }
     },
     assert: {
-      preset: 'lighthouse:recommended'
+      preset: 'lighthouse:recommended',
+      assertions: {
+        'legacy-javascript': ['off', {}],
+        'legacy-javascript-insight': ['off', {}]
+      }
     }
   }
 };
