@@ -105,6 +105,8 @@ jobs:
             -b SERVER_URL="$pr_domain" \
             -e VERCEL_GIT_COMMIT_REF="$branch_name" \
             -b VERCEL_GIT_COMMIT_REF="$branch_name" \
+            -e BLOB_STORAGE_ENABLED="true" \
+            -b BLOB_STORAGE_ENABLED="true" \
             -m githubCommitRef="$branch_name" \
           )
           echo "preview_url=$preview_url" >> $GITHUB_OUTPUT
